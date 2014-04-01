@@ -16,7 +16,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Wno-error -O4 -ffast-math")
 
 set(SOURCES
   src/main.c
+  src/lista.c
+  src/lista.h
 )
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
-
+add_executable(${PROJECT_NAME} ${SOURCES})
