@@ -1,5 +1,11 @@
 #ifndef LISTA_
 #define LISTA_
+/*
+ * Henrique Santiago
+ * Marcelo Resender
+ * Rafael Haeusler
+*/
+
 /***************************************************************************
 *
 *  $MCD Módulo de definição: LIS  Lista duplamente encadeada

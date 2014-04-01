@@ -1,1 +1,4 @@
-Data Horas Trabalhadas, Tipo Tarefa, Descrição da Tarefa Realizada
+Data: 28/03/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: especificar os módulos, especificar as funções
+  Descrição da Tarefa Realizada: Criar especificação e diagrama.

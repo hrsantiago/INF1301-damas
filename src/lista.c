@@ -1,3 +1,9 @@
+/*
+ * Henrique Santiago
+ * Marcelo Resender
+ * Rafael Haeusler
+*/
+
 /***************************************************************************
 *  $MCI Módulo de implementação: LIS  Lista duplamente encadeada
 *

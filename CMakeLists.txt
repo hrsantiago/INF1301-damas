@@ -18,6 +18,10 @@ set(SOURCES
   src/main.c
   src/lista.c
   src/lista.h
+  src/tabuleiro.c
+  src/tabuleiro.h
+  src/peca.c
+  src/peca.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
