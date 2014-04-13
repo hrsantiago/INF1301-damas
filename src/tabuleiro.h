@@ -1,6 +1,6 @@
 /*
  * Henrique Santiago
- * Marcelo Resender
+ * Marcelo Resende
  * Rafael Haeusler
 */
 
@@ -11,8 +11,7 @@ typedef struct _Tabuleiro Tabuleiro;
 
 Tabuleiro *TAB_criar();
 void TAB_destruir(Tabuleiro *tabuleiro);
-// void TAB_moverPeca();
+void TAB_inicializar(Tabuleiro *tabuleiro);
 void TAB_imprimir(Tabuleiro *tabuleiro);
-// void TAB_movimentosPossiveis();
 
 #endif

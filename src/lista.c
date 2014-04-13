@@ -1,6 +1,6 @@
 /*
  * Henrique Santiago
- * Marcelo Resender
+ * Marcelo Resende
  * Rafael Haeusler
 */
 
@@ -127,7 +127,7 @@ LIS_tpCondRet LIS_InserirElementoAntes(LIS_tppLista pLista, void *pValor)
     return LIS_CondRetOK;
 }
 
-LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista , void * pValor)
+LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista , void *pValor)
 {
     tpElemLista * pElem;
 
@@ -199,7 +199,19 @@ void * LIS_ObterValor(LIS_tppLista pLista)
     return pLista->pElemCorr->pValor;
 }
 
-void IrInicioLista(LIS_tppLista pLista)
+LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor)
+{
+#ifdef _DEBUG
+    assert(pLista != NULL);
+#endif
+
+    if(pLista->pElemCorr == NULL)
+        return LIS_CondRetNaoAchou;
+    pLista->pElemCorr->pValor = pValor;
+    return LIS_CondRetOK;
+}
+
+void LIS_IrInicioLista(LIS_tppLista pLista)
 {
 #ifdef _DEBUG
     assert(pLista != NULL);
@@ -208,13 +220,23 @@ void IrInicioLista(LIS_tppLista pLista)
     pLista->pElemCorr = pLista->pOrigemLista;
 }
 
-void IrFinalLista(LIS_tppLista pLista)
+void LIS_IrFinalLista(LIS_tppLista pLista)
 {
 #ifdef _DEBUG
     assert(pLista != NULL);
 #endif
 
     pLista->pElemCorr = pLista->pFimLista;
+}
+
+LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int x, int y, int width)
+{
+#ifdef _DEBUG
+    assert(pLista != NULL);
+#endif
+
+    LIS_IrInicioLista(pLista);
+    return LIS_AvancarElementoCorrente(pLista, y * width + x);
 }
 
 LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista , int numElem)

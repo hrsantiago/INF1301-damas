@@ -2,7 +2,7 @@
 #define LISTA_
 /*
  * Henrique Santiago
- * Marcelo Resender
+ * Marcelo Resende
  * Rafael Haeusler
 */
 
@@ -80,10 +80,14 @@ LIS_tpCondRet LIS_InserirElementoAntes(LIS_tppLista pLista, void *pValor);
 LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista, void *pValor);
 LIS_tpCondRet LIS_ExcluirElemento(LIS_tppLista pLista);
 void *LIS_ObterValor(LIS_tppLista pLista);
-void IrInicioLista(LIS_tppLista pLista);
-void IrFinalLista(LIS_tppLista pLista);
+LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor);
+void LIS_IrInicioLista(LIS_tppLista pLista);
+void LIS_IrFinalLista(LIS_tppLista pLista);
+LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int x, int y, int width);
 LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
+
+void *LIS_ObterValor(LIS_tppLista pLista);
 
 #undef LISTA_EXT
 

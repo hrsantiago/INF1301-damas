@@ -1,6 +1,6 @@
 /*
  * Henrique Santiago
- * Marcelo Resender
+ * Marcelo Resende
  * Rafael Haeusler
 */
 
@@ -8,16 +8,18 @@
 #define PECA_H
 
 typedef enum _PecaTipo {
-    Peca_Normal,
-    Peca_Dama
+    PecaNormal,
+    PecaDama
 } PecaTipo;
 
 typedef struct _Peca Peca;
 
-Peca *PEC_criar();
+Peca *PEC_criar(PecaTipo tipo, char caracter);
 void PEC_destruir(Peca *peca);
-//void PEC_remover(Peca *peca);
-PecaTipo PEC_pegarTipo(Peca *peca);
+void PEC_imprimir(Peca *peca);
+PecaTipo PEC_obterTipo(Peca *peca);
 void PEC_setarTipo(Peca *peca, PecaTipo tipo);
+char PEC_obterCaracter(Peca *peca);
+void PEC_setarCaracter(Peca *peca, char caracter);
 
 #endif

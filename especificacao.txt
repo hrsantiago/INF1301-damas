@@ -18,7 +18,7 @@ Especificação
   números de 1 a 8, e as linhas, letras de A a H.
 
 Configuração inicial:
- 12345678
+  12345678
 A|o o o o |
 B| o o o o|
 C|. . . . |
@@ -53,30 +53,33 @@ H| x x x x|
   - criar modulo Tabuleiro
       - TAB_criar
       - TAB_destruir
-      - TAB_removerPeca (função interna do módulo)
-      - TAB_moverPeca
+      - TAB_inicializar
       - TAB_imprimir
-      - TAB_movimentosPossiveis	
-  - criar modulo Pecas
+
+  - criar modulo Peca
       - PEC_criar
       - PEC_destruir
-      - PEC_remover // ?? quem remove é o tabuleiro
+      - PEC_imprimir
       - PEC_pegarTipo
-      - PEC_setarTipo
+      - PEC_obterTipo
+      - PEC_setarCaracter
+      - PEC_obterCaracter
       
   - modificar modulo Lista
-      - LIS_criar_lista
-      - LIS_distr_lista
-      - LIS_esvaziar_lista
-      - LIS_inserirElement_antes
-      - LIS_inserirElement_apos
-      - LIS_excluirElement
-      - LIS_obterElement
-      - LIS_irInicio
-      - LIS_irFinal
-      - LIS_avancarElement_corrent
-      - LIS_retrocederElement_corrent (nova)
-      - LIS_busca
+      - LIS_CriarLista
+      - LIS_DestruirLista
+      - LIS_EsvaziarLista
+      - LIS_InserirElementoAntes
+      - LIS_InserirElementoApos
+      - LIS_ExcluirElemento
+      - LIS_ObterValor
+      - LIS_SetarValor (nova)
+      - LIS_IrInicioLista
+      - LIS_IrFinalLista
+      - LIS_IrIndice (nova)
+      - LIS_AvancarElementoCorrente
+      - LIS_ProcurarValor
+
   - criar modulo Jogo
       - JOG_criar
       - JOG_destruir
