@@ -10,8 +10,7 @@ endif()
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c99 -pipe ${WARNS_FLAGS}")
-set(CMAKE_CXX_FLAGS_FULLDEBUG "-O0 -g")
-set(CMAKE_CXX_FLAGS_DEBUG "-O1 -g -fno-optimize-sibling-calls -DDEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -D_DEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wno-error -O4 -ffast-math")
 
 set(SOURCES

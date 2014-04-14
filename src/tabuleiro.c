@@ -4,6 +4,7 @@
  * Rafael Haeusler
 */
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "peca.h"
@@ -39,12 +40,14 @@ Tabuleiro *TAB_criar()
 
 void TAB_destruir(Tabuleiro *tabuleiro)
 {
+    assert(tabuleiro);
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
 }
 
 void TAB_inicializar(Tabuleiro *tabuleiro)
 {
+    assert(tabuleiro);
     int x, y;
 
     LIS_IrInicioLista(tabuleiro->lista);
@@ -69,6 +72,7 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
 
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
+    assert(tabuleiro);
     int x, y;
 
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
