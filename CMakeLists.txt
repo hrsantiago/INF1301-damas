@@ -25,3 +25,6 @@ set(SOURCES
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+#build tests
+add_subdirectory(tests)

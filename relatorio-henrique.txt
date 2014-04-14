@@ -15,3 +15,12 @@ Data: 01/04/2014
   Horas Trabalhadas: 40min
   Tipo Tarefa: codificar módulo
   Descrição da Tarefa Realizada: Criar arquivos e contéúdo inicial dos módulos peça e tabuleiro. Atualizar relatórios e outros arquivos.
+
+Data: 13/04/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar módulos peça e tabuleiro.
+
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: redigir script de teste
+  Descrição da Tarefa Realizada: Criar arquivos de teste lista, peça, tabuleiro. Peça totalmente pronto, falta editar lista e fazer tabuleiro.
