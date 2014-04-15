@@ -83,11 +83,9 @@ void *LIS_ObterValor(LIS_tppLista pLista);
 LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor);
 void LIS_IrInicioLista(LIS_tppLista pLista);
 void LIS_IrFinalLista(LIS_tppLista pLista);
-LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int x, int y, int width);
+LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int i);
 LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
-
-void *LIS_ObterValor(LIS_tppLista pLista);
 
 #undef LISTA_EXT
 

@@ -229,14 +229,14 @@ void LIS_IrFinalLista(LIS_tppLista pLista)
     pLista->pElemCorr = pLista->pFimLista;
 }
 
-LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int x, int y, int width)
+LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int i)
 {
 #ifdef _DEBUG
     assert(pLista != NULL);
 #endif
 
     LIS_IrInicioLista(pLista);
-    return LIS_AvancarElementoCorrente(pLista, y * width + x);
+    return LIS_AvancarElementoCorrente(pLista, i);
 }
 
 LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista , int numElem)
