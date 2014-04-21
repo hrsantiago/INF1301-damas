@@ -6,6 +6,10 @@ set(SOURCES
 
     ../../src/lista.c
     ../../src/lista.h
+    ../../src/peca.c
+    ../../src/peca.h
+    ../../src/tabuleiro.c
+    ../../src/tabuleiro.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

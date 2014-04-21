@@ -54,13 +54,13 @@ static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 #define DIM_VT_LISTA   10
 #define DIM_VALOR     100
 
-LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
+LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
    static void DestruirValor( void * pValor ) ;
 
-   static int ValidarInxPeca( int inxLista , int Modo ) ;
+   static int ValidarInxTabuleiro( int inxLista , int Modo ) ;
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -116,7 +116,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
 
             for( i = 0 ; i < DIM_VT_LISTA ; i++ )
             {
-               vtPecas[ i ] = NULL ;
+               vtTabuleiros[ i ] = NULL ;
             } /* for */
 
             return TST_CondRetOK ;
@@ -132,15 +132,15 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                        &inxLista ) ;
 
             if ( ( numLidos != 1 )
-              || ( ! ValidarInxPeca( inxLista , VAZIO )))
+              || ( ! ValidarInxTabuleiro( inxLista , VAZIO )))
             {
                return TST_CondRetParm ;
             } /* if */
 
-            vtPecas[ inxLista ] =
+            vtTabuleiros[ inxLista ] =
                  LIS_CriarLista( DestruirValor ) ;
 
-            return TST_CompararPonteiroNulo( 1 , vtPecas[ inxLista ] ,
+            return TST_CompararPonteiroNulo( 1 , vtTabuleiros[ inxLista ] ,
                "Erro em ponteiro de nova lista."  ) ;
 
          } /* fim ativa: Testar CriarLista */
@@ -154,12 +154,12 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                                &inxLista ) ;
 
             if ( ( numLidos != 1 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )))
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )))
             {
                return TST_CondRetParm ;
             } /* if */
 
-            LIS_EsvaziarLista( vtPecas[ inxLista ] ) ;
+            LIS_EsvaziarLista( vtTabuleiros[ inxLista ] ) ;
 
             return TST_CondRetOK ;
 
@@ -174,13 +174,13 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                                &inxLista ) ;
 
             if ( ( numLidos != 1 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )))
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )))
             {
                return TST_CondRetParm ;
             } /* if */
 
-            LIS_DestruirLista( vtPecas[ inxLista ] ) ;
-            vtPecas[ inxLista ] = NULL ;
+            LIS_DestruirLista( vtTabuleiros[ inxLista ] ) ;
+            vtTabuleiros[ inxLista ] = NULL ;
 
             return TST_CondRetOK ;
 
@@ -195,7 +195,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                        &inxLista , StringDado , &CondRetEsp ) ;
 
             if ( ( numLidos != 3 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
@@ -209,7 +209,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
             strcpy( pDado , StringDado ) ;
 
 
-            CondRet = LIS_InserirElementoAntes( vtPecas[ inxLista ] , pDado ) ;
+            CondRet = LIS_InserirElementoAntes( vtTabuleiros[ inxLista ] , pDado ) ;
 
             if ( CondRet != LIS_CondRetOK )
             {
@@ -230,7 +230,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                        &inxLista , StringDado , &CondRetEsp ) ;
 
             if ( ( numLidos != 3 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
@@ -244,7 +244,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
             strcpy( pDado , StringDado ) ;
 
 
-            CondRet = LIS_InserirElementoApos( vtPecas[ inxLista ] , pDado ) ;
+            CondRet = LIS_InserirElementoApos( vtTabuleiros[ inxLista ] , pDado ) ;
 
             if ( CondRet != LIS_CondRetOK )
             {
@@ -265,13 +265,13 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                   &inxLista , &CondRetEsp ) ;
 
             if ( ( numLidos != 2 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
             return TST_CompararInt( CondRetEsp ,
-                      LIS_ExcluirElemento( vtPecas[ inxLista ] ) ,
+                      LIS_ExcluirElemento( vtTabuleiros[ inxLista ] ) ,
                      "Condição de retorno errada ao excluir."   ) ;
 
          } /* fim ativa: Testar excluir simbolo */
@@ -285,12 +285,12 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                        &inxLista , StringDado , &ValEsp ) ;
 
             if ( ( numLidos != 3 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
-            pDado = ( char * ) LIS_ObterValor( vtPecas[ inxLista ] ) ;
+            pDado = ( char * ) LIS_ObterValor( vtTabuleiros[ inxLista ] ) ;
 
             if ( ValEsp == 0 )
             {
@@ -317,12 +317,12 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
             numLidos = LER_LerParametros( "i" , &inxLista ) ;
 
             if ( ( numLidos != 1 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
-            LIS_IrInicioLista( vtPecas[ inxLista ] ) ;
+            LIS_IrInicioLista( vtTabuleiros[ inxLista ] ) ;
 
             return TST_CondRetOK ;
 
@@ -336,12 +336,12 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
             numLidos = LER_LerParametros( "i" , &inxLista ) ;
 
             if ( ( numLidos != 1 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
-            LIS_IrFinalLista( vtPecas[ inxLista ] ) ;
+            LIS_IrFinalLista( vtTabuleiros[ inxLista ] ) ;
 
             return TST_CondRetOK ;
 
@@ -356,13 +356,13 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
                                 &CondRetEsp ) ;
 
             if ( ( numLidos != 3 )
-              || ( ! ValidarInxPeca( inxLista , NAO_VAZIO )) )
+              || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
             return TST_CompararInt( CondRetEsp ,
-                      LIS_AvancarElementoCorrente( vtPecas[ inxLista ] , numElem ) ,
+                      LIS_AvancarElementoCorrente( vtTabuleiros[ inxLista ] , numElem ) ,
                       "Condicao de retorno errada ao avancar" ) ;
 
          } /* fim ativa: LIS  &Avançar elemento */
@@ -395,7 +395,7 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
 *
 ***********************************************************************/
 
-   int ValidarInxPeca( int inxLista , int Modo )
+   int ValidarInxTabuleiro( int inxLista , int Modo )
    {
 
       if ( ( inxLista <  0 )
@@ -406,13 +406,13 @@ LIS_tppLista   vtPecas[ DIM_VT_LISTA ] ;
          
       if ( Modo == VAZIO )
       {
-         if ( vtPecas[ inxLista ] != 0 )
+         if ( vtTabuleiros[ inxLista ] != 0 )
          {
             return FALSE ;
          } /* if */
       } else
       {
-         if ( vtPecas[ inxLista ] == 0 )
+         if ( vtTabuleiros[ inxLista ] == 0 )
          {
             return FALSE ;
          } /* if */

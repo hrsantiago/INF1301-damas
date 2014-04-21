@@ -103,3 +103,19 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
     }
     printf(" |A|B|C|D|E|F|G|H|\n");
 }
+
+Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
+{
+    assert(tabuleiro);
+
+    --linha;
+    coluna = tolower(coluna) - 'a';
+
+    assert(linha >= 0 && linha <= TabuleiroAltura);
+    assert(coluna >= 0 && coluna <= TabuleiroLargura);
+
+    LIS_IrIndice(tabuleiro->lista, linha);
+    LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+    LIS_IrIndice(lista, coluna);
+    return LIS_ObterValor(lista);
+}

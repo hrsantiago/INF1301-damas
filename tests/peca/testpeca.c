@@ -22,7 +22,6 @@ static const char SETAR_TIPO_CMD      [] = "=setartipo";
 static const char OBTER_CARACTER_CMD  [] = "=obtercaracter";
 static const char SETAR_CARACTER_CMD  [] = "=setarcaracter";
 
-
 #define TRUE  1
 #define FALSE 0
 
@@ -32,11 +31,11 @@ static const char SETAR_CARACTER_CMD  [] = "=setarcaracter";
 #define DIM_VT_PECA   10
 #define DIM_VALOR     100
 
-Peca *vtPecas[DIM_VT_PECA];
+Peca *vtTabuleiros[DIM_VT_PECA];
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
-static int ValidarInxPeca(int inxLista, int Modo);
+static int ValidarInxTabuleiro(int inxLista, int Modo);
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -74,70 +73,69 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
     if(strcmp(ComandoTeste, RESET_PECA_CMD) == 0) {
         for(i = 0; i < DIM_VT_PECA; i++)
-            vtPecas[i] = NULL;
+            vtTabuleiros[i] = NULL;
 
         return TST_CondRetOK;
     }
     else if(strcmp(ComandoTeste, CRIAR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("iis", &inxLista, &tipo, StringDado);
 
-        if((numLidos != 3) || (! ValidarInxPeca(inxLista, VAZIO)))
+        if((numLidos != 3) || (! ValidarInxTabuleiro(inxLista, VAZIO)))
             return TST_CondRetParm;
 
-        vtPecas[inxLista] = PEC_criar(tipo, StringDado[0]);
-        return TST_CompararPonteiroNulo(1, vtPecas[inxLista], "Erro em ponteiro de nova peca.");
+        vtTabuleiros[inxLista] = PEC_criar(tipo, StringDado[0]);
+        return TST_CompararPonteiroNulo(1, vtTabuleiros[inxLista], "Erro em ponteiro de nova peca.");
     }
     else if(strcmp(ComandoTeste, DESTRUIR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_destruir(vtPecas[inxLista]);
-        vtPecas[inxLista] = NULL;
+        PEC_destruir(vtTabuleiros[inxLista]);
+        vtTabuleiros[inxLista] = NULL;
 
         return TST_CondRetOK;
     }
     else if(strcmp(ComandoTeste, OBTER_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        tipo = PEC_obterTipo(vtPecas[inxLista]);
+        tipo = PEC_obterTipo(vtTabuleiros[inxLista]);
         return TST_CompararInt(CondRetEsp, tipo, "Tipo errada ao obter tipo.");
     }
     else if(strcmp(ComandoTeste, SETAR_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &tipo);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarTipo(vtPecas[inxLista], tipo);
+        PEC_setarTipo(vtTabuleiros[inxLista], tipo);
         return TST_CondRetOK;
     }
     else if(strcmp(ComandoTeste, OBTER_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        caracter = PEC_obterCaracter(vtPecas[inxLista]);
+        caracter = PEC_obterCaracter(vtTabuleiros[inxLista]);
         return TST_CompararEspaco(StringDado, &caracter, 1, "Caracter errado ao obter caracter.");
     }
     else if(strcmp(ComandoTeste, SETAR_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarCaracter(vtPecas[inxLista], StringDado[0]);
+        PEC_setarCaracter(vtTabuleiros[inxLista], StringDado[0]);
         return TST_CondRetOK;
     }
 
     return TST_CondRetNaoConhec;
 }
-
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
@@ -147,18 +145,17 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 *
 ***********************************************************************/
 
-int ValidarInxPeca(int inxLista, int Modo)
+int ValidarInxTabuleiro(int inxLista, int Modo)
 {
     if((inxLista <  0) || (inxLista >= DIM_VT_PECA))
         return FALSE;
 
     if(Modo == VAZIO) {
-        if(vtPecas[inxLista] != 0)
+        if(vtTabuleiros[inxLista] != 0)
             return FALSE;
     } else {
-        if(vtPecas[inxLista] == 0)
+        if(vtTabuleiros[inxLista] == 0)
             return FALSE;
     }
     return TRUE;
 }
-

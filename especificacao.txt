@@ -55,6 +55,7 @@ H| x x x x|
       - TAB_destruir
       - TAB_inicializar
       - TAB_imprimir
+      - TAB_obterPeca
 
   - criar modulo Peca
       - PEC_criar
