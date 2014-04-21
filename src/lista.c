@@ -206,7 +206,7 @@ LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor)
 #endif
 
     if(pLista->pElemCorr == NULL)
-        return LIS_CondRetNaoAchou;
+        return LIS_CondRetListaVazia;
     pLista->pElemCorr->pValor = pValor;
     return LIS_CondRetOK;
 }

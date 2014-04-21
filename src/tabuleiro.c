@@ -34,10 +34,10 @@ void ListaExcluirLista(void *pDado)
 
 Tabuleiro *TAB_criar()
 {
+    int x, y;
     Tabuleiro *tabuleiro = (Tabuleiro*)malloc(sizeof(Tabuleiro));
     tabuleiro->lista = LIS_CriarLista(ListaExcluirLista);
 
-    int x, y;
     for(y = 0; y < TabuleiroAltura; ++y) {
         LIS_tppLista lista = LIS_CriarLista(ListaExcluirPeca);
         LIS_InserirElementoAntes(tabuleiro->lista, lista);
@@ -57,8 +57,8 @@ void TAB_destruir(Tabuleiro *tabuleiro)
 
 void TAB_inicializar(Tabuleiro *tabuleiro)
 {
-    assert(tabuleiro);
     int x, y;
+    assert(tabuleiro);
 
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
@@ -80,8 +80,8 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
 
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
-    assert(tabuleiro);
     int x, y;
+    assert(tabuleiro);
 
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {

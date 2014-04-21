@@ -24,10 +24,10 @@
 #include    <stdio.h>
 #include    <malloc.h>
 
-#include    <autotest/tst_espc.h>
+#include    <tst_espc.h>
 
-#include    <autotest/generico.h>
-#include    <autotest/lerparm.h>
+#include    <generico.h>
+#include    <lerparm.h>
 
 #include    "lista.h"
 
