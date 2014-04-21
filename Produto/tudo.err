@@ -1,0 +1,54 @@
+
+
+#################### Compilacao do construto: TesteLista
+
+TestLista.c
+..\Fontes\TestLista.c(209) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+..\Fontes\TestLista.c(244) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+Lista.c
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\produto\TesteLista.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+TestLista.obj Lista.obj 
+ArcaboucoTeste.lib 
+
+
+#################### Compilacao do construto: TESTEPECA
+
+testpeca.c
+..\Fontes\testpeca.c(72) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+peca.c
+..\Fontes\peca.c(37) : warning C4013: 'toupper' undefined; assuming extern returning int
+..\Fontes\peca.c(62) : warning C4013: 'islower' undefined; assuming extern returning int
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\produto\TESTEPECA.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+testpeca.obj peca.obj 
+ArcaboucoTeste.lib 
+
+
+#################### Compilacao do construto: TESTETABULEIRO
+
+testtabuleiro.c
+..\Fontes\testtabuleiro.c(209) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+..\Fontes\testtabuleiro.c(244) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+tabuleiro.c
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\produto\TESTETABULEIRO.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+testtabuleiro.obj tabuleiro.obj lista.obj peca.obj 
+ArcaboucoTeste.lib 
+

@@ -1,0 +1,129 @@
+GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
+   LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
+
+Composição do construto: TesteLista.comp
+
+   Nome do Construto:           TesteLista
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
+
+   Arquivo composição:          TesteLista.comp
+   Arquivo plataforma:          gmake.parm
+
+   Arquivo diretivas MAKE:      TesteLista.make
+   Arquivo diretivas LINK:      TesteLista.build
+   Arquivo listagem:            TesteLista.list
+
+Módulos do construto: TesteLista.comp
+
+   TestLista.c
+   Lista.c
+
+Estatísticas do construto
+
+   Estatísticas do arquivo: Lista.c
+      Total linhas:             342
+      Linhas de código:         253
+      Linhas de comentário:      27
+      Linhas em branco:          63
+   Arquivos de inclusão de que necessita
+      lista.h
+
+   Estatísticas do arquivo: TST_Espc.h
+      Total linhas:             320
+      Linhas de código:          23
+      Linhas de comentário:     277
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      TestLista.c
+      generico.h
+
+   Estatísticas do arquivo: TestLista.c
+      Total linhas:             426
+      Linhas de código:         231
+      Linhas de comentário:      83
+      Linhas em branco:         126
+   Arquivos de inclusão de que necessita
+      TST_Espc.h
+      generico.h
+      lerparm.h
+      lista.h
+
+   Estatísticas do arquivo: generico.h
+      Total linhas:             588
+      Linhas de código:          54
+      Linhas de comentário:     470
+      Linhas em branco:          64
+   Arquivos de inclusão de que necessita
+      TST_Espc.h
+   Arquivos em que é incluído
+      TestLista.c
+
+   Estatísticas do arquivo: lerparm.h
+      Total linhas:             463
+      Linhas de código:          36
+      Linhas de comentário:     362
+      Linhas em branco:          65
+   Arquivos em que é incluído
+      TestLista.c
+
+   Estatísticas do arquivo: lista.h
+      Total linhas:             372
+      Linhas de código:          30
+      Linhas de comentário:     306
+      Linhas em branco:          36
+   Arquivos em que é incluído
+      Lista.c
+      TestLista.c
+
+Totais por tipo de arquivo
+
+  Tipo: def      Path: ..\Tabelas
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: h        Path: ..\Fontes
+         Total linhas do tipo:      1743
+         Linhas de código:           143
+         Linhas de comentário:      1415
+         Linhas em branco:           185
+         Arquivos deste tipo:          4
+
+  Tipo: obj      Path: ..\Objetos
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: err      Path: ..\Produto
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: DEFAULT  Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: c        Path: ..\Fontes
+         Total linhas do tipo:       768
+         Linhas de código:           484
+         Linhas de comentário:       110
+         Linhas em branco:           189
+         Arquivos deste tipo:          2
+
+Totais para todo o construto TesteLista
+
+   Total linhas:              2511
+   Linhas de código:           627
+   Linhas de comentário:      1525
+   Linhas em branco:           374
+   Arquivos processados:         6
+

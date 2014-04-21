@@ -1,0 +1,18 @@
+
+
+#################### Compilacao do construto: TESTETABULEIRO
+
+testtabuleiro.c
+..\Fontes\testtabuleiro.c(209) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+..\Fontes\testtabuleiro.c(244) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+tabuleiro.c
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\produto\TESTETABULEIRO.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+testtabuleiro.obj tabuleiro.obj lista.obj peca.obj 
+ArcaboucoTeste.lib 

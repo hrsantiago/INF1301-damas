@@ -1,0 +1,40 @@
+// Script:    testepeca.script
+// Autor:     Henrique Santiago
+// Data:      14/abr/2014
+// Propósito: Testar superficialmente o módulo peça
+
+== Inicializar valores
+=declararparm   peca0  int 0
+=declararparm   peca1  int 1
+
+=declararparm   caracterA    string  "a"
+=declararparm   caracterB    string  "b"
+
+=declararparm   Normal      int  0
+=declararparm   Dama        int  1
+
+
+== Criar a peca 0
+=criarpeca      peca0 Normal caracterA
+
+== Verificar ObterTipo relativo a peca inicial
+=obtertipo  peca0 Normal
+
+== Verificar ObterCaracter relativo a peca inicial
+=obtercaracter    peca0   caracterA
+
+== Setar tipo
+=setartipo     peca0   Dama
+
+== Obter tipo
+=obtertipo peca0 Dama
+
+== Setar Caracter
+=setarcaracter peca0 caracterB
+
+== Obter Caracter
+=obtercaracter peca0 caracterB
+
+=destruirpeca   peca0
+
+// fim

@@ -1,0 +1,16 @@
+/*
+ * Henrique Santiago
+ * Marcelo Resende
+ * Rafael Haeusler
+*/
+
+#include <stdio.h>
+#include "tabuleiro.h"
+
+int main(void)
+{
+    Tabuleiro *tab = TAB_criar();
+    TAB_inicializar(tab);
+    TAB_imprimir(tab);
+    return 0;
+}
