@@ -24,3 +24,8 @@ Data: 13/04/2014
   Horas Trabalhadas: 3h
   Tipo Tarefa: redigir script de teste
   Descrição da Tarefa Realizada: Criar arquivos de teste lista, peça, tabuleiro. Peça totalmente pronto, falta editar lista e fazer tabuleiro.
+
+Data: 21/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Atualizar repositório com as modificações do Marcelo

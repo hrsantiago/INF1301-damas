@@ -1,4 +1,4 @@
-Data:
-Horas Trabalhadas:
-Tipo Tarefa:
-Descrição da Tarefa Realizada:
+Data: 21/04/2014
+  Horas Trabalhadas: ??
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Organizar o projeto para a estrutura pedida pelos professores, criar batches, etc.
