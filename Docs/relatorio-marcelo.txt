@@ -1,4 +1,15 @@
-Data: 21/04/2014
-  Horas Trabalhadas: ??
+﻿Data: 17/04/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: estudar
+  Descrição da Tarefa Realizada: estudar o funcionamento do arcabouço e do gmake para melhor implementar as tarefas do trabalho
+
+Data: 19/04/2014
+  Horas Trabalhadas: 6h
   Tipo Tarefa: projetar
-  Descrição da Tarefa Realizada: Organizar o projeto para a estrutura pedida pelos professores, criar batches, etc.
+  Descrição da Tarefa Realizada: elaborar ferramentas de apoio ao desenvolvimento (batches e makes do projeto). Modificar a estrutura de diretorios
+
+Data: 20/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: revisar código do módulo
+  Descrição da Tarefa Realizada: documentação do arquivo lista.h
+
