@@ -1,29 +1,29 @@
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
 
 /***************************************************************************
-*  $MCI MÃ³dulo de implementaÃ§Ã£o: LIS  Lista duplamente encadeada
+*  $MCI Módulo de implementação: LIS  Lista duplamente encadeada
 *
 *  Arquivo gerado:              LISTA.c
 *  Letras identificadoras:      LIS
 *
-*  Nome da base de software:    ArcabouÃ§o para a automaÃ§Ã£o de testes de programas redigidos em C
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
+*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
 *
-*  Projeto: INF 1301 / 1628 AutomatizaÃ§Ã£o dos testes de mÃ³dulos C
-*  Gestor:  LES/DI/PUC-Rio
-*  Autores: avs
+*  Projeto: INF 1301-Trab02-HMR-Damas
+*  Gestor:  LES/DI/PUC-Rio ????????????
+*  Autores: Henrique Santiago
+*			Marcelo Resende
+*			Rafael Haeusler
 *
-*  $HA HistÃ³rico de evoluÃ§Ã£o:
-*     VersÃ£o  Autor    Data     ObservaÃ§Ãµes
-*     4       avs   01/fev/2006 criar linguagem script simbÃ³lica
-*     3       avs   08/dez/2004 uniformizaÃ§Ã£o dos exemplos
-*     2       avs   07/jul/2003 unificaÃ§Ã£o de todos os mÃ³dulos em um sÃ³ projeto
-*     1       avs   16/abr/2003 inÃ­cio desenvolvimento
+*  $HA Histórico de evolução: ??????????
+*     Versão  Autor    Data     Observações
+*     4       avs   01/fev/2006 criar linguagem script simbólica
+*     3       avs   08/dez/2004 uniformização dos exemplos
+*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
+*     1       avs   16/abr/2003 início desenvolvimento
 *
+*  $CRE Créditos
+*    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
+*		 programas redigidos em C; módulo Lista Duplamente Encadeada
 ***************************************************************************/
 
 #include <stdio.h>
@@ -36,23 +36,55 @@
 #include "lista.h"
 #undef LISTA_OWN
 
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Elemento da lista
+*
+*
+***********************************************************************/
+
 typedef struct tagElemLista {
     void *pValor;
+		/* Ponteiro para o valor contido no elemento */
     struct tagElemLista *pAnt;
+		/* Ponteiro para o elemento predecessor */
     struct tagElemLista *pProx;
+		/* Ponteiro para o elemento sucessor */
 } tpElemLista;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Descritor da cabeça de lista
+*
+*
+***********************************************************************/
 
 typedef struct LIS_tagLista {
     tpElemLista *pOrigemLista;
+		/* Ponteiro para a origem da lista */
     tpElemLista *pFimLista;
+		/* Ponteiro para o final da lista */
     tpElemLista *pElemCorr;
+		/* Ponteiro para o elemento corrente da lista */
     int numElem;
+		/* Número de elementos da lista */
     void (*ExcluirValor)(void *pValor);
+		/* Ponteiro para a função de destruição do valor contido em um elemento */
 } LIS_tpLista;
+
+/***** Protótipos das funções encapuladas no módulo *****/
 
 static void LiberarElemento(LIS_tppLista pLista, tpElemLista *pElem);
 static tpElemLista * CriarElemento(LIS_tppLista pLista, void *pValor);
 static void LimparCabeca(LIS_tppLista pLista);
+
+/*****  Código das funções exportadas pelo módulo  *****/
+
+/***************************************************************************
+*
+*  Função: LIS  &Criar lista
+*  ****/
 
 LIS_tppLista LIS_CriarLista(void (*ExcluirValor)(void *pDado))
 {
@@ -64,7 +96,12 @@ LIS_tppLista LIS_CriarLista(void (*ExcluirValor)(void *pDado))
     LimparCabeca(pLista);
     pLista->ExcluirValor = ExcluirValor;
     return pLista;
-}
+} /* Fim função: LIS  &Criar lista */
+
+/***************************************************************************
+*
+*  Função: LIS  &Destruir lista
+*  ****/
 
 void LIS_DestruirLista(LIS_tppLista pLista)
 {
@@ -74,7 +111,12 @@ void LIS_DestruirLista(LIS_tppLista pLista)
 
     LIS_EsvaziarLista(pLista);
     free(pLista);
-}
+} /* Fim função: LIS  &Destruir lista */
+
+/***************************************************************************
+*
+*  Função: LIS  &Esvaziar lista
+*  ****/
 
 void LIS_EsvaziarLista(LIS_tppLista pLista)
 {
@@ -93,7 +135,12 @@ void LIS_EsvaziarLista(LIS_tppLista pLista)
     }
 
     LimparCabeca(pLista);
-}
+}  /* Fim função: LIS  &Esvaziar lista */
+
+/***************************************************************************
+*
+*  Função: LIS  &Inserir elemento antes
+*  ****/
 
 LIS_tpCondRet LIS_InserirElementoAntes(LIS_tppLista pLista, void *pValor)
 {
@@ -125,7 +172,12 @@ LIS_tpCondRet LIS_InserirElementoAntes(LIS_tppLista pLista, void *pValor)
 
     pLista->pElemCorr = pElem;
     return LIS_CondRetOK;
-}
+} /* Fim função: LIS  &Inserir elemento antes */
+
+/***************************************************************************
+*
+*  Função: LIS  &Inserir elemento após
+*  ****/
 
 LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista , void *pValor)
 {
@@ -155,7 +207,12 @@ LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista , void *pValor)
 
     pLista->pElemCorr = pElem;
     return LIS_CondRetOK;
-}
+} /* Fim função: LIS  &Inserir elemento após */
+
+/***************************************************************************
+*
+*  Função: LIS  &Excluir elemento
+*  ****/
 
 LIS_tpCondRet LIS_ExcluirElemento(LIS_tppLista pLista)
 {
@@ -186,7 +243,12 @@ LIS_tpCondRet LIS_ExcluirElemento(LIS_tppLista pLista)
 
     LiberarElemento(pLista , pElem);
     return LIS_CondRetOK;
-}
+} /* Fim função: LIS  &Excluir elemento */
+
+/***************************************************************************
+*
+*  Função: LIS  &Obter referência para o valor contido no elemento
+*  ****/
 
 void * LIS_ObterValor(LIS_tppLista pLista)
 {
@@ -197,7 +259,12 @@ void * LIS_ObterValor(LIS_tppLista pLista)
     if(pLista->pElemCorr == NULL)
         return NULL;
     return pLista->pElemCorr->pValor;
-}
+} /* Fim função: LIS  &Obter referência para o valor contido no elemento */
+
+/***************************************************************************
+*
+*  Função: LIS  &Setar valor do elemento corrente
+*  ****/
 
 LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor)
 {
@@ -209,7 +276,12 @@ LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor)
         return LIS_CondRetListaVazia;
     pLista->pElemCorr->pValor = pValor;
     return LIS_CondRetOK;
-}
+} /* Fim função: LIS  &Setar valor do elemento corrente */
+
+/***************************************************************************
+*
+*  Função: LIS  &Ir para o elemento inicial
+*  ****/
 
 void LIS_IrInicioLista(LIS_tppLista pLista)
 {
@@ -218,7 +290,12 @@ void LIS_IrInicioLista(LIS_tppLista pLista)
 #endif
 
     pLista->pElemCorr = pLista->pOrigemLista;
-}
+} /* Fim função: LIS  &Ir para o elemento inicial */
+
+/***************************************************************************
+*
+*  Função: LIS  &Ir para o elemento final
+*  ****/
 
 void LIS_IrFinalLista(LIS_tppLista pLista)
 {
@@ -227,7 +304,12 @@ void LIS_IrFinalLista(LIS_tppLista pLista)
 #endif
 
     pLista->pElemCorr = pLista->pFimLista;
-}
+} /* Fim função: LIS  &Ir para o elemento final */
+
+/***************************************************************************
+*
+*  Função: LIS  &Ir para o elemento de indíce i
+*  ****/
 
 LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int i)
 {
@@ -237,7 +319,12 @@ LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int i)
 
     LIS_IrInicioLista(pLista);
     return LIS_AvancarElementoCorrente(pLista, i);
-}
+} /* Fim função: LIS  &Ir para o elemento de indíce i */
+
+/***************************************************************************
+*
+*  Função: LIS  &Avançar elemento
+*  ****/
 
 LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista , int numElem)
 {
@@ -286,7 +373,12 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista , int numElem)
 
     }
     return LIS_CondRetOK;
-}
+} /* Fim função: LIS  &Avançar elemento */
+
+/***************************************************************************
+*
+*  Função: LIS  &Procurar elemento contendo valor
+*  ****/
 
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista , void * pValor)
 {
@@ -307,7 +399,19 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista , void * pValor)
     }
 
     return LIS_CondRetNaoAchou;
-}
+} /* Fim função: LIS  &Procurar elemento contendo valor */
+
+/*****  Código das funções encapsuladas no módulo  *****/
+
+/***********************************************************************
+*
+*  $FC Função: LIS  -Liberar elemento da lista
+*
+*  $ED Descrição da função
+*     Elimina os espaços apontados pelo valor do elemento e o
+*     próprio elemento.
+*
+***********************************************************************/
 
 void LiberarElemento(LIS_tppLista pLista , tpElemLista *pElem)
 {
@@ -316,7 +420,13 @@ void LiberarElemento(LIS_tppLista pLista , tpElemLista *pElem)
 
     free(pElem);
     pLista->numElem--;
-}
+} /* Fim função: LIS  -Liberar elemento da lista */
+
+/***********************************************************************
+*
+*  $FC Função: LIS  -Criar o elemento
+*
+***********************************************************************/
 
 tpElemLista * CriarElemento(LIS_tppLista pLista , void * pValor)
 {
@@ -332,11 +442,21 @@ tpElemLista * CriarElemento(LIS_tppLista pLista , void * pValor)
     pLista->numElem++;
     return pElem;
 
-}
+} /* Fim função: LIS  -Criar o elemento */
+
+/***********************************************************************
+*
+*  $FC Função: LIS  -Limpar a cabeça da lista
+*
+***********************************************************************/
+
 void LimparCabeca(LIS_tppLista pLista)
 {
     pLista->pOrigemLista = NULL;
     pLista->pFimLista = NULL;
     pLista->pElemCorr = NULL;
     pLista->numElem = 0;
-}
+} /* Fim função: LIS  -Limpar a cabeça da lista */
+
+
+/********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/

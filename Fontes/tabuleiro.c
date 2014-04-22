@@ -85,9 +85,10 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
-        printf("%d|", y+1);
+        LIS_tppLista lista; 
+		printf("%d|", y+1);
 
-        LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+        lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
         LIS_IrInicioLista(lista);
         for(x = 0; x < TabuleiroLargura; ++x) {
             Peca *peca = LIS_ObterValor(lista);
@@ -106,6 +107,7 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 {
+	LIS_tppLista lista;
     assert(tabuleiro);
 
     --linha;
@@ -115,7 +117,7 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
     assert(coluna >= 0 && coluna <= TabuleiroLargura);
 
     LIS_IrIndice(tabuleiro->lista, linha);
-    LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+    lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
     LIS_IrIndice(lista, coluna);
     return LIS_ObterValor(lista);
 }

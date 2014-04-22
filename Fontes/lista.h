@@ -1,12 +1,6 @@
 #ifndef LISTA_
 #define LISTA_
 
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
-
 /***************************************************************************
 *
 *  $MCD Módulo de definição: LIS  Lista duplamente encadeada
@@ -14,14 +8,16 @@
 *  Arquivo gerado:              LISTA.h
 *  Letras identificadoras:      LIS
 *
-*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
+*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C ????????????
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ??????????????
 *
-*  Projeto: INF 1301 / 1628 Automatização dos testes de módulos C
-*  Gestor:  LES/DI/PUC-Rio
-*  Autores: avs
+*  Projeto: INF 1301-Trab02-HMR-Damas
+*  Gestor:  ????????????
+*  Autores:  Henrique Santiago
+*			 Marcelo Resende
+*			 Rafael Haeusler
 *
-*  $HA Histórico de evolução:
+*  $HA Histórico de evolução: ??????????
 *     Versão  Autor    Data     Observações
 *     4       avs   01/fev/2006 criar linguagem script simbólica
 *     3       avs   08/dez/2004 uniformização dos exemplos
@@ -56,6 +52,9 @@
 *        esta função deve promover a destruição (free) desse valor e
 *        de todos os dados nele ancorados.
 *
+*  $CRE Créditos
+*    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
+		 programas redigidos em C; módulo Lista Duplamente Encadeada
 ***************************************************************************/
  
 #ifdef LISTA_OWN
@@ -64,7 +63,21 @@
    #define LISTA_EXT extern
 #endif
 
+/***** Declarações exportadas pelo módulo *****/
+
+/* Tipo referência para uma lista */
+
 typedef struct LIS_tagLista *LIS_tppLista ;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Condições de retorno
+*
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções da lista
+*
+***********************************************************************/
 
 typedef enum {
     LIS_CondRetOK, /* Concluiu corretamente */
@@ -233,7 +246,7 @@ void *LIS_ObterValor(LIS_tppLista pLista);
 *
 *  $FV Valor retornado
 *     LIS_CondRetOK          - se concluiu corretamente
-*    ?LIS_CondRetNaoAchou?   - se a lista estiver vazia		?LIS_CondRetListaVazia?
+*	  LIS_CondRetListaVazia  - se a lista estiver vazia		
 *
 ***********************************************************************/
 
@@ -348,5 +361,7 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 
 #undef LISTA_EXT
+
+/********** Fim do módulo de definição: LIS  Lista duplamente encadeada **********/
 
 #endif

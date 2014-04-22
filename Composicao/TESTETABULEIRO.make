@@ -14,7 +14,6 @@ NOME            = TESTETABULEIRO
 
 ### Nomes de paths
 
-Pdef                 = ..\Tabelas
 Ph                   = ..\Fontes
 Pobj                 = ..\Objetos
 Perr                 = ..\Produto
@@ -23,7 +22,6 @@ Pc                   = ..\Fontes
 
 ### Nomes de diretórios para geração
 
-Fdef                 = ..\Tabelas
 Fh                   = ..\Fontes
 Fobj                 = ..\Objetos
 Ferr                 = ..\Produto
@@ -63,8 +61,7 @@ limpa :
 ### Dependências de módulos objeto a compilar
 
 $(Fobj)\testtabuleiro.obj :  {$(Pc)}\testtabuleiro.c \
-    {$(Ph)}TST_Espc.h           {$(Ph)}generico.h           {$(Ph)}lerparm.h            \
-    {$(Ph)}lista.h             
+    {$(Ph)}tabuleiro.h         
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\tabuleiro.obj :  {$(Pc)}\tabuleiro.c \

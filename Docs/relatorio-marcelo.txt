@@ -10,6 +10,10 @@ Data: 19/04/2014
 
 Data: 20/04/2014
   Horas Trabalhadas: 2h
-  Tipo Tarefa: revisar código do módulo
+  Tipo Tarefa: especificar os módulos, especificar as funções
   Descrição da Tarefa Realizada: documentação do arquivo lista.h
 
+Data: 22/04/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: especificar os módulos, especificar as funções, revisar especificações, diagnosticar e corrigir problemas 	       encontrados
+  Descrição da Tarefa Realizada: especificação do arquivo lista.c. Revisar especificação do arquivo lista.h.Corrigir erros encontrados no código fonte.

@@ -14,7 +14,6 @@ NOME            = TesteLista
 
 ### Nomes de paths
 
-Pdef                 = ..\Tabelas
 Ph                   = ..\Fontes
 Pobj                 = ..\Objetos
 Perr                 = ..\Produto
@@ -23,7 +22,6 @@ Pc                   = ..\Fontes
 
 ### Nomes de diretórios para geração
 
-Fdef                 = ..\Tabelas
 Fh                   = ..\Fontes
 Fobj                 = ..\Objetos
 Ferr                 = ..\Produto
@@ -62,7 +60,6 @@ limpa :
 ### Dependências de módulos objeto a compilar
 
 $(Fobj)\TestLista.obj :  {$(Pc)}\TestLista.c \
-    {$(Ph)}TST_Espc.h           {$(Ph)}generico.h           {$(Ph)}lerparm.h            \
     {$(Ph)}lista.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
