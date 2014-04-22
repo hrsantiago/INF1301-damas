@@ -1,23 +1,23 @@
 /***************************************************************************
-*  $MCI Módulo de implementação: TLIS Teste lista de símbolos
+*  $MCI Módulo de implementação: Testlista Teste lista de s�mbolos
 *
-*  Arquivo gerado:              TestLIS.c
+*  Arquivo gerado:              Testlista.c
 *  Letras identificadoras:      TLIS
 *
-*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
+*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C ????????????????????
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW?????????????
 *
-*  Projeto: INF 1301 / 1628 Automatização dos testes de módulos C
-*  Gestor:  LES/DI/PUC-Rio
-*  Autores: avs
+*  Projeto: INF 1301 -Trab02-HMR-Damas
+*  Gestor:  LES/DI/PUC-Rio??????????????????'
+*  Autores: Henrique Santiago
 *
-*  $HA Histórico de evolução:
-*     Versão  Autor    Data     Observações
-*     4       avs   01/fev/2006 criar linguagem script simbólica
-*     3       avs   08/dez/2004 uniformização dos exemplos
-*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
-*     1       avs   16/abr/2003 início desenvolvimento
+*  $HA Hist�rico de evolu��o:
+*     Vers�o  Autor    				Data     Observa��es
+*     1       Henrique Santiago   13/abr/2014 in�cio desenvolvimento
 *
+*  $CRE Cr�ditos
+*     Arndt von Staa. Programa AutoTest - Arcabou�o para a automa��o de testes de
+*	     programas redigidos em C; m�dulo Lista Duplamente Encadeada
 ***************************************************************************/
 
 #include    <string.h>
@@ -403,7 +403,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
       {
          return FALSE ;
       } /* if */
-         
+
       if ( Modo == VAZIO )
       {
          if ( vtTabuleiros[ inxLista ] != 0 )
@@ -417,7 +417,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
             return FALSE ;
          } /* if */
       } /* if */
-         
+
       return TRUE ;
 
    } /* Fim função: TLIS -Validar indice de lista */

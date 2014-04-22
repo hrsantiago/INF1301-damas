@@ -17,3 +17,8 @@ Data: 22/04/2014
   Horas Trabalhadas: 3h
   Tipo Tarefa: especificar os módulos, especificar as funções, revisar especificações, diagnosticar e corrigir problemas 	       encontrados
   Descrição da Tarefa Realizada: especificação do arquivo lista.c. Revisar especificação do arquivo lista.h.Corrigir erros encontrados no código fonte.
+
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: especificar os módulos
+  Descrição da Tarefa Realizada: especificação dos arquivos testlista.c, testpeca.c e testtabuleiro.c
+

@@ -1,8 +1,23 @@
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
+
+/***************************************************************************
+*  $MCI Módulo de implementação: Testpeca  Teste do modulo peca
+*
+*  Arquivo gerado:              testpeca.c
+*  Letras identificadoras:      TPEC
+*
+*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
+*
+*  Projeto: INF 1301-Trab02-HMR-Damas
+*  Gestor:  LES/DI/PUC-Rio ????????????
+*  Autores: Henrique Santiago
+*
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    				Data     Observações
+*     1       Henrique Santiago   13/abr/2014 início desenvolvimento
+*
+***************************************************************************/
 
 #include    <string.h>
 #include    <stdio.h>
@@ -33,24 +48,24 @@ static const char SETAR_CARACTER_CMD  [] = "=setarcaracter";
 
 Peca *vtTabuleiros[DIM_VT_PECA];
 
-/***** ProtÃ³tipos das funÃ§Ãµes encapuladas no mÃ³dulo *****/
+/***** Protótipos das funções encapuladas no módulo *****/
 
 static int ValidarInxTabuleiro(int inxLista, int Modo);
 
-/*****  CÃ³digo das funÃ§Ãµes exportadas pelo mÃ³dulo  *****/
+/*****  Código das funções exportadas pelo módulo  *****/
 
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TLIS &Testar peca
+*  $FC Função: TPEC &Testar peca
 *
-*  $ED DescriÃ§Ã£o da funÃ§Ã£o
-*     Podem ser criadas atÃ© 10 pecas, identificadas pelos Ã­ndices 0 a 9
+*  $ED Descrição da função
+*     Podem ser criadas até 10 pecas, identificadas pelos índices 0 a 9
 *
-*     Comandos disponÃ­veis:
+*     Comandos disponíveis:
 *
 *     =resetteste
-*           - anula o vetor de pecas. Provoca vazamento de memÃ³ria
+*           - anula o vetor de pecas. Provoca vazamento de memória
 *     =criarpeca                   inxLista  int     string
 *     =destruirpeca                inxLista
 *     =obtertipo                   inxLista  int
@@ -135,13 +150,13 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     }
 
     return TST_CondRetNaoConhec;
-}
+} /* Fim função: TPEC &Testar peca */
 
 /*****  CÃ³digo das funÃ§Ãµes encapsuladas no mÃ³dulo  *****/
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TLIS -Validar indice de peca
+*  $FC Função: TPEC -Validar indice de peca
 *
 ***********************************************************************/
 
@@ -158,4 +173,7 @@ int ValidarInxTabuleiro(int inxLista, int Modo)
             return FALSE;
     }
     return TRUE;
-}
+} /* Fim função: TPEC -Validar indice de lista */
+
+
+/********** Fim do módulo de implementação: Testpeca  Teste do modulo peca **********/

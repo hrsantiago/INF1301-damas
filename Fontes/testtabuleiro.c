@@ -1,8 +1,25 @@
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
+
+/***************************************************************************
+*  $MCI Módulo de implementação: Testtabuleiro  Teste do módulo tabuleiro
+*
+*  Arquivo gerado:              Testtabuleiro.c
+*  Letras identificadoras:      TTAB
+*
+*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
+*
+*  Projeto: INF 1301-Trab02-HMR-Damas
+*  Gestor:  LES/DI/PUC-Rio ????????????
+*  Autores: Henrique Santiago
+*			Marcelo Resende
+*			Rafael Haeusler
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor   				 Data     Observações
+*     1       Henrique Santiago   13/abr/2014 início desenvolvimento
+*
+*
+***************************************************************************/
 
 #include    <string.h>
 #include    <stdio.h>
@@ -40,7 +57,7 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TLIS &Testar tabuleiro
+*  $FC FunÃ§Ã£o: TTAB &Testar tabuleiro
 *
 *  $ED DescriÃ§Ã£o da funÃ§Ã£o
 *     Podem ser criadas atÃ© 10 tabuleiros, identificados pelos Ã­ndices 0 a 9
@@ -115,13 +132,13 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     }
 
     return TST_CondRetNaoConhec;
-}
+} /* Fim função: TTAB &Testar tabuleiro */
 
 /*****  CÃ³digo das funÃ§Ãµes encapsuladas no mÃ³dulo  *****/
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TLIS -Validar indice de peca
+*  $FC FunÃ§Ã£o: TTAB -Validar indice de ?tabuleiro?
 *
 ***********************************************************************/
 
@@ -138,4 +155,6 @@ int ValidarInxTabuleiro(int inxLista, int Modo)
             return FALSE;
     }
     return TRUE;
-}
+} /* Fim função: TTAB -Validar indice de ?tabuleiro? */
+
+/********** Fim do módulo de implementação: Testtabuleiro  Teste do módulo tabuleiro **********/
