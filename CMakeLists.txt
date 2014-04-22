@@ -14,16 +14,18 @@ set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -D_DEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wno-error -O4 -ffast-math")
 
 set(SOURCES
-  src/main.c
-  src/lista.c
-  src/lista.h
-  src/tabuleiro.c
-  src/tabuleiro.h
-  src/peca.c
-  src/peca.h
+  Fontes/main.c
+  Fontes/lista.c
+  Fontes/lista.h
+  Fontes/tabuleiro.c
+  Fontes/tabuleiro.h
+  Fontes/peca.c
+  Fontes/peca.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 #build tests
-add_subdirectory(tests)
+include(testelista)
+include(testetabuleiro)
+include(testepeca)

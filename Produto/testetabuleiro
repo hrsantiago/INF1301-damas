@@ -1,0 +1,24 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: /home/henrique/Projetos/damas/Batches/../build/test_tabuleiro
+!!!      Script de teste:     testetabuleiro.script
+
+!!!    0  Linha:     1  // Script:    testetabuleiro.script 
+!!!    0  Linha:     2  // Autor:     Henrique Santiago 
+!!!    0  Linha:     3  // Data:      20/abr/2014 
+!!!    0  Linha:     4  // Prop�sito: Testar superficialmente o m�dulo tabuleiro 
+    6  == Inicializar valores
+   17  == Criar a tabuleiro 0
+   20  == Inicializar tabuleiro0
+   23  == Obter peca do tabuleiro0
+!!!    0  Linha:    31  // fim 
+
+!!! Número de linhas lidas:          31
+!!! Número de casos de teste:         4
+!!! Número comandos corretos:        13
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

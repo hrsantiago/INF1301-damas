@@ -1,0 +1,28 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: /home/henrique/Projetos/damas/Batches/../build/test_peca
+!!!      Script de teste:     testepeca.script
+
+!!!    0  Linha:     1  // Script:    testepeca.script 
+!!!    0  Linha:     2  // Autor:     Henrique Santiago 
+!!!    0  Linha:     3  // Data:      14/abr/2014 
+!!!    0  Linha:     4  // Propósito: Testar superficialmente o módulo peça 
+    6  == Inicializar valores
+   17  == Criar a peca 0
+   20  == Verificar ObterTipo relativo a peca inicial
+   23  == Verificar ObterCaracter relativo a peca inicial
+   26  == Setar tipo
+   29  == Obter tipo
+   32  == Setar Caracter
+   35  == Obter Caracter
+!!!    0  Linha:    40  // fim 
+
+!!! NÃºmero de linhas lidas:          40
+!!! NÃºmero de casos de teste:         8
+!!! NÃºmero comandos corretos:        14
+!!! NÃºmero de falhas encontradas:     0
+
+!!! NÃ£o foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

@@ -1,15 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
-project(test_tabuleiro)
+project(test_peca)
 
 set(SOURCES
-    testtabuleiro.c
-
-    ../../src/lista.c
-    ../../src/lista.h
-    ../../src/peca.c
-    ../../src/peca.h
-    ../../src/tabuleiro.c
-    ../../src/tabuleiro.h
+    ../Fontes/testpeca.c
+    ../Fontes/peca.c
+    ../Fontes/peca.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

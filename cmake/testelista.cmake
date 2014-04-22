@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 project(test_lista)
 
 set(SOURCES
-    testlista.c
-
-    ../../src/lista.c
-    ../../src/lista.h
+    ../Fontes/testlista.c
+    ../Fontes/lista.c
+    ../Fontes/lista.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
