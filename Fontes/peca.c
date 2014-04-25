@@ -7,7 +7,9 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#define peca_OWN
 #include "peca.h"
+#undef peca_OWN   
 
 typedef struct _Peca {
     PecaTipo tipo;

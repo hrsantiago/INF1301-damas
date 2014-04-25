@@ -22,3 +22,7 @@ Data: 22/04/2014
   Tipo Tarefa: especificar os módulos
   Descrição da Tarefa Realizada: especificação dos arquivos testlista.c, testpeca.c e testtabuleiro.c
 
+Data: 24/04/2014
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: revisar código do módulo
+  Descrição da Tarefa Realizada: revisar o código de tabuleiro.c, especificando claramente as funções nele encapsuladas 

@@ -7,9 +7,13 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "peca.h"
+
+#define tabuleiro_OWN   
 #include "tabuleiro.h"
+#undef tabuleiro_OWN 
+
 #include "lista.h"
+#include "peca.h"
 
 enum {
     TabuleiroAltura = 8,
@@ -20,17 +24,12 @@ typedef struct _Tabuleiro {
     LIS_tppLista lista;
 } Tabuleiro;
 
-void ListaExcluirPeca(void *pDado)
-{
-    Peca *peca = (Peca*)pDado;
-    PEC_destruir(peca);
-}
+/***** Protótipos das funções encapsuladas no módulo *****/
+static void ListaExcluirPeca(void *pDado);
 
-void ListaExcluirLista(void *pDado)
-{
-    LIS_tppLista lista = (LIS_tppLista)pDado;
-    LIS_DestruirLista(lista);
-}
+static void ListaExcluirLista(void *pDado); 
+
+
 
 Tabuleiro *TAB_criar()
 {
@@ -121,3 +120,17 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
     LIS_IrIndice(lista, coluna);
     return LIS_ObterValor(lista);
 }
+
+/*****  Código das funções encapsuladas no módulo  *****/   
+
+void ListaExcluirPeca(void *pDado)                           
+{                                                             
+    Peca *peca = (Peca*)pDado;                               
+    PEC_destruir(peca);                                        
+}
+
+void ListaExcluirLista(void *pDado)                         
+{
+    LIS_tppLista lista = (LIS_tppLista)pDado;              
+    LIS_DestruirLista(lista);                               
+}                                             

@@ -40,8 +40,8 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: peca.c
-      Total linhas:              64
-      Linhas de código:          50
+      Total linhas:              66
+      Linhas de código:          52
       Linhas de comentário:       5
       Linhas em branco:           9
    Arquivos de inclusão de que necessita
@@ -57,10 +57,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             123
-      Linhas de código:          98
-      Linhas de comentário:       5
-      Linhas em branco:          20
+      Total linhas:             136
+      Linhas de código:         102
+      Linhas de comentário:       7
+      Linhas em branco:          27
    Arquivos de inclusão de que necessita
       lista.h
       peca.h
@@ -76,10 +76,10 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: testtabuleiro.c
-      Total linhas:             141
+      Total linhas:             160
       Linhas de código:          81
-      Linhas de comentário:      30
-      Linhas em branco:          30
+      Linhas de comentário:      49
+      Linhas em branco:          32
    Arquivos de inclusão de que necessita
       tabuleiro.h
 
@@ -114,17 +114,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       790
-         Linhas de código:           482
-         Linhas de comentário:       177
-         Linhas em branco:           147
+         Total linhas do tipo:       824
+         Linhas de código:           488
+         Linhas de comentário:       198
+         Linhas em branco:           156
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRO
 
-   Total linhas:              1203
-   Linhas de código:           537
-   Linhas de comentário:       494
-   Linhas em branco:           193
+   Total linhas:              1237
+   Linhas de código:           543
+   Linhas de comentário:       515
+   Linhas em branco:           202
    Arquivos processados:         7
 
