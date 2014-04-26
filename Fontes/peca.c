@@ -125,3 +125,5 @@ void PEC_setarCaracter(Peca *peca, char caracter)
     assert(islower(caracter));
     peca->caracter = caracter;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
+
+/********** Fim do módulo de definição: PEC Peca **********/

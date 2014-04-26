@@ -237,4 +237,4 @@ void ListaExcluirLista(void *pDado)
     LIS_DestruirLista(lista);                               
 }/* Fim função: TAB  -Excluindo uma lista */ 
                                             
-/********** Fim do módulo de implementação: TAB  Tabuleiro (8x8) **********/
+/********** Fim do módulo de implementação: TAB  Tabuleiro **********/
