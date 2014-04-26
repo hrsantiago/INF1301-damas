@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define tabuleiro_OWN   
 #include "tabuleiro.h"
@@ -174,8 +175,8 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
     coluna = tolower(coluna) - 'a';
 
 	#ifdef _DEBUG 
-       /*assert(linha >= 0 && linha < TabuleiroAltura);*/
-       assert(coluna >= 0 && coluna <= TabuleiroLargura);
+       assert(linha >= 0 && linha < TabuleiroAltura);
+       assert(coluna >= 0 && coluna < TabuleiroLargura);
 	#endif 
 
     LIS_IrIndice(tabuleiro->lista, linha);

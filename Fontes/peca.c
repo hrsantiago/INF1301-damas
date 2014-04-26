@@ -24,6 +24,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 #define peca_OWN
 #include "peca.h"
 #undef peca_OWN   

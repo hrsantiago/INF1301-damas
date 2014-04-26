@@ -23,6 +23,6 @@ Damas pode ser compilado com [CMake](<http://www.cmake.org>) (versão 2.8 or rec
 
 Na maioria dos sistemas você pode compilar usando os seguintes comandos
 
-  $ mkdir build && cd build
-  $ cmake ..
-  $ make
+	$ mkdir build && cd build
+	$ cmake ..
+	$ make

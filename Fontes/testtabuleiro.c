@@ -80,7 +80,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     char StringDado[DIM_VALOR];
     int i;
     int linha = -1;
-    char coluna = -1;
+    int coluna = -1;
     StringDado[0] = 0;
 
     /* Efetuar reset de teste de tabuleiro */              

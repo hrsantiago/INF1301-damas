@@ -83,7 +83,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     char StringDado[DIM_VALOR];
     int i;
     int tipo = -1;
-    char caracter = -1;
+    int caracter = -1;
     StringDado[0] = 0;
 
 	/* Efetuar reset de teste de peca */               
