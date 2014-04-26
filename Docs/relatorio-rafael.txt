@@ -5,17 +5,20 @@ Data: 28/03/2014
 
 Data: 24/04/2014
   Horas Trabalhadas: 2h
-  Tipo Tarefa: Melhorar as especifcações, botar num modelo pdf
-  Descrição da Tarefa Realizada: Melhorar a especificação.
-
-Data: 26/04/2014
-  Horas Trabalhadas: 3/2h
-  Tipo Tarefa: Documentar o módulo peca, especificar as funções, adptar diagrama 
-  Descrição da Tarefa Realizada: Modificar peca.c peca.h e o diagrama.
-
+  Tipo Tarefa: revisar especifcações
+  
+  Descrição da Tarefa Realizada: Melhorar a especificação, mais detalhes
+e botar num modelo pdf.
 
 Data: 25/04/2014
   Horas Trabalhadas: 1h
-  Tipo Tarefa: Documentar o módulo tabuleiro e ajustar o de lista. 
-  Descrição da Tarefa Realizada: Modificar tabuleiro.c, tabuleiro.h, lista.c, lista.h.
+  Tipo Tarefa: especificar funções, especificar modulos 
+  Descrição da Tarefa Realizada: Documentar tabuleiro.c, tabuleiro.h e modificar lista.c, lista.h.
+
+Data: 26/04/2014
+  Horas Trabalhadas: 3/2h
+  Tipo Tarefa:  especificar as funções, especificar módulos 
+  Descrição da Tarefa Realizada: documentar peca.c peca.h e reajustar diagrama.
+
+
 
