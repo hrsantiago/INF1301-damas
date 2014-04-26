@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TesteLista.comp
 
    Nome do Construto:           TesteLista
-   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TesteLista.comp
    Arquivo plataforma:          gmake.parm
@@ -21,25 +21,25 @@ Módulos do construto: TesteLista.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: Lista.c
-      Total linhas:             462
+      Total linhas:             457
       Linhas de código:         253
-      Linhas de comentário:     137
+      Linhas de comentário:     132
       Linhas em branco:          88
    Arquivos de inclusão de que necessita
       lista.h
 
    Estatísticas do arquivo: TestLista.c
-      Total linhas:             426
-      Linhas de código:         231
-      Linhas de comentário:      83
-      Linhas em branco:         126
+      Total linhas:             575
+      Linhas de código:         335
+      Linhas de comentário:     113
+      Linhas em branco:         160
    Arquivos de inclusão de que necessita
       lista.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             367
+      Total linhas:             359
       Linhas de código:          30
-      Linhas de comentário:     306
+      Linhas de comentário:     298
       Linhas em branco:          36
    Arquivos em que é incluído
       Lista.c
@@ -48,9 +48,9 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       367
+         Total linhas do tipo:       359
          Linhas de código:            30
-         Linhas de comentário:       306
+         Linhas de comentário:       298
          Linhas em branco:            36
          Arquivos deste tipo:          1
 
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       888
-         Linhas de código:           484
-         Linhas de comentário:       220
-         Linhas em branco:           214
+         Total linhas do tipo:      1032
+         Linhas de código:           588
+         Linhas de comentário:       245
+         Linhas em branco:           248
          Arquivos deste tipo:          2
 
 Totais para todo o construto TesteLista
 
-   Total linhas:              1255
-   Linhas de código:           514
-   Linhas de comentário:       526
-   Linhas em branco:           250
+   Total linhas:              1391
+   Linhas de código:           618
+   Linhas de comentário:       543
+   Linhas em branco:           284
    Arquivos processados:         3
 

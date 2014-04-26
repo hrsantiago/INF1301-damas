@@ -5,8 +5,7 @@
 testpeca.c
 ..\Fontes\testpeca.c(86) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
 peca.c
-..\Fontes\peca.c(39) : warning C4013: 'toupper' undefined; assuming extern returning int
-..\Fontes\peca.c(64) : warning C4013: 'islower' undefined; assuming extern returning int
+..\Fontes\peca.c(84) : warning C4013: 'toupper' undefined; assuming extern returning int
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
