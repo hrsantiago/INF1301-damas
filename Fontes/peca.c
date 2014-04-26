@@ -62,8 +62,10 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
 *  ****/
 void PEC_destruir(Peca *peca)
 {
-    assert(peca);
-    free(peca);
+	#ifdef _DEBUG
+       assert(peca);
+    #endif  
+	free(peca);
 }/* Fim função: PEC  &Destruir uma determinada peça */
 
 
@@ -73,7 +75,9 @@ void PEC_destruir(Peca *peca)
 *  ****/
 void PEC_imprimir(Peca *peca)
 {
-    assert(peca);
+	#ifdef _DEBUG
+       assert(peca);
+	#endif  
     if(peca->tipo == PecaNormal)
         printf("%c|", peca->caracter);
     else
@@ -87,7 +91,9 @@ void PEC_imprimir(Peca *peca)
 *  ****/
 PecaTipo PEC_obterTipo(Peca *peca)
 {
-    assert(peca);
+	#ifdef _DEBUG 
+       assert(peca);
+	#endif 
     return peca->tipo;
 }/* Fim função: PEC  &Obter tipo de uma determinada peça */
 
@@ -98,8 +104,10 @@ PecaTipo PEC_obterTipo(Peca *peca)
 *  ****/
 void PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
-    assert(peca);
-    assert(tipo == PecaNormal || tipo == PecaDama);
+	#ifdef _DEBUG 
+       assert(peca);
+       assert(tipo == PecaNormal || tipo == PecaDama);
+	#endif
     peca->tipo = tipo;
 }/* Fim função: PEC  &Setar tipo de uma determinada peça */
 
@@ -110,8 +118,10 @@ void PEC_setarTipo(Peca *peca, PecaTipo tipo)
 *  ****/
 char PEC_obterCaracter(Peca *peca)
 {
-    assert(peca);
-    return peca->caracter;
+	#ifdef _DEBUG
+       assert(peca);
+    #endif                                    
+	return peca->caracter;
 }/* Fim função: PEC  &Obter caracter identificador de uma determinada peça */
 
 
@@ -121,8 +131,10 @@ char PEC_obterCaracter(Peca *peca)
 *  ****/
 void PEC_setarCaracter(Peca *peca, char caracter)
 {
-    assert(peca);
-    assert(islower(caracter));
+	#ifdef _DEBUG
+       assert(peca);
+       assert(islower(caracter));
+	#endif    
     peca->caracter = caracter;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
 

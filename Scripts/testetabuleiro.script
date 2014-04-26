@@ -1,11 +1,12 @@
 // Script:    testetabuleiro.script
 // Autor:     Henrique Santiago
 // Data:      20/abr/2014
-// Propósito: Testar superficialmente o módulo tabuleiro
+// Propósito: Testar o módulo tabuleiro
 
 == Inicializar valores
 =declararparm   tabuleiro0  int 0
 =declararparm   tabuleiro1  int 1
+=declararparm	tabuleiro2  int	2  
 
 =declararparm   colunaA    string  "a"
 =declararparm   colunaB    string  "b"
@@ -14,18 +15,148 @@
 =declararparm   pNaoNULL       int  1
 
 
-== Criar a tabuleiro 0
+== Criar o tabuleiro 0 
 =criartabuleiro      tabuleiro0
 
-== Inicializar tabuleiro0
+== Inicializar tabuleiro 0
 =inicializartabuleiro  tabuleiro0
 
-== Obter peca do tabuleiro0
+== Obter peca do tabuleiro 0
 =obterpeca    tabuleiro0   1 colunaA pNULL
 =obterpeca    tabuleiro0   2 colunaA pNaoNULL
 =obterpeca    tabuleiro0   1 colunaB pNaoNULL
 =obterpeca    tabuleiro0   2 colunaB pNULL
 
+==destruir tabuleiro 0  
 =destruirtabuleiro   tabuleiro0
+
+==Criar dois tabuleiros  
+=criartabuleiro      tabuleiro0
+=criartabuleiro      tabuleiro1
+
+==Inicializar tabuleiro 1 
+=inicializartabuleiro	tabuleiro1
+
+==Inicializar tabuleiro inexistente  
+=inicializartabuleiro	tabuleiro2
+=recuperar
+
+==obter peca de tabuleiro inexistente
+=obterpeca    	tabuleiro2   1 colunaA pNULL
+=recuperar
+=obterpeca	tabuleiro2   1 colunaA pNaoNULL
+=recuperar
+
+==obter peca de tabuleiro nao inicializado  
+=obterpeca    tabuleiro0   1 colunaA pNULL
+=obterpeca    tabuleiro0   2 colunaA pNULL
+=obterpeca    tabuleiro0   1 colunaB pNULL
+=obterpeca    tabuleiro0   2 colunaB pNULL
+
+==obter todas as pecas de tabuleiro 1, linha1   
+=obterpeca    tabuleiro1   1 colunaA pNULL
+=obterpeca    tabuleiro1   1 colunaB pNaoNULL
+=obterpeca    tabuleiro1   1 "c"     pNULL
+=obterpeca    tabuleiro1   1 "d"     pNaoNULL
+=obterpeca    tabuleiro1   1 "e"     pNULL
+=obterpeca    tabuleiro1   1 "f"     pNaoNULL
+=obterpeca    tabuleiro1   1 "g"     pNULL
+=obterpeca    tabuleiro1   1 "h"     pNaoNULL
+
+==obter todas as pecas de tabuleiro 1, linha2   
+
+=obterpeca    tabuleiro1   2 colunaA pNaoNULL
+=obterpeca    tabuleiro1   2 colunaB pNULL
+=obterpeca    tabuleiro1   2 "c"     pNaoNULL
+=obterpeca    tabuleiro1   2 "d"     pNULL
+=obterpeca    tabuleiro1   2 "e"     pNaoNULL
+=obterpeca    tabuleiro1   2 "f"     pNULL
+=obterpeca    tabuleiro1   2 "g"     pNaoNULL
+=obterpeca    tabuleiro1   2 "h"      pNULL
+
+==obter todas as pecas de tabuleiro 1, linha3   
+=obterpeca    tabuleiro1   3 colunaA pNULL
+=obterpeca    tabuleiro1   3 colunaB pNULL
+=obterpeca    tabuleiro1   3 "c"     pNULL
+=obterpeca    tabuleiro1   3 "d"     pNULL
+=obterpeca    tabuleiro1   3 "e"     pNULL
+=obterpeca    tabuleiro1   3 "f"     pNULL
+=obterpeca    tabuleiro1   3 "g"     pNULL
+=obterpeca    tabuleiro1   3 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha4   
+=obterpeca    tabuleiro1   4 colunaA pNULL
+=obterpeca    tabuleiro1   4 colunaB pNULL
+=obterpeca    tabuleiro1   4 "c"     pNULL
+=obterpeca    tabuleiro1   4 "d"     pNULL
+=obterpeca    tabuleiro1   4 "e"     pNULL
+=obterpeca    tabuleiro1   4 "f"     pNULL
+=obterpeca    tabuleiro1   4 "g"     pNULL
+=obterpeca    tabuleiro1   4 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha5   
+=obterpeca    tabuleiro1   5 colunaA pNULL
+=obterpeca    tabuleiro1   5 colunaB pNULL
+=obterpeca    tabuleiro1   5 "c"     pNULL
+=obterpeca    tabuleiro1   5 "d"     pNULL
+=obterpeca    tabuleiro1   5 "e"     pNULL
+=obterpeca    tabuleiro1   5 "f"     pNULL
+=obterpeca    tabuleiro1   5 "g"     pNULL
+=obterpeca    tabuleiro1   5 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha6  
+=obterpeca    tabuleiro1   6 colunaA pNULL
+=obterpeca    tabuleiro1   6 colunaB pNULL
+=obterpeca    tabuleiro1   6 "c"     pNULL
+=obterpeca    tabuleiro1   6 "d"     pNULL
+=obterpeca    tabuleiro1   6 "e"     pNULL
+=obterpeca    tabuleiro1   6 "f"     pNULL
+=obterpeca    tabuleiro1   6 "g"     pNULL
+=obterpeca    tabuleiro1   6 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha7  
+=obterpeca    tabuleiro1   7 colunaA pNULL
+=obterpeca    tabuleiro1   7 colunaB pNaoNULL
+=obterpeca    tabuleiro1   7 "c"     pNULL
+=obterpeca    tabuleiro1   7 "d"     pNaoNULL
+=obterpeca    tabuleiro1   7 "e"     pNULL
+=obterpeca    tabuleiro1   7 "f"     pNaoNULL
+=obterpeca    tabuleiro1   7 "g"     pNULL
+=obterpeca    tabuleiro1   7 "h"     pNaoNULL
+
+==obter todas as pecas de tabuleiro 1, linha8  
+=obterpeca    tabuleiro1   8 colunaA pNaoNULL
+=obterpeca    tabuleiro1   8 colunaB pNULL
+=obterpeca    tabuleiro1   8 "c"     pNaoNULL
+=obterpeca    tabuleiro1   8 "d"      pNULL
+=obterpeca    tabuleiro1   8 "e"     pNaoNULL
+=obterpeca    tabuleiro1   8 "f"     pNULL
+=obterpeca    tabuleiro1   8 "g"     pNaoNULL
+=obterpeca    tabuleiro1   8 "h"     pNULL	
+
+==Verificar obter peca de linha inexistente, maior que 8   
+=obterpeca    tabuleiro1   9 colunaA pNaoNULL
+=obterpeca    tabuleiro1   20 colunaA pNaoNULL
+=obterpeca    tabuleiro1   9 colunaB pNULL
+
+==Verificar obter peca de linha inexistente, nula ou negativa  
+=obterpeca    tabuleiro1   0 colunaA pNULL 
+=obterpeca    tabuleiro1  -5 colunaA pNULL 
+=obterpeca    tabuleiro1   0 colunaB pNaoNULL
+
+==Verificar obter peca de coluna inexistente, "depois" de "h" 
+=obterpeca    tabuleiro1   1 "i"     pNaoNULL
+=obterpeca    tabuleiro1   1 "m"     pNaoNULL
+=obterpeca    tabuleiro1   2 "i"     pNULL
+=obterpeca    tabuleiro1   3 "i"     pNULL
+=obterpeca    tabuleiro1   3 "j"     pNULL
+
+==destruir tabuleiros  
+=destruirtabuleiro   tabuleiro0
+=destruirtabuleiro   tabuleiro1
+
+==destruir tabuleiro  inexistente 
+=destruirtabuleiro   tabuleiro2
+=recuperar
 
 // fim

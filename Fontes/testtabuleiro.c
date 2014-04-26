@@ -5,14 +5,12 @@
 *  Arquivo gerado:              Testtabuleiro.c
 *  Letras identificadoras:      TTAB
 *
-*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
+*  Projeto: damas
+*  Arquivo: damas\Fontes\testtabuleiro.c    
 *
-*  Projeto: INF 1301-Trab02-HMR-Damas
-*  Gestor:  LES/DI/PUC-Rio ????????????
-*  Autores: Henrique Santiago
-*			Marcelo Resende
-*			Rafael Haeusler
+*  Autores: hs - Henrique Santiago
+*	    mr - Marcelo Resende
+*	    rh - Rafael Haeusler
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor   				 Data     Observações
@@ -48,24 +46,24 @@ static const char OBTER_PECA_CMD           [] = "=obterpeca";
 
 Tabuleiro *vtTabuleiros[DIM_VT_TABULEIRO];
 
-/***** ProtÃ³tipos das funÃ§Ãµes encapuladas no mÃ³dulo *****/
+/***** Protótipos das funçõees encapuladas no módulo *****/
 
 static int ValidarInxTabuleiro(int inxLista, int Modo);
 
-/*****  CÃ³digo das funÃ§Ãµes exportadas pelo mÃ³dulo  *****/
+/*****  Código das funções exportadas pelo módulo  *****/
 
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TTAB &Testar tabuleiro
+*  $FC Função: TTAB &Testar tabuleiro
 *
-*  $ED DescriÃ§Ã£o da funÃ§Ã£o
-*     Podem ser criadas atÃ© 10 tabuleiros, identificados pelos Ã­ndices 0 a 9
+*  $ED Descrição da função
+*     Podem ser criadas atÃ© 10 tabuleiros, identificados pelos í­ndices 0 a 9
 *
-*     Comandos disponÃ­veis:
+*     Comandos disponíveis:
 *
 *     =resetteste
-*           - anula o vetor de pecas. Provoca vazamento de memÃ³ria
+*           - anula o vetor de pecas. Provoca vazamento de memória
 *     =criartabuleiro
 *     =destruirtabuleiro         inxLista
 *     =inicializartabuleiro      inxLista
@@ -85,12 +83,15 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     char coluna = -1;
     StringDado[0] = 0;
 
+    /* Efetuar reset de teste de tabuleiro */              
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
         for(i = 0; i < DIM_VT_TABULEIRO; i++)
             vtTabuleiros[i] = NULL;
 
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Efetuar reset de teste de tabuleiro */  
+
+	/* Testar Criar tabuleiro */                              
     else if(strcmp(ComandoTeste, CRIAR_TABULEIRO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -99,7 +100,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         vtTabuleiros[inxLista] = TAB_criar();
         return TST_CompararPonteiroNulo(1, vtTabuleiros[inxLista], "Erro em ponteiro do novo tabuleiro.");
-    }
+    } /* fim ativa: Testar Criar tabuleiro */  
+
+	/* Testar Destruir tabuleiro */                              
     else if(strcmp(ComandoTeste, DESTRUIR_TABULEIRO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -110,7 +113,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         vtTabuleiros[inxLista] = NULL;
 
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Testar Destruir tabuleiro */                                     
+
+	/* Testar Inicializar tabuleiro*/                                             
     else if(strcmp(ComandoTeste, INICIALIZAR_TABULEIRO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -119,7 +124,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         TAB_inicializar(vtTabuleiros[inxLista]);
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Testar Inicializar tabuleiro */                                    
+
+	/* Testar Obter peca*/                                             
     else if(strcmp(ComandoTeste, OBTER_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado, &CondRetEsp);
 
@@ -128,17 +135,17 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         coluna = StringDado[0];
         retPtr = (void*)TAB_obterPeca(vtTabuleiros[inxLista], linha, coluna);
-        return TST_CompararPonteiroNulo(CondRetEsp, retPtr, "Valor nÃ£o deveria existir.");
-    }
+        return TST_CompararPonteiroNulo(CondRetEsp, retPtr, "Valor não deveria existir.");
+    } /* fim ativa: Testar Obter peca */                                    
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TTAB &Testar tabuleiro */
 
-/*****  CÃ³digo das funÃ§Ãµes encapsuladas no mÃ³dulo  *****/
+/*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
 *
-*  $FC FunÃ§Ã£o: TTAB -Validar indice de ?tabuleiro?
+*  $FC Função: TTAB -Validar indice de tabuleiro
 *
 ***********************************************************************/
 
@@ -155,6 +162,6 @@ int ValidarInxTabuleiro(int inxLista, int Modo)
             return FALSE;
     }
     return TRUE;
-} /* Fim função: TTAB -Validar indice de ?tabuleiro? */
+} /* Fim função: TTAB -Validar indice de tabuleiro */
 
 /********** Fim do módulo de implementação: Testtabuleiro  Teste do módulo tabuleiro **********/

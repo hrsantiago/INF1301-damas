@@ -5,12 +5,12 @@
 *  Arquivo gerado:              testpeca.c
 *  Letras identificadoras:      TPEC
 *
-*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
+*  Projeto: damas
+*  Arquivo: damas\Fontes\testpeca.c    
 *
-*  Projeto: INF 1301-Trab02-HMR-Damas
-*  Gestor:  LES/DI/PUC-Rio ????????????
-*  Autores: Henrique Santiago
+*  Autores: hs - Henrique Santiago
+*	    mr - Marcelo Resende
+*	    rh - Rafael Haeusler
 *
 *
 *  $HA Histórico de evolução:
@@ -86,12 +86,15 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     char caracter = -1;
     StringDado[0] = 0;
 
+	/* Efetuar reset de teste de peca */               
     if(strcmp(ComandoTeste, RESET_PECA_CMD) == 0) {
         for(i = 0; i < DIM_VT_PECA; i++)
             vtTabuleiros[i] = NULL;
 
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Efetuar reset de teste de lista */  
+
+	/* Testar Criar peca */                              
     else if(strcmp(ComandoTeste, CRIAR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("iis", &inxLista, &tipo, StringDado);
 
@@ -100,7 +103,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         vtTabuleiros[inxLista] = PEC_criar(tipo, StringDado[0]);
         return TST_CompararPonteiroNulo(1, vtTabuleiros[inxLista], "Erro em ponteiro de nova peca.");
-    }
+    } /* fim ativa: Testar Criar peca */                                       
+
+	/* Testar Destruir peca*/                                                
     else if(strcmp(ComandoTeste, DESTRUIR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -111,7 +116,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         vtTabuleiros[inxLista] = NULL;
 
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Testar Destruir peca */                                     
+
+	/* Testar Obter Tipo da peca*/                                            
     else if(strcmp(ComandoTeste, OBTER_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
@@ -119,8 +126,10 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
             return TST_CondRetParm;
 
         tipo = PEC_obterTipo(vtTabuleiros[inxLista]);
-        return TST_CompararInt(CondRetEsp, tipo, "Tipo errada ao obter tipo.");
-    }
+        return TST_CompararInt(CondRetEsp, tipo, "Tipo errado ao obter tipo.");   	
+    } /* fim ativa: Testar Obter Tipo da peca */                                              
+
+	/* Testar Setar Tipo da peca*/                                                           
     else if(strcmp(ComandoTeste, SETAR_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &tipo);
 
@@ -129,7 +138,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         PEC_setarTipo(vtTabuleiros[inxLista], tipo);
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Testar Setar Tipo da peca */                                          
+
+	/* Testar Obter Caracter da peca*/                                               
     else if(strcmp(ComandoTeste, OBTER_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
@@ -138,7 +149,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         caracter = PEC_obterCaracter(vtTabuleiros[inxLista]);
         return TST_CompararEspaco(StringDado, &caracter, 1, "Caracter errado ao obter caracter.");
-    }
+    } /* fim ativa: Testar Obter Caracter da peca */                                             
+
+	/* Testar Setar Caracter da peca*/                                                            
     else if(strcmp(ComandoTeste, SETAR_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
@@ -147,12 +160,12 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         PEC_setarCaracter(vtTabuleiros[inxLista], StringDado[0]);
         return TST_CondRetOK;
-    }
+    } /* fim ativa: Testar Setar Caracter da peca */  
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TPEC &Testar peca */
 
-/*****  CÃ³digo das funÃ§Ãµes encapsuladas no mÃ³dulo  *****/
+/*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
 *
