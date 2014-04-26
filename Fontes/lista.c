@@ -4,23 +4,18 @@
 *
 *  Arquivo gerado:              LISTA.c
 *  Letras identificadoras:      LIS
+*  
+*  Projeto: damas
+*  Arquivo: damas\Fontes\lista.c   
 *
-*  Nome da base de software:     Arcabouço para a automação de testes de programas redigidos em C ?????????
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ????????????
+*  Autores: hs - Henrique Santiago
+*	    mr - Marcelo Resende
+*	    rh - Rafael Haeusler
 *
-*  Projeto: INF 1301-Trab02-HMR-Damas
-*  Gestor:  LES/DI/PUC-Rio ????????????
-*  Autores: Henrique Santiago
-*			Marcelo Resende
-*			Rafael Haeusler
-*
-*  $HA Histórico de evolução: ??????????
+*  $HA Histórico de evolução: 
 *     Versão  Autor    Data     Observações
-*     4       avs   01/fev/2006 criar linguagem script simbólica
-*     3       avs   08/dez/2004 uniformização dos exemplos
-*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
-*     1       avs   16/abr/2003 início desenvolvimento
-*
+*     1       hs/mr/rh   30/maio/2014    implementação parcial do jogo
+*    
 *  $CRE Créditos
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
 *		 programas redigidos em C; módulo Lista Duplamente Encadeada
@@ -48,7 +43,7 @@ typedef struct tagElemLista {
     void *pValor;
 		/* Ponteiro para o valor contido no elemento */
     struct tagElemLista *pAnt;
-		/* Ponteiro para o elemento predecessor */
+		/* Ponteiro para o elemento antecessor */
     struct tagElemLista *pProx;
 		/* Ponteiro para o elemento sucessor */
 } tpElemLista;

@@ -1,5 +1,3 @@
-#ifndef LISTA_
-#define LISTA_
 
 /***************************************************************************
 *
@@ -8,22 +6,14 @@
 *  Arquivo gerado:              LISTA.h
 *  Letras identificadoras:      LIS
 *
-*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C ????????????
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW ??????????????
+*  Projeto: damas
+*  Arquivo: damas\fontes\lista.h  
 *
-*  Projeto: INF 1301-Trab02-HMR-Damas
-*  Gestor:  ????????????
-*  Autores:  Henrique Santiago
-*			 Marcelo Resende
-*			 Rafael Haeusler
-*
-*  $HA Histórico de evolução: ??????????
+*  $HA Histórico de evolução: 
 *     Versão  Autor    Data     Observações
-*     4       avs   01/fev/2006 criar linguagem script simbólica
-*     3       avs   08/dez/2004 uniformização dos exemplos
-*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
-*     1       avs   16/abr/2003 início desenvolvimento
-*
+*     1       hs/mr/rh   30/maio/2014    implementação parcial do jogo
+*    
+*  
 *  $ED Descrição do módulo
 *     Implementa listas genéricas duplamente encadeadas.
 *     Podem existir n listas em operação simultaneamente.
@@ -56,6 +46,8 @@
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
 		 programas redigidos em C; módulo Lista Duplamente Encadeada
 ***************************************************************************/
+#ifndef LISTA_
+#define LISTA_
  
 #ifdef LISTA_OWN
    #define LISTA_EXT
