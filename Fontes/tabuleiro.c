@@ -1,8 +1,26 @@
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
+
+/***************************************************************************
+*  $MCI Módulo de implementação: TAB  Tabuleiro 
+*
+*  Arquivo gerado:              TABULEIRO.c
+*  Letras identificadoras:      TAB
+*
+*  Projeto: damas
+*  Arquivo: damas\Fontes\tabuleiro.c    
+*
+*  Autores: hs - Henrique Santiago
+*	    mr - Marcelo Resende
+*	    rh - Rafael Haeusler
+*  
+*  $HA Histórico de evolução: 
+*     Versão  Autor    Data     Observações
+*     1       hs/mr/rh   30/maio/2014    implementação parcial do jogo
+*  
+*  $CRE Créditos
+*    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
+*    programas redigidos em C;
+*  
+***************************************************************************/
 
 #include <assert.h>
 #include <stdio.h>
@@ -15,14 +33,24 @@
 #include "lista.h"
 #include "peca.h"
 
+/* Define as dimenções do tabuleiro */
 enum {
-    TabuleiroAltura = 8,
+  TabuleiroAltura = 8, 
     TabuleiroLargura = 8,
 };
 
+/***********************************************************************
+*
+*  $TC Tipo de dados: TAB estrutura que referencia uma lista
+*  duplamente encadeada que representa as linhas do tabuleiro 
+*
+*
+***********************************************************************/
 typedef struct _Tabuleiro {
     LIS_tppLista lista;
+      
 } Tabuleiro;
+
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 static void ListaExcluirPeca(void *pDado);
@@ -30,6 +58,11 @@ static void ListaExcluirPeca(void *pDado);
 static void ListaExcluirLista(void *pDado); 
 
 
+/*****  Código das funções exportadas pelo módulo  *****/
+/***************************************************************************
+*
+*  Função: TAB  &Criar tabuleiro
+*  ****/
 
 Tabuleiro *TAB_criar()
 {
@@ -45,14 +78,25 @@ Tabuleiro *TAB_criar()
     }
 
     return tabuleiro;
-}
+}/* Fim função: TAB  &Criar tabuleiro */
+
+/***************************************************************************
+*
+*  Função: TAB  &Destruir tabuleiro
+*  ****/
 
 void TAB_destruir(Tabuleiro *tabuleiro)
 {
     assert(tabuleiro);
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
-}
+}/* Fim função: TAB  &Destruir tabuleiro */
+
+
+/***************************************************************************
+*
+*  Função: TAB  &Inicializar tabuleiro para início de uma partida
+*  ****/
 
 void TAB_inicializar(Tabuleiro *tabuleiro)
 {
@@ -75,8 +119,12 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
         }
         LIS_AvancarElementoCorrente(tabuleiro->lista, 1);
     }
-}
+}/* Fim função: TAB  &Inicializar tabuleiro para início de uma partida */
 
+/***************************************************************************
+*
+*  Função: TAB  &Imprimir estado atual de um tabuleiro
+*  ****/
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
     int x, y;
@@ -102,7 +150,13 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
         LIS_AvancarElementoCorrente(tabuleiro->lista, -1);
     }
     printf(" |A|B|C|D|E|F|G|H|\n");
-}
+}/* Fim função: TAB  &Imprimir estado atual de um tabuleiro */
+
+
+/***************************************************************************
+*
+*  Função: TAB  &Obter valor de uma peça no tabuleiro
+*  ****/
 
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 {
@@ -119,18 +173,68 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
     LIS_IrIndice(lista, coluna);
     return LIS_ObterValor(lista);
-}
+}/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
 /*****  Código das funções encapsuladas no módulo  *****/   
 
+/***************************************************************************
+*
+*  $FC Função: TAB  -Excluir elemento de uma lista
+*
+*  $ED Descrição da função
+*
+*      Através da função (PEC_destruir(Peca *peca)) provida pelo
+*      módulo PEC (peça), está função elimina uma peça do tabuleiro
+*      
+*  $EP Parâmetros 
+*
+*      Recebe como entrada um ponteiro de um determinado dado (sem tipo).
+*      
+*
+*  $FV Valor retornado 
+*
+*        Não possui valor de retorno, simplesmente elimina (free())
+*        uma peça do tabuleiro.
+*
+*  ****/
 void ListaExcluirPeca(void *pDado)                           
 {                                                             
     Peca *peca = (Peca*)pDado;                               
     PEC_destruir(peca);                                        
-}
+}/* Fim função: TAB  -Excluir elemento de uma lista */
 
+/***************************************************************************
+*
+*  Função: TAB  -Excluindo uma lista
+*  ****/
+
+
+/***************************************************************************
+*
+*  $FC Função: TAB  -Excluir uma lista
+*
+*  $ED Descrição da função
+*
+*      Através da função (LIS_DestruirLista(LIS_tppLista lista))
+*      provida pelo módulo LIS (lista), está função elimina linha do
+*      tabuleiro.
+*      
+*  $EP Parâmetros 
+*
+*      Recebe como entrada um ponteiro de uma determinada lista (linha)
+*      das 8 que o tabuleiro compõe.
+*      
+*
+*  $FV Valor retornado 
+*
+*        Não possui valor de retorno, simplesmente elimina (free())
+*        uma linha do tabuleiro.
+*
+*  ****/
 void ListaExcluirLista(void *pDado)                         
 {
     LIS_tppLista lista = (LIS_tppLista)pDado;              
     LIS_DestruirLista(lista);                               
-}                                             
+}/* Fim função: TAB  -Excluindo uma lista */ 
+                                            
+/********** Fim do módulo de implementação: TAB  Tabuleiro (8x8) **********/
