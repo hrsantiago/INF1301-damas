@@ -28,12 +28,14 @@
 #include    <lerparm.h>
 
 #include    "tabuleiro.h"
+#include    "peca.h"
 
 static const char RESET_TABULEIRO_CMD      [] = "=resetteste";
 static const char CRIAR_TABULEIRO_CMD      [] = "=criartabuleiro";
 static const char DESTRUIR_TABULEIRO_CMD   [] = "=destruirtabuleiro";
 static const char INICIALIZAR_TABULEIRO_CMD[] = "=inicializartabuleiro";
 static const char OBTER_PECA_CMD           [] = "=obterpeca";
+static const char SETAR_PECA_CMD           [] = "=setarpeca";
 
 #define TRUE  1
 #define FALSE 0
@@ -82,6 +84,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int linha = -1;
     int coluna = -1;
     StringDado[0] = 0;
+    Peca *peca;
 
     /* Efetuar reset de teste de tabuleiro */              
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
@@ -136,7 +139,20 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         coluna = StringDado[0];
         retPtr = (void*)TAB_obterPeca(vtTabuleiros[inxLista], linha, coluna);
         return TST_CompararPonteiroNulo(CondRetEsp, retPtr, "Valor não deveria existir.");
-    } /* fim ativa: Testar Obter peca */                                    
+    } /* fim ativa: Testar Obter peca */
+
+    /* Testar Setar peca*/
+    else if(strcmp(ComandoTeste, SETAR_PECA_CMD) == 0) {
+        numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado);
+
+        if((numLidos != 3) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+            return TST_CondRetParm;
+
+        coluna = StringDado[0];
+        peca = PEC_criar(PecaNormal, 'r');
+        TAB_setarPeca(vtTabuleiros[inxLista], linha, coluna, peca);
+        return TST_CondRetOK;
+    } /* fim ativa: Testar Setar peca */
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TTAB &Testar tabuleiro */

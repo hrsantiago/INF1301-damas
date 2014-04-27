@@ -34,3 +34,8 @@ Data: 26/04/2014
   Horas Trabalhadas: 1h
   Tipo Tarefa: redigir script de teste
   Descrição da Tarefa Realizada: Criar teste testelistaint
+
+Data: 27/04/2014
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar TAB_setarPeca e colocar no teste

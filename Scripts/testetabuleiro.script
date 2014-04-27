@@ -151,6 +151,13 @@
 =obterpeca    tabuleiro1   3 "i"     pNULL
 =obterpeca    tabuleiro1   3 "j"     pNULL
 
+==Verificar setar peca
+=setarpeca    tabuleiro1 1 "a"
+=obterpeca    tabuleiro1   1 "a" pNaoNULL
+
+=setarpeca    tabuleiro1 1 "b"
+=obterpeca    tabuleiro1   1 "b" pNaoNULL
+
 ==destruir tabuleiros  
 =destruirtabuleiro   tabuleiro0
 =destruirtabuleiro   tabuleiro1

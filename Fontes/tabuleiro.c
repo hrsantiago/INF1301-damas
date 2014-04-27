@@ -36,7 +36,7 @@
 
 /* Define as dimensões do tabuleiro */
 enum {
-  TabuleiroAltura = 8, 
+    TabuleiroAltura = 8,
     TabuleiroLargura = 8,
 };
 
@@ -49,7 +49,7 @@ enum {
 ***********************************************************************/
 typedef struct _Tabuleiro {
     LIS_tppLista lista;
-      
+
 } Tabuleiro;
 
 
@@ -69,36 +69,29 @@ Tabuleiro *TAB_criar()
 {
     int x, y;
     Tabuleiro *tabuleiro = (Tabuleiro*)malloc(sizeof(Tabuleiro));
-	if (tabuleiro==NULL)
-		return NULL;
+    if(!tabuleiro)
+        return NULL;
     tabuleiro->lista = LIS_CriarLista(ListaExcluirLista);
-	if (tabuleiro->lista==NULL) {
-		free(tabuleiro);
-		return NULL;
-	}
+    if(!tabuleiro->lista) {
+        free(tabuleiro);
+        return NULL;
+    }
     for(y = 0; y < TabuleiroAltura; ++y) {
-		LIS_tpCondRet LIS_CondRet;
         LIS_tppLista lista = LIS_CriarLista(ListaExcluirPeca);
-		if(lista==NULL) {
-			LIS_DestruirLista(tabuleiro->lista);
-			free(tabuleiro);
-			return NULL;
-		}
-        LIS_CondRet=LIS_InserirElementoAntes(tabuleiro->lista, lista);
-        if(LIS_CondRet!=LIS_CondRetOK) {
-			LIS_DestruirLista(tabuleiro->lista);
-			free(tabuleiro);
-			return NULL;
-		}
-		for(x = 0; x < TabuleiroLargura; ++x){
-            LIS_CondRet=LIS_InserirElementoAntes(lista, NULL);
-			if(LIS_CondRet!=LIS_CondRetOK) {
-			   LIS_DestruirLista(tabuleiro->lista);
-			   free(tabuleiro);
-			   return NULL;
-		    }
-		}
-
+        if(!lista) {
+            TAB_destruir(tabuleiro);
+            return NULL;
+        }
+        if(LIS_InserirElementoAntes(tabuleiro->lista, lista) != LIS_CondRetOK) {
+            TAB_destruir(tabuleiro);
+            return NULL;
+        }
+        for(x = 0; x < TabuleiroLargura; ++x){
+            if(LIS_InserirElementoAntes(lista, NULL) != LIS_CondRetOK) {
+                TAB_destruir(tabuleiro);
+                return NULL;
+            }
+        }
     }
 
     return tabuleiro;
@@ -111,9 +104,9 @@ Tabuleiro *TAB_criar()
 
 void TAB_destruir(Tabuleiro *tabuleiro)
 {
-	#ifdef _DEBUG 
-       assert(tabuleiro);
-	#endif
+#ifdef _DEBUG
+    assert(tabuleiro);
+#endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
 }/* Fim função: TAB  &Destruir tabuleiro */
@@ -127,9 +120,9 @@ void TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro)
 {
     int x, y;
-	#ifdef _DEBUG   
-       assert(tabuleiro);
-	#endif 
+#ifdef _DEBUG
+    assert(tabuleiro);
+#endif
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -155,14 +148,14 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
     int x, y;
-	#ifdef _DEBUG   
-       assert(tabuleiro);
-	#endif 
+#ifdef _DEBUG
+    assert(tabuleiro);
+#endif
 
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
-        LIS_tppLista lista; 
-		printf("%d|", y+1);
+        LIS_tppLista lista;
+        printf("%d|", y+1);
 
         lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
         LIS_IrInicioLista(lista);
@@ -189,29 +182,65 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 {
-	LIS_tppLista lista;
-	LIS_tpCondRet LIS_CondRet;
-	#ifdef _DEBUG
-       assert(tabuleiro);
-	#endif 
+    LIS_tppLista lista;
+#ifdef _DEBUG
+    assert(tabuleiro);
+#endif
 
     --linha;
     coluna = tolower(coluna) - 'a';
 
-	#ifdef _DEBUG 
-       assert(linha >= 0 && linha < TabuleiroAltura);
-       assert(coluna >= 0 && coluna < TabuleiroLargura);
-	#endif 
+#ifdef _DEBUG
+    assert(linha >= 0 && linha < TabuleiroAltura);
+    assert(coluna >= 0 && coluna < TabuleiroLargura);
+#endif
 
-    LIS_CondRet=LIS_IrIndice(tabuleiro->lista, linha);
-	if (LIS_CondRet!=LIS_CondRetOK)
-	   return NULL;
+    if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
+        return NULL;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
-    LIS_CondRet=LIS_IrIndice(lista, coluna);
-	if (LIS_CondRet!=LIS_CondRetOK)
-	   return NULL;
+    if(!lista)
+        return NULL;
+    if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
+        return NULL;
+
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
+
+/***************************************************************************
+*
+*  Função: TAB  &Setar valor de uma peça no tabuleiro
+*  ****/
+
+void TAB_setarPeca(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
+{
+    LIS_tppLista lista;
+    Peca *antiga;
+#ifdef _DEBUG
+    assert(tabuleiro);
+#endif
+
+    --linha;
+    coluna = tolower(coluna) - 'a';
+
+#ifdef _DEBUG
+    assert(linha >= 0 && linha < TabuleiroAltura);
+    assert(coluna >= 0 && coluna < TabuleiroLargura);
+#endif
+
+    if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
+        return;
+    lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+    if(!lista)
+        return;
+    if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
+        return;
+
+    antiga = LIS_ObterValor(lista);
+    if(antiga)
+        ListaExcluirPeca(antiga);
+
+    LIS_SetarValor(lista, peca);
+}/* Fim função: TAB  &Setar valor de uma peça no tabuleiro */
 
 /*****  Código das funções encapsuladas no módulo  *****/   
 
@@ -237,8 +266,8 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 *  ****/
 void ListaExcluirPeca(void *pDado)                           
 {                                                             
-    Peca *peca = (Peca*)pDado;                               
-    PEC_destruir(peca);                                        
+    Peca *peca = (Peca*)pDado;
+    PEC_destruir(peca);
 }/* Fim função: TAB  -Excluir elemento de uma lista */
 
 /***************************************************************************
@@ -271,8 +300,8 @@ void ListaExcluirPeca(void *pDado)
 *  ****/
 void ListaExcluirLista(void *pDado)                         
 {
-    LIS_tppLista lista = (LIS_tppLista)pDado;              
-    LIS_DestruirLista(lista);                               
+    LIS_tppLista lista = (LIS_tppLista)pDado;
+    LIS_DestruirLista(lista);
 }/* Fim função: TAB  -Excluindo uma lista */ 
-                                            
+
 /********** Fim do módulo de implementação: TAB  Tabuleiro **********/

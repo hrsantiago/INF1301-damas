@@ -192,4 +192,29 @@ void TAB_imprimir(Tabuleiro *tabuleiro);
 ***********************************************************************/
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna);
 
+
+/***********************************************************************
+*
+*  $FC Função: TAB  &Setar peça do tabuleiro
+*
+*  $ED Descrição da função
+*
+*      Se tabuleiro diferente de NULL e as linhas e colunas estiverem
+*      dentro as dimensões do tabuleiro (8x8), a função obtem o valor
+*      associado a tal coordenada no tabuleiro
+*
+*  $EP Parâmetros
+*
+*       Recebe como entrada um ponteiro para um tabuleiro do tipo
+*       Tabuleiro definido neste próprio módulo, a coordenada da linha
+*       , a coordenada da coluna da onde se quer setar o valor e a peca
+*
+*  $FV Valor retornado
+*
+*        Não retorna nenhum valor
+*
+*
+***********************************************************************/
+void TAB_setarPeca(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
+
 #endif

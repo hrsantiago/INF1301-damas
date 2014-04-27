@@ -1,21 +1,49 @@
 
 !!! Inicio dos testes
-!!!      Construto sob teste: /home/henrique/Projetos/damas/Batches/../build/test_tabuleiro
+!!!      Construto sob teste: /home/henrique/Projetos/damas/build/test_tabuleiro
 !!!      Script de teste:     testetabuleiro.script
 
 !!!    0  Linha:     1  // Script:    testetabuleiro.script 
 !!!    0  Linha:     2  // Autor:     Henrique Santiago 
 !!!    0  Linha:     3  // Data:      20/abr/2014 
-!!!    0  Linha:     4  // Prop�sito: Testar superficialmente o m�dulo tabuleiro 
+!!!    0  Linha:     4  // Prop�sito: Testar o m�dulo tabuleiro 
     6  == Inicializar valores
-   17  == Criar a tabuleiro 0
-   20  == Inicializar tabuleiro0
-   23  == Obter peca do tabuleiro0
-!!!    0  Linha:    31  // fim 
+   18  == Criar o tabuleiro 0
+   21  == Inicializar tabuleiro 0
+   24  == Obter peca do tabuleiro 0
+   30  ==destruir tabuleiro 0
+   33  ==Criar dois tabuleiros
+   37  ==Inicializar tabuleiro 1
+   40  ==Inicializar tabuleiro inexistente
+>>>    1  Linha:    41  Erro nos parâmetros do comando:  =inicializartabuleiro	tabuleiro2
+<<<    0  Linha:    42  Falha esperada foi recuperada. 
+   44  ==obter peca de tabuleiro inexistente
+>>>    1  Linha:    45  Erro nos parâmetros do comando:  =obterpeca    	tabuleiro2   1 colunaA pNULL
+<<<    0  Linha:    46  Falha esperada foi recuperada. 
+>>>    1  Linha:    47  Erro nos parâmetros do comando:  =obterpeca	tabuleiro2   1 colunaA pNaoNULL
+<<<    0  Linha:    48  Falha esperada foi recuperada. 
+   50  ==obter peca de tabuleiro nao inicializado
+   56  ==obter todas as pecas de tabuleiro 1, linha1
+   66  ==obter todas as pecas de tabuleiro 1, linha2
+   77  ==obter todas as pecas de tabuleiro 1, linha3
+   87  ==obter todas as pecas de tabuleiro 1, linha4
+   97  ==obter todas as pecas de tabuleiro 1, linha5
+  107  ==obter todas as pecas de tabuleiro 1, linha6
+  117  ==obter todas as pecas de tabuleiro 1, linha7
+  127  ==obter todas as pecas de tabuleiro 1, linha8
+  137  ==Verificar obter peca de linha inexistente, maior que 8
+  142  ==Verificar obter peca de linha inexistente, nula ou negativa
+  147  ==Verificar obter peca de coluna inexistente, "depois" de "h"
+  154  ==Verificar setar peca
+  161  ==destruir tabuleiros
+  165  ==destruir tabuleiro  inexistente
+>>>    1  Linha:   166  Erro nos parâmetros do comando:  =destruirtabuleiro   tabuleiro2
+<<<    0  Linha:   167  Falha esperada foi recuperada. 
+!!!    0  Linha:   169  // fim 
 
-!!! Número de linhas lidas:          31
-!!! Número de casos de teste:         4
-!!! Número comandos corretos:        13
+!!! Número de linhas lidas:         169
+!!! Número de casos de teste:        24
+!!! Número comandos corretos:       102
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
