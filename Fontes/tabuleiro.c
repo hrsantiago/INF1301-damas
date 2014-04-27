@@ -34,7 +34,7 @@
 #include "lista.h"
 #include "peca.h"
 
-/* Define as dimenções do tabuleiro */
+/* Define as dimensões do tabuleiro */
 enum {
   TabuleiroAltura = 8, 
     TabuleiroLargura = 8,
@@ -69,13 +69,36 @@ Tabuleiro *TAB_criar()
 {
     int x, y;
     Tabuleiro *tabuleiro = (Tabuleiro*)malloc(sizeof(Tabuleiro));
+	if (tabuleiro==NULL)
+		return NULL;
     tabuleiro->lista = LIS_CriarLista(ListaExcluirLista);
-
+	if (tabuleiro->lista==NULL) {
+		free(tabuleiro);
+		return NULL;
+	}
     for(y = 0; y < TabuleiroAltura; ++y) {
+		LIS_tpCondRet LIS_CondRet;
         LIS_tppLista lista = LIS_CriarLista(ListaExcluirPeca);
-        LIS_InserirElementoAntes(tabuleiro->lista, lista);
-        for(x = 0; x < TabuleiroLargura; ++x)
-            LIS_InserirElementoAntes(lista, NULL);
+		if(lista==NULL) {
+			LIS_DestruirLista(tabuleiro->lista);
+			free(tabuleiro);
+			return NULL;
+		}
+        LIS_CondRet=LIS_InserirElementoAntes(tabuleiro->lista, lista);
+        if(LIS_CondRet!=LIS_CondRetOK) {
+			LIS_DestruirLista(tabuleiro->lista);
+			free(tabuleiro);
+			return NULL;
+		}
+		for(x = 0; x < TabuleiroLargura; ++x){
+            LIS_CondRet=LIS_InserirElementoAntes(lista, NULL);
+			if(LIS_CondRet!=LIS_CondRetOK) {
+			   LIS_DestruirLista(tabuleiro->lista);
+			   free(tabuleiro);
+			   return NULL;
+		    }
+		}
+
     }
 
     return tabuleiro;
@@ -167,6 +190,7 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 {
 	LIS_tppLista lista;
+	LIS_tpCondRet LIS_CondRet;
 	#ifdef _DEBUG
        assert(tabuleiro);
 	#endif 
@@ -179,9 +203,13 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
        assert(coluna >= 0 && coluna < TabuleiroLargura);
 	#endif 
 
-    LIS_IrIndice(tabuleiro->lista, linha);
+    LIS_CondRet=LIS_IrIndice(tabuleiro->lista, linha);
+	if (LIS_CondRet!=LIS_CondRetOK)
+	   return NULL;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
-    LIS_IrIndice(lista, coluna);
+    LIS_CondRet=LIS_IrIndice(lista, coluna);
+	if (LIS_CondRet!=LIS_CondRetOK)
+	   return NULL;
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 

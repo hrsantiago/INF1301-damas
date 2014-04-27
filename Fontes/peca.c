@@ -51,6 +51,8 @@ typedef struct _Peca {
 Peca *PEC_criar(PecaTipo tipo, char caracter)
 {
     Peca *peca = (Peca*)malloc(sizeof(Peca));
+	if (peca==NULL)
+		return NULL;
     PEC_setarTipo(peca, tipo);
     PEC_setarCaracter(peca, caracter);
     return peca;

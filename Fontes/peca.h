@@ -81,6 +81,7 @@ typedef struct _Peca Peca;
 *
 *        O valor retornado é um ponteiro do tipo Peca, que contém os
 *        valores tipo e caracter recebidos como parâmetro.
+*		 Retorna NULL se ocorrer falta de memória
 *
 ***********************************************************************/
 Peca *PEC_criar(PecaTipo tipo, char caracter);

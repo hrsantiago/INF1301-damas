@@ -30,7 +30,7 @@ Data: 24/04/2014
 Data: 25/04/2014
   Horas Trabalhadas: 6h30
   Tipo Tarefa: especificar os módulos, especificar funções, redigir script de      teste, revisar script de teste, realizar os testes 
-  Descrição da Tarefa Realizada: documentar os módulos testtabuleiro e testpeca,      expandir as respectivas massas de teste, realizar os testes e corrigir os      erros encontrados nos scripts
+  Descrição da Tarefa Realizada: documentar os módulos testtabuleiro e testpeca,      expandir as respectivas massas de teste, realizar os      testes e corrigir os      erros encontrados nos scripts
 
   Horas Trabalhadas: 2h
   Tipo Tarefa: codificar módulo 
@@ -44,3 +44,9 @@ Data: 26/04/2014
   Horas Trabalhadas: 30min
   Tipo Tarefa: projetar 
   Descrição da Tarefa Realizada: projetar batches necessarios para executar o teste de lista com inteiros
+
+Data: 27/04/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo, especificar funções 
+  Descrição da Tarefa Realizada: pequenas modificações em tabuleiro.h, tabuleiro.c, peca.c e peca.h para tratar de casos excepcionais
+ 

@@ -135,18 +135,18 @@
 =obterpeca    tabuleiro1   8 "h"     pNULL	
 
 ==Verificar obter peca de linha inexistente, maior que 8   
-=obterpeca    tabuleiro1   9 colunaA pNaoNULL
-=obterpeca    tabuleiro1   20 colunaA pNaoNULL
-=obterpeca    tabuleiro1   9 colunaB pNULL
+=obterpeca    tabuleiro1   9 colunaA  pNULL
+=obterpeca    tabuleiro1   20 colunaA pNULL
+=obterpeca    tabuleiro1   9 colunaB  pNULL
 
 ==Verificar obter peca de linha inexistente, nula ou negativa  
 =obterpeca    tabuleiro1   0 colunaA pNULL 
 =obterpeca    tabuleiro1  -5 colunaA pNULL 
-=obterpeca    tabuleiro1   0 colunaB pNaoNULL
+=obterpeca    tabuleiro1   0 colunaB pNULL
 
 ==Verificar obter peca de coluna inexistente, "depois" de "h" 
-=obterpeca    tabuleiro1   1 "i"     pNaoNULL
-=obterpeca    tabuleiro1   1 "m"     pNaoNULL
+=obterpeca    tabuleiro1   1 "i"     pNULL
+=obterpeca    tabuleiro1   1 "m"     pNULL
 =obterpeca    tabuleiro1   2 "i"     pNULL
 =obterpeca    tabuleiro1   3 "i"     pNULL
 =obterpeca    tabuleiro1   3 "j"     pNULL

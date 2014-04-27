@@ -77,8 +77,12 @@ typedef struct _Peca Peca;
 *
 *  $FV Valor retornado 
 *
-*        O valor retornado é um tabuleiro 8 por 8, com * todos os seus
-*        valores iguais a NULL
+*        O valor retornado é um ponteiro para um tabuleiro 8 por 8, com 
+*		 todos os seus valores iguais a NULL
+*		 Se ocorreu algum erro, por exemplo falta de memória ou dados errados,
+*		 a função retornará NULL.
+*		 Não será dada mais informação quanto ao problema ocorrido.
+*		
 *
 ***********************************************************************/
 Tabuleiro *TAB_criar();
@@ -179,7 +183,10 @@ void TAB_imprimir(Tabuleiro *tabuleiro);
 *        Utilizando as funções de manipulação do módulo lista retorna
 *        o valor associado as entradas de tabuleiro e coordenadas do
 *        mesmo.
-*
+*		 Se a casa especificada não existir, retorna NULL. Isso pode ocorrer
+*		 devido a linha ou coluna especificadas como parâmetros estarem vazias
+*		 (criação inadequada de tabuleiro) ou não estarem de acordo com o tamanho
+*		 do tabuleiro (exemplo: foi passado como parâmetro a linha 9)		
 *
 *
 ***********************************************************************/

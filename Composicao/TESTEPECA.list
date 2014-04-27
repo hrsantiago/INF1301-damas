@@ -21,17 +21,17 @@ Módulos do construto: TESTEPECA.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: peca.c
-      Total linhas:             142
-      Linhas de código:          65
+      Total linhas:             144
+      Linhas de código:          67
       Linhas de comentário:      65
       Linhas em branco:          19
    Arquivos de inclusão de que necessita
       peca.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:             217
+      Total linhas:             218
       Linhas de código:          15
-      Linhas de comentário:     190
+      Linhas de comentário:     191
       Linhas em branco:          12
    Arquivos em que é incluído
       peca.c
@@ -48,9 +48,9 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       217
+         Total linhas do tipo:       218
          Linhas de código:            15
-         Linhas de comentário:       190
+         Linhas de comentário:       191
          Linhas em branco:            12
          Arquivos deste tipo:          1
 
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       334
-         Linhas de código:           160
+         Total linhas do tipo:       336
+         Linhas de código:           162
          Linhas de comentário:       128
          Linhas em branco:            62
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTEPECA
 
-   Total linhas:               551
-   Linhas de código:           175
-   Linhas de comentário:       318
+   Total linhas:               554
+   Linhas de código:           177
+   Linhas de comentário:       319
    Linhas em branco:            74
    Arquivos processados:         3
 
