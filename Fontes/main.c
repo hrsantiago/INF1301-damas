@@ -19,5 +19,6 @@ int main()
         PEC_imprimir(peca);
     else
         printf("Peca nao encontrada.");
+    TAB_destruir(tab);
     return 0;
 }

@@ -239,7 +239,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
          {
 
             numLidos = LER_LerParametros( "iiii" ,
-                       &inxLista , &IntDado[1], &IntDado[2] , &CondRetEsp ) ;            
+                       &inxLista , &IntDado[0], &IntDado[1] , &CondRetEsp ) ;
 
             if ( ( numLidos != 4 )                                                
               || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
@@ -309,7 +309,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
          {
 
             numLidos = LER_LerParametros( "iiii" ,
-                       &inxLista , &IntDado[1], &IntDado[2] , &CondRetEsp ) ;
+                       &inxLista , &IntDado[0], &IntDado[1] , &CondRetEsp ) ;
 
             if ( ( numLidos != 4 )
               || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
@@ -397,7 +397,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
          {
 
             numLidos = LER_LerParametros( "iiii" ,
-                       &inxLista , &IntDado[1], &IntDado[2] , &ValEsp ) ;
+                       &inxLista , &IntDado[0], &IntDado[1] , &ValEsp ) ;
 
             if ( ( numLidos != 4 )
               || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
@@ -504,7 +504,7 @@ LIS_tppLista   vtTabuleiros[ DIM_VT_LISTA ] ;
 		 else if ( strcmp( ComandoTeste , SETAR_VALOR_CMD_INT ) == 0 )
 		 {
 
-			numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[1], &IntDado[2], &CondRetEsp);
+            numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[0], &IntDado[1], &CondRetEsp);
 			if ( ( numLidos != 4 )
               || ( ! ValidarInxTabuleiro( inxLista , NAO_VAZIO )) )
             {
