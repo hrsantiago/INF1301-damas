@@ -40,3 +40,7 @@ Data: 26/04/2014
   Horas Trabalhadas: 2h30
   Tipo Tarefa: codificar módulo 
   Descrição da Tarefa Realizada: Continuar as alterações do código de      testlista.c, iniciadas no dia 25
+ 
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: projetar 
+  Descrição da Tarefa Realizada: projetar batches necessarios para executar o teste de lista com inteiros

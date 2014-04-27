@@ -1,5 +1,5 @@
 @ECHO  OFF
-REM  Gera, Compila e testa todos os exemplos simples 
+REM  Gera, Compila e testa os módulos lista, peca e tabuleiro
 
 if exist TestaTudo.bat goto faz
 rem >>> esta' no diretorio ilegal

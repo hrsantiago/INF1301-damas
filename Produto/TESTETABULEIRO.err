@@ -3,10 +3,9 @@
 #################### Compilacao do construto: TESTETABULEIRO
 
 testtabuleiro.c
-..\Fontes\testtabuleiro.c(83) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\testtabuleiro.c(137) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
-..\Fontes\tabuleiro.c(174) : warning C4013: 'tolower' undefined; assuming extern returning int
-..\Fontes\tabuleiro.c(174) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(175) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

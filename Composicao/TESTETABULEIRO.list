@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTETABULEIRO.comp
 
    Nome do Construto:           TESTETABULEIRO
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTETABULEIRO.comp
    Arquivo plataforma:          gmake.parm
@@ -40,8 +40,8 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: peca.c
-      Total linhas:             141
-      Linhas de código:          64
+      Total linhas:             142
+      Linhas de código:          65
       Linhas de comentário:      65
       Linhas em branco:          19
    Arquivos de inclusão de que necessita
@@ -57,9 +57,9 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             249
-      Linhas de código:         111
-      Linhas de comentário:     108
+      Total linhas:             250
+      Linhas de código:         113
+      Linhas de comentário:     107
       Linhas em branco:          37
    Arquivos de inclusão de que necessita
       lista.h
@@ -114,17 +114,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1014
-         Linhas de código:           509
-         Linhas de comentário:       362
+         Total linhas do tipo:      1016
+         Linhas de código:           512
+         Linhas de comentário:       361
          Linhas em branco:           180
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRO
 
-   Total linhas:              1778
-   Linhas de código:           564
-   Linhas de comentário:      1016
+   Total linhas:              1780
+   Linhas de código:           567
+   Linhas de comentário:      1015
    Linhas em branco:           240
    Arquivos processados:         7
 
