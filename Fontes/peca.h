@@ -13,7 +13,7 @@
 *  
 *  $HA Histórico de evolução: 
 *     Versão  Autor    Data     Observações
-*     1       hs/mr/rh   30/maio/2014    implementação parcial do jogo
+*     1       hs/mr/rh   30/abril/2014    implementação parcial do jogo
 *  
 *  $ED Descrição do módulo
 *

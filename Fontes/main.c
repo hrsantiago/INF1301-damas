@@ -10,7 +10,7 @@
 
 int main()
 {
-	Peca *peca;
+    Peca *peca;
     Tabuleiro *tab = TAB_criar();
     TAB_inicializar(tab);
     TAB_imprimir(tab);
