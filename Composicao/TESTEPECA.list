@@ -21,37 +21,37 @@ Módulos do construto: TESTEPECA.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: peca.c
-      Total linhas:              66
-      Linhas de código:          52
-      Linhas de comentário:       5
-      Linhas em branco:           9
+      Total linhas:             142
+      Linhas de código:          65
+      Linhas de comentário:      65
+      Linhas em branco:          19
    Arquivos de inclusão de que necessita
       peca.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:              25
+      Total linhas:             217
       Linhas de código:          15
-      Linhas de comentário:       5
-      Linhas em branco:           5
+      Linhas de comentário:     190
+      Linhas em branco:          12
    Arquivos em que é incluído
       peca.c
       testpeca.c
 
    Estatísticas do arquivo: testpeca.c
-      Total linhas:             179
+      Total linhas:             192
       Linhas de código:          95
-      Linhas de comentário:      49
-      Linhas em branco:          37
+      Linhas de comentário:      63
+      Linhas em branco:          43
    Arquivos de inclusão de que necessita
       peca.h
 
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:        25
+         Total linhas do tipo:       217
          Linhas de código:            15
-         Linhas de comentário:         5
-         Linhas em branco:             5
+         Linhas de comentário:       190
+         Linhas em branco:            12
          Arquivos deste tipo:          1
 
   Tipo: obj      Path: ..\Objetos
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       245
-         Linhas de código:           147
-         Linhas de comentário:        54
-         Linhas em branco:            46
+         Total linhas do tipo:       334
+         Linhas de código:           160
+         Linhas de comentário:       128
+         Linhas em branco:            62
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTEPECA
 
-   Total linhas:               270
-   Linhas de código:           162
-   Linhas de comentário:        59
-   Linhas em branco:            51
+   Total linhas:               551
+   Linhas de código:           175
+   Linhas de comentário:       318
+   Linhas em branco:            74
    Arquivos processados:         3
 

@@ -1,5 +1,5 @@
 @ECHO  OFF
-REM  Compila todos os exemplos simples 
+REM  Compila os testes de lista, peca e tabuleiro, a partir dos respectivos arquivos make. 
 
 pushd  .
 

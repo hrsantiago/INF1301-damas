@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define tabuleiro_OWN   
 #include "tabuleiro.h"
@@ -87,7 +88,9 @@ Tabuleiro *TAB_criar()
 
 void TAB_destruir(Tabuleiro *tabuleiro)
 {
-    assert(tabuleiro);
+	#ifdef _DEBUG 
+       assert(tabuleiro);
+	#endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
 }/* Fim função: TAB  &Destruir tabuleiro */
@@ -101,8 +104,9 @@ void TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro)
 {
     int x, y;
-    assert(tabuleiro);
-
+	#ifdef _DEBUG   
+       assert(tabuleiro);
+	#endif 
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -128,7 +132,9 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
     int x, y;
-    assert(tabuleiro);
+	#ifdef _DEBUG   
+       assert(tabuleiro);
+	#endif 
 
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
@@ -161,13 +167,17 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 {
 	LIS_tppLista lista;
-    assert(tabuleiro);
+	#ifdef _DEBUG
+       assert(tabuleiro);
+	#endif 
 
     --linha;
     coluna = tolower(coluna) - 'a';
 
-    assert(linha >= 0 && linha <= TabuleiroAltura);
-    assert(coluna >= 0 && coluna <= TabuleiroLargura);
+	#ifdef _DEBUG 
+       assert(linha >= 0 && linha < TabuleiroAltura);
+       assert(coluna >= 0 && coluna < TabuleiroLargura);
+	#endif 
 
     LIS_IrIndice(tabuleiro->lista, linha);
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);

@@ -1,5 +1,5 @@
 @ECHO OFF
-REM executa os testes dos exemplos simples
+REM executa os testes de lista, peca e tabuleiro
 
 cls
 
