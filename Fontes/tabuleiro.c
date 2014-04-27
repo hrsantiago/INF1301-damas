@@ -190,11 +190,6 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
     --linha;
     coluna = tolower(coluna) - 'a';
 
-#ifdef _DEBUG
-    assert(linha >= 0 && linha < TabuleiroAltura);
-    assert(coluna >= 0 && coluna < TabuleiroLargura);
-#endif
-
     if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
         return NULL;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -221,11 +216,6 @@ void TAB_setarPeca(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 
     --linha;
     coluna = tolower(coluna) - 'a';
-
-#ifdef _DEBUG
-    assert(linha >= 0 && linha < TabuleiroAltura);
-    assert(coluna >= 0 && coluna < TabuleiroLargura);
-#endif
 
     if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
         return;
