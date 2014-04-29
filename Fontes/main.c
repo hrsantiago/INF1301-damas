@@ -14,7 +14,7 @@ int main()
     Tabuleiro *tab = TAB_criar();
     TAB_inicializar(tab);
     TAB_imprimir(tab);
-    peca = TAB_obterPeca(tab, 7, 'h');
+    peca = TAB_obterCasa(tab, 7, 'h');
     if(peca) {
         PEC_imprimir(peca);
         printf("\n");
@@ -23,11 +23,11 @@ int main()
         printf("Peca nao encontrada.\n");
 
     peca2 = PEC_criar(PecaDama, 'r');
-    TAB_setarPeca(tab, 1, 'a', peca2);
+    TAB_setarCasa(tab, 1, 'a', peca2);
     TAB_imprimir(tab);
 
     peca3 = PEC_criar(PecaDama, 'g');
-    TAB_setarPeca(tab, 2, 'a', peca3);
+    TAB_setarCasa(tab, 2, 'a', peca3);
     TAB_imprimir(tab);
 
     TAB_destruir(tab);

@@ -180,7 +180,7 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 *  Função: TAB  &Obter valor de uma peça no tabuleiro
 *  ****/
 
-Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
+Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 {
     LIS_tppLista lista;
 #ifdef _DEBUG
@@ -206,7 +206,7 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna)
 *  Função: TAB  &Setar valor de uma peça no tabuleiro
 *  ****/
 
-void TAB_setarPeca(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
+void TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 {
     LIS_tppLista lista;
     Peca *antiga;

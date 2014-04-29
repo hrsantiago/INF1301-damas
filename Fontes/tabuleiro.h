@@ -190,7 +190,7 @@ void TAB_imprimir(Tabuleiro *tabuleiro);
 *
 *
 ***********************************************************************/
-Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna);
+Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 
 
 /***********************************************************************
@@ -212,6 +212,6 @@ Peca *TAB_obterPeca(Tabuleiro *tabuleiro, int linha, char coluna);
 *
 *
 ***********************************************************************/
-void TAB_setarPeca(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
+void TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
 
 #endif
