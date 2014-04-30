@@ -46,6 +46,7 @@ static const char IR_FIM_CMD              [] = "=irfinal"			;
 static const char IR_INDICE_CMD           [] = "=irindice"			;
 static const char AVANCAR_ELEM_CMD        [] = "=avancarelem"		;
 static const char SETAR_VALOR_CMD_INT	  [] = "=marcarvalor.int"	;
+static const char PROCURAR_VALOR_CMD      [] = "=procurarvalor"	    ;
 
 #define TRUE  1
 #define FALSE 0
@@ -54,15 +55,19 @@ static const char SETAR_VALOR_CMD_INT	  [] = "=marcarvalor.int"	;
 #define NAO_VAZIO 1
 
 #define DIM_VT_LISTA   10
+#define DIM_VT_PTR    100
 #define DIM_VALOR     100
 #define DIM_VALOR_INT	2               
 
 LIS_tppLista vtListas[DIM_VT_LISTA];
+void *storedPtr[DIM_VT_PTR];
+int storedPtrIndex = 1;
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
 static void DestruirValor(void * pValor);
 static int ValidarInxLista(int inxLista, int modo);
+static int ValidarInxStoredPtr(int inxStoredPtr);
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -93,6 +98,7 @@ static int ValidarInxLista(int inxLista, int modo);
 *     =irindice						inxLista  int	  CondRetEsp
 *	  =avancarelem                  inxLista  numElem CondRetEsp
 *	  =marcarvalor.int				inxLista  int     int			CondRetEsp
+*     =procurarvalor                inxLista  inxPtr  CondRetEsp
 ***********************************************************************/
 
 TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
@@ -111,9 +117,9 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     int i;
     int numElem = -1;
 
-    void *storedIntPtr[DIM_VALOR];
-    int storedIntPtrIndex = 0;
+    int inxStoredPtr;
 
+    storedPtr[0] = NULL;
     StringDado[0] = 0;
 
     /* Efetuar reset de teste de lista */
@@ -121,6 +127,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         for(i = 0; i < DIM_VT_LISTA; i++)
             vtListas[i] = NULL;
 
+        storedPtrIndex = 0;
         return TST_CondRetOK;
 
     } /* fim ativa: Efetuar reset de teste de lista */
@@ -129,7 +136,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, CRIAR_LISTA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxLista(inxLista, VAZIO)))
+        if((numLidos != 1) || (!ValidarInxLista(inxLista, VAZIO)))
             return TST_CondRetParm;
 
         vtListas[inxLista] = LIS_CriarLista(DestruirValor);
@@ -141,7 +148,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, ESVAZIAR_LISTA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         LIS_EsvaziarLista(vtListas[inxLista]);
@@ -153,7 +160,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, DESTRUIR_LISTA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         LIS_DestruirLista(vtListas[inxLista]);
@@ -166,13 +173,17 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, INS_ELEM_ANTES_CMD) == 0) {
         numLidos = LER_LerParametros("isi", &inxLista, StringDado, &CondRetEsp);
 
-        if((numLidos != 3) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
+
+        if(!ValidarInxStoredPtr(storedPtrIndex))
+            return TST_CondRetMemoria;
 
         pDado = (char *) malloc(strlen(StringDado) + 1);
         if(pDado == NULL)
             return TST_CondRetMemoria;
 
+        storedPtr[storedPtrIndex++] = pDado;
         strcpy(pDado, StringDado);
 
         CondRet = LIS_InserirElementoAntes(vtListas[inxLista], pDado);
@@ -186,13 +197,17 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, INS_ELEM_ANTES_CMD_INT) == 0) {
         numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[0], &IntDado[1], &CondRetEsp);
 
-        if((numLidos != 4) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
+
+        if(!ValidarInxStoredPtr(storedPtrIndex))
+            return TST_CondRetMemoria;
 
         pDadoInt = (int *) malloc(DIM_VALOR_INT*sizeof(int));
         if(pDadoInt == NULL)
             return TST_CondRetMemoria;
 
+        storedPtr[storedPtrIndex++] = pDadoInt;
         for(i=0;i<DIM_VALOR_INT;i++)
             pDadoInt[i]=IntDado[i];
 
@@ -207,13 +222,17 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, INS_ELEM_APOS_CMD) == 0) {
         numLidos = LER_LerParametros("isi", &inxLista, StringDado, &CondRetEsp);
 
-        if((numLidos != 3) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
+
+        if(!ValidarInxStoredPtr(storedPtrIndex))
+            return TST_CondRetMemoria;
 
         pDado = (char*)malloc(strlen(StringDado) + 1);
         if(pDado == NULL)
             return TST_CondRetMemoria;
 
+        storedPtr[storedPtrIndex++] = pDado;
         strcpy(pDado, StringDado);
 
         CondRet = LIS_InserirElementoApos(vtListas[inxLista], pDado);
@@ -227,13 +246,17 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, INS_ELEM_APOS_CMD_INT) == 0) {
         numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[0], &IntDado[1], &CondRetEsp);
 
-        if((numLidos != 4) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
+
+        if(!ValidarInxStoredPtr(storedPtrIndex))
+            return TST_CondRetMemoria;
 
         pDadoInt = (int *) malloc(DIM_VALOR_INT * sizeof(int));
         if(pDadoInt == NULL)
             return TST_CondRetMemoria;
 
+        storedPtr[storedPtrIndex++] = pDadoInt;
         for(i=0;i<DIM_VALOR_INT;i++)
             pDadoInt[i]=IntDado[i];
 
@@ -249,7 +272,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, EXC_ELEM_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
-        if((numLidos != 2) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         return TST_CompararInt(CondRetEsp, LIS_ExcluirElemento(vtListas[inxLista]),
@@ -260,7 +283,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, OBTER_VALOR_CMD) == 0) {
         numLidos = LER_LerParametros("isi", &inxLista, StringDado, &ValEsp);
 
-        if((numLidos != 3) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         pDado = (char *) LIS_ObterValor(vtListas[inxLista]);
@@ -278,7 +301,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, OBTER_VALOR_CMD_INT) == 0) {
         numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[0], &IntDado[1], &ValEsp);
 
-        if((numLidos != 4) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         pDadoInt = (int *)LIS_ObterValor(vtListas[inxLista]);
@@ -297,7 +320,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, IR_INICIO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         LIS_IrInicioLista(vtListas[inxLista]);
@@ -308,7 +331,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, IR_FIM_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         LIS_IrFinalLista(vtListas[inxLista]);
@@ -319,7 +342,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     else if(strcmp(ComandoTeste, AVANCAR_ELEM_CMD) == 0) {
         numLidos = LER_LerParametros("iii", &inxLista, &numElem, &CondRetEsp);
 
-        if((numLidos != 3) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         return TST_CompararInt(CondRetEsp,
@@ -331,7 +354,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     /* Testar Ir Indice */
     else if(strcmp(ComandoTeste, IR_INDICE_CMD) == 0) {
         numLidos = LER_LerParametros("iii", &inxLista, &numElem, &CondRetEsp);
-        if((numLidos != 3) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         return TST_CompararInt(CondRetEsp, LIS_IrIndice(vtListas[inxLista], numElem),
@@ -341,12 +364,25 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
     /* Testar Setar Valor INTEIRO*/
     else if(strcmp(ComandoTeste, SETAR_VALOR_CMD_INT) == 0) {
         numLidos = LER_LerParametros("iiii", &inxLista, &IntDado[0], &IntDado[1], &CondRetEsp);
-        if((numLidos != 4) || (! ValidarInxLista(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         return TST_CompararInt(CondRetEsp, LIS_SetarValor(vtListas[inxLista], IntDado),
                                "Condicao de retorno errada ao ir marcar o valor");
     } /* fim ativa: LIS  Setar Valor INTEIRO*/
+
+    /* Testar Procurar Valor */
+    else if(strcmp(ComandoTeste, PROCURAR_VALOR_CMD) == 0) {
+        numLidos = LER_LerParametros("iii", &inxLista, &inxStoredPtr, &CondRetEsp);
+        if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
+            return TST_CondRetParm;
+
+        if(!ValidarInxStoredPtr(inxStoredPtr))
+            return TST_CondRetParm;
+
+        return TST_CompararInt(CondRetEsp, LIS_ProcurarValor(vtListas[inxLista], storedPtr[inxStoredPtr]),
+                               "Condicao de retorno errada ao procurar valor");
+    } /* fim ativa: LIS Procurar Valor */
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TLIS &Testar lista */
@@ -388,5 +424,16 @@ int ValidarInxLista(int inxLista, int modo)
     }
     return TRUE;
 } /* Fim função: TLIS -Validar indice de lista */
+
+/***********************************************************************
+*
+*  $FC Função: TLIS -Validar indice de ponteiros
+*
+***********************************************************************/
+
+int ValidarInxStoredPtr(int inxStoredPtr)
+{
+    return (inxStoredPtr >= 0 && inxStoredPtr < DIM_VT_PTR) ? TRUE : FALSE;
+} /* Fim função: TLIS -Validar indice de ponteiros */
 
 /********** Fim do módulo de implementação: TLIS Teste lista de sí­mbolos **********/

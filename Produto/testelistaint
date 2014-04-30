@@ -10,19 +10,24 @@
     6  == Inicializar valores
    18  == Criar a lista 0
    21  == Verificar ObterValor relativo a lista vazia
-   24  == Inserir elemento em lista vazia
-   28  == Inserir elemento após primeiro
-   32  == Inserir elemento antes do último
-   36  == Excluir elemento do meio
-   40  == Excluir elemento do início
-   44  == Excluir elemento final, único
-   48  == Ver se a lista ficou vazia
-   51  == Destruir a lista
-!!!    0  Linha:    54  // fim 
+   24  == Inserir elemento em lista vazia -- index1
+   28  == Inserir elemento após primeiro -- index2
+   32  == Inserir elemento antes do último -- index3
+   36  == Ir inicio
+   39  == Procurar valor (indice 0 = NULL)
+   42  == Procurar valor (indice 1 = 1 2)
+   45  == Procurar valor (indice 3 = 5 6)
+   48  == Ir inicio
+   51  == Excluir elemento do início
+   55  == Excluir elemento do meio
+   59  == Excluir elemento final, único
+   63  == Ver se a lista ficou vazia
+   66  == Destruir a lista
+!!!    0  Linha:    69  // fim 
 
-!!! Número de linhas lidas:          54
-!!! Número de casos de teste:        11
-!!! Número comandos corretos:        24
+!!! Número de linhas lidas:          69
+!!! Número de casos de teste:        16
+!!! Número comandos corretos:        29
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
