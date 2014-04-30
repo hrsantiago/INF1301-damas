@@ -61,7 +61,7 @@ limpa :
 ### Dependências de módulos objeto a compilar
 
 $(Fobj)\testtabuleiro.obj :  {$(Pc)}\testtabuleiro.c \
-    {$(Ph)}tabuleiro.h         
+    {$(Ph)}peca.h               {$(Ph)}tabuleiro.h         
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\tabuleiro.obj :  {$(Pc)}\tabuleiro.c \

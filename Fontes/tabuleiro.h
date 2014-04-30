@@ -61,6 +61,7 @@ typedef struct _Tabuleiro Tabuleiro;
 *      e seu caracter representativo('x' ou 'o') diferenciando os times. 
 
 ***********************************************************************/
+
 typedef struct _Peca Peca;
 
 /***********************************************************************

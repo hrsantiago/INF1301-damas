@@ -9,8 +9,8 @@
 =declararparm   peca2  int 2  
 =declararparm   peca3  int 3 
 
-=declararparm   caracterA    string  "a"
-=declararparm   caracterB    string  "b"
+=declararparm   caracterA    string  "x"
+=declararparm   caracterB    string  "o"
 
 =declararparm   Normal      int  0
 =declararparm   Dama        int  1

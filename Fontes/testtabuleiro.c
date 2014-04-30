@@ -36,6 +36,7 @@ static const char DESTRUIR_TABULEIRO_CMD   [] = "=destruirtabuleiro";
 static const char INICIALIZAR_TABULEIRO_CMD[] = "=inicializartabuleiro";
 static const char OBTER_CASA_CMD           [] = "=obtercasa";
 static const char SETAR_CASA_CMD           [] = "=setarcasa";
+static const char REMOVER_PECA_CMD         [] = "=removerpeca";
 
 #define TRUE  1
 #define FALSE 0
@@ -69,7 +70,9 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     =criartabuleiro
 *     =destruirtabuleiro         inxLista
 *     =inicializartabuleiro      inxLista
-*     =obterpeca                 inxLista linha coluna ret
+*     =obterpeca                 inxLista  linha  coluna  ret
+*	  =setarcasa				 inxlista  linha  coluna
+*	  =removerpeca				 inxlista  linha  coluna
 *
 ***********************************************************************/
 
@@ -83,8 +86,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int i;
     int linha = -1;
     int coluna = -1;
-    StringDado[0] = 0;
     Peca *peca;
+	StringDado[0] = 0;
+   
 
     /* Efetuar reset de teste de tabuleiro */              
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
@@ -129,7 +133,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         return TST_CondRetOK;
     } /* fim ativa: Testar Inicializar tabuleiro */                                    
 
-	/* Testar Obter peca*/                                             
+	/* Testar Obter casa*/                                             
     else if(strcmp(ComandoTeste, OBTER_CASA_CMD) == 0) {
         numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado, &CondRetEsp);
 
@@ -139,11 +143,11 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         coluna = StringDado[0];
         retPtr = (void*)TAB_obterCasa(vtTabuleiros[inxLista], linha, coluna);
         return TST_CompararPonteiroNulo(CondRetEsp, retPtr, "Valor não deveria existir.");
-    } /* fim ativa: Testar Obter peca */
+    } /* fim ativa: Testar Obter casa */
 
-    /* Testar Setar peca*/
+    /* Testar Setar casa*/
     else if(strcmp(ComandoTeste, SETAR_CASA_CMD) == 0) {
-        numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado);
+        numLidos = LER_LerParametros("iis", &inxLista, &linha, StringDado);
 
         if((numLidos != 3) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
@@ -152,7 +156,19 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         peca = PEC_criar(PecaNormal, 'r');
         TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
         return TST_CondRetOK;
-    } /* fim ativa: Testar Setar peca */
+    } /* fim ativa: Testar Setar casa */
+
+	/* Testar Remover peca*/
+    else if(strcmp(ComandoTeste, REMOVER_PECA_CMD) == 0) {
+        numLidos = LER_LerParametros("iis", &inxLista, &linha, StringDado);
+
+        if((numLidos != 3) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+            return TST_CondRetParm;
+
+        coluna = StringDado[0];
+        TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, NULL);
+        return TST_CondRetOK;
+    } /* fim ativa: Testar Remover peca */
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TTAB &Testar tabuleiro */
