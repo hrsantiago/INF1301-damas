@@ -69,7 +69,7 @@ typedef struct _Peca Peca;
 *
 *  $ED Descrição da função
 *     
-*       Cria um novo tabuleiro (8x8) apartir da estrutura de lista,
+*       Cria um novo tabuleiro (8x8) a partir da estrutura de lista,
 *       sem qualquer valor, todas as posições possuem valor NULL.
 *  
 *  $EP Parâmetros
@@ -195,7 +195,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 
 /***********************************************************************
 *
-*  $FC Função: TAB  &Setar peça do tabuleiro
+*  $FC Função: TAB  &Setar Casa do tabuleiro
 *
 *  $ED Descrição da função
 *
@@ -203,12 +203,17 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *      dentro as dimensões do tabuleiro (8x8), a função coloca a peça  
 *	   recebida como parâmetro na casa especificada.
 *	   Caso contrário, faz nada.
+*	   Também é usada para retirar uma peca de determinada casa, passando
+*	   O parâmetro NULL.
 *
 *  $EP Parâmetros
 *
 *       Recebe como entrada um ponteiro para um tabuleiro do tipo
 *       Tabuleiro definido neste próprio módulo, a coordenada da linha
-*       e a coordenada da coluna onde se quer setar o valor e a peca
+*       e a coordenada da coluna onde se quer setar o valor e a peca.
+*
+*		O parametro peca pode ser NULL, caso em que a funcao destruirá a peca
+*		localizada na casa epecificada. Se nao houver peca nessa casa, faz nada.
 *
 *
 ***********************************************************************/
