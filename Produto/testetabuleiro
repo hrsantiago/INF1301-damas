@@ -34,16 +34,20 @@
   137  ==Verificar obter peca de linha inexistente, maior que 8
   142  ==Verificar obter peca de linha inexistente, nula ou negativa
   147  ==Verificar obter peca de coluna inexistente, "depois" de "h"
-  154  ==Verificar setar peca
-  161  ==destruir tabuleiros
-  165  ==destruir tabuleiro  inexistente
->>>    1  Linha:   166  Erro nos parâmetros do comando:  =destruirtabuleiro   tabuleiro2
-<<<    0  Linha:   167  Falha esperada foi recuperada. 
-!!!    0  Linha:   169  // fim 
+  154  ==Verificar setar casa
+  161  ==Verificar remover peca
+  168  ==Mover peca da linha 2, coluna g para linha 3,coluna h
+  175  ==Criar peca no tabuleiro 0, nao inicializado
+  179  ==Mover peca pelo tabuleiro 0
+  200  ==destruir tabuleiros
+  204  ==destruir tabuleiro  inexistente
+>>>    1  Linha:   205  Erro nos parâmetros do comando:  =destruirtabuleiro   tabuleiro2
+<<<    0  Linha:   206  Falha esperada foi recuperada. 
+!!!    0  Linha:   208  // fim 
 
-!!! Número de linhas lidas:         169
-!!! Número de casos de teste:        24
-!!! Número comandos corretos:       102
+!!! Número de linhas lidas:         208
+!!! Número de casos de teste:        28
+!!! Número comandos corretos:       129
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
