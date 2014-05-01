@@ -9,7 +9,7 @@ goto sai
 
 Cls
 
-Call  Limpatudo
+Call  Limpa
 Call  Geratudo
 Call  Compilatudo
 Call  TestaTudo

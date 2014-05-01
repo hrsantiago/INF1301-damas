@@ -1,19 +1,19 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: TesteLista.comp
+Composição do construto: TESTELISTA.comp
 
-   Nome do Construto:           TesteLista
+   Nome do Construto:           TESTELISTA
    Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
-   Arquivo composição:          TesteLista.comp
+   Arquivo composição:          TESTELISTA.comp
    Arquivo plataforma:          gmake.parm
 
-   Arquivo diretivas MAKE:      TesteLista.make
-   Arquivo diretivas LINK:      TesteLista.build
-   Arquivo listagem:            TesteLista.list
+   Arquivo diretivas MAKE:      TESTELISTA.make
+   Arquivo diretivas LINK:      TESTELISTA.build
+   Arquivo listagem:            TESTELISTA.list
 
-Módulos do construto: TesteLista.comp
+Módulos do construto: TESTELISTA.comp
 
    TestLista.c
    Lista.c
@@ -82,7 +82,7 @@ Totais por tipo de arquivo
          Linhas em branco:           197
          Arquivos deste tipo:          2
 
-Totais para todo o construto TesteLista
+Totais para todo o construto TESTELISTA
 
    Total linhas:              1262
    Linhas de código:           528
