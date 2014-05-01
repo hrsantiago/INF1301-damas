@@ -137,13 +137,14 @@ digidos em C (Autotest). Os passos a seguir elucidam esse processo:
 
 -Na pasta Fontes, coloque os arquivos header(.h): TST_ESPC.h, LERPARM.h e GENERICO.h. 
 
--Na pasta Composicao, coloque o arquivo Gmake.parm ????????????????????????
+-Na pasta Composicao, coloque o arquivo Gmake.parm
 
 -Crie no diretório uma pasta de nome "ferramnt" (tudo minúsculo) e nela coloque os 
  executáveis Gmake.exe, Compilebanner.exe e exbestat.exe
 
 
-Os batches disponibilizados são os seguintes:
+Cabe observar novamente que pode ser necessário executar o batch vsvars32.bat do Visual
+Studio para rodar os batches. Os batches disponibilizados são os seguintes:
 
 
 -Compila.bat: 	Compila um programa em C a partir de scripts de make. Deve-se usar a
