@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTETABULEIRO.comp
 
    Nome do Construto:           TESTETABULEIRO
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTETABULEIRO.comp
    Arquivo plataforma:          gmake.parm
@@ -23,9 +23,9 @@ Módulos do construto: TESTETABULEIRO.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             457
+      Total linhas:             464
       Linhas de código:         253
-      Linhas de comentário:     132
+      Linhas de comentário:     139
       Linhas em branco:          88
    Arquivos de inclusão de que necessita
       lista.h
@@ -48,9 +48,9 @@ Estatísticas do construto
       peca.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:             218
+      Total linhas:             224
       Linhas de código:          15
-      Linhas de comentário:     191
+      Linhas de comentário:     197
       Linhas em branco:          12
    Arquivos em que é incluído
       peca.c
@@ -58,19 +58,19 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             297
+      Total linhas:             290
       Linhas de código:         151
-      Linhas de comentário:     112
-      Linhas em branco:          42
+      Linhas de comentário:     107
+      Linhas em branco:          40
    Arquivos de inclusão de que necessita
       lista.h
       peca.h
       tabuleiro.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             223
+      Total linhas:             213
       Linhas de código:          11
-      Linhas de comentário:     197
+      Linhas de comentário:     187
       Linhas em branco:          15
    Arquivos em que é incluído
       tabuleiro.c
@@ -88,9 +88,9 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       800
+         Total linhas do tipo:       796
          Linhas de código:            56
-         Linhas de comentário:       686
+         Linhas de comentário:       682
          Linhas em branco:            63
          Arquivos deste tipo:          3
 
@@ -118,15 +118,15 @@ Totais por tipo de arquivo
   Tipo: c        Path: ..\Fontes
          Total linhas do tipo:      1097
          Linhas de código:           573
-         Linhas de comentário:       372
-         Linhas em branco:           192
+         Linhas de comentário:       374
+         Linhas em branco:           190
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRO
 
-   Total linhas:              1897
+   Total linhas:              1893
    Linhas de código:           629
-   Linhas de comentário:      1058
-   Linhas em branco:           255
+   Linhas de comentário:      1056
+   Linhas em branco:           253
    Arquivos processados:         7
 

@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TesteLista.comp
 
    Nome do Construto:           TesteLista
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TesteLista.comp
    Arquivo plataforma:          gmake.parm
@@ -21,18 +21,18 @@ Módulos do construto: TesteLista.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: Lista.c
-      Total linhas:             457
+      Total linhas:             464
       Linhas de código:         253
-      Linhas de comentário:     132
+      Linhas de comentário:     139
       Linhas em branco:          88
    Arquivos de inclusão de que necessita
       lista.h
 
    Estatísticas do arquivo: TestLista.c
-      Total linhas:             575
-      Linhas de código:         335
-      Linhas de comentário:     113
-      Linhas em branco:         160
+      Total linhas:             439
+      Linhas de código:         245
+      Linhas de comentário:     106
+      Linhas em branco:         109
    Arquivos de inclusão de que necessita
       lista.h
 
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1032
-         Linhas de código:           588
+         Total linhas do tipo:       903
+         Linhas de código:           498
          Linhas de comentário:       245
-         Linhas em branco:           248
+         Linhas em branco:           197
          Arquivos deste tipo:          2
 
 Totais para todo o construto TesteLista
 
-   Total linhas:              1391
-   Linhas de código:           618
+   Total linhas:              1262
+   Linhas de código:           528
    Linhas de comentário:       543
-   Linhas em branco:           284
+   Linhas em branco:           233
    Arquivos processados:         3
 
