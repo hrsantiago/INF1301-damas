@@ -5,6 +5,8 @@
 
 == Inicializar valores
 =declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
 
 =declararparm   OK             int  0
 =declararparm   ListaVazia     int  1
@@ -14,6 +16,7 @@
 
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
+
 
 == Criar a lista 0
 =criarlista      lista0 
@@ -65,5 +68,56 @@
 
 == Destruir a lista
 =destruirlista   lista0
+
+== Criar uma lista com dois elementos
+=criarlista          lista1 
+=inselemapos.int     lista1       1  2   OK
+=inselemapos.int     lista1       2 -1   OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista       lista1
+=obtervalorelem.int  lista1       1  2   pNULL
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista          lista2 
+=inselemapos.int     lista2       0  1   OK
+=inselemapos.int     lista2       2  3   OK
+=inselemapos.int     lista2       4  5   OK
+=inselemapos.int     lista2       6  7   OK
+
+== Verificar a lista de trás para diante
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       4  5   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       2  3   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       0  1   pNaoNULL
+=avancarelem         lista2      -1      FimLista
+
+== Verificar a lista de frente para trás
+=obtervalorelem.int  lista2       0  1   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       2  3   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       4  5   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+=avancarelem         lista2       1      FimLista
+
+== Verificar a lista andando demais de trás para diante
+=avancarelem         lista2     -10     FimLista
+=obtervalorelem.int  lista2       0  1  pNaoNULL
+
+
+== Verificar a lista andando demais de frente para trás
+=avancarelem         lista2      10     FimLista
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+
+== Destruir a lista
+=destruirlista   lista2
 
 // fim
