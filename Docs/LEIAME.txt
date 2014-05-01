@@ -96,27 +96,35 @@ O batch vsvars32.bat, disponibilizado pelo visual studio deve ser executado ante
 os batches.
 Há três formas de executar os testes:
 
-1. Na pasta Produto (onde estão os executáveis), execute o comando:    TESTE*.exe/S..scripts\Teste*.script.
-   TESTE*.exe e Teste*.script devem corresponder aos arquivos .exe que se quer testar e seu
-   respectivo script de teste, existente na pasta script.
+1. Na pasta Produto (onde estão os executáveis), execute o comando:
+	TESTE*.exe/S..\scripts\teste*.script /L..\produto\Teste*
    
-   EXEMPLO: TESTEPECA/s..\scripts\Testepeca
+   TESTE*.exe e teste*.script devem corresponder aos arquivos .exe que se quer testar e seu
+   respectivo script de teste, existente na pasta script.
 
-2. Execute o batch TestaTudo da pasta batches. Ele executará os testes dos módulos lista, peca 
+   Se for passado o parâmetro /L, será gerado um arquivo .log com o resultado dos testes.
+   Caso contrário, o resultado só será exibido na tela. 
+   
+   EXEMPLO: TESTEPECA.exe/s..\scripts\testepeca
+
+2. Execute o batch Testa.bat da pasta batches. Ele executará o teste de um dos módulos a
+   partir de seu script. Para isso, deve-se usar a seguinte sintaxe: 
+	
+	Testa.bat  <NomePrograma> <NomeScript> [l].
+   
+   Exemplo: Testa.bat TESTEPECA testepeca
+   
+   Se for passado [l], será gerado o arquivo .log do arquivo testado, na pasta Produtos.
+
+3. Execute o batch TestaTudo.bat da pasta batches. Ele executará os testes dos módulos lista, peca 
    e tabuleiro a partir dos scripts testelista.script, testepeca.script e testetebuleiro.script, 
    respectivamente. Também irá gerar:
-   - os relatórios dos testes (.log) respectivos: TesteLista.log, TestePECA.log e Testetabuleiro.log
+
+   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log
      na pasta Produto;
    - o arquivo estatisticas.estat na pasta Scripts, se o executável exbestat existir e estiver na 
      pasta correta (Veja seção seguinte: compilação através dos batches);
-   - ????? os error log (.err) respectivos: TesteLista.err, TestePECA.err e Testetabuleiro.err, 
-     além de tudo.err, que mostra o resultado da compilação de todos os construtos na pasta Produto.
-     ??????
 
-3. Execute o batch Testa da pasta batches. Ele execuará o teste de um dos módulos a partir de seu
-   script. Para isso, deve-se usar a seguinte sintaxe: Testa  <NomePrograma> <NomeScript> [l].
-   Exemplo: Testa.bat TESTEPECA testepeca
-   Se for passado [l], será gerado o arquivo .log do arquivo testado na pasta Produtos
 
 (Re)compilação através dos batches
 ==================================================================================
@@ -139,13 +147,15 @@ Os batches disponibilizados são os seguintes:
 
 
 -Compila.bat: 	Compila um programa em C a partir de scripts de make. Deve-se usar a
-             	sintaxe: Compila.bat <Nome do arquivo>.make (Exemplo: Compila.bat TESTEPECA). Gerará na pasta Produto
-	     	o arquivo .err com o resultado da compilação e o arquivo executável que
- 	      	implementa o respectivo teste. Na pasta Objetos, gera os arquivos .obj
-	      	correspondentes.
+             	sintaxe: Compila.bat <Nome do arquivo>.make (Exemplo: Compila.bat TESTEPECA).
+		Gerará na pasta Produto o arquivo .err com o resultado da compilação e o
+		arquivo executável que implementa o respectivo teste. Na pasta Objetos, 
+		gera os arquivos .obj correspondentes.
 
 -CompilaTudo.bat: Compila todos os testes, de lista, peca e tabuleiro. Usa os respectivos
-                  arquivos make.
+                  arquivos make. Gera os error log (.err): TesteLista.err, TestePECA.err e 
+		  Testetabuleiro.err, além de tudo.err, que mostra o resultado da compilação
+		  de todos os construtos na pasta Produto.
  
 -GeraMake.bat: 	Gera os scripts de make a partir dos arquivos de composição dos construtos
              	(.comp). Supõe a existência de uma pasta "ferramnt", com o utilitário Gmake.
@@ -167,6 +177,7 @@ Os batches disponibilizados são os seguintes:
 		tenham sido gerado nos testes, mantendo os executaveis.
 
 -Testa.bat:	Funciona como especificado em "Execução dos testes". 
+
 -TestaTudo.bat: Funciona como especificado em "Execução dos testes". Caso a pasta "ferramnt"
 		exista e tenha sido corretamente criada, deverá criar um arquivo .estat na pas-
 		ta Scripts.
