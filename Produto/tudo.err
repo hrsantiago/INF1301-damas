@@ -2,6 +2,12 @@
 
 #################### Compilacao do construto: TESTELISTA
 
+TestLista.c
+..\Fontes\TestLista.c(187) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+..\Fontes\TestLista.c(236) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(105) : see declaration of 'strcpy'
+Lista.c
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
@@ -14,6 +20,8 @@ ArcaboucoTeste.lib
 
 #################### Compilacao do construto: TESTEPECA
 
+testpeca.c
+peca.c
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
@@ -26,6 +34,13 @@ ArcaboucoTeste.lib
 
 #################### Compilacao do construto: TESTETABULEIRO
 
+testtabuleiro.c
+..\Fontes\testtabuleiro.c(144) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(157) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(169) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+tabuleiro.c
+..\Fontes\tabuleiro.c(191) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(218) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
