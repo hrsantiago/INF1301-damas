@@ -158,6 +158,7 @@
 =procurarvalor	     lista3 2 NaoAchou
 =procurarvalor	     lista3 3 NaoAchou
 =procurarvalor       lista3 4 OK
+=obtervalorelem.int  lista3 4 4 pNaoNULL
 
 ==Ir para indice maior que 7 e procurar o valor 8
 =irindice	     lista3 10 FimLista
@@ -199,9 +200,9 @@
 =procurarvalor       lista3  2 OK
 
 ==Esvaziar lista e testar funções
-=esvaziarlista       lista3
-=obtervalorelem.int  lista3  0 0 pNULL
-=excluirelem	       lista3      ListaVazia
+=esvaziarlista        lista3
+=obtervalorelem.int   lista3  0 0 pNULL
+=excluirelem	      lista3      ListaVazia
 =irinicio             lista3		
 =irfinal              lista3
 =irindice             lista3    2 ListaVazia
@@ -209,5 +210,8 @@
 =avancarelem          lista3    5 ListaVazia
 =marcarvalor.int      lista3  0 0 ListaVazia
 =procurarvalor        lista3    0 ListaVazia
+
+==destruir lista
+=destruirlista        lista3
 
 // fim

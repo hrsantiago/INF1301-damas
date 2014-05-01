@@ -29,10 +29,10 @@ Estatísticas do construto
       lista.h
 
    Estatísticas do arquivo: TestLista.c
-      Total linhas:             439
-      Linhas de código:         245
+      Total linhas:             450
+      Linhas de código:         255
       Linhas de comentário:     106
-      Linhas em branco:         109
+      Linhas em branco:         110
    Arquivos de inclusão de que necessita
       lista.h
 
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       903
-         Linhas de código:           498
+         Total linhas do tipo:       914
+         Linhas de código:           508
          Linhas de comentário:       245
-         Linhas em branco:           197
+         Linhas em branco:           198
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              1262
-   Linhas de código:           528
+   Total linhas:              1273
+   Linhas de código:           538
    Linhas de comentário:       543
-   Linhas em branco:           233
+   Linhas em branco:           234
    Arquivos processados:         3
 
