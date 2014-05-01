@@ -157,6 +157,7 @@
 =procurarvalor	     lista3 1 NaoAchou
 =procurarvalor	     lista3 2 NaoAchou
 =procurarvalor	     lista3 3 NaoAchou
+=procurarvalor       lista3 4 OK
 
 ==Ir para indice maior que 7 e procurar o valor 8
 =irindice	     lista3 10 FimLista
@@ -164,28 +165,28 @@
 
 ==Verificar setar valor
 =marcarvalor.int     lista3  0 0 OK
-=obtervalorelem.int  lista3  0 0 OK
+=obtervalorelem.int  lista3  0 0 pNaoNULL
 
 ==Alterar outros valores de lista
 =avancarelem         lista3   -1 OK
 =marcarvalor.int     lista3  1 1 OK
-=obtervalorelem.int  lista3  1 1 OK
+=obtervalorelem.int  lista3  1 1 pNaoNULL
 =avancarelem         lista3   -1 OK
 =marcarvalor.int     lista3  2 2 OK
-=obtervalorelem.int  lista3  2 2 OK
+=obtervalorelem.int  lista3  2 2 pNaoNULL
 =avancarelem         lista3   -1 OK
 =marcarvalor.int     lista3  3 3 OK
-=obtervalorelem.int  lista3  3 3 OK
+=obtervalorelem.int  lista3  3 3 pNaoNULL
 =avancarelem         lista3   -1 OK
 =marcarvalor.int     lista3  4 4 OK
-=obtervalorelem.int  lista3  4 4 OK
+=obtervalorelem.int  lista3  4 4 pNaoNULL
 =avancarelem         lista3   -1 OK
 =marcarvalor.int     lista3  5 5 OK
-=obtervalorelem.int  lista3  5 5 OK
+=obtervalorelem.int  lista3  5 5 pNaoNULL
 
 ==Procurar valor zero
 =irinicio            lista3
-=procurarvalor       lista3  0 0 OK
+=procurarvalor       lista3  9 OK
 
 ==Procurar valores retirados da lista
 =irinicio            lista3
@@ -200,13 +201,13 @@
 ==Esvaziar lista e testar funções
 =esvaziarlista       lista3
 =obtervalorelem.int  lista3  0 0 pNULL
-=excluirelem	     lista3      ListaVazia
-irinicio             lista3		
-irfinal              lista3
-irindice             lista3    2 ListaVazia
-avancarelem          lista3   -1 ListaVazia
-avancarelem          lista3    5 ListaVazia
-marcarvalor.int      lista3    0 ListaVazia
-procurarvalor        lista3    0 ListaVazia
+=excluirelem	       lista3      ListaVazia
+=irinicio             lista3		
+=irfinal              lista3
+=irindice             lista3    2 ListaVazia
+=avancarelem          lista3   -1 ListaVazia
+=avancarelem          lista3    5 ListaVazia
+=marcarvalor.int      lista3  0 0 ListaVazia
+=procurarvalor        lista3    0 ListaVazia
 
 // fim

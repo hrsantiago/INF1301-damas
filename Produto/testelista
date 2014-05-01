@@ -1,38 +1,53 @@
 
 !!! Inicio dos testes
-!!!      Construto sob teste: /home/henrique/Projetos/damas/Batches/../build/test_lista
+!!!      Construto sob teste: /home/henrique/Projetos/damas/build/test_lista
 !!!      Script de teste:     testelista.script
 
-!!!    0  Linha:     1  // Script:    TesteLista.script 
-!!!    0  Linha:     2  // Autor:     Arndt von Staa 
-!!!    0  Linha:     3  // Data:      02/abr/2008 
-!!!    0  Linha:     4  // Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada 
-!!!    0  Linha:     5  // 
-    7  == Inicializar valores
-   26  == Criar a lista 0
-   29  == Verificar ObterValor relativo a lista vazia
-   32  == Inserir elemento em lista vazia
-   36  == Inserir elemento após primeiro
-   40  == Inserir elemento antes do último
-   44  == Excluir elemento do meio
-   48  == Excluir elemento do início
-   52  == Excluir elemento final, único
-   56  == Ver se a lista ficou vazia
-   59  == Destruir a lista
-   62  == Criar uma lista com dois elementos
-   67  == Esvaziar a lista e ver se ficou vazia
-   71  == Destruir a lista
-   74  == Criar uma lista com quatro elementos
-   81  == Verificar a lista de trás para diante
-   91  == Verificar a lista de frente para trás
-  101  == Verificar a lista andando demais de trás para diante
-  105  == Verificar a lista andando demais de frente para trás
-  109  == Destruir a lista
-!!!    0  Linha:   112  // fim 
+!!!    0  Linha:     1  // Script:    testelista.script 
+!!!    0  Linha:     2  // Autor:     Henrique Santiago 
+!!!    0  Linha:     3  // Data:      26/abr/2014 
+!!!    0  Linha:     4  // Propósito: Testar o módulo lista 
+    6  == Inicializar valores
+   22  == Criar a lista 0
+   25  == Verificar ObterValor relativo a lista vazia
+   28  == Inserir elemento em lista vazia -- index1
+   32  == Inserir elemento após primeiro -- index2
+   36  == Inserir elemento antes do último -- index3
+   40  == Ir inicio
+   43  == Procurar valor (indice 0 = NULL)
+   46  == Procurar valor (indice 1 = 1 2)
+   49  == Procurar valor (indice 3 = 5 6)
+   52  == Ir inicio
+   55  == Excluir elemento do início
+   59  == Excluir elemento do meio
+   63  == Excluir elemento final, único
+   67  == Ver se a lista ficou vazia
+   70  == Destruir a lista
+   73  == Criar uma lista com dois elementos
+   78  == Esvaziar a lista e ver se ficou vazia
+   82  == Destruir a lista
+   85  == Criar uma lista com quatro elementos
+   92  == Verificar a lista de trás para diante
+  102  == Verificar a lista de frente para trás
+  112  == Verificar a lista andando demais de trás para diante
+  117  == Verificar a lista andando demais de frente para trás
+  121  == Destruir a lista
+  124  ==Criar lista com 8 elementos
+  135  ==Procurar valores
+  140  ==Verificar ir indice
+  152  ==Verificar se está no elemento inicial
+  155  ==Ir para elemento 3 e verificar se está nele
+  162  ==Ir para indice maior que 7 e procurar o valor 8
+  166  ==Verificar setar valor
+  170  ==Alterar outros valores de lista
+  187  ==Procurar valor zero
+  191  ==Procurar valores retirados da lista
+  201  ==Esvaziar lista e testar funções
+!!!    0  Linha:   213  // fim 
 
-!!! NÃºmero de linhas lidas:         112
-!!! NÃºmero de casos de teste:        20
-!!! NÃºmero comandos corretos:        62
+!!! NÃºmero de linhas lidas:         213
+!!! NÃºmero de casos de teste:        36
+!!! NÃºmero comandos corretos:       131
 !!! NÃºmero de falhas encontradas:     0
 
 !!! NÃ£o foram encontrados problemas
