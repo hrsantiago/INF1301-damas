@@ -212,13 +212,17 @@
 ==Criar pecas com caracteres Maiusculos
 =criarpeca     peca0 Normal "X"
 =criarpeca     peca1 Dama   "O"
-=obtercaracter peca0 "X"
-=obtercaracter peca1 "O"
+=obtercaracter peca0 "x"
+=obtercaracter peca1 "o"
 
 ==Setar caracter com caracteres Maiusculos
 =setarcaracter peca0 "X"
 =setarcaracter peca1 "O"
-=obtercaracter peca0 "X"
-=obtercaracter peca1 "O"
+=obtercaracter peca0 "x"
+=obtercaracter peca1 "o"
+
+==destruir pecas
+=destruirpeca peca0
+=destruirpeca peca1
 
 // fim
