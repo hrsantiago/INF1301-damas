@@ -42,6 +42,25 @@
 
 /***********************************************************************
 *
+*  $TC Tipo de dados: TAB Condições de retorno
+*
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções do tabuleiro
+*
+***********************************************************************/
+
+typedef enum {
+    LIS_CondRetOK, /* Concluiu corretamente */
+    LIS_CondRetListaVazia, /* A lista não contém elementos */
+    LIS_CondRetFimLista, /* Foi atingido o fim de lista */
+    LIS_CondRetNaoAchou, /* Não encontrou o valor procurado */
+    LIS_CondRetFaltouMemoria /* Faltou memória ao tentar criar um elemento de lista */
+} LIS_tpCondRet;
+
+
+/***********************************************************************
+*
 *  $TC Tipo de dados: TAB estrutura que referencia uma lista
 *  duplamente encadeada que representa as linhas do tabuleiro
 *

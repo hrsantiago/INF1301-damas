@@ -38,11 +38,11 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: LIS Condições de retorno
+*  $TC Tipo de dados: PEC Condições de retorno
 *
 *
 *  $ED Descrição do tipo
-*     Condições de retorno das funções da lista
+*     Condições de retorno das funções da peca
 *
 ***********************************************************************/
 
