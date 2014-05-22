@@ -102,13 +102,17 @@ Tabuleiro *TAB_criar()
 *  Função: TAB  &Destruir tabuleiro
 *  ****/
 
-void TAB_destruir(Tabuleiro *tabuleiro)
+TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-#ifdef _DEBUG
-    assert(tabuleiro);
-#endif
+  if(tabuleiro == NULL){
+    return  TAB_tpCondRetTabuleiroInexistente;
+  }
+
+  
+
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
+    return TAB_tpCondRetOK;
 }/* Fim função: TAB  &Destruir tabuleiro */
 
 
@@ -206,30 +210,33 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 *  Função: TAB  &Setar valor de uma peça no tabuleiro
 *  ****/
 
-void TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
+TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 {
     LIS_tppLista lista;
     Peca *antiga;
-#ifdef _DEBUG
-    assert(tabuleiro);
-#endif
 
+  if(tabuleiro == NULL){
+    return  TAB_tpCondRetTabuleiroInexistente;
+  }
     --linha;
     coluna = tolower(coluna) - 'a';
 
     if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
-        return;
+        return TAB_tpCondRetLinhaInexistente;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+    /*ver ainda se está certo
     if(!lista)
-        return;
+    return;*/
+    
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
-        return;
+        return TAB_tpCondRetColunaInexistente;
 
     antiga = LIS_ObterValor(lista);
     if(antiga)
         ListaExcluirPeca(antiga);
 
     LIS_SetarValor(lista, peca);
+    return CondRetOK;
 }/* Fim função: TAB  &Setar valor de uma peça no tabuleiro */
 
 /*****  Código das funções encapsuladas no módulo  *****/   

@@ -68,11 +68,11 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     =resetteste
 *           - anula o vetor de pecas. Provoca vazamento de memória
 *     =criartabuleiro
-*     =destruirtabuleiro         inxLista
+*     =destruirtabuleiro         inxLista  CondRet
 *     =inicializartabuleiro      inxLista
 *     =obterpeca                 inxLista  linha  coluna  ret
-*	  =setarcasa				 inxlista  linha  coluna
-*	  =removerpeca				 inxlista  linha  coluna
+*     =setarcasa		 inxlista  linha  coluna  CondRet
+*     =removerpeca		 inxlista  linha  coluna
 *
 ***********************************************************************/
 
@@ -84,6 +84,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     void *retPtr;
     char StringDado[DIM_VALOR];
     int i;
+    int CondRet;
     int linha = -1;
     int coluna = -1;
     Peca *peca;
@@ -111,15 +112,15 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
 	/* Testar Destruir tabuleiro */                              
     else if(strcmp(ComandoTeste, DESTRUIR_TABULEIRO_CMD) == 0) {
-        numLidos = LER_LerParametros("i", &inxLista);
+      numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
-        if((numLidos != 1) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        TAB_destruir(vtTabuleiros[inxLista]);
+        CondRet = TAB_destruir(vtTabuleiros[inxLista]);
         vtTabuleiros[inxLista] = NULL;
-
-        return TST_CondRetOK;
+	
+        return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao destruir a Tabuleiro.");
     } /* fim ativa: Testar Destruir tabuleiro */                                     
 
 	/* Testar Inicializar tabuleiro*/                                             
@@ -147,15 +148,17 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
     /* Testar Setar casa*/
     else if(strcmp(ComandoTeste, SETAR_CASA_CMD) == 0) {
-        numLidos = LER_LerParametros("iis", &inxLista, &linha, StringDado);
+      numLidos = LER_LerParametros("iiis", &inxLista, &linha,&CondRet, StringDado);
 
-        if((numLidos != 3) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
         coluna = StringDado[0];
         peca = PEC_criar(PecaNormal, 'r');
-        TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
-        return TST_CondRetOK;
+        CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
+	
+        
+	return TST_CompararInt(CondRetEsp ,CondRet,"erro ao setar peca no tabuleiro (coluna, linha ou tabuleiro inadequado).");
     } /* fim ativa: Testar Setar casa */
 
 	/* Testar Remover peca*/
