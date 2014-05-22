@@ -67,11 +67,11 @@ static int ValidarInxPeca(int inxLista, int Modo);
 *     =resetteste
 *           - anula o vetor de pecas. Provoca vazamento de memória
 *     =criarpeca                   inxLista  int     string
-*     =destruirpeca                inxLista
+*     =destruirpeca                inxLista          CondRet
 *     =obtertipo                   inxLista  int
-*     =setartipo                   inxLista  int
+*     =setartipo                   inxLista  int     CondRet
 *     =obtercaracter               inxLista  string
-*     =setarcaracter               inxLista  string
+*     =setarcaracter               inxLista  string  CondRet
 *
 ***********************************************************************/
 
@@ -82,6 +82,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int CondRetEsp = -1;
     char StringDado[DIM_VALOR];
     int i;
+    int CondRet;
     int tipo = -1;
     int caracter = -1;
     StringDado[0] = 0;
@@ -107,16 +108,16 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
 	/* Testar Destruir peca*/                                                
     else if(strcmp(ComandoTeste, DESTRUIR_PECA_CMD) == 0) {
-        numLidos = LER_LerParametros("i", &inxLista);
+      numLidos = LER_LerParametros("ii", &inxLista,&CondRetEsp);
 
-        if((numLidos != 1) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_destruir(vtPecas[inxLista]);
+        CondRet = PEC_destruir(vtPecas[inxLista]);
         vtPecas[inxLista] = NULL;
+	return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao destruir a peca.") ;
 
-        return TST_CondRetOK;
-    } /* fim ativa: Testar Destruir peca */                                     
+     } /* fim ativa: Testar Destruir peca */                                     
 
 	/* Testar Obter Tipo da peca*/                                            
     else if(strcmp(ComandoTeste, OBTER_TIPO_CMD) == 0) {
@@ -131,13 +132,13 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
 	/* Testar Setar Tipo da peca*/                                                           
     else if(strcmp(ComandoTeste, SETAR_TIPO_CMD) == 0) {
-        numLidos = LER_LerParametros("ii", &inxLista, &tipo);
+      numLidos = LER_LerParametros("iii", &inxLista, &tipo,&CondRetEsp);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarTipo(vtPecas[inxLista], tipo);
-        return TST_CondRetOK;
+        CondRet = PEC_setarTipo(vtPecas[inxLista], tipo);
+	return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao setar tipo da peca.");
     } /* fim ativa: Testar Setar Tipo da peca */                                          
 
 	/* Testar Obter Caracter da peca*/                                               
@@ -153,15 +154,15 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
 	/* Testar Setar Caracter da peca*/                                                            
     else if(strcmp(ComandoTeste, SETAR_CARACTER_CMD) == 0) {
-        numLidos = LER_LerParametros("is", &inxLista, StringDado);
+      numLidos = LER_LerParametros("iis", &inxLista, StringDado, &CondRetEsp);
 
-        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
+        if((numLidos != 3) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarCaracter(vtPecas[inxLista], StringDado[0]);
-        return TST_CondRetOK;
+        CondRet = PEC_setarCaracter(vtPecas[inxLista], StringDado[0]);
+        return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao setar caracter da peca.");
     } /* fim ativa: Testar Setar Caracter da peca */  
-
+ 
     return TST_CondRetNaoConhec;
 } /* Fim função: TPEC &Testar peca */
 
