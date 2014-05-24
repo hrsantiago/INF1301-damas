@@ -66,7 +66,7 @@
 
 ==Mudar Tipo das pecas
 =setartipo peca1 Normal OK
-=setartipo peca2 Dama OK
+=setartipo peca2 Dama   OK
 =setartipo peca3 Normal OK
 =obtertipo peca1 Normal 
 =obtertipo peca2 Dama 
@@ -82,8 +82,9 @@
 
 ==Verificar inexistencia da peca0 
 =obtertipo peca0 Normal
+=recuperar
 =obtertipo peca0 Dama
-
+=recuperar
 
 ==Destruir peca do meio 
 =destruirpeca peca2 OK
@@ -109,14 +110,12 @@
 =recuperar
 
 ==Setar tipo e caracter de peca inexistente
-=setartipo       peca0 Dama PecaVazia
-
+=setartipo       peca0 Dama   PecaVazia
 =setarcaracter   peca0 Branca PecaVazia
 
 ==Setar tipo e caracter de peca inexistente
 =setartipo       peca1 Normal PecaVazia
-
-=setarcaracter   peca1 Preta PecaVazia
+=setarcaracter   peca1 Preta  PecaVazia
 
 ==Destruir peca inexistente
 =destruirpeca  peca0 PecaVazia
