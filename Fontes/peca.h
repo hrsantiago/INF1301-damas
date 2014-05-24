@@ -38,6 +38,23 @@
 
 /***********************************************************************
 *
+*  $TC Tipo de dados: PEC Condições de retorno
+*
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções da peca
+*
+***********************************************************************/
+
+typedef enum {
+    PEC_CondRetOK, /* Concluiu corretamente */
+    PEC_CondRetPecaVazia, /* A peca não existe */
+    PEC_tpCondRetTipoInexistente, /* A peca não contém tipo adequado */
+   
+} PEC_tpCondRet;
+
+/***********************************************************************
+*
 *  $TC Tipo de dados: PEC tipo estipula a estrutura do tipo da peça
 *  $ED Descrição de tipo
 *
@@ -106,11 +123,12 @@ Peca *PEC_criar(PecaTipo tipo, char caracter);
 *
 *  $FV Valor retornado 
 *
-*        Não possui valor retornado, simplesmente libera (free()) a
-*        peça da lista que ela está localizada
+*        retorna PEC_tpCondRetOK e se não houver peça(==NULL), retorna
+*        PEC_tpCondRetPecaVazia
+*
 *
 ***********************************************************************/
-void PEC_destruir(Peca *peca);
+PEC_tpCondRet PEC_destruir(Peca *peca);
 
 /***********************************************************************
 *
@@ -175,12 +193,11 @@ PecaTipo PEC_obterTipo(Peca *peca);
 *
 *  $FV Valor retornado 
 *
-*        Não retorna um valor, simplesmente muda o valor tipo da peca
-*        recebida como parâmetro pelo valor de tipo recebido também
-*        como parâmetro.
-*
+*        retorna PEC_tpCondRetOK. Se não houver peça(==NULL), retorna
+*        PEC_tpCondRetPecaVazia e se o tipo não for adequado retorna
+*        PEC_tpCondRetTipoInexistente 
 ***********************************************************************/
-void PEC_setarTipo(Peca *peca, PecaTipo tipo);
+PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo);
 
 /***********************************************************************
 *
@@ -222,11 +239,9 @@ char PEC_obterCaracter(Peca *peca);
 *						   receber qualquer caracter.
 *  $FV Valor retornado 
 *
-*        Não retorna um valor, simplesmente muda o valor do caracter da peca
-*        recebida como parâmetro pelo valor de caracter também recebido como parâmetro.
-*		 Caso o caracter recebido como parâmetro seja maiusculo, será convertido
-*		 para uma letra minúscula e esta será armazenada em Peca.
+*        retorna PEC_tpCondRetOK. Se não houver peça(==NULL), retorna
+*        PEC_tpCondRetPecaVazia.
 ***********************************************************************/
-void PEC_setarCaracter(Peca *peca, char caracter);
+PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter);
 
 #endif

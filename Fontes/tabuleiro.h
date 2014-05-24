@@ -42,6 +42,25 @@
 
 /***********************************************************************
 *
+*  $TC Tipo de dados: TAB Condições de retorno
+*
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções do tabuleiro
+*
+***********************************************************************/
+
+typedef enum {
+    TAB_CondRetOK, /* Concluiu corretamente */
+    TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
+    TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
+    TAB_CondRetColunaInexistente, /*coluna fora dos limites do tabuleiro */
+    
+} TAB_tpCondRet;
+
+
+/***********************************************************************
+*
 *  $TC Tipo de dados: TAB estrutura que referencia uma lista
 *  duplamente encadeada que representa as linhas do tabuleiro
 *
@@ -102,12 +121,12 @@ Tabuleiro *TAB_criar();
 *
 *  $FV Valor retornado 
 *
-*        Não possui valor de retorno, simplesmente destroi (free()) o
-*        tabuleiro.
+*        retorna TAB_tpCondRetOK, se não houver tabuleiro retorna
+*        TAB_tpCondRetTabuleiroInexistente.
 *
 *
 ***********************************************************************/
-void TAB_destruir(Tabuleiro *tabuleiro);
+TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro);
 
 /***********************************************************************
 *
@@ -126,7 +145,7 @@ void TAB_destruir(Tabuleiro *tabuleiro);
 *
 *  $FV Valor retornado 
 *
-*        Não retorna nenhum valor, simplesmente inicializa o tabuleiro
+*        não retorna, simplesmente inicializa o tabuleiro
 *        com as pecas nas posições adequadas para um jogo de damas.
 *
 *
@@ -193,7 +212,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *  $ED Descrição da função
 *
 *      Se tabuleiro diferente de NULL e as linhas e colunas estiverem
-*      dentro as dimensões do tabuleiro (8x8), a função coloca a peça
+*      dentro das dimensões do tabuleiro (8x8), a função coloca a peça
 *      recebida como parâmetro na casa especificada.  Caso contrário,
 *      faz nada.  Também é usada para retirar uma peca de determinada
 *      casa, passando O parâmetro NULL.
@@ -205,9 +224,15 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *       $P Peca *peca - O parametro peca pode ser NULL, caso em que a funcao destruirá a peca
 *		        localizada na casa epecificada. Se nao houver peca nessa casa, faz nada.
 *                        Se não for NULL substitui o valor no tabuleiro pelo valor de peca
+* $FV Valor retornado 
 *
+*       retorna TAB_tpCondRetOK. Se o tabuleiro for NULL retorna
+*       TAB_tpCondRetTabuleiroInexistente. Caso a linha esteja fora do
+*       limite do tabuleiro retorna TAB_tpCondRetLinhaInexistente e
+*       caso a coluna esteja fora do limite do tabuleiro retorna
+*       TAB_tpCondRetColunaInexistente.
 *
 ***********************************************************************/
-void TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
+TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
 
 #endif
