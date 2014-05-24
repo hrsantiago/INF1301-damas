@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTELISTA.comp
 
    Nome do Construto:           TESTELISTA
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTELISTA.comp
    Arquivo plataforma:          gmake.parm
@@ -21,10 +21,10 @@ Módulos do construto: TESTELISTA.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: Lista.c
-      Total linhas:             464
+      Total linhas:             461
       Linhas de código:         253
-      Linhas de comentário:     139
-      Linhas em branco:          88
+      Linhas de comentário:     137
+      Linhas em branco:          87
    Arquivos de inclusão de que necessita
       lista.h
 
@@ -37,10 +37,10 @@ Estatísticas do construto
       lista.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             359
+      Total linhas:             358
       Linhas de código:          30
       Linhas de comentário:     298
-      Linhas em branco:          36
+      Linhas em branco:          35
    Arquivos em que é incluído
       Lista.c
       TestLista.c
@@ -48,10 +48,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       359
+         Total linhas do tipo:       358
          Linhas de código:            30
          Linhas de comentário:       298
-         Linhas em branco:            36
+         Linhas em branco:            35
          Arquivos deste tipo:          1
 
   Tipo: obj      Path: ..\Objetos
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       914
+         Total linhas do tipo:       911
          Linhas de código:           508
-         Linhas de comentário:       245
-         Linhas em branco:           198
+         Linhas de comentário:       243
+         Linhas em branco:           197
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              1273
+   Total linhas:              1269
    Linhas de código:           538
-   Linhas de comentário:       543
-   Linhas em branco:           234
+   Linhas de comentário:       541
+   Linhas em branco:           232
    Arquivos processados:         3
 

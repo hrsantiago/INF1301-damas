@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTEPECA.comp
 
    Nome do Construto:           TESTEPECA
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTEPECA.comp
    Arquivo plataforma:          gmake.parm
@@ -21,25 +21,25 @@ Módulos do construto: TESTEPECA.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: peca.c
-      Total linhas:             144
-      Linhas de código:          67
+      Total linhas:             148
+      Linhas de código:          68
       Linhas de comentário:      65
-      Linhas em branco:          19
+      Linhas em branco:          22
    Arquivos de inclusão de que necessita
       peca.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:             232
-      Linhas de código:          15
-      Linhas de comentário:     205
-      Linhas em branco:          12
+      Total linhas:             246
+      Linhas de código:          20
+      Linhas de comentário:     215
+      Linhas em branco:          14
    Arquivos em que é incluído
       peca.c
       testpeca.c
 
    Estatísticas do arquivo: testpeca.c
-      Total linhas:             192
-      Linhas de código:          95
+      Total linhas:             193
+      Linhas de código:          96
       Linhas de comentário:      63
       Linhas em branco:          43
    Arquivos de inclusão de que necessita
@@ -48,10 +48,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       232
-         Linhas de código:            15
-         Linhas de comentário:       205
-         Linhas em branco:            12
+         Total linhas do tipo:       246
+         Linhas de código:            20
+         Linhas de comentário:       215
+         Linhas em branco:            14
          Arquivos deste tipo:          1
 
   Tipo: obj      Path: ..\Objetos
@@ -76,17 +76,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       336
-         Linhas de código:           162
+         Total linhas do tipo:       341
+         Linhas de código:           164
          Linhas de comentário:       128
-         Linhas em branco:            62
+         Linhas em branco:            65
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTEPECA
 
-   Total linhas:               568
-   Linhas de código:           177
-   Linhas de comentário:       333
-   Linhas em branco:            74
+   Total linhas:               587
+   Linhas de código:           184
+   Linhas de comentário:       343
+   Linhas em branco:            79
    Arquivos processados:         3
 

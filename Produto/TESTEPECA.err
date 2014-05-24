@@ -5,7 +5,7 @@
 testpeca.c
 peca.c
 ..\Fontes\peca.c(57) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\peca.c(140) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\peca.c(143) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

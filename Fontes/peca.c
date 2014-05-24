@@ -112,7 +112,7 @@ PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
         return PEC_CondRetPecaVazia;
 
     if(tipo != PecaNormal && tipo != PecaDama)
-        return PEC_tpCondRetTipoInexistente;
+        return PEC_CondRetTipoInexistente;
 
     peca->tipo = tipo;
     return PEC_CondRetOK;

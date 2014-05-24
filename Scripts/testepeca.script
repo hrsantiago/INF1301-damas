@@ -13,8 +13,8 @@
 =declararparm   peca6  int 6 
 =declararparm   peca7  int 7 
 
-=declararparm OK      int 0
-=declararparm PecaVazia int 1
+=declararparm OK               int 0
+=declararparm PecaVazia        int 1
 =declararparm TipoInexistente  int 2
 
 
@@ -81,18 +81,18 @@
 =obtercaracter peca3 Branca
 
 ==Verificar inexistencia da peca0 
-=obtertipo peca0 Normal PecaVazia
-=obtertipo peca0 Dama PecaVazia
+=obtertipo peca0 Normal
+=obtertipo peca0 Dama
 
 
 ==Destruir peca do meio 
-=destruirpeca peca2
+=destruirpeca peca2 OK
 
 ==Destruir peca do início 
-=destruirpeca peca1
+=destruirpeca peca1 OK
 
 ==Destruir peca do fim 
-=destruirpeca peca3
+=destruirpeca peca3 OK
 
 ==Verificar se as pecas foram destruidas 
 =obtertipo peca1 Dama 

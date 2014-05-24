@@ -49,7 +49,7 @@
 typedef enum {
     PEC_CondRetOK, /* Concluiu corretamente */
     PEC_CondRetPecaVazia, /* A peca não existe */
-    PEC_tpCondRetTipoInexistente, /* A peca não contém tipo adequado */
+    PEC_CondRetTipoInexistente, /* A peca não contém tipo adequado */
 } PEC_tpCondRet;
 
 /***********************************************************************

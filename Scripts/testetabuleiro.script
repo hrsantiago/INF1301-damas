@@ -8,11 +8,11 @@
 =declararparm   tabuleiro1  int 1
 =declararparm	tabuleiro2  int	2  
 
-=declararparm   colunaA    string  "a"
-=declararparm   colunaB    string  "b"
+=declararparm   colunaA     string  "a"
+=declararparm   colunaB     string  "b"
 
-=declararparm   pNULL          int  0
-=declararparm   pNaoNULL       int  1
+=declararparm   pNULL       int  0
+=declararparm   pNaoNULL    int  1
 
 =declararparm OK      	       	   int 0
 =declararparm TabuleiroInexistente int 1
@@ -217,6 +217,6 @@
 
 ==destruir tabuleiro  inexistente
 =destruirtabuleiro   tabuleiro2 TabuleiroInexistente
-
+				
 
 // fim

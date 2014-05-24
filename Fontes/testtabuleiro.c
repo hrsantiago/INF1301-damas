@@ -71,8 +71,8 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     =destruirtabuleiro         inxLista  CondRet
 *     =inicializartabuleiro      inxLista
 *     =obterpeca                 inxLista  linha  coluna  ret
-*     =setarcasa		 inxlista  linha  coluna  CondRet
-*     =removerpeca		 inxlista  linha  coluna
+*     =setarcasa				 inxlista  linha  coluna  CondRet
+*     =removerpeca				 inxlista  linha  coluna
 *
 ***********************************************************************/
 
@@ -148,7 +148,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
     /* Testar Setar casa*/
     else if(strcmp(ComandoTeste, SETAR_CASA_CMD) == 0) {
-      numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado,&CondRet);
+      numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado,&CondRetEsp);
 
         if((numLidos != 4) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
@@ -157,8 +157,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         peca = PEC_criar(PecaNormal, 'r');
         CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
 	
-        
-	return TST_CompararInt(CondRetEsp ,CondRet,"Condicao de retorno errada ao setar peça");
+        return TST_CompararInt(CondRetEsp ,CondRet,"Condicao de retorno errada ao setar peça");
     } /* fim ativa: Testar Setar casa */
 
 	/* Testar Remover peca*/

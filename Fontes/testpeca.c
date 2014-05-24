@@ -154,7 +154,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
 	/* Testar Setar Caracter da peca*/                                                            
     else if(strcmp(ComandoTeste, SETAR_CARACTER_CMD) == 0) {
-      numLidos = LER_LerParametros("iis", &inxLista, StringDado, &CondRetEsp);
+      numLidos = LER_LerParametros("isi", &inxLista, StringDado, &CondRetEsp);
 
         if((numLidos != 3) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
