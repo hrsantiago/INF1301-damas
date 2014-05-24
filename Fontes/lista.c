@@ -1,4 +1,3 @@
-
 /***************************************************************************
 *  $MCI Módulo de implementação: LIS  Lista duplamente encadeada
 *
@@ -36,36 +35,34 @@
 *
 *  $TC Tipo de dados: LIS Elemento da lista
 *
-*
 ***********************************************************************/
 
 typedef struct tagElemLista {
+    /* Ponteiro para o valor contido no elemento */
     void *pValor;
-		/* Ponteiro para o valor contido no elemento */
+    /* Ponteiro para o elemento antecessor */
     struct tagElemLista *pAnt;
-		/* Ponteiro para o elemento antecessor */
+    /* Ponteiro para o elemento sucessor */
     struct tagElemLista *pProx;
-		/* Ponteiro para o elemento sucessor */
 } tpElemLista;
 
 /***********************************************************************
 *
 *  $TC Tipo de dados: LIS Descritor da cabeça de lista
 *
-*
 ***********************************************************************/
 
 typedef struct LIS_tagLista {
     tpElemLista *pOrigemLista;
-		/* Ponteiro para a origem da lista */
+    /* Ponteiro para a origem da lista */
     tpElemLista *pFimLista;
-		/* Ponteiro para o final da lista */
+    /* Ponteiro para o final da lista */
     tpElemLista *pElemCorr;
-		/* Ponteiro para o elemento corrente da lista */
+    /* Ponteiro para o elemento corrente da lista */
     int numElem;
-		/* Número de elementos da lista */
+    /* Número de elementos da lista */
     void (*ExcluirValor)(void *pValor);
-		/* Ponteiro para a função de destruição do valor contido em um elemento */
+    /* Ponteiro para a função de destruição do valor contido em um elemento */
 } LIS_tpLista;
 
 /***** Protótipos das funções encapuladas no módulo *****/

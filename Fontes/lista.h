@@ -1,4 +1,3 @@
-
 /***************************************************************************
 *
 *  $MCD Módulo de definição: LIS  Lista duplamente encadeada
@@ -44,15 +43,15 @@
 *
 *  $CRE Créditos
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
-		 programas redigidos em C; módulo Lista Duplamente Encadeada
+         programas redigidos em C; módulo Lista Duplamente Encadeada
 ***************************************************************************/
 #ifndef LISTA_
 #define LISTA_
- 
+
 #ifdef LISTA_OWN
-   #define LISTA_EXT
+#define LISTA_EXT
 #else
-   #define LISTA_EXT extern
+#define LISTA_EXT extern
 #endif
 
 /***** Declarações exportadas pelo módulo *****/
@@ -87,7 +86,7 @@ typedef enum {
 *     Cria uma lista genérica duplamente encadeada.
 *     Os possíveis tipos são desconhecidos a priori.
 *     A tipagem é implicita.
-*     Não existe identificador de tipo associado à lista.
+*     Não existe identificador de tipo associado �  lista.
 *
 *  $EP Parâmetros
 *      $P ExcluirValor  - ponteiro para a função que processa a
@@ -191,7 +190,7 @@ LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista, void *pValor);
 *  $ED Descrição da função
 *     Exclui o elemento corrente da lista dada.
 *     Se existir o elemento aa esquerda do corrente será o novo corrente.
-*     Se não existir e existir o elemento à direita, este se tornará corrente.
+*     Se não existir e existir o elemento �  direita, este se tornará corrente.
 *     Se este também não existir a lista tornou-se vazia.
 *
 *  $EP Parâmetros

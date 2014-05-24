@@ -1,4 +1,3 @@
-
 /***************************************************************************
 *  $MCD Módulo de declaração: TAB  Tabuleiro 
 *
@@ -55,7 +54,6 @@ typedef enum {
     TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
     TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
     TAB_CondRetColunaInexistente, /*coluna fora dos limites do tabuleiro */
-    
 } TAB_tpCondRet;
 
 

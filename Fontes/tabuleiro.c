@@ -55,7 +55,6 @@ typedef struct _Tabuleiro {
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 static void ListaExcluirPeca(void *pDado);
-
 static void ListaExcluirLista(void *pDado); 
 
 
@@ -104,15 +103,12 @@ Tabuleiro *TAB_criar()
 
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-  if(tabuleiro == NULL){
-    return  TAB_tpCondRetTabuleiroInexistente;
-  }
-
-  
+    if(tabuleiro == NULL)
+        return TAB_CondRetTabuleiroInexistente;
 
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
-    return TAB_tpCondRetOK;
+    return TAB_CondRetOK;
 }/* Fim função: TAB  &Destruir tabuleiro */
 
 
@@ -215,21 +211,20 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     LIS_tppLista lista;
     Peca *antiga;
 
-  if(tabuleiro == NULL){
-    return  TAB_tpCondRetTabuleiroInexistente;
-  }
+    if(tabuleiro == NULL)
+        return TAB_CondRetTabuleiroInexistente;
     --linha;
     coluna = tolower(coluna) - 'a';
 
     if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
-        return TAB_tpCondRetLinhaInexistente;
+        return TAB_CondRetLinhaInexistente;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
     /*ver ainda se está certo
     if(!lista)
     return;*/
     
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
-        return TAB_tpCondRetColunaInexistente;
+        return TAB_CondRetColunaInexistente;
 
     antiga = LIS_ObterValor(lista);
     if(antiga)
