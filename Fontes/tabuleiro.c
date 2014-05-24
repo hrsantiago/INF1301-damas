@@ -236,7 +236,7 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
         ListaExcluirPeca(antiga);
 
     LIS_SetarValor(lista, peca);
-    return CondRetOK;
+    return TAB_CondRetOK;
 }/* Fim função: TAB  &Setar valor de uma peça no tabuleiro */
 
 /*****  Código das funções encapsuladas no módulo  *****/   

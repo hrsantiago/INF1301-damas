@@ -120,7 +120,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         CondRet = TAB_destruir(vtTabuleiros[inxLista]);
         vtTabuleiros[inxLista] = NULL;
 	
-        return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao destruir a Tabuleiro.");
+        return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao destruir o tabuleiro.");
     } /* fim ativa: Testar Destruir tabuleiro */                                     
 
 	/* Testar Inicializar tabuleiro*/                                             
@@ -148,7 +148,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
     /* Testar Setar casa*/
     else if(strcmp(ComandoTeste, SETAR_CASA_CMD) == 0) {
-      numLidos = LER_LerParametros("iiis", &inxLista, &linha,&CondRet, StringDado);
+      numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado,&CondRet);
 
         if((numLidos != 4) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
@@ -158,7 +158,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
 	
         
-	return TST_CompararInt(CondRetEsp ,CondRet,"erro ao setar peca no tabuleiro (coluna, linha ou tabuleiro inadequado).");
+	return TST_CompararInt(CondRetEsp ,CondRet,"Condicao de retorno errada ao setar peça");
     } /* fim ativa: Testar Setar casa */
 
 	/* Testar Remover peca*/
