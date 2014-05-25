@@ -21,6 +21,8 @@ set(SOURCES
   Fontes/tabuleiro.h
   Fontes/peca.c
   Fontes/peca.h
+  Fontes/jogo.c
+  Fontes/jogo.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

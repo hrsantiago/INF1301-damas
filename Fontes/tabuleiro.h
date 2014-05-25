@@ -53,7 +53,10 @@ typedef enum _TAB_tpCondRet{
     TAB_CondRetOK, /* Concluiu corretamente */
     TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
     TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
-    TAB_CondRetColunaInexistente /*coluna fora dos limites do tabuleiro */
+    TAB_CondRetColunaInexistente, /*coluna fora dos limites do tabuleiro */
+    TAB_CondRetPecaInexistente, /*peca nao existe no tabuleiro */
+    TAB_CondRetPecaNaoPertenceJogador, /*a peca nao pertence ao jogador */
+    TAB_CondRetPosDestOcupada, /* a posicao de destino ja esta ocupada por outra peca */
 } TAB_tpCondRet;
 
 
@@ -149,7 +152,7 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro);
 *
 *
 ***********************************************************************/
-void TAB_inicializar(Tabuleiro *tabuleiro);
+void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);
 
 /***********************************************************************
 *
@@ -232,5 +235,8 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *
 ***********************************************************************/
 TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
+
+/* */
+TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int linhaPara, char colunaPara, char idJogador);
 
 #endif

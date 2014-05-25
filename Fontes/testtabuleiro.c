@@ -130,7 +130,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         if((numLidos != 1) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        TAB_inicializar(vtTabuleiros[inxLista]);
+        TAB_inicializar(vtTabuleiros[inxLista], 'x', 'o');
         return TST_CondRetOK;
     } /* fim ativa: Testar Inicializar tabuleiro */                                    
 

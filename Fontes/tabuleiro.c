@@ -117,7 +117,7 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 *  Função: TAB  &Inicializar tabuleiro para início de uma partida
 *  ****/
 
-void TAB_inicializar(Tabuleiro *tabuleiro)
+void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
 #ifdef _DEBUG
@@ -130,9 +130,9 @@ void TAB_inicializar(Tabuleiro *tabuleiro)
         for(x = 0; x < TabuleiroLargura; ++x) {
             Peca *peca = NULL;
             if(y < 2 && (x + y) % 2 == 1)
-                peca = PEC_criar(PecaNormal, 'x');
+                peca = PEC_criar(PecaNormal, idJogador1);
             else if(y > TabuleiroAltura - 3 && (x + y) % 2 == 1)
-                peca = PEC_criar(PecaNormal, 'o');
+                peca = PEC_criar(PecaNormal, idJogador2);
 
             LIS_SetarValor(lista, peca);
             LIS_AvancarElementoCorrente(lista, 1);
@@ -209,7 +209,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 {
     LIS_tppLista lista;
-    Peca *antiga;
+//    Peca *antiga;
 
     if(tabuleiro == NULL)
         return TAB_CondRetTabuleiroInexistente;
@@ -226,13 +226,37 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return TAB_CondRetColunaInexistente;
 
-    antiga = LIS_ObterValor(lista);
-    if(antiga)
-        ListaExcluirPeca(antiga);
+    // nao limpar peca por hora, somente e utilizada por tab_mover
+//    antiga = LIS_ObterValor(lista);
+//    if(antiga)
+//        ListaExcluirPeca(antiga);
 
     LIS_SetarValor(lista, peca);
     return TAB_CondRetOK;
 }/* Fim função: TAB  &Setar valor de uma peça no tabuleiro */
+
+/***************************************************************************
+*
+*  Função: TAB  &mover uma peça no tabuleiro
+*  ****/
+
+TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int linhaPara, char colunaPara, char idJogador)
+{
+    Peca *peca = TAB_obterCasa(tabuleiro, linhaDe, colunaDe);
+    if(!peca)
+        return TAB_CondRetPecaInexistente;
+
+    if(PEC_obterCaracter(peca) != idJogador)
+        return TAB_CondRetPecaNaoPertenceJogador;
+
+    if(TAB_obterCasa(tabuleiro, linhaPara, colunaPara))
+        return TAB_CondRetPosDestOcupada;
+
+    TAB_setarCasa(tabuleiro, linhaDe, colunaDe, NULL);
+    TAB_setarCasa(tabuleiro, linhaPara, colunaPara, peca);
+
+    return TAB_CondRetOK;
+}
 
 /*****  Código das funções encapsuladas no módulo  *****/   
 
