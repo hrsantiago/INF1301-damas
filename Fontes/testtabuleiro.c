@@ -43,6 +43,7 @@ static const char REMOVER_PECA_CMD         [] = "=removerpeca";
 
 #define VAZIO     0
 #define NAO_VAZIO 1
+#define INDIFERENTE 2
 
 #define DIM_VT_TABULEIRO   10
 #define DIM_VALOR     100
@@ -88,18 +89,17 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int linha = -1;
     int coluna = -1;
     Peca *peca;
-	StringDado[0] = 0;
-   
+    StringDado[0] = 0;
 
-    /* Efetuar reset de teste de tabuleiro */              
+    /* Efetuar reset de teste de tabuleiro */
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
         for(i = 0; i < DIM_VT_TABULEIRO; i++)
             vtTabuleiros[i] = NULL;
 
         return TST_CondRetOK;
-    } /* fim ativa: Efetuar reset de teste de tabuleiro */  
+    } /* fim ativa: Efetuar reset de teste de tabuleiro */
 
-	/* Testar Criar tabuleiro */                              
+    /* Testar Criar tabuleiro */
     else if(strcmp(ComandoTeste, CRIAR_TABULEIRO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -108,22 +108,22 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         vtTabuleiros[inxLista] = TAB_criar();
         return TST_CompararPonteiroNulo(1, vtTabuleiros[inxLista], "Erro em ponteiro do novo tabuleiro.");
-    } /* fim ativa: Testar Criar tabuleiro */  
+    } /* fim ativa: Testar Criar tabuleiro */
 
-	/* Testar Destruir tabuleiro */                              
+    /* Testar Destruir tabuleiro */
     else if(strcmp(ComandoTeste, DESTRUIR_TABULEIRO_CMD) == 0) {
-      numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
+        numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
-        if((numLidos != 2) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (!ValidarInxTabuleiro(inxLista, INDIFERENTE)))
             return TST_CondRetParm;
 
         CondRet = TAB_destruir(vtTabuleiros[inxLista]);
         vtTabuleiros[inxLista] = NULL;
-	
-        return TST_CompararInt( CondRetEsp ,CondRet,"Condicao de retorno errada ao destruir o tabuleiro.");
-    } /* fim ativa: Testar Destruir tabuleiro */                                     
 
-	/* Testar Inicializar tabuleiro*/                                             
+        return TST_CompararInt(CondRetEsp, CondRet, "Condicao de retorno errada ao destruir o tabuleiro.");
+    } /* fim ativa: Testar Destruir tabuleiro */
+
+    /* Testar Inicializar tabuleiro*/
     else if(strcmp(ComandoTeste, INICIALIZAR_TABULEIRO_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
@@ -132,9 +132,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         TAB_inicializar(vtTabuleiros[inxLista], 'x', 'o');
         return TST_CondRetOK;
-    } /* fim ativa: Testar Inicializar tabuleiro */                                    
+    } /* fim ativa: Testar Inicializar tabuleiro */
 
-	/* Testar Obter casa*/                                             
+    /* Testar Obter casa*/
     else if(strcmp(ComandoTeste, OBTER_CASA_CMD) == 0) {
         numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado, &CondRetEsp);
 
@@ -148,19 +148,19 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
     /* Testar Setar casa*/
     else if(strcmp(ComandoTeste, SETAR_CASA_CMD) == 0) {
-      numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado,&CondRetEsp);
+        numLidos = LER_LerParametros("iisi", &inxLista, &linha, StringDado,&CondRetEsp);
 
-        if((numLidos != 4) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 4) || (!ValidarInxTabuleiro(inxLista, INDIFERENTE)))
             return TST_CondRetParm;
 
         coluna = StringDado[0];
         peca = PEC_criar(PecaNormal, 'r');
         CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
-	
-        return TST_CompararInt(CondRetEsp ,CondRet,"Condicao de retorno errada ao setar peça");
+
+        return TST_CompararInt(CondRetEsp, CondRet, "Condicao de retorno errada ao setar peça");
     } /* fim ativa: Testar Setar casa */
 
-	/* Testar Remover peca*/
+    /* Testar Remover peca*/
     else if(strcmp(ComandoTeste, REMOVER_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("iis", &inxLista, &linha, StringDado);
 
@@ -191,7 +191,7 @@ int ValidarInxTabuleiro(int inxLista, int Modo)
     if(Modo == VAZIO) {
         if(vtTabuleiros[inxLista] != 0)
             return FALSE;
-    } else {
+    } else if(Modo == NAO_VAZIO) {
         if(vtTabuleiros[inxLista] == 0)
             return FALSE;
     }

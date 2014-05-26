@@ -1,25 +1,81 @@
 
 !!! Inicio dos testes
-!!!      Construto sob teste: /home/henrique/Projetos/damas/Batches/../build/test_peca
+!!!      Construto sob teste: /home/henrique/Projetos/damas/build/test_peca
 !!!      Script de teste:     testepeca.script
 
 !!!    0  Linha:     1  // Script:    testepeca.script 
 !!!    0  Linha:     2  // Autor:     Henrique Santiago 
 !!!    0  Linha:     3  // Data:      14/abr/2014 
-!!!    0  Linha:     4  // Prop�sito: Testar superficialmente o m�dulo pe�a 
+!!!    0  Linha:     4  // Prop�sito: Testar o m�dulo pe�a 
     6  == Inicializar valores
-   17  == Criar a peca 0
-   20  == Verificar ObterTipo relativo a peca inicial
-   23  == Verificar ObterCaracter relativo a peca inicial
-   26  == Setar tipo
-   29  == Obter tipo
-   32  == Setar Caracter
-   35  == Obter Caracter
-!!!    0  Linha:    40  // fim 
+   28  == Criar a peca 0
+   31  == Verificar ObterTipo relativo a peca inicial
+   34  == Verificar ObterCaracter relativo a peca inicial
+   37  == Setar tipo
+   40  == Obter tipo
+   43  == Setar Caracter
+   46  == Obter Caracter
+   49  ==Destruir Peca
+   52  ==Criar 3 pecas
+   57  ==Obter tipo
+   62  ==Obter Caracter
+   67  ==Mudar Tipo das pecas
+   75  ==Mudar caracter das pecas
+   83  ==Verificar inexistencia da peca0
+>>>    1  Linha:    84  Erro nos parâmetros do comando:  =obtertipo peca0 Normal
+<<<    0  Linha:    85  Falha esperada foi recuperada. 
+>>>    1  Linha:    86  Erro nos parâmetros do comando:  =obtertipo peca0 Dama
+<<<    0  Linha:    87  Falha esperada foi recuperada. 
+   89  ==Destruir peca do meio
+   92  ==Destruir peca do in�cio
+   95  ==Destruir peca do fim
+   98  ==Verificar se as pecas foram destruidas
+>>>    1  Linha:    99  Erro nos parâmetros do comando:  =obtertipo peca1 Dama
+<<<    0  Linha:   100  Falha esperada foi recuperada. 
+>>>    1  Linha:   101  Erro nos parâmetros do comando:  =obtertipo peca2 Normal
+<<<    0  Linha:   102  Falha esperada foi recuperada. 
+>>>    1  Linha:   103  Erro nos parâmetros do comando:  =obtertipo peca3 Dama
+<<<    0  Linha:   104  Falha esperada foi recuperada. 
+  106  ==Obter caracter de peca inexistente
+>>>    1  Linha:   107  Erro nos parâmetros do comando:  =obtercaracter peca0 Branca
+<<<    0  Linha:   108  Falha esperada foi recuperada. 
+>>>    1  Linha:   109  Erro nos parâmetros do comando:  =obtercaracter peca0 Preta
+<<<    0  Linha:   110  Falha esperada foi recuperada. 
+  112  ==Setar tipo e caracter de peca inexistente
+  116  ==Setar tipo e caracter de peca inexistente
+  120  ==Destruir peca inexistente
+  126  ==Criar oito pecas normais de mesma cor
+  136  ==Passar as pecas pra dama
+  154  ==Verificar caracteres das pecas
+  164  ==Destruir pecas
+  174  ==Verificar destruicao
+>>>    1  Linha:   175  Erro nos parâmetros do comando:  =obtercaracter peca0 Branca
+<<<    0  Linha:   176  Falha esperada foi recuperada. 
+>>>    1  Linha:   177  Erro nos parâmetros do comando:  =obtercaracter peca1 Branca
+<<<    0  Linha:   178  Falha esperada foi recuperada. 
+>>>    1  Linha:   179  Erro nos parâmetros do comando:  =obtercaracter peca2 Branca
+<<<    0  Linha:   180  Falha esperada foi recuperada. 
+>>>    1  Linha:   181  Erro nos parâmetros do comando:  =obtercaracter peca3 Branca
+<<<    0  Linha:   182  Falha esperada foi recuperada. 
+>>>    1  Linha:   183  Erro nos parâmetros do comando:  =obtercaracter peca4 Branca
+<<<    0  Linha:   184  Falha esperada foi recuperada. 
+>>>    1  Linha:   185  Erro nos parâmetros do comando:  =obtercaracter peca5 Branca
+<<<    0  Linha:   186  Falha esperada foi recuperada. 
+>>>    1  Linha:   187  Erro nos parâmetros do comando:  =obtercaracter peca6 Branca
+<<<    0  Linha:   188  Falha esperada foi recuperada. 
+>>>    1  Linha:   189  Erro nos parâmetros do comando:  =obtercaracter peca7 Branca
+<<<    0  Linha:   190  Falha esperada foi recuperada. 
+  192  ==Criar pecas com caracteres diferentes
+  200  ==Setar caracter com caracteres diferentes
+  208  ==destruir pecas
+  213  ==Criar pecas com caracteres Maiusculos
+  219  ==Setar caracter com caracteres Maiusculos
+  225  ==destruir pecas
+!!!    0  Linha:   229  // fim 
 
-!!! Número de linhas lidas:          40
-!!! Número de casos de teste:         8
-!!! Número comandos corretos:        14
+!!! Número de linhas lidas:         229
+!!! Número de casos de teste:        34
+!!! Número comandos corretos:       118
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

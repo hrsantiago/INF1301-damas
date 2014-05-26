@@ -8,46 +8,46 @@
 !!!    0  Linha:     3  // Data:      20/abr/2014 
 !!!    0  Linha:     4  // Prop�sito: Testar o m�dulo tabuleiro 
     6  == Inicializar valores
-   18  == Criar o tabuleiro 0
-   21  == Inicializar tabuleiro 0
-   24  == Obter peca do tabuleiro 0
-   30  ==destruir tabuleiro 0
-   33  ==Criar dois tabuleiros
-   37  ==Inicializar tabuleiro 1
-   40  ==Inicializar tabuleiro inexistente
->>>    1  Linha:    41  Erro nos parâmetros do comando:  =inicializartabuleiro	tabuleiro2
-<<<    0  Linha:    42  Falha esperada foi recuperada. 
-   44  ==obter peca de tabuleiro inexistente
->>>    1  Linha:    45  Erro nos parâmetros do comando:  =obtercasa    	tabuleiro2   1 colunaA pNULL
+   22  == Criar o tabuleiro 0
+   25  == Inicializar tabuleiro 0
+   28  == Obter peca do tabuleiro 0
+   34  ==destruir tabuleiro 0
+   37  ==Criar dois tabuleiros
+   41  ==Inicializar tabuleiro 1
+   44  ==Inicializar tabuleiro inexistente
+>>>    1  Linha:    45  Erro nos parâmetros do comando:  =inicializartabuleiro	tabuleiro2
 <<<    0  Linha:    46  Falha esperada foi recuperada. 
->>>    1  Linha:    47  Erro nos parâmetros do comando:  =obtercasa	tabuleiro2   1 colunaA pNaoNULL
-<<<    0  Linha:    48  Falha esperada foi recuperada. 
-   50  ==obter peca de tabuleiro nao inicializado
-   56  ==obter todas as pecas de tabuleiro 1, linha1
-   66  ==obter todas as pecas de tabuleiro 1, linha2
-   77  ==obter todas as pecas de tabuleiro 1, linha3
-   87  ==obter todas as pecas de tabuleiro 1, linha4
-   97  ==obter todas as pecas de tabuleiro 1, linha5
-  107  ==obter todas as pecas de tabuleiro 1, linha6
-  117  ==obter todas as pecas de tabuleiro 1, linha7
-  127  ==obter todas as pecas de tabuleiro 1, linha8
-  137  ==Verificar obter peca de linha inexistente, maior que 8
-  142  ==Verificar obter peca de linha inexistente, nula ou negativa
-  147  ==Verificar obter peca de coluna inexistente, "depois" de "h"
-  154  ==Verificar setar casa
-  161  ==Verificar remover peca
-  168  ==Mover peca da linha 2, coluna g para linha 3,coluna h
-  175  ==Criar peca no tabuleiro 0, nao inicializado
-  179  ==Mover peca pelo tabuleiro 0
-  200  ==destruir tabuleiros
-  204  ==destruir tabuleiro  inexistente
->>>    1  Linha:   205  Erro nos parâmetros do comando:  =destruirtabuleiro   tabuleiro2
-<<<    0  Linha:   206  Falha esperada foi recuperada. 
-!!!    0  Linha:   208  // fim 
+   48  ==obter peca de tabuleiro inexistente
+>>>    1  Linha:    49  Erro nos parâmetros do comando:  =obtercasa    	tabuleiro2   1 colunaA pNULL
+<<<    0  Linha:    50  Falha esperada foi recuperada. 
+>>>    1  Linha:    51  Erro nos parâmetros do comando:  =obtercasa	tabuleiro2   1 colunaA pNaoNULL
+<<<    0  Linha:    52  Falha esperada foi recuperada. 
+   54  ==obter peca de tabuleiro nao inicializado
+   60  ==obter todas as pecas de tabuleiro 1, linha1
+   70  ==obter todas as pecas de tabuleiro 1, linha2
+   81  ==obter todas as pecas de tabuleiro 1, linha3
+   91  ==obter todas as pecas de tabuleiro 1, linha4
+  101  ==obter todas as pecas de tabuleiro 1, linha5
+  111  ==obter todas as pecas de tabuleiro 1, linha6
+  121  ==obter todas as pecas de tabuleiro 1, linha7
+  131  ==obter todas as pecas de tabuleiro 1, linha8
+  141  ==Verificar obter peca de linha inexistente, maior que 8
+  146  ==Verificar obter peca de linha inexistente, nula ou negativa
+  151  ==Verificar obter peca de coluna inexistente, "depois" de "h"
+  158  ==Verificar setar casa
+  165  ==Verificar remover peca
+  172  ==Mover peca da linha 2, coluna g para linha 3,coluna h
+  179  ==Criar peca no tabuleiro 0, nao inicializado
+  183  ==Mover peca pelo tabuleiro 0
+  204  ==mover peca para casa inexistente
+  210  ==remover peca de casa inexistente
+  214  ==destruir tabuleiros
+  218  ==destruir tabuleiro  inexistente
+!!!    0  Linha:   222  // fim 
 
-!!! Número de linhas lidas:         208
-!!! Número de casos de teste:        28
-!!! Número comandos corretos:       129
+!!! Número de linhas lidas:         222
+!!! Número de casos de teste:        30
+!!! Número comandos corretos:       140
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
