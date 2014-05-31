@@ -256,7 +256,44 @@ TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int li
     TAB_setarCasa(tabuleiro, linhaPara, colunaPara, peca);
 
     return TAB_CondRetOK;
-}
+}/* Fim função: TAB  &mover uma peça no tabuleiro */
+
+/***************************************************************************
+*
+*  Função: TAB  &mover uma peça no tabuleiro
+*  ****/
+int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
+{
+    assert(tabuleiro);
+    int x, y;
+    int existe1 = 0, existe2 = 0;
+    LIS_IrFinalLista(tabuleiro->lista);
+    for(y = TabuleiroAltura - 1; y >= 0; --y) {
+        LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+        LIS_IrInicioLista(lista);
+        for(x = 0; x < TabuleiroLargura; ++x) {
+            Peca *peca = LIS_ObterValor(lista);
+            if(peca) {
+                if(PEC_obterCaracter(peca) == idJogador1)
+                    existe1 = 1;
+                else if(PEC_obterCaracter(peca) == idJogador2)
+                    existe2 = 1;
+
+                if(existe1 && existe2) // existe peca dos 2 jogadores no tabuleiro. jogo continua
+                    return 0;
+            }
+
+            LIS_AvancarElementoCorrente(lista, 1);
+        }
+        printf("\n");
+        LIS_AvancarElementoCorrente(tabuleiro->lista, -1);
+    }
+
+    if(existe1 && !existe2) // so ha pecas do jogador 1 presentes. ele ganhou
+        return 1;
+    if(!existe1 && existe2) // so ha pecas do jogador 2 presentes. ele ganhou
+        return 2;
+}/* Fim função: TAB verifica vencedor */
 
 /*****  Código das funções encapsuladas no módulo  *****/   
 

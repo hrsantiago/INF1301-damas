@@ -49,7 +49,7 @@
 *
 ***********************************************************************/
 
-typedef enum _TAB_tpCondRet{
+typedef enum _TAB_tpCondRet {
     TAB_CondRetOK, /* Concluiu corretamente */
     TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
     TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
@@ -238,5 +238,8 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
 
 /* */
 TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int linhaPara, char colunaPara, char idJogador);
+
+/* */
+int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);
 
 #endif

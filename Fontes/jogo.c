@@ -55,7 +55,8 @@ void play(Jogo *jogo)
     int jogadorAtual = 0;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
-    while(1) { // not finished, check movements, pieces, etc
+    int vencedor;
+    do { // not finished, check movements, pieces, etc
         TAB_imprimir(jogo->tabuleiro);
 
         printf("Vez do jogador %c.\n", idJogador[jogadorAtual]);
@@ -75,9 +76,12 @@ void play(Jogo *jogo)
 
         int ret = TAB_mover(jogo->tabuleiro, linhaDe, colunaDe, linhaPara, colunaPara, idJogador[jogadorAtual]);
         printf("Ret: %d\n", ret);
+        // exibe msgs de erro para o jogador
 
         jogadorAtual = !jogadorAtual;
-    }
+    } while((vencedor = TAB_verificaVencedor(jogo->tabuleiro, idJogador[0], idJogador[1])) == 0);
+
+    printf("O jogador %c venceu!", idJogador[vencedor-1]);
 }
 
 void mainMenu(Jogo *jogo)
