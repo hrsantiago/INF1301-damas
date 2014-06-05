@@ -53,9 +53,9 @@ void play(Jogo *jogo)
     char colunaDe, colunaPara;
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
+	int ret,vencedor;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
-    int vencedor;
     do { // not finished, check movements, pieces, etc
         TAB_imprimir(jogo->tabuleiro);
 
@@ -74,7 +74,7 @@ void play(Jogo *jogo)
 
         // verificar casa final valida ou exibir msg erro
 
-        int ret = TAB_mover(jogo->tabuleiro, linhaDe, colunaDe, linhaPara, colunaPara, idJogador[jogadorAtual]);
+        ret = TAB_mover(jogo->tabuleiro, linhaDe, colunaDe, linhaPara, colunaPara, idJogador[jogadorAtual]);
         printf("Ret: %d\n", ret);
         // exibe msgs de erro para o jogador
 

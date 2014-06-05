@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTEPECA.comp
 
    Nome do Construto:           TESTEPECA
-   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTEPECA.comp
    Arquivo plataforma:          gmake.parm
@@ -39,9 +39,9 @@ Estatísticas do construto
 
    Estatísticas do arquivo: testpeca.c
       Total linhas:             193
-      Linhas de código:          96
+      Linhas de código:          97
       Linhas de comentário:      63
-      Linhas em branco:          43
+      Linhas em branco:          42
    Arquivos de inclusão de que necessita
       peca.h
 
@@ -77,16 +77,16 @@ Totais por tipo de arquivo
 
   Tipo: c        Path: ..\Fontes
          Total linhas do tipo:       341
-         Linhas de código:           164
+         Linhas de código:           165
          Linhas de comentário:       128
-         Linhas em branco:            65
+         Linhas em branco:            64
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTEPECA
 
    Total linhas:               587
-   Linhas de código:           184
+   Linhas de código:           185
    Linhas de comentário:       343
-   Linhas em branco:            79
+   Linhas em branco:            78
    Arquivos processados:         3
 

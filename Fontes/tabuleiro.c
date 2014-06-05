@@ -264,9 +264,10 @@ TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int li
 *  ****/
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
-    assert(tabuleiro);
+   
     int x, y;
     int existe1 = 0, existe2 = 0;
+	assert(tabuleiro);
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);

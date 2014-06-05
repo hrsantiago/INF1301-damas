@@ -48,6 +48,7 @@ del *.err
 del TESTELISTA.exe
 del TESTEPECA.exe
 del TESTETABULEIRO.exe
+del DAMAS.exe
 
 cd ..\Scripts
 del *.bak
