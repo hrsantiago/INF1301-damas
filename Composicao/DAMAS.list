@@ -1,0 +1,149 @@
+GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
+   LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
+
+Composição do construto: DAMAS.comp
+
+   Nome do Construto:           DAMAS
+   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+
+   Arquivo composição:          DAMAS.comp
+   Arquivo plataforma:          gmake.parm
+
+   Arquivo diretivas MAKE:      DAMAS.make
+   Arquivo diretivas LINK:      DAMAS.build
+   Arquivo listagem:            DAMAS.list
+
+Módulos do construto: DAMAS.comp
+
+   lista.c
+   peca.c
+   tabuleiro.c
+   jogo.c
+   main.c
+
+Estatísticas do construto
+
+   Estatísticas do arquivo: jogo.c
+      Total linhas:             112
+      Linhas de código:          80
+      Linhas de comentário:      11
+      Linhas em branco:          21
+   Arquivos de inclusão de que necessita
+      jogo.h
+      tabuleiro.h
+
+   Estatísticas do arquivo: jogo.h
+      Total linhas:              22
+      Linhas de código:          12
+      Linhas de comentário:       8
+      Linhas em branco:           5
+   Arquivos em que é incluído
+      jogo.c
+      main.c
+
+   Estatísticas do arquivo: lista.c
+      Total linhas:             461
+      Linhas de código:         253
+      Linhas de comentário:     137
+      Linhas em branco:          87
+   Arquivos de inclusão de que necessita
+      lista.h
+
+   Estatísticas do arquivo: lista.h
+      Total linhas:             358
+      Linhas de código:          30
+      Linhas de comentário:     298
+      Linhas em branco:          35
+   Arquivos em que é incluído
+      lista.c
+      tabuleiro.c
+
+   Estatísticas do arquivo: main.c
+      Total linhas:              16
+      Linhas de código:           9
+      Linhas de comentário:       5
+      Linhas em branco:           2
+   Arquivos de inclusão de que necessita
+      jogo.h
+
+   Estatísticas do arquivo: peca.c
+      Total linhas:             148
+      Linhas de código:          68
+      Linhas de comentário:      65
+      Linhas em branco:          22
+   Arquivos de inclusão de que necessita
+      peca.h
+
+   Estatísticas do arquivo: peca.h
+      Total linhas:             246
+      Linhas de código:          20
+      Linhas de comentário:     215
+      Linhas em branco:          14
+   Arquivos em que é incluído
+      peca.c
+      tabuleiro.c
+
+   Estatísticas do arquivo: tabuleiro.c
+      Total linhas:             354
+      Linhas de código:         187
+      Linhas de comentário:     128
+      Linhas em branco:          52
+   Arquivos de inclusão de que necessita
+      lista.h
+      peca.h
+      tabuleiro.h
+
+   Estatísticas do arquivo: tabuleiro.h
+      Total linhas:             245
+      Linhas de código:          22
+      Linhas de comentário:     209
+      Linhas em branco:          19
+   Arquivos em que é incluído
+      jogo.c
+      tabuleiro.c
+
+Totais por tipo de arquivo
+
+  Tipo: h        Path: ..\Fontes
+         Total linhas do tipo:       871
+         Linhas de código:            84
+         Linhas de comentário:       730
+         Linhas em branco:            73
+         Arquivos deste tipo:          4
+
+  Tipo: obj      Path: ..\Objetos
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: err      Path: ..\Produto
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: DEFAULT  Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: c        Path: ..\Fontes
+         Total linhas do tipo:      1091
+         Linhas de código:           597
+         Linhas de comentário:       346
+         Linhas em branco:           184
+         Arquivos deste tipo:          5
+
+Totais para todo o construto DAMAS
+
+   Total linhas:              1962
+   Linhas de código:           681
+   Linhas de comentário:      1076
+   Linhas em branco:           257
+   Arquivos processados:         9
+

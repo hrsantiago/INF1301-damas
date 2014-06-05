@@ -1,0 +1,5 @@
+/OUT:..\produto\DAMAS.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+lista.obj  peca.obj  tabuleiro.obj  jogo.obj  main.obj  
+

@@ -1,0 +1,23 @@
+
+
+#################### Compilacao do construto: DAMAS
+
+jogo.c
+..\Fontes\jogo.c(64) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+..\Fontes\jogo.c(66) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+..\Fontes\jogo.c(71) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+..\Fontes\jogo.c(73) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+..\Fontes\jogo.c(93) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+        c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+main.c
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\produto\DAMAS.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+lista.obj peca.obj tabuleiro.obj jogo.obj main.obj 

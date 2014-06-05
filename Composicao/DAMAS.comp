@@ -1,0 +1,24 @@
+# Composicao do programa final damas
+
+[Diretorios]
+
+Nome        =  DAMAS
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+lista.c
+peca.c
+tabuleiro.c
+jogo.c
+main.c
+
+[BuildInicio]
+/OUT:..\produto\DAMAS.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[Fim]
