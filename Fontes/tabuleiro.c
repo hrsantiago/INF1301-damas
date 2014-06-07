@@ -239,29 +239,6 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
 *
 *  Função: TAB  &mover uma peça no tabuleiro
 *  ****/
-
-TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int linhaPara, char colunaPara, char idJogador)
-{
-    Peca *peca = TAB_obterCasa(tabuleiro, linhaDe, colunaDe);
-    if(!peca)
-        return TAB_CondRetPecaInexistente;
-
-    if(PEC_obterCaracter(peca) != idJogador)
-        return TAB_CondRetPecaNaoPertenceJogador;
-
-    if(TAB_obterCasa(tabuleiro, linhaPara, colunaPara))
-        return TAB_CondRetPosDestOcupada;
-
-    TAB_setarCasa(tabuleiro, linhaDe, colunaDe, NULL);
-    TAB_setarCasa(tabuleiro, linhaPara, colunaPara, peca);
-
-    return TAB_CondRetOK;
-}/* Fim função: TAB  &mover uma peça no tabuleiro */
-
-/***************************************************************************
-*
-*  Função: TAB  &mover uma peça no tabuleiro
-*  ****/
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
    

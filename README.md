@@ -16,6 +16,8 @@ Assistente Danyllo Albuquerque, e-mail: dwalbuquerque@inf.puc-rio.br
 
 Assistente Willian Oizumi, e-mail: woizumi@inf.puc-rio.br
 
+Assistente Luciano Sampaio, e-mail: lsampaio@inf.puc-rio.br
+
 
 Apresentação
 ===============================================================================

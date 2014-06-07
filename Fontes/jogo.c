@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tabuleiro.h"
+#include "peca.h"
 #include "jogo.h"
 
 // classe
@@ -53,7 +54,7 @@ void play(Jogo *jogo)
     char colunaDe, colunaPara;
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
-	int ret,vencedor;
+    int vencedor;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
     do { // not finished, check movements, pieces, etc
@@ -65,23 +66,58 @@ void play(Jogo *jogo)
         printf("Entre com a coluna da peca: ");
         scanf(" %c", &colunaDe);
 
-        // verificar casa inicial valida ou exibir msg erro
+        Peca *pecaDe = TAB_obterCasa(jogo->tabuleiro, linhaDe, colunaDe);
+        if(!pecaDe) {
+            printf("Nao ha nenhuma peca nessa posicao. Tente novamente.\n");
+            continue;
+        }
+
+        if(PEC_obterCaracter(pecaDe) != idJogador[jogadorAtual]) {
+            printf("Essa peca pertence a outro jogador. Tente novamente.\n");
+            continue;
+        }
 
         printf("Entre com a linha de destino: ");
         scanf("%d", &linhaPara);
+
+        if(linhaPara < 1 || linhaPara > 8) {
+            printf("Linha de destino invalida. Tente novamente.\n");
+            continue;
+        }
+
         printf("Entre com a coluna de destino: ");
         scanf(" %c", &colunaPara);
 
-        // verificar casa final valida ou exibir msg erro
+        colunaPara = tolower(colunaPara);
+        if(colunaPara < 'a' || colunaPara > 'h') {
+            printf("Coluna de destino invalida. Tente novamente.\n");
+            continue;
+        }
 
-        ret = TAB_mover(jogo->tabuleiro, linhaDe, colunaDe, linhaPara, colunaPara, idJogador[jogadorAtual]);
-        printf("Ret: %d\n", ret);
-        // exibe msgs de erro para o jogador
+        PecaTipo tipo = PEC_obterTipo(pecaDe);
+        if(tipo == PecaNormal) {
+            // jogador0 vai para cima, jogador 1 vai para baixo
+            int direcao = jogadorAtual == 0 ? 1 : -1;
+
+        }
+        else if(tipo == PecaDama) {
+            // pode mover para cima e baixo
+        }
+
+        Peca *pecaPara = TAB_obterCasa(jogo->tabuleiro, linhaPara, colunaPara);
+        if(pecaPara) {
+            printf("Ja existe uma peca nessa posicao. Tente novamente.\n");
+            continue;
+        }
+
+        TAB_setarCasa(jogo->tabuleiro, linhaDe, colunaDe, NULL);
+        TAB_setarCasa(jogo->tabuleiro, linhaPara, colunaPara, pecaDe);
 
         jogadorAtual = !jogadorAtual;
     } while((vencedor = TAB_verificaVencedor(jogo->tabuleiro, idJogador[0], idJogador[1])) == 0);
 
     printf("O jogador %c venceu!", idJogador[vencedor-1]);
+    jogo->stateFunction = mainMenu;
 }
 
 void mainMenu(Jogo *jogo)

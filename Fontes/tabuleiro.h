@@ -237,9 +237,6 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
 
 /* */
-TAB_tpCondRet TAB_mover(Tabuleiro *tabuleiro, int linhaDe, char colunaDe, int linhaPara, char colunaPara, char idJogador);
-
-/* */
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);
 
 #endif
