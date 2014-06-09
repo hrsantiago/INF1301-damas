@@ -65,7 +65,9 @@ $(Fobj)\testtabuleiro.obj :  {$(Pc)}\testtabuleiro.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\tabuleiro.obj :  {$(Pc)}\tabuleiro.c \
-    {$(Ph)}lista.h              {$(Ph)}peca.h               {$(Ph)}tabuleiro.h         
+    {$(Ph)}Conta.h              {$(Ph)}Generico.h           {$(Ph)}TST_Espc.h           \
+    {$(Ph)}cespdin.h            {$(Ph)}lista.h              {$(Ph)}peca.h               \
+    {$(Ph)}tabuleiro.h         
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \

@@ -55,6 +55,8 @@ void play(Jogo *jogo)
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
     int vencedor;
+	Peca *pecaDe, *pecaPara;
+	PecaTipo tipo; 
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
     do { // not finished, check movements, pieces, etc
@@ -66,7 +68,7 @@ void play(Jogo *jogo)
         printf("Entre com a coluna da peca: ");
         scanf(" %c", &colunaDe);
 
-        Peca *pecaDe = TAB_obterCasa(jogo->tabuleiro, linhaDe, colunaDe);
+        pecaDe = TAB_obterCasa(jogo->tabuleiro, linhaDe, colunaDe);
         if(!pecaDe) {
             printf("Nao ha nenhuma peca nessa posicao. Tente novamente.\n");
             continue;
@@ -94,7 +96,7 @@ void play(Jogo *jogo)
             continue;
         }
 
-        PecaTipo tipo = PEC_obterTipo(pecaDe);
+        tipo = PEC_obterTipo(pecaDe);
         if(tipo == PecaNormal) {
             // jogador0 vai para cima, jogador 1 vai para baixo
             int direcao = jogadorAtual == 0 ? 1 : -1;
@@ -104,7 +106,7 @@ void play(Jogo *jogo)
             // pode mover para cima e baixo
         }
 
-        Peca *pecaPara = TAB_obterCasa(jogo->tabuleiro, linhaPara, colunaPara);
+        pecaPara = TAB_obterCasa(jogo->tabuleiro, linhaPara, colunaPara);
         if(pecaPara) {
             printf("Ja existe uma peca nessa posicao. Tente novamente.\n");
             continue;

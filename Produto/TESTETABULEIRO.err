@@ -7,9 +7,9 @@ testtabuleiro.c
 ..\Fontes\testtabuleiro.c(158) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\testtabuleiro.c(171) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
-..\Fontes\tabuleiro.c(191) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(217) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-c:\users\jose\documents\github\damas\fontes\tabuleiro.c(297) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
+..\Fontes\tabuleiro.c(227) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(255) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+c:\users\jose\documents\github\damas\fontes\tabuleiro.c(312) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
