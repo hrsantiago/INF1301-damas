@@ -34,6 +34,27 @@
 #include "lista.h"
 #include "peca.h"
 
+#ifdef _DEBUG
+   #include   "Generico.h"
+   #include   "Conta.h"
+   #include   "cespdin.h"
+#endif
+
+#ifdef _DEBUG
+/************************************************************
+*  declara os identificadores de tipos dos espaços de dados
+*  a serem utilizados por um determinado construto.
+**************************************************************/
+   
+typedef enum{
+	
+   CED_ID_TIPO_VALOR_NULO ,
+   TAB_Tabuleiro, /*estrutura com cabeca de lista de listas=tabuleiro*/
+   CED_ID_TIPO_ILEGAL = 999 
+} CED_tpIdTipoEspaco ;
+
+#endif
+
 /* Define as dimensões do tabuleiro */
 enum {
     TabuleiroAltura = 8,
@@ -70,6 +91,11 @@ Tabuleiro *TAB_criar()
     Tabuleiro *tabuleiro = (Tabuleiro*)malloc(sizeof(Tabuleiro));
     if(!tabuleiro)
         return NULL;
+
+	#ifdef _DEBUG
+        CED_DefinirTipoEspaco( tabuleiro , TAB_Tabuleiro ) ;
+    #endif
+
     tabuleiro->lista = LIS_CriarLista(ListaExcluirLista);
     if(!tabuleiro->lista) {
         free(tabuleiro);
@@ -103,9 +129,15 @@ Tabuleiro *TAB_criar()
 
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-    if(tabuleiro == NULL)
-        return TAB_CondRetTabuleiroInexistente;
-
+    if(tabuleiro == NULL){
+	  #ifdef _DEBUG
+         CNT_CONTAR( "TAB_Destruir_TabuleiroInexistente" ) ;
+      #endif
+      return TAB_CondRetTabuleiroInexistente;
+	}
+    #ifdef _DEBUG
+      CNT_CONTAR( "TAB_Destruir_Tabuleiro") ;
+    #endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -120,9 +152,13 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
-#ifdef _DEBUG
-    assert(tabuleiro);
-#endif
+	#ifdef _DEBUG
+       assert(tabuleiro);
+	#endif
+    
+	#ifdef _DEBUG
+       CNT_CONTAR( "TAB_Inicializar" ) ;
+    #endif
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -197,7 +233,9 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
         return NULL;
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
-
+	 #ifdef _DEBUG
+         CNT_CONTAR( "TAB_ObterCasa_OK" ) ;
+     #endif
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
