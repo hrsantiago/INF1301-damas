@@ -27,8 +27,14 @@
 #include <ctype.h>
 #define peca_OWN
 #include "peca.h"
-#undef peca_OWN   
+#undef peca_OWN
 
+#ifdef _DEBUG
+#include "generico.h"
+#include "conta.h"
+#include "cespdin.h"
+#include "tipos.h"
+#endif
 
 /***********************************************************************
 *
@@ -53,6 +59,11 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
     Peca *peca = (Peca*)malloc(sizeof(Peca));
     if(peca == NULL)
         return NULL;
+
+#ifdef _DEBUG
+    CED_DefinirTipoEspaco(peca, PEC_Peca);
+#endif
+
     PEC_setarTipo(peca, tipo);
     PEC_setarCaracter(peca, tolower(caracter));
     return peca;

@@ -35,24 +35,10 @@
 #include "peca.h"
 
 #ifdef _DEBUG
-   #include   "Generico.h"
-   #include   "Conta.h"
-   #include   "cespdin.h"
-#endif
-
-#ifdef _DEBUG
-/************************************************************
-*  declara os identificadores de tipos dos espaços de dados
-*  a serem utilizados por um determinado construto.
-**************************************************************/
-   
-typedef enum{
-	
-   CED_ID_TIPO_VALOR_NULO ,
-   TAB_Tabuleiro, /*estrutura com cabeca de lista de listas=tabuleiro*/
-   CED_ID_TIPO_ILEGAL = 999 
-} CED_tpIdTipoEspaco ;
-
+#include "generico.h"
+#include "conta.h"
+#include "cespdin.h"
+#include "tipos.h"
 #endif
 
 /* Define as dimensões do tabuleiro */
@@ -70,7 +56,6 @@ enum {
 ***********************************************************************/
 typedef struct _Tabuleiro {
     LIS_tppLista lista;
-
 } Tabuleiro;
 
 
@@ -92,9 +77,9 @@ Tabuleiro *TAB_criar()
     if(!tabuleiro)
         return NULL;
 
-	#ifdef _DEBUG
-        CED_DefinirTipoEspaco( tabuleiro , TAB_Tabuleiro ) ;
-    #endif
+#ifdef _DEBUG
+    CED_DefinirTipoEspaco(tabuleiro, TAB_Tabuleiro);
+#endif
 
     tabuleiro->lista = LIS_CriarLista(ListaExcluirLista);
     if(!tabuleiro->lista) {
@@ -130,14 +115,14 @@ Tabuleiro *TAB_criar()
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
     if(tabuleiro == NULL){
-	  #ifdef _DEBUG
-         CNT_CONTAR( "TAB_Destruir_TabuleiroInexistente" ) ;
-      #endif
-      return TAB_CondRetTabuleiroInexistente;
-	}
-    #ifdef _DEBUG
-      CNT_CONTAR( "TAB_Destruir_Tabuleiro") ;
-    #endif
+#ifdef _DEBUG
+        CNT_CONTAR("TAB_Destruir_TabuleiroInexistente");
+#endif
+        return TAB_CondRetTabuleiroInexistente;
+    }
+#ifdef _DEBUG
+    CNT_CONTAR("TAB_Destruir_Tabuleiro");
+#endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -152,13 +137,10 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
-	#ifdef _DEBUG
-       assert(tabuleiro);
-	#endif
-    
-	#ifdef _DEBUG
-       CNT_CONTAR( "TAB_Inicializar" ) ;
-    #endif
+#ifdef _DEBUG
+    assert(tabuleiro);
+    CNT_CONTAR( "TAB_Inicializar");
+#endif
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -233,9 +215,9 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
         return NULL;
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
-	 #ifdef _DEBUG
-         CNT_CONTAR( "TAB_ObterCasa_OK" ) ;
-     #endif
+#ifdef _DEBUG
+    CNT_CONTAR("TAB_ObterCasa_OK");
+#endif
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
@@ -247,7 +229,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 {
     LIS_tppLista lista;
-//    Peca *antiga;
+    //    Peca *antiga;
 
     if(tabuleiro == NULL)
         return TAB_CondRetTabuleiroInexistente;
@@ -265,9 +247,9 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
         return TAB_CondRetColunaInexistente;
 
     // nao limpar peca por hora, somente e utilizada por tab_mover
-//    antiga = LIS_ObterValor(lista);
-//    if(antiga)
-//        ListaExcluirPeca(antiga);
+    //    antiga = LIS_ObterValor(lista);
+    //    if(antiga)
+    //        ListaExcluirPeca(antiga);
 
     LIS_SetarValor(lista, peca);
     return TAB_CondRetOK;
@@ -279,10 +261,9 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
 *  ****/
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
-   
     int x, y;
     int existe1 = 0, existe2 = 0;
-	assert(tabuleiro);
+    assert(tabuleiro);
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -301,7 +282,6 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 
             LIS_AvancarElementoCorrente(lista, 1);
         }
-        printf("\n");
         LIS_AvancarElementoCorrente(tabuleiro->lista, -1);
     }
 

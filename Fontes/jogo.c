@@ -10,6 +10,13 @@
 #include "peca.h"
 #include "jogo.h"
 
+#ifdef _DEBUG
+#include "generico.h"
+#include "conta.h"
+#include "cespdin.h"
+#include "tipos.h"
+#endif
+
 // classe
 typedef struct _Jogo {
     Tabuleiro *tabuleiro;
@@ -26,6 +33,10 @@ Jogo *JOG_criar()
     Jogo *jogo = (Jogo*)malloc(sizeof(Jogo));
     if(!jogo)
         return NULL;
+
+#ifdef _DEBUG
+    CED_DefinirTipoEspaco(jogo, JOG_Jogo);
+#endif
 
     jogo->tabuleiro = TAB_criar();
     if(!jogo->tabuleiro) {
@@ -55,8 +66,8 @@ void play(Jogo *jogo)
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
     int vencedor;
-	Peca *pecaDe, *pecaPara;
-	PecaTipo tipo; 
+    Peca *pecaDe, *pecaPara;
+    PecaTipo tipo;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
     do { // not finished, check movements, pieces, etc
