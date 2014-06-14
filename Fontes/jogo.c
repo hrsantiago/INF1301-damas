@@ -1,8 +1,26 @@
-/*
- * Henrique Santiago
- * Marcelo Resende
- * Rafael Haeusler
-*/
+
+/***************************************************************************
+*  $MCI Módulo de implementação: JOG  Jogo 
+*
+*  Arquivo gerado:              JOGO.c
+*  Letras identificadoras:      JOG
+*
+*  Projeto: damas
+*  Arquivo: damas\Fontes\jogo.c    
+*
+*  Autores: hs - Henrique Santiago
+*	    mr - Marcelo Resende
+*	    rh - Rafael Haeusler
+*  
+*  $HA Histórico de evolução: 
+*     Versão  Autor    Data     Observações
+*     2       hs/mr/rh   17/junho/2014    implementação completa do jogo
+*  
+*  $CRE Créditos
+*    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
+*    programas redigidos em C;
+*  
+***************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,17 +35,30 @@
 #include "tipos.h"
 #endif
 
-// classe
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: JOG estrutura de jogo.
+*
+*
+***********************************************************************/
 typedef struct _Jogo {
     Tabuleiro *tabuleiro;
     int rodando;
     void (*stateFunction)(Jogo *jogo);
 } Jogo;
 
-// funcoes privadas
+/***** Protótipos das funções encapsuladas no módulo *****/
 void mainMenu(Jogo *jogo);
+void play(Jogo *jogo);
 
-// funcoes publicas
+
+/*****  Código das funções exportadas pelo módulo  *****/
+
+/***************************************************************************
+*
+*  Função: JOG  &Criar jogo
+*  ****/
 Jogo *JOG_criar()
 {
     Jogo *jogo = (Jogo*)malloc(sizeof(Jogo));
@@ -48,8 +79,13 @@ Jogo *JOG_criar()
     jogo->rodando = 1;
 
     return jogo;
-}
+}/* Fim função: JOG  &Criar jogo */
 
+
+/***************************************************************************
+*
+*  Função: JOG  &Destruir jogo
+*  ****/
 JOG_tpCondRet JOG_destruir(Jogo *jogo)
 {
     if(!jogo)
@@ -57,8 +93,47 @@ JOG_tpCondRet JOG_destruir(Jogo *jogo)
 
     free(jogo);
     return JOG_CondRetOK;
-}
+}/* Fim função: JOG  &Destruir jogo */
 
+
+/***************************************************************************
+*
+*  Função: JOG  &Atestar andamento do jogo
+*  ****/
+void JOG_rodar(Jogo *jogo)
+{
+    while(jogo->stateFunction)
+        jogo->stateFunction(jogo);
+}/* Fim função: JOG  &Atestar andamento do jogo */
+
+
+
+/*****  Código das funções encapsuladas no módulo  *****/
+
+
+/***************************************************************************
+*
+*  $FC Função: JOG  &Jogar jogo
+*  $ED Descrição da função
+*     
+*       Está função é toda encarregada de posicionar as pecas no
+*       tabuleiro, identificar se uma determinada movimentação de peça
+*       pode ou não ser realizada, principalmente da cargo de todas as
+*       especificações de jogo detalhadas em 'especificacao.pdf'
+*       localizado nos documentos do projeto.
+*  
+*  $EP Parâmetros
+*       $P Jogo *jogo 
+*
+*  $FV Valor retornado 
+*
+*                Não há valor retornado, está função recebe
+*                coordenadas de jogo e de movimentação e as aplica no
+*                tabuleiro, o exibindo (prompt de comando) modificado
+*                após a realização de todos os passos.
+*		
+*
+***********************************************************************/
 void play(Jogo *jogo)
 {
     int linhaDe, linhaPara;
@@ -131,8 +206,29 @@ void play(Jogo *jogo)
 
     printf("O jogador %c venceu!", idJogador[vencedor-1]);
     jogo->stateFunction = mainMenu;
-}
+}/* Fim função: JOG  &Jogar jogo */
 
+
+
+/***************************************************************************
+*
+*  $FC Função: JOG  &Jogar jogo
+*  $ED Descrição da função
+*     
+*       Está função apenas introduz ao usuário suas opções de jogo, é
+*       encarregado pelo menu de jogo, da mais jogabilidade ao
+*       projeto.
+*  
+*  $EP Parâmetros
+*       $P Jogo *jogo 
+*
+*  $FV Valor retornado 
+*
+*                Não há valor retornado, apenas imprimi na tela as
+*                opções que o jogador tem ao executar o programa,
+*                (iniciar jogo ou sair).
+*
+***********************************************************************/
 void mainMenu(Jogo *jogo)
 {
     int opcao;
@@ -152,10 +248,4 @@ void mainMenu(Jogo *jogo)
         printf("Opcao invalida. Tente novamente.\n");
         break;
     }
-}
-
-void JOG_rodar(Jogo *jogo)
-{
-    while(jogo->stateFunction)
-        jogo->stateFunction(jogo);
-}
+}/* Fim função: JOG  &Jogar jogo */

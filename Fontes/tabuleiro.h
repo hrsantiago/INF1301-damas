@@ -12,10 +12,10 @@
 *	    mr - Marcelo Resende
 *	    rh - Rafael Haeusler
 *  
-
+*
 *  $HA Histórico de evolução: 
 *     Versão  Autor    Data     Observações
-*     1       hs/mr/rh   30/abril/2014    implementação parcial do jogo
+*      2       hs/mr/rh   17/junho/2014    implementação completa do jogo
 *
 *  $ED Descrição do módulo
 *
