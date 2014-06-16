@@ -44,7 +44,6 @@
 ***********************************************************************/
 typedef struct _Jogo {
     Tabuleiro *tabuleiro;
-    int rodando;
     void (*stateFunction)(Jogo *jogo);
 } Jogo;
 
@@ -76,7 +75,6 @@ Jogo *JOG_criar()
     }
 
     jogo->stateFunction = mainMenu;
-    jogo->rodando = 1;
 
     return jogo;
 }/* Fim função: JOG  &Criar jogo */
