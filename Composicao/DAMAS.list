@@ -23,23 +23,12 @@ Módulos do construto: DAMAS.comp
 
 Estatísticas do construto
 
-   Estatísticas do arquivo: Generico.h
-      Total linhas:             588
-      Linhas de código:          54
-      Linhas de comentário:     470
-      Linhas em branco:          64
-   Arquivos de inclusão de que necessita
-      TST_Espc.h
-   Arquivos em que é incluído
-      lista.c
-
    Estatísticas do arquivo: TST_Espc.h
       Total linhas:             320
       Linhas de código:          23
       Linhas de comentário:     277
       Linhas em branco:          20
    Arquivos em que é incluído
-      Generico.h
       generico.h
       jogo.c
       lista.c
@@ -77,12 +66,13 @@ Estatísticas do construto
       TST_Espc.h
    Arquivos em que é incluído
       jogo.c
+      lista.c
       peca.c
       tabuleiro.c
 
    Estatísticas do arquivo: jogo.c
-      Total linhas:             285
-      Linhas de código:         157
+      Total linhas:             287
+      Linhas de código:         159
       Linhas de comentário:      90
       Linhas em branco:          43
    Arquivos de inclusão de que necessita
@@ -105,15 +95,15 @@ Estatísticas do construto
       main.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             687
-      Linhas de código:         430
+      Total linhas:             674
+      Linhas de código:         419
       Linhas de comentário:     178
-      Linhas em branco:          96
+      Linhas em branco:          94
    Arquivos de inclusão de que necessita
-      Generico.h
       TST_Espc.h
       cespdin.h
       conta.h
+      generico.h
       lista.h
       tipos.h
 
@@ -158,10 +148,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             457
-      Linhas de código:         290
+      Total linhas:             450
+      Linhas de código:         284
       Linhas de comentário:     124
-      Linhas em branco:          55
+      Linhas em branco:          54
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -173,10 +163,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             342
+      Total linhas:             340
       Linhas de código:          43
       Linhas de comentário:     281
-      Linhas em branco:          26
+      Linhas em branco:          24
    Arquivos em que é incluído
       jogo.c
       tabuleiro.c
@@ -195,11 +185,11 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3928
-         Linhas de código:           363
-         Linhas de comentário:      3155
-         Linhas em branco:           431
-         Arquivos deste tipo:         10
+         Total linhas do tipo:      3338
+         Linhas de código:           309
+         Linhas de comentário:      2685
+         Linhas em branco:           365
+         Arquivos deste tipo:          9
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -223,17 +213,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1604
-         Linhas de código:           963
+         Total linhas do tipo:      1586
+         Linhas de código:           948
          Linhas de comentário:       462
-         Linhas em branco:           220
+         Linhas em branco:           217
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMAS
 
-   Total linhas:              5532
-   Linhas de código:          1326
-   Linhas de comentário:      3617
-   Linhas em branco:           651
-   Arquivos processados:        15
+   Total linhas:              4924
+   Linhas de código:          1257
+   Linhas de comentário:      3147
+   Linhas em branco:           582
+   Arquivos processados:        14
 

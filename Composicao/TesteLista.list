@@ -20,23 +20,13 @@ Módulos do construto: TESTELISTA.comp
 
 Estatísticas do construto
 
-   Estatísticas do arquivo: Generico.h
-      Total linhas:             588
-      Linhas de código:          54
-      Linhas de comentário:     470
-      Linhas em branco:          64
-   Arquivos de inclusão de que necessita
-      TST_Espc.h
-   Arquivos em que é incluído
-      lista.c
-
    Estatísticas do arquivo: TST_Espc.h
       Total linhas:             320
       Linhas de código:          23
       Linhas de comentário:     277
       Linhas em branco:          20
    Arquivos em que é incluído
-      Generico.h
+      generico.h
       lista.c
 
    Estatísticas do arquivo: cespdin.h
@@ -55,16 +45,26 @@ Estatísticas do construto
    Arquivos em que é incluído
       lista.c
 
-   Estatísticas do arquivo: lista.c
-      Total linhas:             687
-      Linhas de código:         430
-      Linhas de comentário:     178
-      Linhas em branco:          96
+   Estatísticas do arquivo: generico.h
+      Total linhas:             588
+      Linhas de código:          54
+      Linhas de comentário:     470
+      Linhas em branco:          64
    Arquivos de inclusão de que necessita
-      Generico.h
+      TST_Espc.h
+   Arquivos em que é incluído
+      lista.c
+
+   Estatísticas do arquivo: lista.c
+      Total linhas:             674
+      Linhas de código:         419
+      Linhas de comentário:     178
+      Linhas em branco:          94
+   Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
       conta.h
+      generico.h
       lista.h
       tipos.h
 
@@ -124,17 +124,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1137
-         Linhas de código:           685
+         Total linhas do tipo:      1124
+         Linhas de código:           674
          Linhas de comentário:       284
-         Linhas em branco:           206
+         Linhas em branco:           204
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              3772
-   Linhas de código:           919
+   Total linhas:              3759
+   Linhas de código:           908
    Linhas de comentário:      2376
-   Linhas em branco:           522
+   Linhas em branco:           520
    Arquivos processados:         8
 
