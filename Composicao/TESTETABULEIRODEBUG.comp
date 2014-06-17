@@ -1,0 +1,28 @@
+# Composicao do programa instrumentado
+# Este exemplo utiliza o arcabouço completo 
+
+[Diretorios]
+
+Nome        =  TESTETABULEIRODEBUG
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+
+[Modulos]
+testtabuleiro.c   /D_DEBUG
+tabuleiro.c	  /D_DEBUG
+lista.c           /D_DEBUG
+peca.c            /D_DEBUG
+
+[BuildInicio]
+/OUT:..\produto\TESTETABULEIRODEBUG.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

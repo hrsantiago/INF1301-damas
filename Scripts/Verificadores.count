@@ -1,0 +1,26 @@
+////////////////////////////////////////////////
+//
+// Arquivo de declaração de contadores
+// Conta Verificação de estrutura lista de listas
+//
+///////////////////////////////////////////////
+
+Cabeca de lista inexistente
+Controle de espaco acusa erro
+Tipo não é lista
+numero de elementos menor que zero
+Cabeca com zero elementos
+Cabeca com zero elementos e não vazia
+Ha mais de um elemento
+Encadeamento antes errado
+Cabeca nao aponta para o fim
+Encadeamento após errado
+Cabeca nao aponta pra origem
+Encadeamento Correto
+Cabeca de lista correta
+Referencia do elemento de lista errada
+A lista de pecas possui algum problema
+Ha uma lista de listas e a sublista de pecas sem problemas
+numero de elementos na cabeca diferente do real
+Numero de elementos indicado na cabeça difere do real
+Lista de listas OK
