@@ -346,7 +346,7 @@ void ListaExcluirLista(void *pDado)
 
 /***************************************************************************
 *
-*  Função: TAB  &Verificar a estrutura tabuleiro, uma lista de listas
+*  Função: TAB  &Verificar a estrutura tabuleiro (lista de listas)
 *  ****/
 
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
@@ -377,7 +377,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 
 /***************************************************************************
 *
-*  Função: ARV  &Deturpar árvore
+*  Função: TAB  &Deturpar tabuleiro
 *  ****/
 
 void TAB_Deturpar( Tabuleiro*tabuleiro , TAB_tpModosDeturpacao ModoDeturpar )
