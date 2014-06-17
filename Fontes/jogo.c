@@ -151,6 +151,7 @@ void jogar(Jogo *jogo)
         scanf("%d", &linhaDe);
         printf("Entre com a coluna da peca: ");
         scanf(" %c", &colunaDe);
+        colunaDe = tolower(colunaDe);
 
         pecaDe = TAB_obterCasa(jogo->tabuleiro, linhaDe, colunaDe);
         if(!pecaDe) {
