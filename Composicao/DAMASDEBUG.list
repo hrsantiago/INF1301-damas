@@ -1,19 +1,19 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: DAMAS.comp
+Composição do construto: DAMASDEBUG.comp
 
-   Nome do Construto:           DAMAS
+   Nome do Construto:           DAMASDEBUG
    Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
-   Arquivo composição:          DAMAS.comp
+   Arquivo composição:          DAMASDEBUG.comp
    Arquivo plataforma:          gmake.parm
 
-   Arquivo diretivas MAKE:      DAMAS.make
-   Arquivo diretivas LINK:      DAMAS.build
-   Arquivo listagem:            DAMAS.list
+   Arquivo diretivas MAKE:      DAMASDEBUG.make
+   Arquivo diretivas LINK:      DAMASDEBUG.build
+   Arquivo listagem:            DAMASDEBUG.list
 
-Módulos do construto: DAMAS.comp
+Módulos do construto: DAMASDEBUG.comp
 
    lista.c
    peca.c
@@ -219,7 +219,7 @@ Totais por tipo de arquivo
          Linhas em branco:           217
          Arquivos deste tipo:          5
 
-Totais para todo o construto DAMAS
+Totais para todo o construto DAMASDEBUG
 
    Total linhas:              4931
    Linhas de código:          1264
