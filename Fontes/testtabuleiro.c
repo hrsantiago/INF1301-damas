@@ -155,7 +155,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
         coluna = StringDado[0];
         peca = PEC_criar(PecaNormal, 'r');
-        CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca);
+        CondRet = TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, peca, 1);
 
         return TST_CompararInt(CondRetEsp, CondRet, "Condicao de retorno errada ao setar peça");
     } /* fim ativa: Testar Setar casa */
@@ -168,7 +168,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
             return TST_CondRetParm;
 
         coluna = StringDado[0];
-        TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, NULL);
+        TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, NULL, 1);
         return TST_CondRetOK;
     } /* fim ativa: Testar Remover peca */
 
