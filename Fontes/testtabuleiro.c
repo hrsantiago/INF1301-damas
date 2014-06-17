@@ -26,6 +26,7 @@
 #include    <tst_espc.h>
 #include    <generico.h>
 #include    <lerparm.h>
+#include    "cespdin.h"
 
 #include    "tabuleiro.h"
 #include    "peca.h"
@@ -37,6 +38,12 @@ static const char INICIALIZAR_TABULEIRO_CMD[] = "=inicializartabuleiro";
 static const char OBTER_CASA_CMD           [] = "=obtercasa";
 static const char SETAR_CASA_CMD           [] = "=setarcasa";
 static const char REMOVER_PECA_CMD         [] = "=removerpeca";
+
+/* os comandos a seguir somente operam em modo _DEBUG */
+
+const char VER_LISTA_CMD[ ]  = "=verificar" ;
+const char DETURPAR_CMD[ ]   = "=deturpar" ;
+const char VER_MEMORIA_CMD[ ] = "=verificarmemoria" ;
 
 #define TRUE  1
 #define FALSE 0
@@ -75,6 +82,12 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     =setarcasa				 inxlista  linha  coluna  CondRet
 *     =removerpeca				 inxlista  linha  coluna
 *
+*	Estes comandos somente podem ser executados se o modulo tiver sido
+*     compilado com _DEBUG ligado
+*
+*     =verificar	         inxLista
+*
+*     =deturpar              inxLista  idCodigoDeturpa
 ***********************************************************************/
 
 TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
@@ -90,7 +103,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int coluna = -1;
     Peca *peca;
     StringDado[0] = 0;
-
+	 #ifdef _DEBUG
+         int  IntEsperado   = -1 ;
+      #endif
     /* Efetuar reset de teste de tabuleiro */
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
         for(i = 0; i < DIM_VT_TABULEIRO; i++)
@@ -171,6 +186,56 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         TAB_setarCasa(vtTabuleiros[inxLista], linha, coluna, NULL, 1);
         return TST_CondRetOK;
     } /* fim ativa: Testar Remover peca */
+
+	/* Testar verificador de lista */
+      #ifdef _DEBUG
+
+         else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "i" , &inxLista ) ;
+            if ( ( numLidos != 1 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO ))   ////////////////////////////////////////////////////////////////////////////////////77
+            {
+               return TST_CondRetParm ;
+            } 
+
+            return TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] ) ;
+
+         } /* fim ativa: Testar verificador de cabeça */
+      #endif
+
+	/* Deturpar um tabuleiro */
+      #ifdef _DEBUG
+
+         else if ( strcmp( ComandoTeste , DETURPAR_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "ii" ,
+                               &inxLista , &IntEsperado ) ;
+
+            if ( ( numLidos != 2 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+            {
+               return TST_CondRetParm ;
+            }
+
+            TAB_Deturpar( vtTabuleiros[ inxLista ] , IntEsperado ) ;
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: Deturpar um tabuleiro */
+		#endif 
+		 /* Verificar vazamento de memória */
+      #ifdef _DEBUG
+
+         else if ( strcmp( ComandoTeste , VER_MEMORIA_CMD ) == 0 )
+         {
+
+            CED_ExibirTodosEspacos( CED_ExibirTodos ) ;
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: Verificar vazamento de memória */
+      #endif
 
     return TST_CondRetNaoConhec;
 } /* Fim função: TTAB &Testar tabuleiro */

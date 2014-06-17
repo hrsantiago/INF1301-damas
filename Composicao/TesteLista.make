@@ -64,8 +64,8 @@ $(Fobj)\testLista.obj :  {$(Pc)}\testLista.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}Generico.h           {$(Ph)}TST_Espc.h           {$(Ph)}lista.h              \
-    {$(Ph)}tipos.h             
+    {$(Ph)}Generico.h           {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            \
+    {$(Ph)}conta.h              {$(Ph)}lista.h              {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 

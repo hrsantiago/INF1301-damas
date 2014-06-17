@@ -58,11 +58,16 @@ typedef struct _Tabuleiro {
     LIS_tppLista lista;
 } Tabuleiro;
 
+#ifdef _DEBUG
+
+   static char EspacoLixo[ 256 ] =
+         "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ;
+         /* Espaço de dados lixo usado ao testar */
+#endif
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 static void ListaExcluirPeca(void *pDado);
 static void ListaExcluirLista(void *pDado); 
-
 
 /*****  Código das funções exportadas pelo módulo  *****/
 /***************************************************************************
@@ -114,14 +119,8 @@ Tabuleiro *TAB_criar()
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
     if(tabuleiro == NULL){
-#ifdef _DEBUG
-        CNT_CONTAR("TAB_Destruir_TabuleiroInexistente");
-#endif
         return TAB_CondRetTabuleiroInexistente;
     }
-#ifdef _DEBUG
-    CNT_CONTAR("TAB_Destruir_Tabuleiro");
-#endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -138,7 +137,6 @@ void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
     int x, y;
 #ifdef _DEBUG
     assert(tabuleiro);
-    CNT_CONTAR( "TAB_Inicializar");
 #endif
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
@@ -214,9 +212,6 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
         return NULL;
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
-#ifdef _DEBUG
-    CNT_CONTAR("TAB_ObterCasa_OK");
-#endif
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
@@ -347,4 +342,104 @@ void ListaExcluirLista(void *pDado)
     LIS_DestruirLista(lista);
 }/* Fim função: TAB  -Excluindo uma lista */ 
 
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: TAB  &Verificar a estrutura tabuleiro, uma lista de listas
+*  ****/
+
+TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
+{
+	int condRet;
+	if(tabuleiro==NULL)
+	{
+		TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
+		return TAB_CondRetErroEstrutura;
+	}
+	if ( ! CED_VerificarEspaco( tabuleiro , NULL ))
+	{
+		TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
+		return TAB_CondRetErroEstrutura ;
+	} 
+	if ( TST_CompararInt( TAB_Tabuleiro , CED_ObterTipoEspaco( tabuleiro ) ,
+		"Tipo do espaço de dados não é tabuleiro." ) != TST_CondRetOK )
+	{
+		return TAB_CondRetErroEstrutura ;
+	} 
+	condRet=LIS_VerificarLista(tabuleiro->lista);
+	return CondRet;
+}
+
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: ARV  &Deturpar árvore
+*  ****/
+
+void TAB_Deturpar( Tabuleiro*tabuleiro , TAB_tpModosDeturpacao ModoDeturpar )
+{
+	LIS_tppLista lista = tabuleiro->lista;
+	if(tabuleiro==NULL)
+	{
+		return;
+	}
+	switch(ModoDeturpar){
+		case EliminarElemento :
+         {
+			 LIS_ExcluirElemento(lista);
+			 break;
+		 }
+		case DeturpaProximoNulo:
+			{
+				
+				break;
+			}
+		case DeturpaAnteriorNulo:
+			{
+				
+				break;
+			}
+		case DeturpaPróximoLixo:
+			{
+				break;
+			}
+		case DeturpaAnteriorLixo:
+			{
+				break;
+			}
+		case DeturpaConteudoNulo:
+			{
+				break;
+			}
+		case DeturpaTipoNo:
+			{
+				CED_DefinirTipoEspaco( lista , CED_ID_TIPO_VALOR_NULO ) ;
+				CED_DefinirTipoEspaco( lista , TAB_Tabuleiro ) ;
+				break;
+			}
+		case LiberaSemFree:
+			{
+				break;
+			}
+		case PonteiroCorrenteNulo:
+			{
+				break;
+			}
+		case PonteiroOrigemNulo:
+			{
+				break;
+			}
+		case PonteiroFimNulo:
+			{
+				break;
+			}
+
+	}
+}
+
+#endif
 /********** Fim do módulo de implementação: TAB  Tabuleiro **********/

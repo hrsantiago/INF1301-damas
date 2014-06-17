@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TESTELISTA.comp
 
    Nome do Construto:           TESTELISTA
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          TESTELISTA.comp
    Arquivo plataforma:          gmake.parm
@@ -39,22 +39,40 @@ Estatísticas do construto
       Generico.h
       lista.c
 
+   Estatísticas do arquivo: cespdin.h
+      Total linhas:             818
+      Linhas de código:          67
+      Linhas de comentário:     639
+      Linhas em branco:         112
+   Arquivos em que é incluído
+      lista.c
+
+   Estatísticas do arquivo: conta.h
+      Total linhas:             495
+      Linhas de código:          44
+      Linhas de comentário:     372
+      Linhas em branco:          79
+   Arquivos em que é incluído
+      lista.c
+
    Estatísticas do arquivo: lista.c
-      Total linhas:             580
-      Linhas de código:         347
-      Linhas de comentário:     159
-      Linhas em branco:          91
+      Total linhas:             670
+      Linhas de código:         428
+      Linhas de comentário:     167
+      Linhas em branco:          92
    Arquivos de inclusão de que necessita
       Generico.h
       TST_Espc.h
+      cespdin.h
+      conta.h
       lista.h
       tipos.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             365
+      Total linhas:             376
       Linhas de código:          34
-      Linhas de comentário:     299
-      Linhas em branco:          38
+      Linhas de comentário:     308
+      Linhas em branco:          40
    Arquivos em que é incluído
       lista.c
       testLista.c
@@ -78,11 +96,11 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      1311
-         Linhas de código:           123
-         Linhas de comentário:      1070
-         Linhas em branco:           125
-         Arquivos deste tipo:          4
+         Total linhas do tipo:      2635
+         Linhas de código:           234
+         Linhas de comentário:      2090
+         Linhas em branco:           318
+         Arquivos deste tipo:          6
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -106,17 +124,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1030
-         Linhas de código:           602
-         Linhas de comentário:       265
-         Linhas em branco:           201
+         Total linhas do tipo:      1120
+         Linhas de código:           683
+         Linhas de comentário:       273
+         Linhas em branco:           202
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              2341
-   Linhas de código:           725
-   Linhas de comentário:      1335
-   Linhas em branco:           326
-   Arquivos processados:         6
+   Total linhas:              3755
+   Linhas de código:           917
+   Linhas de comentário:      2363
+   Linhas em branco:           520
+   Arquivos processados:         8
 

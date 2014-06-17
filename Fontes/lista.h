@@ -76,7 +76,7 @@ typedef enum {
     LIS_CondRetFimLista, /* Foi atingido o fim de lista */
     LIS_CondRetNaoAchou, /* Não encontrou o valor procurado */
     LIS_CondRetFaltouMemoria, /* Faltou memória ao tentar criar um elemento de lista */
-	ARV_CondRetErroEstrutura /* Estrutura da lista está errada */
+	LIS_CondRetErroEstrutura /* Estrutura da lista está errada */
 } LIS_tpCondRet;
 
 /***********************************************************************
@@ -352,9 +352,20 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 
+
+
+/***********************************************************************
+*
+*  $FC Função: LIS  &Verificar uma lista
+*
+*  $ED Descrição da função
+*     Função da interface de teste.
+*     Verifica completamente uma determinada lista.
+*
+***********************************************************************/
 #ifdef _DEBUG
 
-	LIS_tpCondRet VerificarLista( Lis_tppLista pCabeca ) ;
+	LIS_tpCondRet LIS_VerificarLista( Lis_tppLista pCabeca ) ;
 
 #endif
 

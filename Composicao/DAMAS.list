@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: DAMAS.comp
 
    Nome do Construto:           DAMAS
-   Diretório base:              C:\Users\Jose\Documents\GitHub\damas\Composicao
+   Diretório base:              c:\Users\Jose\Documents\GitHub\damas\Composicao
 
    Arquivo composição:          DAMAS.comp
    Arquivo plataforma:          gmake.parm
@@ -53,6 +53,7 @@ Estatísticas do construto
       Linhas em branco:         112
    Arquivos em que é incluído
       jogo.c
+      lista.c
       peca.c
       tabuleiro.c
 
@@ -63,6 +64,7 @@ Estatísticas do construto
       Linhas em branco:          79
    Arquivos em que é incluído
       jogo.c
+      lista.c
       peca.c
       tabuleiro.c
 
@@ -103,21 +105,23 @@ Estatísticas do construto
       main.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             580
-      Linhas de código:         347
-      Linhas de comentário:     159
-      Linhas em branco:          91
+      Total linhas:             670
+      Linhas de código:         428
+      Linhas de comentário:     167
+      Linhas em branco:          92
    Arquivos de inclusão de que necessita
       Generico.h
       TST_Espc.h
+      cespdin.h
+      conta.h
       lista.h
       tipos.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             365
+      Total linhas:             376
       Linhas de código:          34
-      Linhas de comentário:     299
-      Linhas em branco:          38
+      Linhas de comentário:     308
+      Linhas em branco:          40
    Arquivos em que é incluído
       lista.c
       tabuleiro.c
@@ -154,10 +158,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             350
-      Linhas de código:         202
-      Linhas de comentário:     115
-      Linhas em branco:          45
+      Total linhas:             445
+      Linhas de código:         278
+      Linhas de comentário:     124
+      Linhas em branco:          55
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -169,10 +173,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             242
-      Linhas de código:          21
-      Linhas de comentário:     209
-      Linhas em branco:          18
+      Total linhas:             308
+      Linhas de código:          49
+      Linhas de comentário:     243
+      Linhas em branco:          23
    Arquivos em que é incluído
       jogo.c
       tabuleiro.c
@@ -191,10 +195,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3817
-         Linhas de código:           341
-         Linhas de comentário:      3072
-         Linhas em branco:           423
+         Total linhas do tipo:      3894
+         Linhas de código:           369
+         Linhas de comentário:      3115
+         Linhas em branco:           430
          Arquivos deste tipo:         10
 
   Tipo: obj      Path: ..\Objetos
@@ -219,17 +223,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1390
-         Linhas de código:           792
-         Linhas de comentário:       434
-         Linhas em branco:           205
+         Total linhas do tipo:      1575
+         Linhas de código:           949
+         Linhas de comentário:       451
+         Linhas em branco:           216
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMAS
 
-   Total linhas:              5207
-   Linhas de código:          1133
-   Linhas de comentário:      3506
-   Linhas em branco:           628
+   Total linhas:              5469
+   Linhas de código:          1318
+   Linhas de comentário:      3566
+   Linhas em branco:           646
    Arquivos processados:        15
 

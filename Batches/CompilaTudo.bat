@@ -11,11 +11,13 @@ del ..\produto\*.obj
 del ..\produto\TESTELISTA.exe
 del ..\produto\TESTEPECA.exe
 del ..\produto\TESTETABULEIRO.exe
+del ..\produto\TESTETABULEIRODEBUG.exe
 del ..\produto\DAMAS.exe
 
 nmake /F..\composicao\TESTELISTA.make  
 nmake /F..\composicao\TESTEPECA.make   
 nmake /F..\composicao\TESTETABULEIRO.make  
+nmake /F..\composicao\TESTETABULEIRODEBUG.make 
 nmake /F..\composicao\DAMAS.make  
 
 copy  ..\produto\*.err ..\produto\tudo.err

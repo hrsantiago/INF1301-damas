@@ -57,8 +57,45 @@ typedef enum _TAB_tpCondRet {
     TAB_CondRetPecaInexistente, /*peca nao existe no tabuleiro */
     TAB_CondRetPecaNaoPertenceJogador, /*a peca nao pertence ao jogador */
     TAB_CondRetPosDestOcupada, /* a posicao de destino ja esta ocupada por outra peca */
+	TAB_CondRetErroEstrutura  /* Estrutura do tabuleiro está errada */
 } TAB_tpCondRet;
 
+/***********************************************************************
+*
+*  $TC Tipo de dados: TAB Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+   typedef enum {
+	     EliminarElemento        =  1 ,
+               /* Modifica o tipo da cabeça */
+         DeturpaProximoNulo          =  2 ,
+               /* Anula ponteiro raiz */
+         DeturpaAnteriorNulo      =  3 ,
+               /* Anula ponteiro corrente */
+         DeturpaPróximoLixo          =  4 ,
+               /* Faz raiz apontar para lixo */
+         DeturpaAnteriorLixo      =  5 ,
+               /* Faz corrente apontar para lixo */
+         DeturpaConteudoNulo           =  6 ,
+               /* Modifica tipo nó corrente */
+         DeturpaTipoNo      =  7 ,
+               /* Anula ponteiro cabeça */
+          LiberaSemFree         =  8 ,
+               /* Anula ponteiro pai */
+         PonteiroCorrenteNulo         =  9 ,
+               /* Anula ponteiro filho esquerda */
+         PonteiroOrigemNulo         = 10 ,
+               /* Anula ponteiro filho direita */
+        PonteiroFimNulo      = 11 ,
+               /* Faz ponteiro cabeça apontar para lixo */
+         
+   } TAB_tpModosDeturpacao ;
+
+#endif
 
 /***********************************************************************
 *
@@ -238,5 +275,23 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
 
 /* */
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);
+
+/***********************************************************************
+*
+*  $FC Função: TAB  &Verificar um tabuleiro
+*
+*  $ED Descrição da função
+*     Função da interface de teste.
+*     Verifica completamente uma determinada árvore.
+*     Também marca todos os espaços por ela ocupados.
+*
+***********************************************************************/
+#ifdef _DEBUG
+   TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro tab);
+#endif
+
+#ifdef _DEBUG
+   void TAB_Deturpar( Tabuleiro*tabuleiro , TAB_tpModosDeturpacao ModoDeturpar )
+#endif
 
 #endif

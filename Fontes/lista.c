@@ -31,6 +31,8 @@
 #undef LISTA_OWN
 
 #ifdef _DEBUG
+	#include "conta.h"
+	#include "cespdin.h"
     #include   "Generico.h"
 	#include "tipos.h"
 #endif
@@ -96,9 +98,8 @@ static void LiberarElemento(LIS_tppLista pLista, tpElemLista *pElem);
 static tpElemLista * CriarElemento(LIS_tppLista pLista, void *pValor);
 static void LimparCabeca(LIS_tppLista pLista);
 #ifdef _DEBUG
-
-	LIS_tpCondRet VerificarLista( Lis_tppLista pCabeca ) ;
-
+	static LIS_tpCondRet LIS_VerificarCabeca(tppLista pCabeca);
+	static LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem);
 #endif
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -424,6 +425,70 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista , void * pValor)
 	return LIS_CondRetNaoAchou;
 } /* Fim função: LIS  &Procurar elemento contendo valor */
 
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: LIS  &Verificar a estrutura lista
+*  ****/
+
+LIS_tpCondRet LIS_VerificarLista( tppLista pCabeca)
+{
+	tpElemLista* pElem;
+	int numElementos=0;
+	int retorno;
+	if(LIS_VerificarCabeca(pCabeca)==LIS_CondRetErroEstrutura)
+		return LIS_CondRetErroEstrutura;
+
+	/*Percorre Lista, verificando cada nó*/
+	for(pElem=pCabeca->pOrigemLista;pElem!=NULL;pElem=pElem->pProx)
+	{
+		if ( TST_CompararInt( LIS_TipoEspacoNo , CED_ObterTipoEspaco( pElem ) ,
+		"Tipo do espaço de dados não é nó de lista." ) != TST_CondRetOK )
+		{
+			return LIS_CondRetErroEstrutura ;
+		} 
+		if(pElem->pCabeca!=pCabeca)
+		{
+			#ifdef _DEBUG
+				CNT_Contar("Referencia do elemento de lista errada");
+			#endif
+			TST_NotificarFalha("elemento da lista nao aponta para respectiva cabeca");
+			return LIS_CondRetErroEstrutura;
+		}
+		/*Verifica encadeamento da lista, sua origem e final*/
+		if(LIS_VerificarEncadeamento(pElem)==LIS_CondRetErroEstrutura)
+			return LIS_CondRetErroEstrutura;
+		if (CED_ObterTipoEspaco(pElem->pValor)==LIS_TipoEspacoCabeca){
+			if (LIS_VerificarLista(pElem->pValor)==LIS_CondRetErroEstrutura)
+			{
+				#ifdef _DEBUG
+					CNT_Contar("A lista de pecas possui algum problema");
+				#endif
+				return LIS_CondRetErroEstrutura;
+			}
+			#ifdef _DEBUG
+				CNT_Contar("Ha uma lista de listas e a sublista de pecas sem problemas");
+			#endif
+		}
+		numElementos++;
+	}
+	if(pCabeca->numElem!=numElementos)
+	{
+		#ifdef _DEBUG
+			CNT_Contar("numero de elementos na cabeca diferente do real");
+		#endif
+		TST_NotificarFalha("Numero de elementos indicado na cabeça difere do real");
+		return LIS_CondRetErroEstrutura;
+	}
+	#ifdef _DEBUG
+		CNT_Contar("Lista de listas OK");
+	#endif
+	return LIS_CondRetOK;
+}
+#endif
+
+
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
@@ -492,89 +557,114 @@ void LimparCabeca(LIS_tppLista pLista)
 } /* Fim função: LIS  -Limpar a cabeça da lista */
 
 #ifdef _DEBUG
-
-/***************************************************************************
+/***********************************************************************
 *
-*  Função: LIS  &Verificar a estrutura lista
-*  ****/
-
-ARV_tpCondRet ARV_VerificarLista( tppLista pCabeca)
+*  $FC Função: LIS  -Verificar a cabeça da lista
+*  $ED Descrição da função
+*     
+*    Verifica algumas das assertivas da cabeça da lista
+*
+***********************************************************************/
+LIS_tpCondRet LIS_VerificarCabeca( tppLista pCabeca)
 {
-	tpElemLista* pElem;
-	int numElementos=0;
 	if(pCabeca==NULL)
 	{
-		TST_NotificarFalha("Tentou verificar cabeca inexistente.");
+		#ifdef _DEBUG
+			CNT_Contar("Cabeca de lista inexistente");
+		#endif
+		TST_NotificarFalha("Tentou verificar cabeca inexistente");
 		return LIS_CondRetErroEstrutura;
 	}
-	if ( ! CED_VerificarEspaco( pCabecaParm , NULL ))
+	if ( ! CED_VerificarEspaco( pCabeca , NULL ))
 	{
+		#ifdef _DEBUG
+			CNT_Contar("Controle de espaco acusa erro");
+		#endif
 		TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
 		return LIS_CondRetErroEstrutura ;
 	} 
 	if ( TST_CompararInt( LIS_TipoEspacoCabeca , CED_ObterTipoEspaco( pCabeca ) ,
 		"Tipo do espaço de dados não é cabeça de lista." ) != TST_CondRetOK )
 	{
+		#ifdef _DEBUG
+			CNT_Contar("Tipo não é lista");
+		#endif
 		return LIS_CondRetErroEstrutura ;
 	} 
 	if(pCabeca->numElem<0)
 	{
+		#ifdef _DEBUG
+			CNT_Contar("numero de elementos menor que zero");
+		#endif
 		TST_NotificarFalha("Cabeça acusa numero de elementos menor que zero");
 		return LIS_CondRetErroEstrutura;
 	}
 	if(pCabeca->numElem==0){
+		#ifdef _DEBUG
+			CNT_Contar("Cabeca com zero elementos");
+		#endif
 		if ((pCabeca->pOrigemLista!=NULL) || (pCabeca->pFimLista!=NULL) ||(pCabeca->pElemCorr!=NULL))
 		{
+			#ifdef _DEBUG
+				CNT_Contar("Cabeca com zero elementos e não vazia");
+			#endif
 			TST_NotificarFalha("Cabeça acusa zero elementos, mas lista não está vazia");
 			return LIS_CondRetErroEstrutura;
 		}
 	}
-
-	/*Percorre Lista, verificando cada nó*/
-	for(pElem=pCabeca->pOrigemLista;pElem!=NULL;pElem=pElem->pProx)
-	{
-		if ( TST_CompararInt( LIS_TipoEspacoNo , CED_ObterTipoEspaco( pElem ) ,
-		"Tipo do espaço de dados não é nó de lista." ) != TST_CondRetOK )
+	#ifdef _DEBUG
+		CNT_Contar("Cabeca de lista correta");
+	#endif
+	return LIS_CondRetOK;
+}
+LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
+{	
+	if(pElem->pProx!=NULL)
+	{	
+		#ifdef _DEBUG
+			CNT_Contar("Ha mais de um elemento");
+		#endif
+		if(pElem->pProx->pAnt=!pElem)
 		{
-			return LIS_CondRetErroEstrutura ;
-		} 
-		if(pElem->pCabeca!=pCabeca)
-		{
-			TST_NotificarFalha("elemento da lista nao aponta para respectiva cabeca");
+			#ifdef _DEBUG
+				CNT_Contar("Encadeamento antes errado");
+			#endif
+			TST_NotificarFalha("Encadeamento antes está errado");
 			return LIS_CondRetErroEstrutura;
 		}
-		/*Verifica encadeamento da lista, origem e final*/
-		if(pElem->pProx!=NULL)
-		{	
-			if(pElem->pProx->pAnt=!pElem){
-				TST_NotificarFalha("Encadeamento antes está errado");
-				return LIS_CondRetErroEstrutura;
-			}
-		}
-		else if(pCabeca->pFimLista!=pElem)
-		{
-			TST_NotificarFalha("A cabeca nao aponta para o fim da lista");
-			return LIS_CondRetErroEstrutura;
-		}
-		if(pElem->pAnt!=NULL)
-		{
-			if(pElem->pAnt->pProx=!pElem){
-					TST_NotificarFalha("Encadeamento após está errado");
-					return LIS_CondRetErroEstrutura;
-				}
-		}
-		else if(pCabeca->pOrigemLista!=pElem)
-		{
-			TST_NotificarFalha("A cabeca nao aponta para a origem da lista");
-			return LIS_CondRetErroEstrutura;
-		}
-		numElementos++;
 	}
-	if(pCabeca->numElem!=numElementos)
+	else if(pCabeca->pFimLista!=pElem)
 	{
-		TST_NotificarFalha("Numero de elementos indicado na cabeça difere do real");
+		#ifdef _DEBUG
+			CNT_Contar("Cabeca nao aponta para o fim");
+		#endif
+    	TST_NotificarFalha("A cabeca nao aponta para o fim da lista");
 		return LIS_CondRetErroEstrutura;
 	}
+	if(pElem->pAnt!=NULL)
+	{
+		if(pElem->pAnt->pProx=!pElem)
+		{
+			#ifdef _DEBUG
+				CNT_Contar("Encadeamento após errado");
+			#endif
+				TST_NotificarFalha("Encadeamento após está errado");
+				return LIS_CondRetErroEstrutura;
+		}
+	}
+	else if(pCabeca->pOrigemLista!=pElem)
+	{
+		#ifdef _DEBUG
+			CNT_Contar("Cabeca nao aponta pra origem");
+		#endif
+		TST_NotificarFalha("A cabeca nao aponta para a origem da lista");
+		return LIS_CondRetErroEstrutura;
+	}
+	#ifdef _DEBUG
+			CNT_Contar("Encadeamento Correto");
+	#endif
+	return LIS_CondRetOK;
 }
 #endif
+
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/

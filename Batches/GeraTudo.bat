@@ -7,9 +7,10 @@ pushd.
 
 cd ..\ferramnt
 
-gmake/cTESTEPECA	/b..\Composicao	/pgmake
-gmake/cTESTETABULEIRO	/b..\Composicao	/pgmake
-gmake/cTESTELISTA	/b..\Composicao	/pgmake
-gmake/cDAMAS		/b..\Composicao	/pgmake
+gmake/cTESTEPECA		/b..\Composicao	/pgmake
+gmake/cTESTETABULEIRO		/b..\Composicao	/pgmake
+gmake/cTESTELISTA		/b..\Composicao	/pgmake
+gmake/cTESTETABULEIRODEBUG	/b..\Composicao	/pgmake
+gmake/cDAMAS			/b..\Composicao	/pgmake
 
 popd
