@@ -56,10 +56,10 @@ Estatísticas do construto
       lista.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             670
-      Linhas de código:         428
-      Linhas de comentário:     167
-      Linhas em branco:          92
+      Total linhas:             687
+      Linhas de código:         430
+      Linhas de comentário:     178
+      Linhas em branco:          96
    Arquivos de inclusão de que necessita
       Generico.h
       TST_Espc.h
@@ -71,8 +71,8 @@ Estatísticas do construto
    Estatísticas do arquivo: lista.h
       Total linhas:             376
       Linhas de código:          34
-      Linhas de comentário:     308
-      Linhas em branco:          40
+      Linhas de comentário:     310
+      Linhas em branco:          38
    Arquivos em que é incluído
       lista.c
       testLista.c
@@ -98,8 +98,8 @@ Totais por tipo de arquivo
   Tipo: h        Path: ..\Fontes
          Total linhas do tipo:      2635
          Linhas de código:           234
-         Linhas de comentário:      2090
-         Linhas em branco:           318
+         Linhas de comentário:      2092
+         Linhas em branco:           316
          Arquivos deste tipo:          6
 
   Tipo: obj      Path: ..\Objetos
@@ -124,17 +124,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1120
-         Linhas de código:           683
-         Linhas de comentário:       273
-         Linhas em branco:           202
+         Total linhas do tipo:      1137
+         Linhas de código:           685
+         Linhas de comentário:       284
+         Linhas em branco:           206
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              3755
-   Linhas de código:           917
-   Linhas de comentário:      2363
-   Linhas em branco:           520
+   Total linhas:              3772
+   Linhas de código:           919
+   Linhas de comentário:      2376
+   Linhas em branco:           522
    Arquivos processados:         8
 

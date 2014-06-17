@@ -683,6 +683,5 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 }
 #endif
 
-#endif
 
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/

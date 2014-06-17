@@ -105,10 +105,10 @@ Estatísticas do construto
       main.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             670
-      Linhas de código:         428
-      Linhas de comentário:     167
-      Linhas em branco:          92
+      Total linhas:             687
+      Linhas de código:         430
+      Linhas de comentário:     178
+      Linhas em branco:          96
    Arquivos de inclusão de que necessita
       Generico.h
       TST_Espc.h
@@ -120,8 +120,8 @@ Estatísticas do construto
    Estatísticas do arquivo: lista.h
       Total linhas:             376
       Linhas de código:          34
-      Linhas de comentário:     308
-      Linhas em branco:          40
+      Linhas de comentário:     310
+      Linhas em branco:          38
    Arquivos em que é incluído
       lista.c
       tabuleiro.c
@@ -158,8 +158,8 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             445
-      Linhas de código:         278
+      Total linhas:             457
+      Linhas de código:         290
       Linhas de comentário:     124
       Linhas em branco:          55
    Arquivos de inclusão de que necessita
@@ -173,10 +173,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             308
-      Linhas de código:          49
-      Linhas de comentário:     243
-      Linhas em branco:          23
+      Total linhas:             342
+      Linhas de código:          43
+      Linhas de comentário:     281
+      Linhas em branco:          26
    Arquivos em que é incluído
       jogo.c
       tabuleiro.c
@@ -195,10 +195,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3894
-         Linhas de código:           369
-         Linhas de comentário:      3115
-         Linhas em branco:           430
+         Total linhas do tipo:      3928
+         Linhas de código:           363
+         Linhas de comentário:      3155
+         Linhas em branco:           431
          Arquivos deste tipo:         10
 
   Tipo: obj      Path: ..\Objetos
@@ -223,17 +223,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1575
-         Linhas de código:           949
-         Linhas de comentário:       451
-         Linhas em branco:           216
+         Total linhas do tipo:      1604
+         Linhas de código:           963
+         Linhas de comentário:       462
+         Linhas em branco:           220
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMAS
 
-   Total linhas:              5469
-   Linhas de código:          1318
-   Linhas de comentário:      3566
-   Linhas em branco:           646
+   Total linhas:              5532
+   Linhas de código:          1326
+   Linhas de comentário:      3617
+   Linhas em branco:           651
    Arquivos processados:        15
 

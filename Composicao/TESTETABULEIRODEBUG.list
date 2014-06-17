@@ -77,10 +77,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             670
-      Linhas de código:         428
-      Linhas de comentário:     167
-      Linhas em branco:          92
+      Total linhas:             687
+      Linhas de código:         430
+      Linhas de comentário:     178
+      Linhas em branco:          96
    Arquivos de inclusão de que necessita
       Generico.h
       TST_Espc.h
@@ -92,8 +92,8 @@ Estatísticas do construto
    Estatísticas do arquivo: lista.h
       Total linhas:             376
       Linhas de código:          34
-      Linhas de comentário:     308
-      Linhas em branco:          40
+      Linhas de comentário:     310
+      Linhas em branco:          38
    Arquivos em que é incluído
       lista.c
       tabuleiro.c
@@ -122,8 +122,8 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             445
-      Linhas de código:         278
+      Total linhas:             457
+      Linhas de código:         290
       Linhas de comentário:     124
       Linhas em branco:          55
    Arquivos de inclusão de que necessita
@@ -137,10 +137,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             308
-      Linhas de código:          49
-      Linhas de comentário:     243
-      Linhas em branco:          23
+      Total linhas:             342
+      Linhas de código:          43
+      Linhas de comentário:     281
+      Linhas em branco:          26
    Arquivos em que é incluído
       tabuleiro.c
       testtabuleiro.c
@@ -168,10 +168,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3777
-         Linhas de código:           357
-         Linhas de comentário:      3018
-         Linhas em branco:           419
+         Total linhas do tipo:      3811
+         Linhas de código:           351
+         Linhas de comentário:      3058
+         Linhas em branco:           420
          Arquivos deste tipo:          9
 
   Tipo: obj      Path: ..\Objetos
@@ -196,17 +196,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1540
-         Linhas de código:           925
-         Linhas de comentário:       434
-         Linhas em branco:           231
+         Total linhas do tipo:      1569
+         Linhas de código:           939
+         Linhas de comentário:       445
+         Linhas em branco:           235
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRODEBUG
 
-   Total linhas:              5317
-   Linhas de código:          1282
-   Linhas de comentário:      3452
-   Linhas em branco:           650
+   Total linhas:              5380
+   Linhas de código:          1290
+   Linhas de comentário:      3503
+   Linhas em branco:           655
    Arquivos processados:        13
 
