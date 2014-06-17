@@ -31,6 +31,7 @@
 #undef LISTA_OWN
 
 #ifdef _DEBUG
+    #include   "Generico.h"
 	#include "tipos.h"
 #endif
 

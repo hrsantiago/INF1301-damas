@@ -20,19 +20,41 @@ Módulos do construto: TESTELISTA.comp
 
 Estatísticas do construto
 
-   Estatísticas do arquivo: lista.c
-      Total linhas:             461
-      Linhas de código:         253
-      Linhas de comentário:     137
-      Linhas em branco:          87
+   Estatísticas do arquivo: Generico.h
+      Total linhas:             588
+      Linhas de código:          54
+      Linhas de comentário:     470
+      Linhas em branco:          64
    Arquivos de inclusão de que necessita
+      TST_Espc.h
+   Arquivos em que é incluído
+      lista.c
+
+   Estatísticas do arquivo: TST_Espc.h
+      Total linhas:             320
+      Linhas de código:          23
+      Linhas de comentário:     277
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      Generico.h
+      lista.c
+
+   Estatísticas do arquivo: lista.c
+      Total linhas:             580
+      Linhas de código:         347
+      Linhas de comentário:     159
+      Linhas em branco:          91
+   Arquivos de inclusão de que necessita
+      Generico.h
+      TST_Espc.h
       lista.h
+      tipos.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             358
-      Linhas de código:          30
-      Linhas de comentário:     298
-      Linhas em branco:          35
+      Total linhas:             365
+      Linhas de código:          34
+      Linhas de comentário:     299
+      Linhas em branco:          38
    Arquivos em que é incluído
       lista.c
       testLista.c
@@ -45,14 +67,22 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       lista.h
 
+   Estatísticas do arquivo: tipos.h
+      Total linhas:              38
+      Linhas de código:          12
+      Linhas de comentário:      24
+      Linhas em branco:           3
+   Arquivos em que é incluído
+      lista.c
+
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:       358
-         Linhas de código:            30
-         Linhas de comentário:       298
-         Linhas em branco:            35
-         Arquivos deste tipo:          1
+         Total linhas do tipo:      1311
+         Linhas de código:           123
+         Linhas de comentário:      1070
+         Linhas em branco:           125
+         Arquivos deste tipo:          4
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -76,17 +106,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       911
-         Linhas de código:           508
-         Linhas de comentário:       243
-         Linhas em branco:           197
+         Total linhas do tipo:      1030
+         Linhas de código:           602
+         Linhas de comentário:       265
+         Linhas em branco:           201
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTELISTA
 
-   Total linhas:              1269
-   Linhas de código:           538
-   Linhas de comentário:       541
-   Linhas em branco:           232
-   Arquivos processados:         3
+   Total linhas:              2341
+   Linhas de código:           725
+   Linhas de comentário:      1335
+   Linhas em branco:           326
+   Arquivos processados:         6
 

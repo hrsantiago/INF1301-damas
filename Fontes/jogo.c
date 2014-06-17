@@ -137,6 +137,7 @@ void jogar(Jogo *jogo)
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
     int vencedor = -1;
+	int distX, distY;
     Peca *pecaDe = NULL, *pecaPara = NULL;
 
     PecaTipo tipo;
@@ -195,13 +196,13 @@ void jogar(Jogo *jogo)
             continue;
         }
 
-        int distX = abs(colunaPara - colunaDe);
+        distX = abs(colunaPara - colunaDe);
         if(distX == 0) {
             printf("A peca se move nas diagonais. Tente novamente.\n");
             continue;
         }
 
-        int distY = abs(linhaPara - linhaDe);
+        distY = abs(linhaPara - linhaDe);
         if(distX > 2 || distY > 2) {
             printf("Movimento muito distante. Tente novamente.\n");
             continue;

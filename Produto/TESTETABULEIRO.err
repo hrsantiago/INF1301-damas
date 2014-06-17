@@ -9,7 +9,7 @@ testtabuleiro.c
 tabuleiro.c
 ..\Fontes\tabuleiro.c(208) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\tabuleiro.c(236) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-c:\users\jose\documents\github\damas\fontes\tabuleiro.c(291) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
+c:\users\jose\documents\github\damas\fontes\tabuleiro.c(293) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

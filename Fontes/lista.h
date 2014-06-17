@@ -75,8 +75,8 @@ typedef enum {
     LIS_CondRetListaVazia, /* A lista não contém elementos */
     LIS_CondRetFimLista, /* Foi atingido o fim de lista */
     LIS_CondRetNaoAchou, /* Não encontrou o valor procurado */
-    LIS_CondRetFaltouMemoria /* Faltou memória ao tentar criar um elemento de lista */
-	ARV_CondRetErroEstrutura; /* Estrutura da lista está errada */
+    LIS_CondRetFaltouMemoria, /* Faltou memória ao tentar criar um elemento de lista */
+	ARV_CondRetErroEstrutura /* Estrutura da lista está errada */
 } LIS_tpCondRet;
 
 /***********************************************************************

@@ -3,18 +3,20 @@
 #################### Compilacao do construto: DAMAS
 
 jogo.c
+..\Fontes\jogo.c(136) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
 ..\Fontes\jogo.c(151) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
 ..\Fontes\jogo.c(153) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
 ..\Fontes\jogo.c(167) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(175) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(185) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(177) : warning C4013: 'tolower' undefined; assuming extern returning int
-..\Fontes\jogo.c(177) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\jogo.c(186) : warning C4189: 'direcao' : local variable is initialized but not referenced
-..\Fontes\jogo.c(236) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(187) : warning C4013: 'tolower' undefined; assuming extern returning int
+..\Fontes\jogo.c(187) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\jogo.c(217) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(232) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(272) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
 main.c
 Microsoft (R) Incremental Linker Version 10.00.40219.01
@@ -69,7 +71,7 @@ testtabuleiro.c
 tabuleiro.c
 ..\Fontes\tabuleiro.c(208) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\tabuleiro.c(236) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-c:\users\jose\documents\github\damas\fontes\tabuleiro.c(291) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
+c:\users\jose\documents\github\damas\fontes\tabuleiro.c(293) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

@@ -86,8 +86,8 @@ Estatísticas do construto
       peca.h
 
    Estatísticas do arquivo: tipos.h
-      Total linhas:              36
-      Linhas de código:          10
+      Total linhas:              38
+      Linhas de código:          12
       Linhas de comentário:      24
       Linhas em branco:           3
    Arquivos em que é incluído
@@ -96,8 +96,8 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2503
-         Linhas de código:           218
+         Total linhas do tipo:      2505
+         Linhas de código:           220
          Linhas de comentário:      1997
          Linhas em branco:           292
          Arquivos deste tipo:          6
@@ -132,8 +132,8 @@ Totais por tipo de arquivo
 
 Totais para todo o construto TESTEPECA
 
-   Total linhas:              2855
-   Linhas de código:           392
+   Total linhas:              2857
+   Linhas de código:           394
    Linhas de comentário:      2125
    Linhas em branco:           358
    Arquivos processados:         8
