@@ -35,21 +35,19 @@
 #include "tipos.h"
 #endif
 
-
 /***********************************************************************
 *
 *  $TC Tipo de dados: JOG estrutura de jogo.
 *
-*
 ***********************************************************************/
 typedef struct _Jogo {
     Tabuleiro *tabuleiro;
-    void (*stateFunction)(Jogo *jogo);
+    void (*funcaoEstado)(Jogo *jogo);
 } Jogo;
 
 /***** Protótipos das funções encapsuladas no módulo *****/
-void mainMenu(Jogo *jogo);
-void play(Jogo *jogo);
+void menu(Jogo *jogo);
+void jogar(Jogo *jogo);
 
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -74,7 +72,7 @@ Jogo *JOG_criar()
         return NULL;
     }
 
-    jogo->stateFunction = mainMenu;
+    jogo->funcaoEstado = menu;
 
     return jogo;
 }/* Fim função: JOG  &Criar jogo */
@@ -100,8 +98,8 @@ JOG_tpCondRet JOG_destruir(Jogo *jogo)
 *  ****/
 void JOG_rodar(Jogo *jogo)
 {
-    while(jogo->stateFunction)
-        jogo->stateFunction(jogo);
+    while(jogo->funcaoEstado)
+        jogo->funcaoEstado(jogo);
 }/* Fim função: JOG  &Atestar andamento do jogo */
 
 
@@ -132,18 +130,19 @@ void JOG_rodar(Jogo *jogo)
 *		
 *
 ***********************************************************************/
-void play(Jogo *jogo)
+void jogar(Jogo *jogo)
 {
-    int linhaDe, linhaPara;
-    char colunaDe, colunaPara;
+    int linhaDe, linhaPara, linhaRemover = -1;
+    char colunaDe, colunaPara, colunaRemover = -1;
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
-    int vencedor;
-    Peca *pecaDe, *pecaPara;
+    int vencedor = -1;
+    Peca *pecaDe = NULL, *pecaPara = NULL;
+
     PecaTipo tipo;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
-    do { // not finished, check movements, pieces, etc
+    do {
         TAB_imprimir(jogo->tabuleiro);
 
         printf("Vez do jogador %c.\n", idJogador[jogadorAtual]);
@@ -171,6 +170,16 @@ void play(Jogo *jogo)
             continue;
         }
 
+        tipo = PEC_obterTipo(pecaDe);
+        if(tipo == PecaNormal) {
+            // jogador0 vai para cima, jogador 1 vai para baixo
+            int direcao = jogadorAtual == 0 ? 1 : -1;
+            if((linhaPara - linhaDe) * direcao <= 0) {
+                printf("Direcao de movimento invalida. Tente novamente.\n");
+                continue;
+            }
+        }
+
         printf("Entre com a coluna de destino: ");
         scanf(" %c", &colunaPara);
 
@@ -180,33 +189,59 @@ void play(Jogo *jogo)
             continue;
         }
 
-        tipo = PEC_obterTipo(pecaDe);
-        if(tipo == PecaNormal) {
-            // jogador0 vai para cima, jogador 1 vai para baixo
-            int direcao = jogadorAtual == 0 ? 1 : -1;
-
-        }
-        else if(tipo == PecaDama) {
-            // pode mover para cima e baixo
-        }
-
         pecaPara = TAB_obterCasa(jogo->tabuleiro, linhaPara, colunaPara);
         if(pecaPara) {
             printf("Ja existe uma peca nessa posicao. Tente novamente.\n");
             continue;
         }
 
-        TAB_setarCasa(jogo->tabuleiro, linhaDe, colunaDe, NULL);
-        TAB_setarCasa(jogo->tabuleiro, linhaPara, colunaPara, pecaDe);
+        int distX = abs(colunaPara - colunaDe);
+        if(distX == 0) {
+            printf("A peca se move nas diagonais. Tente novamente.\n");
+            continue;
+        }
+
+        int distY = abs(linhaPara - linhaDe);
+        if(distX > 2 || distY > 2) {
+            printf("Movimento muito distante. Tente novamente.\n");
+            continue;
+        }
+
+        if(distX == 2 && distY == 2) {
+            linhaRemover = (linhaPara + linhaDe) / 2;
+            colunaRemover = (colunaPara + colunaDe) / 2;
+            if(!TAB_obterCasa(jogo->tabuleiro, linhaRemover, colunaRemover)) {
+                printf("Movimento muito distante sem peca para comer. Tente novamente.\n");
+                linhaRemover = -1;
+                colunaRemover = -1;
+                continue;
+            }
+        }
+        else if(distX != 1 || distY != 1) {
+            printf("Movimento invalido. Tente novamente.\n");
+            continue;
+        }
+
+        TAB_setarCasa(jogo->tabuleiro, linhaDe, colunaDe, NULL, 0);
+        TAB_setarCasa(jogo->tabuleiro, linhaPara, colunaPara, pecaDe, 0);
+
+        if(linhaRemover != -1 && colunaRemover != -1) {
+            TAB_setarCasa(jogo->tabuleiro, linhaRemover, colunaRemover, NULL, 1);
+            linhaRemover = -1;
+            colunaRemover = -1;
+        }
+
+        if(tipo == PecaNormal && ((jogadorAtual == 0 && linhaPara == 8) || (jogadorAtual == 1 && linhaPara == 1))) {
+            PEC_setarTipo(pecaDe, PecaDama);
+            printf("A peca do jogador %c virou DAMA.\n", idJogador[jogadorAtual]);
+        }
 
         jogadorAtual = !jogadorAtual;
-    } while((vencedor = TAB_verificaVencedor(jogo->tabuleiro, idJogador[0], idJogador[1])) == 0);
+    } while((vencedor = TAB_verificaVencedor(jogo->tabuleiro, idJogador[0], idJogador[1])) == -1);
 
-    printf("O jogador %c venceu!", idJogador[vencedor-1]);
-    jogo->stateFunction = mainMenu;
+    printf("O jogador %c venceu!", idJogador[vencedor]);
+    jogo->funcaoEstado = menu;
 }/* Fim função: JOG  &Jogar jogo */
-
-
 
 /***************************************************************************
 *
@@ -227,7 +262,7 @@ void play(Jogo *jogo)
 *                (iniciar jogo ou sair).
 *
 ***********************************************************************/
-void mainMenu(Jogo *jogo)
+void menu(Jogo *jogo)
 {
     int opcao;
     printf("1 - Iniciar novo jogo\n");
@@ -237,10 +272,10 @@ void mainMenu(Jogo *jogo)
 
     switch(opcao) {
     case 1:
-        jogo->stateFunction = play;
+        jogo->funcaoEstado = jogar;
         break;
     case 2:
-        jogo->stateFunction = NULL;
+        jogo->funcaoEstado = NULL;
         break;
     default:
         printf("Opcao invalida. Tente novamente.\n");

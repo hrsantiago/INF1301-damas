@@ -234,7 +234,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *       TAB_tpCondRetColunaInexistente.
 *
 ***********************************************************************/
-TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca);
+TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca, int limpar);
 
 /* */
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);

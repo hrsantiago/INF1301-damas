@@ -225,10 +225,10 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 *  Função: TAB  &Setar valor de uma peça no tabuleiro
 *  ****/
 
-TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
+TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca, int limpar)
 {
     LIS_tppLista lista;
-    //    Peca *antiga;
+    Peca *antiga;
 
     if(tabuleiro == NULL)
         return TAB_CondRetTabuleiroInexistente;
@@ -238,17 +238,17 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     if(LIS_IrIndice(tabuleiro->lista, linha) != LIS_CondRetOK)
         return TAB_CondRetLinhaInexistente;
     lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
-    /*ver ainda se está certo
     if(!lista)
-    return;*/
+        return TAB_CondRetLinhaInexistente;
     
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return TAB_CondRetColunaInexistente;
 
-    // nao limpar peca por hora, somente e utilizada por tab_mover
-    //    antiga = LIS_ObterValor(lista);
-    //    if(antiga)
-    //        ListaExcluirPeca(antiga);
+    if(limpar) {
+        antiga = LIS_ObterValor(lista);
+        if(antiga)
+            ListaExcluirPeca(antiga);
+    }
 
     LIS_SetarValor(lista, peca);
     return TAB_CondRetOK;
@@ -276,7 +276,7 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
                     existe2 = 1;
 
                 if(existe1 && existe2) // existe peca dos 2 jogadores no tabuleiro. jogo continua
-                    return 0;
+                    return -1;
             }
 
             LIS_AvancarElementoCorrente(lista, 1);
@@ -285,9 +285,11 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
     }
 
     if(existe1 && !existe2) // so ha pecas do jogador 1 presentes. ele ganhou
-        return 1;
+        return 0;
     if(!existe1 && existe2) // so ha pecas do jogador 2 presentes. ele ganhou
-        return 2;
+        return 1;
+
+    assert("Caso indefinido TAB_verificaVencedor");
 }/* Fim função: TAB verifica vencedor */
 
 /*****  Código das funções encapsuladas no módulo  *****/   
