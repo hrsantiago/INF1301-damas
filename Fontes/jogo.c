@@ -88,6 +88,7 @@ JOG_tpCondRet JOG_destruir(Jogo *jogo)
     if(!jogo)
         return JOG_CondRetJogoInexistente;
 
+    TAB_destruir(jogo->tabuleiro);
     free(jogo);
     return JOG_CondRetOK;
 }/* Fim função: JOG  &Destruir jogo */
