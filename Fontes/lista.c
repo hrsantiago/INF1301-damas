@@ -30,6 +30,12 @@
 #include "lista.h"
 #undef LISTA_OWN
 
+#ifdef _DEBUG
+	#include "tipos.h"
+#endif
+
+ 
+
 
 /***********************************************************************
 *
@@ -90,8 +96,7 @@ static tpElemLista * CriarElemento(LIS_tppLista pLista, void *pValor);
 static void LimparCabeca(LIS_tppLista pLista);
 #ifdef _DEBUG
 
-/*  LIS_tpCondRet VerificarNo( tpElemLista * pNo ) ;
-*/LIS_tpCondRet VerificarLista( Lis_tppLista pCabeca ) ;
+	LIS_tpCondRet VerificarLista( Lis_tppLista pCabeca ) ;
 
 #endif
 /*****  Código das funções exportadas pelo módulo  *****/
