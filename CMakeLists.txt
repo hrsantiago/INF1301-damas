@@ -9,9 +9,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c99 -pipe -Wall")
-set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -D_DEBUG")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_DEBUG -std=c99 -pipe -Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wno-error -O4 -ffast-math")
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_definitions("-D_DEBUG")
+endif()
 
 set(SOURCES
   Fontes/main.c

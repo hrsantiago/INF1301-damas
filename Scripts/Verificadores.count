@@ -5,12 +5,14 @@
 //
 ///////////////////////////////////////////////
 
+// Lista
+
 Cabeca de lista inexistente
 Controle de espaco acusa erro
-Tipo não é lista
-numero de elementos menor que zero
+Tipo nao e lista
+Numero de elementos menor que zero
 Cabeca com zero elementos
-Cabeca com zero elementos e não vazia
+Cabeca com zero elementos e nao vazia
 Ha mais de um elemento
 Encadeamento antes errado
 Cabeca nao aponta para o fim
@@ -23,8 +25,12 @@ A lista de pecas possui algum problema
 Ha uma lista de listas e a sublista de pecas sem problemas
 numero de elementos na cabeca diferente do real
 Numero de elementos indicado na cabeça difere do real
+
+
+// Tabuleiro
+
 Lista de listas OK
 Tabuleiro Inexistente
 ??????????
-Tipo não é Tabuleiro
+Tipo nao e Tabuleiro
 Tipo Tabuleiro OK

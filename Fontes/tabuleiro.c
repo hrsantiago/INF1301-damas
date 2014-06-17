@@ -60,9 +60,9 @@ typedef struct _Tabuleiro {
 
 #ifdef _DEBUG
 
-   static char EspacoLixo[ 256 ] =
-         "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ;
-         /* Espaço de dados lixo usado ao testar */
+static char EspacoLixo[ 256 ] =
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ;
+/* Espaço de dados lixo usado ao testar */
 #endif
 
 /***** Protótipos das funções encapsuladas no módulo *****/
@@ -118,9 +118,8 @@ Tabuleiro *TAB_criar()
 *  ****/
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-    if(tabuleiro == NULL){
+    if(!tabuleiro)
         return TAB_CondRetTabuleiroInexistente;
-    }
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -351,36 +350,33 @@ void ListaExcluirLista(void *pDado)
 
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 {
-	int condRet;
-	if(tabuleiro==NULL)
-	{
-		#ifdef _DEBUG
-			CNT_Contar("Tabuleiro Inexistente");
-		#endif
-		TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
-		return TAB_CondRetErroEstrutura;
-	}
-	if ( ! CED_VerificarEspaco( tabuleiro , NULL ))
-	{
-		#ifdef _DEBUG
-			CNT_Contar("??????????");
-		#endif
-		TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
-		return TAB_CondRetErroEstrutura ;
-	} 
-	if ( TST_CompararInt( TAB_Tabuleiro , CED_ObterTipoEspaco( tabuleiro ) ,
-		"Tipo do espaço de dados não é tabuleiro." ) != TST_CondRetOK )
-	{
-		#ifdef _DEBUG
-			CNT_Contar("Tipo não é Tabuleiro");
-		#endif
-		return TAB_CondRetErroEstrutura ;
-	} 
-	#ifdef _DEBUG
-		CNT_Contar("Tipo Tabuleiro OK");
-	#endif
-	condRet=LIS_VerificarLista(tabuleiro->lista);
-	return CondRet;
+    int condRet;
+    if(!tabuleiro) {
+#ifdef _DEBUG
+        CNT_CONTAR("Tabuleiro Inexistente");
+#endif
+        TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
+        return TAB_CondRetErroEstrutura;
+    }
+    if(!CED_VerificarEspaco(tabuleiro, NULL)) {
+#ifdef _DEBUG
+        CNT_CONTAR("??????????");
+#endif
+        TST_NotificarFalha("Controle do espaço acusou erro.");
+        return TAB_CondRetErroEstrutura ;
+    }
+    if(TST_CompararInt(TAB_Tabuleiro, CED_ObterTipoEspaco(tabuleiro),
+                       "Tipo do espaço de dados nao e tabuleiro.") != TST_CondRetOK) {
+#ifdef _DEBUG
+        CNT_CONTAR("Tipo nao e Tabuleiro");
+#endif
+        return TAB_CondRetErroEstrutura;
+    }
+#ifdef _DEBUG
+    CNT_CONTAR("Tipo Tabuleiro OK");
+#endif
+    condRet = LIS_VerificarLista(tabuleiro->lista);
+    return condRet;
 }
 
 #endif
@@ -392,65 +388,62 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 *  Função: TAB  &Deturpar tabuleiro
 *  ****/
 
-void TAB_Deturpar( Tabuleiro*tabuleiro , TAB_tpModosDeturpacao ModoDeturpar )
+void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar)
 {
-	LIS_tppLista lista = tabuleiro->lista;
-	if(tabuleiro==NULL)
-	{
-		return;
-	}
-	switch(ModoDeturpar){
-		case EliminarElemento :
-         {
-			 LIS_ExcluirElemento(lista);
-			 break;
-		 }
-		case DeturpaProximoNulo:
-			{
-				
-				break;
-			}
-		case DeturpaAnteriorNulo:
-			{
-				
-				break;
-			}
-		case DeturpaPróximoLixo:
-			{
-				break;
-			}
-		case DeturpaAnteriorLixo:
-			{
-				break;
-			}
-		case DeturpaConteudoNulo:
-			{
-				break;
-			}
-		case DeturpaTipoNo:
-			{
-				CED_DefinirTipoEspaco( lista , CED_ID_TIPO_VALOR_NULO ) ;
-				CED_DefinirTipoEspaco( lista , TAB_Tabuleiro ) ;
-				break;
-			}
-		case LiberaSemFree:
-			{
-				break;
-			}
-		case PonteiroCorrenteNulo:
-			{
-				break;
-			}
-		case PonteiroOrigemNulo:
-			{
-				break;
-			}
-		case PonteiroFimNulo:
-			{
-				break;
-			}
+    LIS_tppLista lista = tabuleiro->lista;
+    if(!tabuleiro)
+        return;
 
-	}
+    switch(ModoDeturpar) {
+    case EliminarElemento:
+    {
+        LIS_ExcluirElemento(lista);
+        break;
+    }
+    case DeturpaProximoNulo:
+    {
+        break;
+    }
+    case DeturpaAnteriorNulo:
+    {
+        break;
+    }
+    case DeturpaProximoLixo:
+    {
+        break;
+    }
+    case DeturpaAnteriorLixo:
+    {
+        break;
+    }
+    case DeturpaConteudoNulo:
+    {
+        break;
+    }
+    case DeturpaTipoNo:
+    {
+        CED_DefinirTipoEspaco(lista, CED_ID_TIPO_VALOR_NULO);
+        CED_DefinirTipoEspaco(lista, TAB_Tabuleiro);
+        break;
+    }
+    case LiberaSemFree:
+    {
+        break;
+    }
+    case PonteiroCorrenteNulo:
+    {
+        break;
+    }
+    case PonteiroOrigemNulo:
+    {
+        break;
+    }
+    case PonteiroFimNulo:
+    {
+        break;
+    }
+
+    }
 }
 
 #endif

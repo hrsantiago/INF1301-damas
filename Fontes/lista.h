@@ -58,7 +58,7 @@
 
 /* Tipo referÃªncia para uma lista */
 
-typedef struct LIS_tagLista *LIS_tppLista ;
+typedef struct LIS_tagLista *LIS_tppLista;
 
 /***********************************************************************
 *
@@ -76,7 +76,7 @@ typedef enum {
     LIS_CondRetFimLista, /* Foi atingido o fim de lista */
     LIS_CondRetNaoAchou, /* Não encontrou o valor procurado */
     LIS_CondRetFaltouMemoria, /* Faltou memória ao tentar criar um elemento de lista */
-	LIS_CondRetErroEstrutura /* Estrutura da lista está errada */
+    LIS_CondRetErroEstrutura /* Estrutura da lista está errada */
 } LIS_tpCondRet;
 
 /***********************************************************************
@@ -365,7 +365,7 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 *     LIS_CondRetErroEstrutura, caso contrário
 ***********************************************************************/
 
-	LIS_tpCondRet LIS_VerificarLista( Lis_tppLista pCabeca ) ;
+LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca);
 
 #endif
 
