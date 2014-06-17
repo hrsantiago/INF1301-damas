@@ -72,10 +72,11 @@ typedef struct LIS_tagLista *LIS_tppLista ;
 
 typedef enum {
     LIS_CondRetOK, /* Concluiu corretamente */
-    LIS_CondRetListaVazia, /* A lista n√£o cont√©m elementos */
+    LIS_CondRetListaVazia, /* A lista n„o contÈm elementos */
     LIS_CondRetFimLista, /* Foi atingido o fim de lista */
-    LIS_CondRetNaoAchou, /* N√£o encontrou o valor procurado */
-    LIS_CondRetFaltouMemoria /* Faltou mem√≥ria ao tentar criar um elemento de lista */
+    LIS_CondRetNaoAchou, /* N„o encontrou o valor procurado */
+    LIS_CondRetFaltouMemoria /* Faltou memÛria ao tentar criar um elemento de lista */
+	ARV_CondRetErroEstrutura; /* Estrutura da lista est· errada */
 } LIS_tpCondRet;
 
 /***********************************************************************
@@ -350,6 +351,12 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 ***********************************************************************/
 
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
+
+#ifdef _DEBUG
+
+	LIS_tpCondRet VerificarLista( Lis_tppLista pCabeca ) ;
+
+#endif
 
 #undef LISTA_EXT
 

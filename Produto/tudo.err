@@ -3,18 +3,18 @@
 #################### Compilacao do construto: DAMAS
 
 jogo.c
-..\Fontes\jogo.c(67) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(151) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(69) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(153) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(83) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(167) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(91) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(175) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(93) : warning C4013: 'tolower' undefined; assuming extern returning int
-..\Fontes\jogo.c(93) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\jogo.c(102) : warning C4189: 'direcao' : local variable is initialized but not referenced
-..\Fontes\jogo.c(131) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(177) : warning C4013: 'tolower' undefined; assuming extern returning int
+..\Fontes\jogo.c(177) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\jogo.c(186) : warning C4189: 'direcao' : local variable is initialized but not referenced
+..\Fontes\jogo.c(236) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
 main.c
 Microsoft (R) Incremental Linker Version 10.00.40219.01
@@ -48,8 +48,8 @@ ArcaboucoTeste.lib
 
 testpeca.c
 peca.c
-..\Fontes\peca.c(57) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\peca.c(143) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\peca.c(68) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\peca.c(154) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
@@ -67,9 +67,9 @@ testtabuleiro.c
 ..\Fontes\testtabuleiro.c(158) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\testtabuleiro.c(171) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
-..\Fontes\tabuleiro.c(227) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(255) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-c:\users\jose\documents\github\damas\fontes\tabuleiro.c(312) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
+..\Fontes\tabuleiro.c(208) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(236) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+c:\users\jose\documents\github\damas\fontes\tabuleiro.c(291) : warning C4715: 'TAB_verificaVencedor' : not all control paths return a value
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

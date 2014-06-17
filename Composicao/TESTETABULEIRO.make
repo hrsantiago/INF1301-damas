@@ -65,9 +65,9 @@ $(Fobj)\testtabuleiro.obj :  {$(Pc)}\testtabuleiro.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\tabuleiro.obj :  {$(Pc)}\tabuleiro.c \
-    {$(Ph)}Conta.h              {$(Ph)}Generico.h           {$(Ph)}TST_Espc.h           \
-    {$(Ph)}cespdin.h            {$(Ph)}lista.h              {$(Ph)}peca.h               \
-    {$(Ph)}tabuleiro.h         
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}lista.h              {$(Ph)}peca.h               \
+    {$(Ph)}tabuleiro.h          {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
@@ -75,7 +75,8 @@ $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\peca.obj :  {$(Pc)}\peca.c \
-    {$(Ph)}peca.h              
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}peca.h               {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 
