@@ -27,6 +27,7 @@
 
 typedef enum {
     CED_ID_TIPO_VALOR_NULO,
+    LIS_Lista,
     JOG_Jogo,
     TAB_Tabuleiro, /* estrutura com cabeca de lista de listas=tabuleiro */
     PEC_Peca,

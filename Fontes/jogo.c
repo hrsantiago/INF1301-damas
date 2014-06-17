@@ -35,11 +35,9 @@
 #include "tipos.h"
 #endif
 
-
 /***********************************************************************
 *
 *  $TC Tipo de dados: JOG estrutura de jogo.
-*
 *
 ***********************************************************************/
 typedef struct _Jogo {
@@ -144,7 +142,7 @@ void jogar(Jogo *jogo)
     PecaTipo tipo;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
-    do { // not finished, check movements, pieces, etc
+    do {
         TAB_imprimir(jogo->tabuleiro);
 
         printf("Vez do jogador %c.\n", idJogador[jogadorAtual]);
@@ -244,8 +242,6 @@ void jogar(Jogo *jogo)
     printf("O jogador %c venceu!", idJogador[vencedor]);
     jogo->funcaoEstado = menu;
 }/* Fim função: JOG  &Jogar jogo */
-
-
 
 /***************************************************************************
 *

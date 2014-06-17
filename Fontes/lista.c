@@ -30,6 +30,13 @@
 #include "lista.h"
 #undef LISTA_OWN
 
+#ifdef _DEBUG
+#include "generico.h"
+#include "conta.h"
+#include "cespdin.h"
+#include "tipos.h"
+#endif
+
 
 /***********************************************************************
 *
@@ -84,6 +91,10 @@ LIS_tppLista LIS_CriarLista(void (*ExcluirValor)(void *pDado))
     pLista = (LIS_tpLista*)malloc(sizeof(LIS_tpLista));
     if(pLista == NULL)
         return NULL;
+
+#ifdef _DEBUG
+    CED_DefinirTipoEspaco(jogo, LIS_Lista);
+#endif
 
     LimparCabeca(pLista);
     pLista->ExcluirValor = ExcluirValor;
