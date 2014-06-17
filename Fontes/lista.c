@@ -560,10 +560,11 @@ void LimparCabeca(LIS_tppLista pLista)
 /***********************************************************************
 *
 *  $FC Função: LIS  -Verificar a cabeça da lista
-*  $ED Descrição da função
-*     
+*  $ED Descrição da função 
 *    Verifica algumas das assertivas da cabeça da lista
-*
+*  $FV Valor retornado
+*	  Retorna LIS_CondRetOK, caso não encontre falhas na estrutura,ou
+*     LIS_CondRetErroEstrutura, caso contrário
 ***********************************************************************/
 LIS_tpCondRet LIS_VerificarCabeca( tppLista pCabeca)
 {
@@ -617,6 +618,21 @@ LIS_tpCondRet LIS_VerificarCabeca( tppLista pCabeca)
 	#endif
 	return LIS_CondRetOK;
 }
+
+#endif
+
+#ifdef _DEBUG
+/***********************************************************************
+*
+*  $FC Função: LIS  -Verificar Encadeamento da lista
+*  $ED Descrição da função
+*     Verifica encadeamento, origem e fim da lista
+*  $FV Valor retornado
+*	  Retorna LIS_CondRetOK, caso não encontre falhas na estrutura,ou
+*     LIS_CondRetErroEstrutura, caso contrário
+*  
+***********************************************************************/
+
 LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 {	
 	if(pElem->pProx!=NULL)
@@ -665,6 +681,8 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 	#endif
 	return LIS_CondRetOK;
 }
+#endif
+
 #endif
 
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/

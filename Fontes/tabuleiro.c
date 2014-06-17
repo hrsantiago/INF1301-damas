@@ -346,7 +346,7 @@ void ListaExcluirLista(void *pDado)
 
 /***************************************************************************
 *
-*  Função: TAB  &Verificar a estrutura tabuleiro (lista de listas)
+*  Função: TAB  &Verificar a estrutura tabuleiro (ista de listas)
 *  ****/
 
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
@@ -354,19 +354,31 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 	int condRet;
 	if(tabuleiro==NULL)
 	{
+		#ifdef _DEBUG
+			CNT_Contar("Tabuleiro Inexistente");
+		#endif
 		TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
 		return TAB_CondRetErroEstrutura;
 	}
 	if ( ! CED_VerificarEspaco( tabuleiro , NULL ))
 	{
+		#ifdef _DEBUG
+			CNT_Contar("??????????");
+		#endif
 		TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
 		return TAB_CondRetErroEstrutura ;
 	} 
 	if ( TST_CompararInt( TAB_Tabuleiro , CED_ObterTipoEspaco( tabuleiro ) ,
 		"Tipo do espaço de dados não é tabuleiro." ) != TST_CondRetOK )
 	{
+		#ifdef _DEBUG
+			CNT_Contar("Tipo não é Tabuleiro");
+		#endif
 		return TAB_CondRetErroEstrutura ;
 	} 
+	#ifdef _DEBUG
+		CNT_Contar("Tipo Tabuleiro OK");
+	#endif
 	condRet=LIS_VerificarLista(tabuleiro->lista);
 	return CondRet;
 }

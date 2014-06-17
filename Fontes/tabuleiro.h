@@ -273,10 +273,9 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 ***********************************************************************/
 TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca, int limpar);
 
-
 /***********************************************************************
 *
-*  $FC Função: TAB  &Verifica o vendecor
+*  $FC Função: TAB  &Verifica o vencedor
 *
 *  $ED Descrição da função Função verifica se algum jogador ja ganhou
 *     o jogo de damas ou não, isso ocorre pela verificação de peças de
@@ -293,58 +292,50 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
 ***********************************************************************/
 int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2);
 
+#ifdef _DEBUG
 /***********************************************************************
 *
 *  $FC Função: TAB  &Verificar o tabuleiro
 *
-*  $ED Descrição da função 
-*
-*     Função da interface de teste.  Verifica completamente a
-*     estrutura de tabuleiro, sendo ela uma lista de listas.  Também
-*     marca todos os espaços por ela ocupados.
+*  $ED Descrição da função
+*     Função da interface de teste.
+*     Verifica completamente a estrutura de tabuleiro, sendo ela uma lista de listas.
+*     Também marca todos os espaços por ela ocupados. ////////////////////////////////////////*************************************************************++////////
 *
 *  $EP Parâmetros
-*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
-*       
-*       
-*       
-*	
-* $FV Valor retornado 
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)   ////////////////////////////////////////*************************************************************++////////
 *
-*       retorna alguma condição de retorno tanto quando da acha alguma
-*       falha quando não acha, do tipo TAB_tpCondRet.
-*
+*  $FV Valor retornado
+*	  Retorna TAB_CondRetOK, caso não encontre falhas na estrutura, ou
+*     TAB_CondRetErroEstrutura, caso contrário
 *
 ***********************************************************************/
-#ifdef _DEBUG
    TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro *tabuleiro);
+
 #endif
 
-
+#ifdef _DEBUG
 /***********************************************************************
 *
-*  $FC Função: TAB  &Deturpa o tabuleiro
+*  $FC Função: TAB  &Deturpar tabuleiro
 *
 *  $ED Descrição da função
-*     
-*     Função da interface de teste.  Feita para deturpar (errar) a
-*     construção da estrutura do tabuleiro, tem a intenção de testar a
-*     função de verificação. Também testa os espaços dinamicamente alocados.
-*
+*	  Função da interface de teste.
+*     Corrompe elementos específicos da estrutura do tabuleiro.
+*     Essa função destina-se a preparar os cenários de teste dos
+*     casos de teste utilizados ao testar os verificadores estruturais
+*     do tabuleiro.
+*     Esta função não tem proteção contra erros de uso, consequentemente
+*     poderá levar o programa a ser cancelado pelo sistema operacional.
+*   
 *  $EP Parâmetros
-*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
+*     $P tabuleiro    - tabuleiro a ser deturpado 
+*     $P ModoDeturpar - identifica como deve ser feita a deturpação
+*                       TAB_tpModosDeturpacao identifica os modos de
+*                       deturpação conhecidos
 *
-*       $P TAB_tpModosDeturpacao - tipo enumerado que identica algum
-*       tipo de deturpação no tabuleiro
-*       
-*       
-*	
-* $FV Valor retornado 
-*
-*       retorna alguma condição de retorno tanto quando da acha alguma
-*       falha quando não acha, do tipo TAB_tpCondRet.
 ***********************************************************************/
-#ifdef _DEBUG
+  
    void TAB_Deturpar( Tabuleiro*tabuleiro , TAB_tpModosDeturpacao ModoDeturpar )
 #endif
 

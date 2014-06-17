@@ -352,8 +352,7 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 
-
-
+#ifdef _DEBUG
 /***********************************************************************
 *
 *  $FC Função: LIS  &Verificar uma lista
@@ -361,9 +360,10 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 *  $ED Descrição da função
 *     Função da interface de teste.
 *     Verifica completamente uma determinada lista.
-*
+*  $FV Valor retornado
+*	  Retorna LIS_CondRetOK, caso não encontre falhas na estrutura, ou
+*     LIS_CondRetErroEstrutura, caso contrário
 ***********************************************************************/
-#ifdef _DEBUG
 
 	LIS_tpCondRet LIS_VerificarLista( Lis_tppLista pCabeca ) ;
 
