@@ -139,7 +139,7 @@ void jogar(Jogo *jogo)
     int jogadorAtual = 0;
     int vencedor = -1;
 	int distX, distY;
-    Peca *pecaDe = NULL, *pecaPara = NULL;
+    Peca *pecaDe = NULL, *pecaPara = NULL, *pecaRemover = NULL;
 
     PecaTipo tipo;
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
@@ -213,8 +213,15 @@ void jogar(Jogo *jogo)
         if(distX == 2 && distY == 2) {
             linhaRemover = (linhaPara + linhaDe) / 2;
             colunaRemover = (colunaPara + colunaDe) / 2;
-            if(!TAB_obterCasa(jogo->tabuleiro, linhaRemover, colunaRemover)) {
+            pecaRemover = TAB_obterCasa(jogo->tabuleiro, linhaRemover, colunaRemover);
+            if(!pecaRemover) {
                 printf("Movimento muito distante sem peca para comer. Tente novamente.\n");
+                linhaRemover = -1;
+                colunaRemover = -1;
+                continue;
+            }
+            else if(PEC_obterCaracter(pecaRemover) == idJogador[jogadorAtual]) {
+                printf("Voce nao pode comer sua propria peca. Tente novamente.\n");
                 linhaRemover = -1;
                 colunaRemover = -1;
                 continue;
