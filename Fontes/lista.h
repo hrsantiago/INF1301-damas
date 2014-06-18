@@ -81,6 +81,43 @@ typedef enum {
 
 /***********************************************************************
 *
+*  $TC Tipo de dados: TAB Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+typedef enum {
+    LIS_EliminarElemento,
+    /* Modifica o tipo da cabeça */
+    LIS_DeturpaProximoNulo,
+    /* Anula ponteiro raiz */
+    LIS_DeturpaAnteriorNulo,
+    /* Anula ponteiro corrente */
+    LIS_DeturpaProximoLixo,
+    /* Faz raiz apontar para lixo */
+    LIS_DeturpaAnteriorLixo,
+    /* Faz corrente apontar para lixo */
+    LIS_DeturpaConteudoNulo,
+    /* Modifica tipo nó corrente */
+    LIS_DeturpaTipoNo,
+    /* Anula ponteiro cabeça */
+    LIS_LiberaSemFree,
+    /* Anula ponteiro pai */
+    LIS_PonteiroCorrenteNulo,
+    /* Anula ponteiro filho esquerda */
+    LIS_PonteiroOrigemNulo,
+    /* Anula ponteiro filho direita */
+    LIS_PonteiroFimNulo,
+    /* Faz ponteiro cabeça apontar para lixo */
+
+} LIS_tpModosDeturpacao;
+
+#endif
+
+/***********************************************************************
+*
 *  $FC Função: LIS  &Criar lista
 *
 *  $ED Descrição da função
@@ -366,6 +403,31 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 ***********************************************************************/
 
 LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca);
+
+#endif
+
+#ifdef _DEBUG
+/***********************************************************************
+*
+*  $FC Função: TAB  &Deturpar lista
+*
+*  $ED Descrição da função
+*	  Função da interface de teste.
+*     Corrompe elementos específicos da estrutura do tabuleiro.
+*     Essa função destina-se a preparar os cenários de teste dos
+*     casos de teste utilizados ao testar os verificadores estruturais
+*     do tabuleiro.
+*     Esta função não tem proteção contra erros de uso, consequentemente
+*     poderá levar o programa a ser cancelado pelo sistema operacional.
+*
+*  $EP Parâmetros
+*     $P pLista       - lista a ser deturpada
+*     $P ModoDeturpar - identifica como deve ser feita a deturpação
+*                       LIS_tpModosDeturpacao identifica os modos de
+*                       deturpação conhecidos
+*
+***********************************************************************/
+void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar);
 
 #endif
 

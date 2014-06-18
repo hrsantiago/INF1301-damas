@@ -64,7 +64,6 @@ typedef enum _TAB_tpCondRet {
 *
 *  $TC Tipo de dados: TAB Modos de deturpar
 *
-*
 ***********************************************************************/
 
 #ifdef _DEBUG

@@ -498,7 +498,7 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
 *
 ***********************************************************************/
 
-void LiberarElemento(LIS_tppLista pLista , tpElemLista *pElem)
+void LiberarElemento(LIS_tppLista pLista, tpElemLista *pElem)
 {
     if((pLista->ExcluirValor != NULL) && (pElem->pValor != NULL))
         pLista->ExcluirValor(pElem->pValor);
@@ -669,6 +669,81 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 #endif
     return LIS_CondRetOK;
 }
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: TAB  &Deturpar tabuleiro
+*  ****/
+
+void LIS_Deturpar(LIS_tppLista lista, LIS_tpModosDeturpacao ModoDeturpar)
+{
+    if(!lista)
+        return;
+
+    switch(ModoDeturpar) {
+    case LIS_EliminarElemento:
+    {
+        LIS_ExcluirElemento(lista);
+        break;
+    }
+    case LIS_DeturpaProximoNulo:
+    {
+        lista->pElemCorr->pProx = NULL;
+        break;
+    }
+    case LIS_DeturpaAnteriorNulo:
+    {
+        lista->pElemCorr->pAnt = NULL;
+        break;
+    }
+    case LIS_DeturpaProximoLixo:
+    {
+        lista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
+        break;
+    }
+    case LIS_DeturpaAnteriorLixo:
+    {
+        lista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
+        break;
+    }
+    case LIS_DeturpaConteudoNulo:
+    {
+        LIS_SetarValor(lista, NULL);
+        break;
+    }
+    case LIS_DeturpaTipoNo:
+    {
+        CED_DefinirTipoEspaco(lista->pElemCorr, CED_ID_TIPO_VALOR_NULO);
+        break;
+    }
+    case LIS_LiberaSemFree:
+    {
+        lista->pElemCorr->pAnt->pProx = lista->pElemCorr->pProx;
+        lista->pElemCorr->pProx->pAnt = lista->pElemCorr->pAnt;
+        lista->pElemCorr = lista->pElemCorr->pAnt ? lista->pElemCorr->pAnt : lista->pElemCorr->pProx;
+        break;
+    }
+    case LIS_PonteiroCorrenteNulo:
+    {
+        lista->pElemCorr = NULL;
+        break;
+    }
+    case LIS_PonteiroOrigemNulo:
+    {
+        lista->pOrigemLista = NULL;
+        break;
+    }
+    case LIS_PonteiroFimNulo:
+    {
+        lista->pFimLista = NULL;
+        break;
+    }
+    }
+}
+
 #endif
 
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/
