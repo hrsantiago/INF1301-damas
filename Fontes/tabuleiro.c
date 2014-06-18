@@ -352,36 +352,24 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 {
     int condRet;
     if(!tabuleiro) {
-#ifdef _DEBUG
         CNT_CONTAR("Tabuleiro Inexistente");
-#endif
         TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
         return TAB_CondRetErroEstrutura;
     }
     if(!CED_VerificarEspaco(tabuleiro, NULL)) {
-#ifdef _DEBUG
         CNT_CONTAR("??????????");
-#endif
         TST_NotificarFalha("Controle do espaço acusou erro.");
         return TAB_CondRetErroEstrutura ;
     }
     if(TST_CompararInt(TAB_Tabuleiro, CED_ObterTipoEspaco(tabuleiro),
                        "Tipo do espaço de dados nao e tabuleiro.") != TST_CondRetOK) {
-#ifdef _DEBUG
         CNT_CONTAR("Tipo nao e Tabuleiro");
-#endif
         return TAB_CondRetErroEstrutura;
     }
-#ifdef _DEBUG
     CNT_CONTAR("Tipo Tabuleiro OK");
-#endif
     condRet = LIS_VerificarLista(tabuleiro->lista);
     return condRet;
 }
-
-#endif
-
-#ifdef _DEBUG
 
 /***************************************************************************
 *
@@ -390,56 +378,55 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 
 void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar)
 {
-    LIS_tppLista lista = tabuleiro->lista;
+    int x, y;
+    LIS_tppLista lista, lista2;
     if(!tabuleiro)
         return;
 
+    lista = tabuleiro->lista;
+
     switch(ModoDeturpar) {
-    case EliminarElemento:
+    case TAB_EliminarLinha:
     {
         LIS_ExcluirElemento(lista);
         break;
     }
-    case DeturpaProximoNulo:
+    case TAB_EliminarPosicao:
     {
+        LIS_ExcluirElemento((LIS_tppLista)LIS_ObterValor(lista));
         break;
     }
-    case DeturpaAnteriorNulo:
+    case TAB_EliminarPecaSemFree:
     {
+        LIS_IrInicioLista(lista);
+        for(y = 0; y < TabuleiroAltura; ++y) {
+            lista2 = (LIS_tppLista)LIS_ObterValor(lista);
+            LIS_IrInicioLista(lista);
+            for(x = 0; x < TabuleiroLargura; ++x) {
+                Peca *peca = LIS_ObterValor(lista);
+                if(peca) {
+                    LIS_SetarValor(lista2, NULL);
+                    return;
+                }
+            }
+        }
         break;
     }
-    case DeturpaProximoLixo:
+    case TAB_DeturpaTipoPeca:
     {
-        break;
-    }
-    case DeturpaAnteriorLixo:
-    {
-        break;
-    }
-    case DeturpaConteudoNulo:
-    {
-        break;
-    }
-    case DeturpaTipoNo:
-    {
-        CED_DefinirTipoEspaco(lista, CED_ID_TIPO_VALOR_NULO);
-        CED_DefinirTipoEspaco(lista, TAB_Tabuleiro);
-        break;
-    }
-    case LiberaSemFree:
-    {
-        break;
-    }
-    case PonteiroCorrenteNulo:
-    {
-        break;
-    }
-    case PonteiroOrigemNulo:
-    {
-        break;
-    }
-    case PonteiroFimNulo:
-    {
+        LIS_IrInicioLista(lista);
+        for(y = 0; y < TabuleiroAltura; ++y) {
+            lista2 = (LIS_tppLista)LIS_ObterValor(lista);
+            LIS_IrInicioLista(lista);
+            for(x = 0; x < TabuleiroLargura; ++x) {
+                Peca *peca = LIS_ObterValor(lista);
+                if(peca) {
+                    CED_DefinirTipoEspaco(peca, CED_ID_TIPO_VALOR_NULO);
+                    return;
+                }
+            }
+        }
+
         break;
     }
 

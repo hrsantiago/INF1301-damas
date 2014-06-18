@@ -566,54 +566,37 @@ void LimparCabeca(LIS_tppLista pLista)
 LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
 {
     if(pCabeca==NULL) {
-#ifdef _DEBUG
         CNT_CONTAR("Cabeca de lista inexistente");
-#endif
         TST_NotificarFalha("Tentou verificar cabeca inexistente");
         return LIS_CondRetErroEstrutura;
     }
     if(!CED_VerificarEspaco(pCabeca, NULL)) {
-#ifdef _DEBUG
         CNT_CONTAR("Controle de espaco acusa erro");
-#endif
         TST_NotificarFalha("Controle do espaço acusou erro.");
         return LIS_CondRetErroEstrutura ;
     }
     if(TST_CompararInt(LIS_TipoEspacoCabeca, CED_ObterTipoEspaco(pCabeca),
                        "Tipo do espaço de dados nao e cabeça de lista.") != TST_CondRetOK) {
-#ifdef _DEBUG
         CNT_CONTAR("Tipo nao e lista");
-#endif
         return LIS_CondRetErroEstrutura;
     }
     if(pCabeca->numElem < 0) {
-#ifdef _DEBUG
         CNT_CONTAR("Numero de elementos menor que zero");
-#endif
         TST_NotificarFalha("Cabeça acusa numero de elementos menor que zero");
         return LIS_CondRetErroEstrutura;
     }
     if(pCabeca->numElem == 0) {
-#ifdef _DEBUG
         CNT_CONTAR("Cabeca com zero elementos");
-#endif
         if(pCabeca->pOrigemLista || pCabeca->pFimLista || pCabeca->pElemCorr) {
-#ifdef _DEBUG
             CNT_CONTAR("Cabeca com zero elementos e não vazia");
-#endif
             TST_NotificarFalha("Cabeça acusa zero elementos, mas lista não está vazia");
             return LIS_CondRetErroEstrutura;
         }
     }
-#ifdef _DEBUG
     CNT_CONTAR("Cabeca de lista correta");
-#endif
     return LIS_CondRetOK;
 }
 
-#endif
-
-#ifdef _DEBUG
 /***********************************************************************
 *
 *  $FC Função: LIS  -Verificar Encadeamento da lista
@@ -628,117 +611,117 @@ LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
 LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 {	
     if(pElem->pProx != NULL) {
-#ifdef _DEBUG
         CNT_CONTAR("Ha mais de um elemento");
-#endif
         if(pElem->pProx->pAnt != pElem) {
-#ifdef _DEBUG
             CNT_CONTAR("Encadeamento antes errado");
-#endif
             TST_NotificarFalha("Encadeamento antes está errado");
             return LIS_CondRetErroEstrutura;
         }
     }
     else if(pElem->pCabeca->pFimLista != pElem) {
-#ifdef _DEBUG
         CNT_CONTAR("Cabeca nao aponta para o fim");
-#endif
         TST_NotificarFalha("A cabeca nao aponta para o fim da lista");
         return LIS_CondRetErroEstrutura;
     }
 
     if(pElem->pAnt != NULL) {
         if(pElem->pAnt->pProx != pElem) {
-#ifdef _DEBUG
             CNT_CONTAR("Encadeamento após errado");
-#endif
             TST_NotificarFalha("Encadeamento após está errado");
             return LIS_CondRetErroEstrutura;
         }
     }
     else if(pElem->pCabeca->pOrigemLista != pElem) {
-#ifdef _DEBUG
         CNT_CONTAR("Cabeca nao aponta pra origem");
-#endif
         TST_NotificarFalha("A cabeca nao aponta para a origem da lista");
         return LIS_CondRetErroEstrutura;
     }
 
-#ifdef _DEBUG
     CNT_CONTAR("Encadeamento Correto");
-#endif
     return LIS_CondRetOK;
 }
-#endif
-
-#ifdef _DEBUG
 
 /***************************************************************************
 *
-*  Função: TAB  &Deturpar tabuleiro
+*  Função: LIS  &Deturpar lista
 *  ****/
 
-void LIS_Deturpar(LIS_tppLista lista, LIS_tpModosDeturpacao ModoDeturpar)
+void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar)
 {
-    if(!lista)
+    tpElemLista *pElem;
+
+    if(!pLista)
         return;
 
     switch(ModoDeturpar) {
     case LIS_EliminarElemento:
     {
-        LIS_ExcluirElemento(lista);
+        LIS_ExcluirElemento(pLista);
         break;
     }
     case LIS_DeturpaProximoNulo:
     {
-        lista->pElemCorr->pProx = NULL;
+        pLista->pElemCorr->pProx = NULL;
         break;
     }
     case LIS_DeturpaAnteriorNulo:
     {
-        lista->pElemCorr->pAnt = NULL;
+        pLista->pElemCorr->pAnt = NULL;
         break;
     }
     case LIS_DeturpaProximoLixo:
     {
-        lista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
+        pLista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
         break;
     }
     case LIS_DeturpaAnteriorLixo:
     {
-        lista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
+        pLista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
         break;
     }
     case LIS_DeturpaConteudoNulo:
     {
-        LIS_SetarValor(lista, NULL);
+        LIS_SetarValor(pLista, NULL);
         break;
     }
     case LIS_DeturpaTipoNo:
     {
-        CED_DefinirTipoEspaco(lista->pElemCorr, CED_ID_TIPO_VALOR_NULO);
+        CED_DefinirTipoEspaco(pLista->pElemCorr, CED_ID_TIPO_VALOR_NULO);
         break;
     }
     case LIS_LiberaSemFree:
     {
-        lista->pElemCorr->pAnt->pProx = lista->pElemCorr->pProx;
-        lista->pElemCorr->pProx->pAnt = lista->pElemCorr->pAnt;
-        lista->pElemCorr = lista->pElemCorr->pAnt ? lista->pElemCorr->pAnt : lista->pElemCorr->pProx;
+        pElem = pLista->pElemCorr;
+
+        if(pElem->pAnt != NULL) {
+            pElem->pAnt->pProx = pElem->pProx;
+            pLista->pElemCorr = pElem->pAnt;
+        }
+        else {
+            pLista->pElemCorr = pElem->pProx;
+            pLista->pOrigemLista = pLista->pElemCorr;
+        }
+
+        if(pElem->pProx != NULL)
+            pElem->pProx->pAnt = pElem->pAnt;
+        else
+            pLista->pFimLista = pElem->pAnt;
+
         break;
     }
     case LIS_PonteiroCorrenteNulo:
     {
-        lista->pElemCorr = NULL;
+        pLista->pElemCorr = NULL;
         break;
     }
     case LIS_PonteiroOrigemNulo:
     {
-        lista->pOrigemLista = NULL;
+        pLista->pOrigemLista = NULL;
         break;
     }
     case LIS_PonteiroFimNulo:
     {
-        lista->pFimLista = NULL;
+        pLista->pFimLista = NULL;
         break;
     }
     }

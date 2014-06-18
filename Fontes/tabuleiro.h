@@ -69,28 +69,14 @@ typedef enum _TAB_tpCondRet {
 #ifdef _DEBUG
 
 typedef enum {
-    EliminarElemento,
-    /* Modifica o tipo da cabeça */
-    DeturpaProximoNulo,
-    /* Anula ponteiro raiz */
-    DeturpaAnteriorNulo,
-    /* Anula ponteiro corrente */
-    DeturpaProximoLixo,
-    /* Faz raiz apontar para lixo */
-    DeturpaAnteriorLixo,
-    /* Faz corrente apontar para lixo */
-    DeturpaConteudoNulo,
-    /* Modifica tipo nó corrente */
-    DeturpaTipoNo,
-    /* Anula ponteiro cabeça */
-    LiberaSemFree,
-    /* Anula ponteiro pai */
-    PonteiroCorrenteNulo,
-    /* Anula ponteiro filho esquerda */
-    PonteiroOrigemNulo,
-    /* Anula ponteiro filho direita */
-    PonteiroFimNulo,
-    /* Faz ponteiro cabeça apontar para lixo */
+    // Elimina elemento da lista principal
+    TAB_EliminarLinha,
+    // Elimina elemento da lista secundaria
+    TAB_EliminarPosicao,
+    // Remove peca sem free
+    TAB_EliminarPecaSemFree,
+    // Muda tipo
+    TAB_DeturpaTipoPeca,
 
 } TAB_tpModosDeturpacao;
 
@@ -297,10 +283,10 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 *  $ED Descrição da função
 *     Função da interface de teste.
 *     Verifica completamente a estrutura de tabuleiro, sendo ela uma lista de listas.
-*     Também marca todos os espaços por ela ocupados. ////////////////////////////////////////*************************************************************++////////
+*     Também marca todos os espaços por ela ocupados.
 *
 *  $EP Parâmetros
-*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)   ////////////////////////////////////////*************************************************************++////////
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
 *
 *  $FV Valor retornado
 *	  Retorna TAB_CondRetOK, caso não encontre falhas na estrutura, ou
@@ -309,9 +295,6 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 ***********************************************************************/
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro *tabuleiro);
 
-#endif
-
-#ifdef _DEBUG
 /***********************************************************************
 *
 *  $FC Função: TAB  &Deturpar tabuleiro

@@ -404,19 +404,16 @@ LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
 
 LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca);
 
-#endif
-
-#ifdef _DEBUG
 /***********************************************************************
 *
-*  $FC Função: TAB  &Deturpar lista
+*  $FC Função: LIS  &Deturpar lista
 *
 *  $ED Descrição da função
 *	  Função da interface de teste.
-*     Corrompe elementos específicos da estrutura do tabuleiro.
+*     Corrompe elementos específicos da estrutura da lista.
 *     Essa função destina-se a preparar os cenários de teste dos
 *     casos de teste utilizados ao testar os verificadores estruturais
-*     do tabuleiro.
+*     da lista.
 *     Esta função não tem proteção contra erros de uso, consequentemente
 *     poderá levar o programa a ser cancelado pelo sistema operacional.
 *
