@@ -67,7 +67,7 @@ typedef struct tagElemLista {
 *
 ***********************************************************************/
 
-typedef struct LIS_tagLista {													/***********************~~~~~~~~~~~~~~~~~~**************************************************************/
+typedef struct LIS_tagLista {
     /**#ifdef _DEBUG
     (void*) referenciaInversa;
     /* Ponteiro para a referência para a a cabeça
@@ -608,11 +608,11 @@ tpElemLista * CriarElemento(LIS_tppLista pLista, void * pValor)
     tpElemLista * pElem;
 
     pElem = (tpElemLista *)malloc(sizeof(tpElemLista));
-    if(pElem == NULL)
+    if(!pElem)
         return NULL;
 #ifdef _DEBUG
-    CED_DefinirTipoEspaco( pElem ,LIS_TipoEspacoNo) ;
-    pElem->pCabeca = pLista ;
+    CED_DefinirTipoEspaco(pElem, LIS_TipoEspacoNo);
+    pElem->pCabeca = pLista;
 #endif
     pElem->pValor = pValor;
     pElem->pAnt = NULL;
@@ -652,7 +652,7 @@ void LimparCabeca(LIS_tppLista pLista)
 ***********************************************************************/
 LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
 {
-    if(pCabeca==NULL) {
+    if(!pCabeca) {
         CNT_CONTAR("Cabeca de lista inexistente");
         TST_NotificarFalha("Tentou verificar cabeca inexistente");
         return LIS_CondRetErroEstrutura;

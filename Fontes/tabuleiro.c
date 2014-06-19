@@ -58,13 +58,6 @@ typedef struct _Tabuleiro {
     LIS_tppLista lista;
 } Tabuleiro;
 
-#ifdef _DEBUG
-
-static char EspacoLixo[ 256 ] =
-        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ;
-/* Espaço de dados lixo usado ao testar */
-#endif
-
 /***** Protótipos das funções encapsuladas no módulo *****/
 static void ListaExcluirPeca(void *pDado);
 static void ListaExcluirLista(void *pDado); 
