@@ -43,6 +43,7 @@ Estatísticas do construto
    Arquivos em que é incluído
       jogo.c
       lista.c
+      main.c
       peca.c
       tabuleiro.c
 
@@ -71,8 +72,8 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: jogo.c
-      Total linhas:             294
-      Linhas de código:         166
+      Total linhas:             295
+      Linhas de código:         167
       Linhas de comentário:      90
       Linhas em branco:          43
    Arquivos de inclusão de que necessita
@@ -95,10 +96,10 @@ Estatísticas do construto
       main.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             674
-      Linhas de código:         419
-      Linhas de comentário:     178
-      Linhas em branco:          94
+      Total linhas:             734
+      Linhas de código:         467
+      Linhas de comentário:     182
+      Linhas em branco:         102
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -108,20 +109,21 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             376
-      Linhas de código:          34
-      Linhas de comentário:     310
-      Linhas em branco:          38
+      Total linhas:             435
+      Linhas de código:          50
+      Linhas de comentário:     347
+      Linhas em branco:          44
    Arquivos em que é incluído
       lista.c
       tabuleiro.c
 
    Estatísticas do arquivo: main.c
-      Total linhas:              16
-      Linhas de código:           9
+      Total linhas:              31
+      Linhas de código:          20
       Linhas de comentário:       5
-      Linhas em branco:           2
+      Linhas em branco:           6
    Arquivos de inclusão de que necessita
+      cespdin.h
       jogo.h
 
    Estatísticas do arquivo: peca.c
@@ -148,10 +150,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             450
-      Linhas de código:         284
-      Linhas de comentário:     124
-      Linhas em branco:          54
+      Total linhas:             459
+      Linhas de código:         286
+      Linhas de comentário:     129
+      Linhas em branco:          57
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -163,10 +165,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             340
-      Linhas de código:          43
-      Linhas de comentário:     281
-      Linhas em branco:          24
+      Total linhas:             342
+      Linhas de código:          36
+      Linhas de comentário:     291
+      Linhas em branco:          23
    Arquivos em que é incluído
       jogo.c
       tabuleiro.c
@@ -185,10 +187,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3338
-         Linhas de código:           309
-         Linhas de comentário:      2685
-         Linhas em branco:           365
+         Total linhas do tipo:      3399
+         Linhas de código:           318
+         Linhas de comentário:      2732
+         Linhas em branco:           370
          Arquivos deste tipo:          9
 
   Tipo: obj      Path: ..\Objetos
@@ -213,17 +215,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1593
-         Linhas de código:           955
-         Linhas de comentário:       462
-         Linhas em branco:           217
+         Total linhas do tipo:      1678
+         Linhas de código:          1017
+         Linhas de comentário:       471
+         Linhas em branco:           232
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMAS
 
-   Total linhas:              4931
-   Linhas de código:          1264
-   Linhas de comentário:      3147
-   Linhas em branco:           582
+   Total linhas:              5077
+   Linhas de código:          1335
+   Linhas de comentário:      3203
+   Linhas em branco:           602
    Arquivos processados:        14
 

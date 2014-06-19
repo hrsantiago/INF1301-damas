@@ -75,9 +75,10 @@ typedef enum {
     TAB_EliminarPosicao,
     // Remove peca sem free
     TAB_EliminarPecaSemFree,
-    // Muda tipo
+    // Muda tipo peca
     TAB_DeturpaTipoPeca,
-
+	// Muda tipo tabuleiro
+	TAB_DeturpaTipoTabuleiro,
 } TAB_tpModosDeturpacao;
 
 #endif
@@ -316,6 +317,25 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro *tabuleiro);
 *
 ***********************************************************************/
 void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar);
+
+/***************************************************************************
+*
+*  Função: TAB  &Posicionar Elemento Corrente
+*
+*  $ED Descrição da função
+*	  Função da interface de teste.
+*     Posiciona o elemento Corrente da lista de listas (tabuleiro)
+*	  na casa desejada pelo usuário.
+*     Essa função destina-se a preparar os cenários de teste dos
+*     casos de teste utilizados ao testar os verificadores estruturais
+*     do tabuleiro.
+*
+*  $EP Parâmetros
+*     $P tabuleiro    - ponteiro para o tabuleiro
+*     $P linha e coluna - identificam a casa do tabuleiro onde se
+*	     deseja que fique posicionado o elemento corrente
+*  ****/
+void PosicionarElementoCorrente(Tabuleiro *tabuleiro, int linha, char coluna);
 
 #endif
 

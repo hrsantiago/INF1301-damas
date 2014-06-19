@@ -83,7 +83,7 @@ $(Fobj)\jogo.obj :  {$(Pc)}\jogo.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\main.obj :  {$(Pc)}\main.c \
-    {$(Ph)}jogo.h              
+    {$(Ph)}cespdin.h            {$(Ph)}jogo.h              
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 

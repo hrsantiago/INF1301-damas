@@ -50,6 +50,7 @@ del TESTEPECA.exe
 del TESTETABULEIRO.exe
 del TESTETABULEIRODEBUG.exe
 del DAMAS.exe
+del DAMASDEBUG.exe
 
 cd ..\Scripts
 del *.bak

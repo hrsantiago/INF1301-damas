@@ -433,7 +433,6 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
 {
     tpElemLista* pElem;
     int numElementos=0;
-    int retorno;
     if(LIS_VerificarCabeca(pCabeca)==LIS_CondRetErroEstrutura)
         return LIS_CondRetErroEstrutura;
 
@@ -485,6 +484,94 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
 }
 #endif
 
+#ifdef _DEBUG
+/***************************************************************************
+*
+*  Função: LIS  &Deturpar lista
+*  ****/
+
+void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar)
+{
+    tpElemLista *pElem;
+
+    if(!pLista)
+        return;
+
+    switch(ModoDeturpar) {
+    case LIS_EliminarElemento:
+    {
+        LIS_ExcluirElemento(pLista);
+        break;
+    }
+    case LIS_DeturpaProximoNulo:
+    {
+        pLista->pElemCorr->pProx = NULL;
+        break;
+    }
+    case LIS_DeturpaAnteriorNulo:
+    {
+        pLista->pElemCorr->pAnt = NULL;
+        break;
+    }
+    case LIS_DeturpaProximoLixo:
+    {
+        pLista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
+        break;
+    }
+    case LIS_DeturpaAnteriorLixo:
+    {
+        pLista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
+        break;
+    }
+    case LIS_DeturpaConteudoNulo:
+    {
+        LIS_SetarValor(pLista, NULL);
+        break;
+    }
+    case LIS_DeturpaTipoNo:
+    {
+        CED_DefinirTipoEspaco(pLista->pElemCorr, CED_ID_TIPO_VALOR_NULO);
+        break;
+    }
+    case LIS_LiberaSemFree:
+    {
+        pElem = pLista->pElemCorr;
+
+        if(pElem->pAnt != NULL) {
+            pElem->pAnt->pProx = pElem->pProx;
+            pLista->pElemCorr = pElem->pAnt;
+        }
+        else {
+            pLista->pElemCorr = pElem->pProx;
+            pLista->pOrigemLista = pLista->pElemCorr;
+        }
+
+        if(pElem->pProx != NULL)
+            pElem->pProx->pAnt = pElem->pAnt;
+        else
+            pLista->pFimLista = pElem->pAnt;
+
+        break;
+    }
+    case LIS_PonteiroCorrenteNulo:
+    {
+        pLista->pElemCorr = NULL;
+        break;
+    }
+    case LIS_PonteiroOrigemNulo:
+    {
+        pLista->pOrigemLista = NULL;
+        break;
+    }
+    case LIS_PonteiroFimNulo:
+    {
+        pLista->pFimLista = NULL;
+        break;
+    }
+    }
+}
+
+#endif
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
@@ -524,7 +611,7 @@ tpElemLista * CriarElemento(LIS_tppLista pLista, void * pValor)
     if(pElem == NULL)
         return NULL;
 #ifdef _DEBUG
-    CED_DefinirTipoEspaco( pElem ,LIS_TipoEspacoCabeca) ;
+    CED_DefinirTipoEspaco( pElem ,LIS_TipoEspacoNo) ;
     pElem->pCabeca = pLista ;
 #endif
     pElem->pValor = pValor;
@@ -641,92 +728,7 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
     return LIS_CondRetOK;
 }
 
-/***************************************************************************
-*
-*  Função: LIS  &Deturpar lista
-*  ****/
-
-void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar)
-{
-    tpElemLista *pElem;
-
-    if(!pLista)
-        return;
-
-    switch(ModoDeturpar) {
-    case LIS_EliminarElemento:
-    {
-        LIS_ExcluirElemento(pLista);
-        break;
-    }
-    case LIS_DeturpaProximoNulo:
-    {
-        pLista->pElemCorr->pProx = NULL;
-        break;
-    }
-    case LIS_DeturpaAnteriorNulo:
-    {
-        pLista->pElemCorr->pAnt = NULL;
-        break;
-    }
-    case LIS_DeturpaProximoLixo:
-    {
-        pLista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
-        break;
-    }
-    case LIS_DeturpaAnteriorLixo:
-    {
-        pLista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
-        break;
-    }
-    case LIS_DeturpaConteudoNulo:
-    {
-        LIS_SetarValor(pLista, NULL);
-        break;
-    }
-    case LIS_DeturpaTipoNo:
-    {
-        CED_DefinirTipoEspaco(pLista->pElemCorr, CED_ID_TIPO_VALOR_NULO);
-        break;
-    }
-    case LIS_LiberaSemFree:
-    {
-        pElem = pLista->pElemCorr;
-
-        if(pElem->pAnt != NULL) {
-            pElem->pAnt->pProx = pElem->pProx;
-            pLista->pElemCorr = pElem->pAnt;
-        }
-        else {
-            pLista->pElemCorr = pElem->pProx;
-            pLista->pOrigemLista = pLista->pElemCorr;
-        }
-
-        if(pElem->pProx != NULL)
-            pElem->pProx->pAnt = pElem->pAnt;
-        else
-            pLista->pFimLista = pElem->pAnt;
-
-        break;
-    }
-    case LIS_PonteiroCorrenteNulo:
-    {
-        pLista->pElemCorr = NULL;
-        break;
-    }
-    case LIS_PonteiroOrigemNulo:
-    {
-        pLista->pOrigemLista = NULL;
-        break;
-    }
-    case LIS_PonteiroFimNulo:
-    {
-        pLista->pFimLista = NULL;
-        break;
-    }
-    }
-}
-
 #endif
+
 
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/

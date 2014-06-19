@@ -15,12 +15,19 @@ del ..\produto\TESTETABULEIRODEBUG.exe
 del ..\produto\DAMAS.exe
 del ..\produto\DAMASDEBUG.exe
 
+REM compila para DEBUG
+
+del ..\objetos\*.obj
+nmake /F..\composicao\DAMASDEBUG.make 
+nmake /F..\composicao\TESTETABULEIRODEBUG.make 
+del ..\objetos\*.obj
+
+REM compila arquivos sem DEBUG
+
 nmake /F..\composicao\TESTELISTA.make  
 nmake /F..\composicao\TESTEPECA.make   
-nmake /F..\composicao\TESTETABULEIRO.make  
-nmake /F..\composicao\TESTETABULEIRODEBUG.make 
+nmake /F..\composicao\TESTETABULEIRO.make   
 nmake /F..\composicao\DAMAS.make  
-nmake /F..\composicao\DAMASDEBUG.make 
 
 copy  ..\produto\*.err ..\produto\tudo.err
 

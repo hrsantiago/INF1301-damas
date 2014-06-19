@@ -40,10 +40,12 @@ static const char SETAR_CASA_CMD           [] = "=setarcasa";
 static const char REMOVER_PECA_CMD         [] = "=removerpeca";
 
 /* os comandos a seguir somente operam em modo _DEBUG */
-
-const char VER_LISTA_CMD[ ]  = "=verificar" ;
-const char DETURPAR_CMD[ ]   = "=deturpar" ;
-const char VER_MEMORIA_CMD[ ] = "=verificarmemoria" ;
+#ifdef _DEBUG
+static const char VER_LISTA_CMD			   [] = "=verificar";
+static const char DETURPAR_CMD			   [] = "=deturpar";
+static const char VER_MEMORIA_CMD		   [] = "=verificarmemoria";
+static const char POSICIONAR_CMD		   [] = "=posicionar";
+#endif
 
 #define TRUE  1
 #define FALSE 0
@@ -85,9 +87,10 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *	Estes comandos somente podem ser executados se o modulo tiver sido
 *     compilado com _DEBUG ligado
 *
-*     =verificar	         inxLista
-*
-*     =deturpar              inxLista  idCodigoDeturpa
+*     =verificar				inxLista  CondRet
+*     =deturpar					inxLista  idCodigoDeturpa
+*	  =verificarmemoria
+*     =posicionar				inxlista  linha   coluna
 ***********************************************************************/
 
 TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
@@ -102,10 +105,11 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int linha = -1;
     int coluna = -1;
     Peca *peca;
-    StringDado[0] = 0;
-	 #ifdef _DEBUG
-         int  IntEsperado   = -1 ;
-      #endif
+#ifdef _DEBUG
+	int  IntEsperado= -1;
+#endif
+	StringDado[0] = 0;
+
     /* Efetuar reset de teste de tabuleiro */
     if(strcmp(ComandoTeste, RESET_TABULEIRO_CMD) == 0) {
         for(i = 0; i < DIM_VT_TABULEIRO; i++)
@@ -188,21 +192,37 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     } /* fim ativa: Testar Remover peca */
 
 	/* Testar verificador de lista */
-      #ifdef _DEBUG
+	#ifdef _DEBUG
 
-         else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
+	      else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
          {
 
-            numLidos = LER_LerParametros( "i" , &inxLista ) ;
-            if ( ( numLidos != 1 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO ))   ////////////////////////////////////////////////////////////////////////////////////77
+            numLidos = LER_LerParametros( "ii" , &inxLista, &CondRetEsp ) ;
+            if ( ( numLidos !=2  ) || !ValidarInxTabuleiro( inxLista, INDIFERENTE ))   ////////////////////////////////////////////////////////////////////////////////////77
             {
                return TST_CondRetParm ;
             } 
 
-            return TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] ) ;
+            return TST_CompararInt(CondRetEsp, TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] ),"Retorno errado ao verificar tabuleiro") ;
 
          } /* fim ativa: Testar verificador de cabeça */
-      #endif
+	#endif   
+
+	/*Posicionar elemento Corrente*/
+	 #ifdef _DEBUG
+
+	    else if ( strcmp( ComandoTeste , POSICIONAR_CMD ) == 0 )
+		{
+        numLidos = LER_LerParametros("iis", &inxLista, &linha, StringDado);
+
+        if((numLidos != 3) || (!ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+            return TST_CondRetParm;
+
+        coluna = StringDado[0];
+        PosicionarElementoCorrente(vtTabuleiros[inxLista], linha, coluna);
+        return TST_CondRetOK;
+    } /* fim ativa: Posicionar elemento corrente */
+	#endif 
 
 	/* Deturpar um tabuleiro */
       #ifdef _DEBUG

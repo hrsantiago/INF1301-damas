@@ -250,7 +250,7 @@ void jogar(Jogo *jogo)
         jogadorAtual = !jogadorAtual;
     } while((vencedor = TAB_verificaVencedor(jogo->tabuleiro, idJogador[0], idJogador[1])) == -1);
 
-    printf("O jogador %c venceu!", idJogador[vencedor]);
+    printf("O jogador %c venceu!\n", idJogador[vencedor]);
     jogo->funcaoEstado = menu;
 }/* Fim função: JOG  &Jogar jogo */
 

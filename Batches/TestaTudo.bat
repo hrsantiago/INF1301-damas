@@ -5,10 +5,11 @@ cls
 
 if exist ..\ferramnt\exbestat.exe goto estatistica
 
-..\produto\TESTELISTA			/s..\scripts\TesteLista		/l..\produto\TesteLista		
-..\produto\TESTEPECA  			/s..\scripts\Testepeca    	/l..\produto\TestePeca  	
-..\produto\TESTETABULEIRO  		/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   
-..\produto\TESTETABULEIRODEBUG  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro
+..\produto\TESTELISTA			/s..\scripts\TesteLista			/l..\produto\TesteLista		
+..\produto\TESTEPECA  			/s..\scripts\Testepeca    		/l..\produto\TestePeca  	
+..\produto\TESTETABULEIRO  		/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiro   
+..\produto\TESTETABULEIRODEBUG  	/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiroDEBUG
+..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer
 
 goto sai
 
@@ -16,10 +17,11 @@ goto sai
 
 del ..\scripts\estatisticas.estat
 
-..\produto\TESTELISTA		/s..\scripts\TesteLista		/l..\produto\TesteLista		/a..\scripts\estatisticas
-..\produto\TESTEPECA  		/s..\scripts\Testepeca    	/l..\produto\TestePeca  	/a..\scripts\estatisticas
-..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   	/a..\scripts\estatisticas
-..\produto\TESTETABULEIRODEBUG 	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   	/a..\scripts\estatisticas
+..\produto\TESTELISTA		/s..\scripts\TesteLista		/l..\produto\TesteLista			/a..\scripts\estatisticas
+..\produto\TESTEPECA  		/s..\scripts\Testepeca    	/l..\produto\TestePeca  		/a..\scripts\estatisticas
+..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   		/a..\scripts\estatisticas
+..\produto\TESTETABULEIRODEBUG 	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiroDEBUG   	/a..\scripts\estatisticas
+..\produto\TESTETABULEIRODEBUG 	/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer   	/a..\scripts\estatisticas
 
 ..\ferramnt\exbestat /e..\scripts\estatisticas
 

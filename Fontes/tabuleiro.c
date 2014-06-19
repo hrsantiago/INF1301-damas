@@ -284,62 +284,9 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
         return 1;
 
     assert("Caso indefinido TAB_verificaVencedor");
+	return -2;
 }/* Fim função: TAB verifica vencedor */
 
-/*****  Código das funções encapsuladas no módulo  *****/   
-
-/***************************************************************************
-*
-*  $FC Função: TAB  -Excluir elemento de uma lista
-*
-*  $ED Descrição da função
-*
-*      Através da função (PEC_destruir(Peca *peca)) provida pelo
-*      módulo PEC (peça), está função elimina uma peça do tabuleiro
-*      
-*  $EP Parâmetros 
-*
-*      $P void *pDado - um ponteiro para um tipo void (qualquer).
-*      
-*
-*  $FV Valor retornado 
-*
-*        Não possui valor de retorno, simplesmente elimina (free())
-*        uma peça do tabuleiro.
-*
-*  ****/
-void ListaExcluirPeca(void *pDado)                           
-{                                                             
-    Peca *peca = (Peca*)pDado;
-    PEC_destruir(peca);
-}/* Fim função: TAB  -Excluir elemento de uma lista */
-
-/***************************************************************************
-*
-*  $FC Função: TAB  -Excluir uma lista
-*
-*  $ED Descrição da função
-*
-*      Através da função (LIS_DestruirLista(LIS_tppLista lista))
-*      provida pelo módulo LIS (lista), está função elimina linha do
-*      tabuleiro.
-*      
-*  $EP Parâmetros 
-*
-*      $P void *pDado - um ponteiro para um tipo void (qualquer).
-*      
-*
-*  $FV Valor retornado 
-*
-*        Não possui valor de retorno, simplesmente elimina (free())
-*        uma linha do tabuleiro.
-*
-*  ****/
-void ListaExcluirLista(void *pDado)                         
-{
-    LIS_tppLista lista = (LIS_tppLista)pDado;
-    LIS_DestruirLista(lista);
-}/* Fim função: TAB  -Excluindo uma lista */ 
 
 #ifdef _DEBUG
 
@@ -429,9 +376,84 @@ void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar)
 
         break;
     }
-
+	case TAB_DeturpaTipoTabuleiro:
+	{
+		CED_DefinirTipoEspaco(tabuleiro, CED_ID_TIPO_VALOR_NULO);
+		break;
+	}
     }
 }
+/***************************************************************************
+*
+*  Função: TAB  &Posicionar Elemento Corrente
+*  ****/
+
+void PosicionarElementoCorrente(Tabuleiro *tabuleiro, int linha, char coluna)
+{
+    LIS_tppLista lista;
+    --linha;
+    coluna = tolower(coluna) - 'a';
+
+    LIS_IrIndice(tabuleiro->lista, linha);
+    lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
+    LIS_IrIndice(lista, coluna) ;
+}/* Fim função: TAB  &Posicionar Elemento Corrente */
 
 #endif
+
+/*****  Código das funções encapsuladas no módulo  *****/   
+
+/***************************************************************************
+*
+*  $FC Função: TAB  -Excluir elemento de uma lista
+*
+*  $ED Descrição da função
+*
+*      Através da função (PEC_destruir(Peca *peca)) provida pelo
+*      módulo PEC (peça), está função elimina uma peça do tabuleiro
+*      
+*  $EP Parâmetros 
+*
+*      $P void *pDado - um ponteiro para um tipo void (qualquer).
+*      
+*
+*  $FV Valor retornado 
+*
+*        Não possui valor de retorno, simplesmente elimina (free())
+*        uma peça do tabuleiro.
+*
+*  ****/
+void ListaExcluirPeca(void *pDado)                           
+{                                                             
+    Peca *peca = (Peca*)pDado;
+    PEC_destruir(peca);
+}/* Fim função: TAB  -Excluir elemento de uma lista */
+
+/***************************************************************************
+*
+*  $FC Função: TAB  -Excluir uma lista
+*
+*  $ED Descrição da função
+*
+*      Através da função (LIS_DestruirLista(LIS_tppLista lista))
+*      provida pelo módulo LIS (lista), está função elimina linha do
+*      tabuleiro.
+*      
+*  $EP Parâmetros 
+*
+*      $P void *pDado - um ponteiro para um tipo void (qualquer).
+*      
+*
+*  $FV Valor retornado 
+*
+*        Não possui valor de retorno, simplesmente elimina (free())
+*        uma linha do tabuleiro.
+*
+*  ****/
+void ListaExcluirLista(void *pDado)                         
+{
+    LIS_tppLista lista = (LIS_tppLista)pDado;
+    LIS_DestruirLista(lista);
+}/* Fim função: TAB  -Excluindo uma lista */ 
+
 /********** Fim do módulo de implementação: TAB  Tabuleiro **********/

@@ -13,11 +13,12 @@
 
 int main()
 {
+	Jogo *jogo;
 #ifdef _DEBUG
     CED_InicializarControlador();
 #endif
 
-    Jogo *jogo = JOG_criar();
+    jogo = JOG_criar();
     JOG_rodar(jogo);
     JOG_destruir(jogo);
 
