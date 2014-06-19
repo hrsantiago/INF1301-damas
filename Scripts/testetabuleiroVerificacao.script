@@ -1,0 +1,59 @@
+// Script:    testetabuleiro.script
+// Autor:     Henrique Santiago
+// Data:      20/abr/2014
+// Propósito: Testar o módulo tabuleiro
+
+== Inicializar valores
+=declararparm   tabuleiro0  int 0
+=declararparm   tabuleiro1  int 1
+=declararparm	tabuleiro2  int	2  
+
+=declararparm   colunaA     string  "a"
+=declararparm   colunaB     string  "b"
+
+=declararparm   pNULL       int  0
+=declararparm   pNaoNULL    int  1
+
+=declararparm OK      	       	   int 0
+=declararparm TabuleiroInexistente int 1
+=declararparm LinhaInexistente     int 2
+=declararparm ColunaInexistente    int 3
+=declararparm ErroEstrutura	   int 7
+
+==Inicializar contagem
+=inicializarcontadores  ""
+=lercontadores          "..\\scripts\\Verificadores.count"
+=iniciarcontagem
+
+==Verificar tabuleiro ainda não alocado
+=verificar tabuleiro0 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Criar o tabuleiro 0
+=criartabuleiro  tabuleiro0
+
+==Verificar tabuleiro
+=verificar tabuleiro0 0K
+
+==Inicializar tabuleiro 0
+=inicializartabuleiro tabuleiro0
+
+==Verificar tabuleiro inicializado
+=verificar tabuleiro0 0K
+
+==Alterar tipo tabuleiro
+=deturpar tabuleiro0 4
+=verificar tabuleiro0 ErroEstrutura
+
+==Destruir tabuleiro
+=destruirtabuleiro tabuleiro0 OK
+
+== Terminar controlar contadores
+=pararcontagem
+=verificarcontagens    0
+
+==Gravar Contadores
+=gravarcontadores "..\\Produto\\RegistroContadores"
+== Terminar contagem
+=terminarcontadores
+// fim
