@@ -290,7 +290,8 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 {
-    int condRet;
+    int condRet, linha;
+	LIS_tppLista lista;
     if(!tabuleiro) {
         CNT_CONTAR("Tabuleiro Inexistente");
         TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
@@ -307,8 +308,24 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
         return TAB_CondRetErroEstrutura;
     }
     CNT_CONTAR("Tipo Tabuleiro OK");
-    condRet = LIS_VerificarLista(tabuleiro->lista);
-    return condRet;
+    if(LIS_VerificarLista(tabuleiro->lista)==LIS_CondRetErroEstrutura)
+	{
+		CNT_CONTAR("Lista de listas com erro");
+		return TAB_CondRetErroEstrutura;
+	}
+	/*Verificar Cada elemento da lista, ou seja, cada linha*/
+	LIS_IrInicioLista(tabuleiro->lista);
+    for(linha = 0; linha < TabuleiroAltura; ++linha) {
+       condRet=LIS_VerificarLista(LIS_ObterValor(tabuleiro->lista));
+	   if(condRet==LIS_CondRetErroEstrutura)
+	   {
+		   CNT_CONTAR("A lista de pecas possui algum problema");
+			return TAB_CondRetErroEstrutura;
+	   }
+	   LIS_AvancarElementoCorrente(tabuleiro->lista,1);
+
+	}
+	CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
 }
 
 /***************************************************************************

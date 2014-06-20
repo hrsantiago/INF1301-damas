@@ -21,4 +21,8 @@ main.c   	/D_DEBUG
 /INCREMENTAL:NO
 /MACHINE:IX86
 
+
+[BuildFim]
+ArcaboucoTeste.lib
+
 [Fim]

@@ -7,9 +7,11 @@ peca.c
 ..\Fontes\peca.c(68) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\peca.c(154) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
-..\Fontes\tabuleiro.c(205) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(230) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(395) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(198) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(223) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(294) : warning C4101: 'lista' : unreferenced local variable
+..\Fontes\tabuleiro.c(405) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+c:\users\jose\documents\github\damas\fontes\tabuleiro.c(329) : warning C4715: 'TAB_VerificarTabuleiro' : not all control paths return a value
 jogo.c
 ..\Fontes\jogo.c(138) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
 ..\Fontes\jogo.c(153) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -35,28 +37,6 @@ Copyright (C) Microsoft Corporation.  All rights reserved.
 /INCREMENTAL:NO 
 /MACHINE:IX86 
 lista.obj peca.obj tabuleiro.obj jogo.obj main.obj 
-lista.obj : error LNK2019: unresolved external symbol _CED_DefinirTipoEspaco referenced in function _LIS_CriarLista
-peca.obj : error LNK2001: unresolved external symbol _CED_DefinirTipoEspaco
-tabuleiro.obj : error LNK2001: unresolved external symbol _CED_DefinirTipoEspaco
-jogo.obj : error LNK2001: unresolved external symbol _CED_DefinirTipoEspaco
-lista.obj : error LNK2019: unresolved external symbol _CED_Malloc referenced in function _LIS_CriarLista
-peca.obj : error LNK2001: unresolved external symbol _CED_Malloc
-tabuleiro.obj : error LNK2001: unresolved external symbol _CED_Malloc
-jogo.obj : error LNK2001: unresolved external symbol _CED_Malloc
-lista.obj : error LNK2019: unresolved external symbol _CED_Free referenced in function _LIS_DestruirLista
-peca.obj : error LNK2001: unresolved external symbol _CED_Free
-tabuleiro.obj : error LNK2001: unresolved external symbol _CED_Free
-jogo.obj : error LNK2001: unresolved external symbol _CED_Free
-lista.obj : error LNK2019: unresolved external symbol _TST_NotificarFalha referenced in function _LIS_VerificarLista
-tabuleiro.obj : error LNK2001: unresolved external symbol _TST_NotificarFalha
-lista.obj : error LNK2019: unresolved external symbol _CNT_Contar referenced in function _LIS_VerificarLista
-tabuleiro.obj : error LNK2001: unresolved external symbol _CNT_Contar
-lista.obj : error LNK2019: unresolved external symbol _TST_CompararInt referenced in function _LIS_VerificarLista
-tabuleiro.obj : error LNK2001: unresolved external symbol _TST_CompararInt
-lista.obj : error LNK2019: unresolved external symbol _CED_ObterTipoEspaco referenced in function _LIS_VerificarLista
-tabuleiro.obj : error LNK2001: unresolved external symbol _CED_ObterTipoEspaco
-lista.obj : error LNK2019: unresolved external symbol _CED_VerificarEspaco referenced in function _LIS_VerificarCabeca
-tabuleiro.obj : error LNK2001: unresolved external symbol _CED_VerificarEspaco
-main.obj : error LNK2019: unresolved external symbol _CED_ObterNumeroEspacosAlocados referenced in function _main
-main.obj : error LNK2019: unresolved external symbol _CED_InicializarControlador referenced in function _main
-..\produto\DAMASDEBUG.exe : fatal error LNK1120: 10 unresolved externals
+ArcaboucoTeste.lib 
+ArcaboucoTeste.lib(generico.obj) : error LNK2019: unresolved external symbol _TST_EfetuarComando referenced in function _InterpretarComandos
+..\produto\DAMASDEBUG.exe : fatal error LNK1120: 1 unresolved externals

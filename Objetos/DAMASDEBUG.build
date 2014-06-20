@@ -2,4 +2,5 @@
 /INCREMENTAL:NO
 /MACHINE:IX86
 lista.obj  peca.obj  tabuleiro.obj  jogo.obj  main.obj  
+ArcaboucoTeste.lib
 

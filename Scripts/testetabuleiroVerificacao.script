@@ -44,6 +44,7 @@
 ==Alterar tipo tabuleiro
 =deturpar tabuleiro0 4
 =verificar tabuleiro0 ErroEstrutura
+=AceitaFalhasAcumuladas 1
 
 ==Destruir tabuleiro
 =destruirtabuleiro tabuleiro0 OK

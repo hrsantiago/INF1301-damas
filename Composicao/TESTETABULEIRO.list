@@ -67,10 +67,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             734
-      Linhas de código:         467
-      Linhas de comentário:     182
-      Linhas em branco:         102
+      Total linhas:             727
+      Linhas de código:         450
+      Linhas de comentário:     189
+      Linhas em branco:         104
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -112,10 +112,10 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             459
-      Linhas de código:         286
+      Total linhas:             469
+      Linhas de código:         297
       Linhas de comentário:     129
-      Linhas em branco:          57
+      Linhas em branco:          56
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -186,17 +186,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1638
-         Linhas de código:           986
-         Linhas de comentário:       457
-         Linhas em branco:           247
+         Total linhas do tipo:      1641
+         Linhas de código:           980
+         Linhas de comentário:       464
+         Linhas em branco:           248
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRO
 
-   Total linhas:              4920
-   Linhas de código:          1292
-   Linhas de comentário:      3092
-   Linhas em branco:           606
+   Total linhas:              4923
+   Linhas de código:          1286
+   Linhas de comentário:      3099
+   Linhas em branco:           607
    Arquivos processados:        12
 
