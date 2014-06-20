@@ -277,7 +277,7 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
         return 1;
 
     assert("Caso indefinido TAB_verificaVencedor");
-	return -2;
+    return -2;
 }/* Fim função: TAB verifica vencedor */
 
 
@@ -291,111 +291,113 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 {
     int condRet, linha, coluna;
-	Peca*peca;
-	LIS_tppLista lista;
+    Peca*peca;
+    LIS_tppLista lista;
     if(!tabuleiro) {
         CNT_CONTAR("Tabuleiro Inexistente");
         TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
         return TAB_CondRetErroEstrutura;
     }
-    else           /////////////////////////////////////////////////////
-        CNT_CONTAR("Tabuleiro Existente");  //////////////////////////////////////
+    else
+        CNT_CONTAR("Tabuleiro Existente");
 
     if(!CED_VerificarEspaco(tabuleiro, NULL)) {
         CNT_CONTAR("Tabuleiro possui alguma falha");
         TST_NotificarFalha("Controle do espaço acusou erro.");
         return TAB_CondRetErroEstrutura ;
     }
-    else  //////////////////////////////////////////////////7
-        CNT_CONTAR("Tabuleiro nao possui falha"); ///////////////////////////////7
+    else
+        CNT_CONTAR("Tabuleiro nao possui falha");
 
     if(TST_CompararInt(TAB_Tabuleiro, CED_ObterTipoEspaco(tabuleiro),
                        "Tipo do espaço de dados nao e tabuleiro.") != TST_CondRetOK) {
         CNT_CONTAR("Tipo nao e Tabuleiro");
         return TAB_CondRetErroEstrutura;
     }
-    else  /////////////////////////////////////////////
-        CNT_CONTAR("Tipo e Tabuleiro");  /////////////////////////////////
+    else
+        CNT_CONTAR("Tipo e Tabuleiro");
 
     CNT_CONTAR("Tipo Tabuleiro OK");
-	/*Verificar a lista das listas, primária*/
-    if(LIS_VerificarLista(tabuleiro->lista)==LIS_CondRetErroEstrutura)
-	{
-		CNT_CONTAR("Lista de listas com erro");
-		return TAB_CondRetErroEstrutura;
-	}
-	/*Verificar Cada elemento da lista, ou seja, cada linha*/
-	LIS_IrInicioLista(tabuleiro->lista);
-    for(linha = 0; linha < TabuleiroAltura; ++linha) {
-       lista=LIS_ObterValor(tabuleiro->lista);
-       condRet=LIS_VerificarLista(lista);
-	   if(condRet==LIS_CondRetErroEstrutura)
-	   {
-		   CNT_CONTAR("Uma das listas de pecas possui algum problema");
-			return TAB_CondRetErroEstrutura;
-	   }
-	   /*Verificar Cada elemento da lista secundária, ou seja, cada casa do tabuleiro*/
-	   LIS_IrInicioLista(lista);
-	   for(coluna = 0; coluna < TabuleiroLargura; ++coluna)
-	   {
-		   peca=LIS_ObterValor(lista);
-		   if(peca!=NULL){
-			   CNT_CONTAR("Casa não Vazia");
-			   if(TST_CompararInt(PEC_Peca, CED_ObterTipoEspaco(peca),"Tipo do espaço de dados nao e peca.") != TST_CondRetOK) {
-					TST_NotificarFalha("Tipo numa casa do tabuleiro nao e peca");
-				    CNT_CONTAR("Tipo nao e peca");
-					return TAB_CondRetErroEstrutura;
-			   }
-			   else
-				   CNT_CONTAR("Tipo e peca");
-		   }
-		   else
-			   CNT_CONTAR("Casa Vazia");
-		   LIS_AvancarElementoCorrente(lista,1);
-	   }
-	   if(LIS_IrIndice(lista,7)==LIS_CondRetOK && LIS_IrIndice(lista,8)==LIS_CondRetFimLista)
-		     CNT_CONTAR("Tabuleiro com 8 colunas");
-	   else
-	   {
-		   CNT_CONTAR("Tabuleiro nao tem 8 colunas");
-		   TST_NotificarFalha("Tabuleiro nao tem 8 colunas");
-		   return TAB_CondRetErroEstrutura;
-	   }
-	   LIS_AvancarElementoCorrente(tabuleiro->lista,1);
 
-	}
-	if(LIS_IrIndice(tabuleiro->lista,7)==LIS_CondRetOK && LIS_IrIndice(tabuleiro->lista,8)==LIS_CondRetFimLista)
-		     CNT_CONTAR("Tabuleiro com 8 linhas");
-	   else
-	   {
-		   CNT_CONTAR("Tabuleiro nao tem 8 linhas");
-		   TST_NotificarFalha("Tabuleiro nao tem 8 linhas");
-		   return TAB_CondRetErroEstrutura;
-	   }
-	CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
-	return TAB_CondRetOK;
+    /*Verificar a lista das listas, primária*/
+    if(LIS_VerificarLista(tabuleiro->lista) == LIS_CondRetErroEstrutura)
+    {
+        CNT_CONTAR("Lista de listas com erro");
+        return TAB_CondRetErroEstrutura;
+    }
+
+    /*Verificar Cada elemento da lista, ou seja, cada linha*/
+    LIS_IrInicioLista(tabuleiro->lista);
+    for(linha = 0; linha < TabuleiroAltura; ++linha) {
+        lista = LIS_ObterValor(tabuleiro->lista);
+        condRet = LIS_VerificarLista(lista);
+        if(condRet == LIS_CondRetErroEstrutura) {
+            CNT_CONTAR("Uma das listas de pecas possui algum problema");
+            return TAB_CondRetErroEstrutura;
+        }
+        /*Verificar Cada elemento da lista secundária, ou seja, cada casa do tabuleiro*/
+        LIS_IrInicioLista(lista);
+        for(coluna = 0; coluna < TabuleiroLargura; ++coluna) {
+            peca = LIS_ObterValor(lista);
+            if(peca) {
+                CNT_CONTAR("Casa nao Vazia");
+                if(TST_CompararInt(PEC_Peca, CED_ObterTipoEspaco(peca), "Tipo do espaço de dados nao e peca.") != TST_CondRetOK) {
+                    TST_NotificarFalha("Tipo numa casa do tabuleiro nao e peca");
+                    CNT_CONTAR("Tipo nao e peca");
+                    return TAB_CondRetErroEstrutura;
+                }
+                else
+                    CNT_CONTAR("Tipo e peca");
+            }
+            else
+                CNT_CONTAR("Casa Vazia");
+            LIS_AvancarElementoCorrente(lista, 1);
+        }
+        if(LIS_IrIndice(lista, 7) == LIS_CondRetOK && LIS_IrIndice(lista, 8) == LIS_CondRetFimLista)
+            CNT_CONTAR("Tabuleiro com 8 colunas");
+        else {
+            CNT_CONTAR("Tabuleiro nao tem 8 colunas");
+            TST_NotificarFalha("Tabuleiro nao tem 8 colunas");
+            return TAB_CondRetErroEstrutura;
+        }
+        LIS_AvancarElementoCorrente(tabuleiro->lista, 1);
+
+    }
+    if(LIS_IrIndice(tabuleiro->lista, 7) == LIS_CondRetOK && LIS_IrIndice(tabuleiro->lista, 8) == LIS_CondRetFimLista)
+        CNT_CONTAR("Tabuleiro com 8 linhas");
+    else {
+        CNT_CONTAR("Tabuleiro nao tem 8 linhas");
+        TST_NotificarFalha("Tabuleiro nao tem 8 linhas");
+        return TAB_CondRetErroEstrutura;
+    }
+    CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
+    return TAB_CondRetOK;
 }
 
-int VerificaEstrutura(void){
-	int tipo, ExisteEspaco;
-	void*PonteiroEspacoCorrente;
-	CED_MarcarTodosEspacosInativos( ) ;
-	CED_InicializarIteradorEspacos( );
-	do{
-		PonteiroEspacoCorrente=CED_ObterPonteiroEspacoCorrente( );
-		tipo=CED_ObterTipoEspaco( PonteiroEspacoCorrente );
-		if(tipo==TAB_Tabuleiro)
-			TAB_VerificarTabuleiro(PonteiroEspacoCorrente);
-	}while (CED_AvancarProximoEspaco( )==1);
-	CED_TerminarIteradorEspacos( ); 
-	CED_InicializarIteradorEspacos( );
-	do{
-		PonteiroEspacoCorrente=CED_ObterPonteiroEspacoCorrente( );
-		if(CED_EhEspacoAtivo(PonteiroEspacoCorrente)==0)
-			return 0;
-	}while (CED_AvancarProximoEspaco( )==1);
-	CED_TerminarIteradorEspacos( );
-	return 1;
+int VerificaEstrutura()
+{
+    int tipo;
+    void *PonteiroEspacoCorrente;
+    CED_MarcarTodosEspacosInativos();
+    CED_InicializarIteradorEspacos();
+
+    do {
+        PonteiroEspacoCorrente = CED_ObterPonteiroEspacoCorrente();
+        tipo = CED_ObterTipoEspaco(PonteiroEspacoCorrente);
+        if(tipo == TAB_Tabuleiro)
+            TAB_VerificarTabuleiro(PonteiroEspacoCorrente);
+    } while(CED_AvancarProximoEspaco() == 1);
+
+    CED_TerminarIteradorEspacos();
+    CED_InicializarIteradorEspacos();
+
+    do {
+        PonteiroEspacoCorrente=CED_ObterPonteiroEspacoCorrente( );
+        if(CED_EhEspacoAtivo(PonteiroEspacoCorrente)==0)
+            return 0;
+    } while(CED_AvancarProximoEspaco() == 1);
+    CED_TerminarIteradorEspacos();
+    return 1;
 }
 /***************************************************************************
 *

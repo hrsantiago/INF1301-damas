@@ -480,7 +480,7 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
     }
     if(pCabeca->numElem!=numElementos)
     {
-        CNT_CONTAR("numero de elementos na cabeca diferente do real");
+        CNT_CONTAR("Numero de elementos na cabeca diferente do real");
         TST_NotificarFalha("Numero de elementos indicado na cabeça difere do real");
         return LIS_CondRetErroEstrutura;
     }

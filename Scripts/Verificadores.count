@@ -15,7 +15,7 @@ No possui uma lista
 A lista de pecas possui algum problema
 Ha uma lista de listas e a sublista de pecas sem problemas
 No nao possui uma lista
-numero de elementos na cabeca diferente do real
+Numero de elementos na cabeca diferente do real
 Lista de listas OK
 Lista de listas com erro
 
@@ -50,14 +50,15 @@ Tabuleiro nao possui falha
 Tipo nao e Tabuleiro
 Tipo e Tabuleiro
 Tipo Tabuleiro OK
+
+Lista de listas com erro
+Uma das listas de pecas possui algum problema
+Casa nao Vazia
+Tipo nao e peca
+Tipo e peca
+Casa Vazia
 Tabuleiro com 8 colunas
 Tabuleiro nao tem 8 colunas
 Tabuleiro com 8 linhas
 Tabuleiro nao tem 8 linhas
-
-//Lista Primaria
-Uma das listas de pecas possui algum problema
-Casa não Vazia
-Tipo nao e peca
-Tipo e peca
-Casa Vazia
+Ha uma lista de listas e a sublista de pecas sem problemas
