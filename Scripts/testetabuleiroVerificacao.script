@@ -7,6 +7,13 @@
 =declararparm   tabuleiro0  int 0
 =declararparm   tabuleiro1  int 1
 =declararparm	tabuleiro2  int	2  
+=declararparm	tabuleiro3  int	3  
+=declararparm	tabuleiro4  int	4
+=declararparm	tabuleiro5  int	5
+=declararparm	tabuleiro6  int	6
+=declararparm	tabuleiro7  int	7
+=declararparm	tabuleiro8  int	8
+=declararparm	tabuleiro9  int	9
 
 =declararparm   colunaA     string  "a"
 =declararparm   colunaB     string  "b"
@@ -72,13 +79,99 @@
 =criartabuleiro tabuleiro2
 =inicializartabuleiro tabuleiro2
 
-==atribui NULL ao ponteiro para o próximo nó.
+==atribui NULL ao ponteiro para o próximo nó. //Não tá dando erro
 =deturpar tabuleiro2   DeturparListaSecundaria   1  4 colunaB
+=verificar tabuleiro2 ErroEstrutura 
+=AceitaFalhasAcumuladas 1
+
+==atribui NULL ao ponteiro para o nó anterior //Encadeamento antes errado.dando 3 falhas
+=deturpar tabuleiro2   DeturparListaSecundaria   2  4 colunaB
 =verificar tabuleiro2 ErroEstrutura
+=AceitaFalhasAcumuladas 3
+
+==Destruir tabuleiro 2
+=destruirtabuleiro tabuleiro2 OK
+
+
+==Criar e inicializar tabuleiro 3 
+=criartabuleiro tabuleiro3
+=inicializartabuleiro tabuleiro3
+
+//==Atribui lixo ao ponteiro para o próximo nó. //VOA
+//=deturpar tabuleiro3   DeturparListaSecundaria   3  4 colunaB
+//=verificar tabuleiro3 ErroEstrutura
+//=AceitaFalhasAcumuladas 1
+
+
+==Atribui lixo ao ponteiro para o nó anterior.  //Encadeamento antes errado
+=deturpar tabuleiro3   DeturparListaSecundaria   4  4 colunaB
+=verificar tabuleiro3 ErroEstrutura
 =AceitaFalhasAcumuladas 1
 
 ==Destruir
-=destruirtabuleiro tabuleiro2 OK
+=destruirtabuleiro tabuleiro3 OK
+
+
+==Criar e inicializar tabuleiro 4 
+=criartabuleiro tabuleiro4
+=inicializartabuleiro tabuleiro4
+
+==Atribui NULL ao ponteiro para o conteúdo do nó. //Nao da erro
+=deturpar tabuleiro4   DeturparListaSecundaria   5  4 colunaB
+=verificar tabuleiro4 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro4 OK
+
+==Criar e inicializar tabuleiro 5 
+=criartabuleiro tabuleiro5
+=inicializartabuleiro tabuleiro5
+
+==Altera o tipo de estrutura apontado no nó. //dando 3 falhas,Tipo do espaço de dados não é nó de lista
+=deturpar tabuleiro5   DeturparListaSecundaria   6  4 colunaB
+=verificar tabuleiro5 ErroEstrutura
+=AceitaFalhasAcumuladas 3
+
+==Destruir
+=destruirtabuleiro tabuleiro5 OK
+
+
+==Criar e inicializar tabuleiro 6 
+=criartabuleiro tabuleiro6
+=inicializartabuleiro tabuleiro6
+
+//==Desencadeia nó sem liberá-lo com free. //Nao testei
+//=deturpar tabuleiro3   DeturparListaSecundaria   7  4 colunaB
+//=verificar tabuleiro3 ErroEstrutura
+//=AceitaFalhasAcumuladas 1
+
+==Atribui NULL ao ponteiro corrente //Nao ta dando erro
+=deturpar tabuleiro6   DeturparListaPrimaria   8  2
+=verificar tabuleiro6 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Atribui NULL ao ponteiro de origem.//Numero de elementos indicado na cabeça difere do real , 3 falhas
+=deturpar tabuleiro6   DeturparListaPrimaria   9  2
+=verificar tabuleiro6 ErroEstrutura
+=AceitaFalhasAcumuladas 3
+
+==Destruir
+=destruirtabuleiro tabuleiro6 OK
+
+
+==Criar e inicializar tabuleiro 7 
+=criartabuleiro tabuleiro7
+=inicializartabuleiro tabuleiro7
+
+==Atribui NULL ao ponteiro de fim.
+=deturpar tabuleiro7   DeturparListaPrimaria   10  2
+=verificar tabuleiro7 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro7 OK
+
 
 
 

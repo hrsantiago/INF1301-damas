@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////
 
 // Lista
-Tipo espaco nao eh no
+Elemento da lista não eh no
 Tipo espaco eh no
 Referencia do elemento de lista errada
 Referencia do elemento de lista correta
@@ -17,6 +17,7 @@ Ha uma lista de listas e a sublista de pecas sem problemas
 No nao possui uma lista
 numero de elementos na cabeca diferente do real
 Lista de listas OK
+Lista de listas com erro
 
 // Lista - Cabeca
 Cabeca de lista inexistente

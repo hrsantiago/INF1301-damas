@@ -237,7 +237,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
                                &inxLista , &ModoDeturparTAB, &ModoDeturparLIS, &linha, StringDado ) ;
 
 			if ( ModoDeturparTAB==TAB_DeturparListaPrimaria){
-				if( (numLidos != 4 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				if( (numLidos != 4 ) || !ValidarInxTabuleiro( inxLista, INDIFERENTE )) ////////////////////////////////////////////////////////////////////////////////////////
 				{
                    return TST_CondRetParm ;
 				}
@@ -246,7 +246,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 			}
 
             if ( ModoDeturparTAB==TAB_DeturparListaSecundaria){
-				if( (numLidos != 5 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				if( (numLidos != 5 ) || !ValidarInxTabuleiro( inxLista, INDIFERENTE )) ////////////////////////////////////////////////////////////////////////////////////////
 				{
 				  return TST_CondRetParm ;
 				}
@@ -257,7 +257,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 			}
 			else
 			{
-				if( (numLidos != 2 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				if( (numLidos != 2 ) || !ValidarInxTabuleiro( inxLista, INDIFERENTE  )) ////////////////////////////////////////////////////////////////////////////////////////
 				{
                    return TST_CondRetParm ;
 				}
