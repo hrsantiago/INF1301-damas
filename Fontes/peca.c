@@ -135,13 +135,14 @@ PecaTipo PEC_obterTipo(Peca *peca)
 #ifdef _DEBUG
   if(peca == NULL){
     printf('peca vazia (PEC_imprimir)');
-    return;
+    return NULL;
   }
   if( peca->tipo != PecaNormal && peca->tipo != PecaDama){
-    printf('\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n');    
-    return;
+    printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n");    
+    return NULL;
   }
 #endif
+
     return peca->tipo;
 }/* Fim função: PEC  &Obter tipo de uma determinada peça */
 
@@ -181,8 +182,8 @@ char PEC_obterCaracter(Peca *peca)
   //Assertivas de entrada
 #ifdef _DEBUG
   if(peca == NULL){
-    printf('peca vazia (PEC_obterCaracter)');
-    return;
+    printf("\n peca vazia (PEC_obterCaracter) \n");
+    return NULL;
   }
 #endif
 
@@ -201,7 +202,7 @@ PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
   if(peca == NULL)
     return PEC_CondRetPecaVazia;
     
-  if( caracter != 'x' && caracter != 'o')
+  if( caracter != "x" && caracter != "o")
     return PEC_CondRetCaracterInexistente;
 #endif
 
