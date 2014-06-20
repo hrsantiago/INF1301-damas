@@ -325,64 +325,37 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 *  Função: TAB  &Deturpar tabuleiro
 *  ****/
 
-void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar)
+void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, LIS_tpModosDeturpacao ModoDeturparLista)
 {
     int x, y;
     LIS_tppLista lista, lista2;
     if(!tabuleiro)
         return;
 
+    linha--;
+    coluna = tolower(coluna) - 'a';
     lista = tabuleiro->lista;
 
     switch(ModoDeturpar) {
-    case TAB_EliminarLinha:
+    case TAB_DeturpaTipoTabuleiro:
     {
-        LIS_ExcluirElemento(lista);
+        CED_DefinirTipoEspaco(tabuleiro, CED_ID_TIPO_VALOR_NULO);
         break;
     }
-    case TAB_EliminarPosicao:
+    case TAB_DeturparListaPrimaria:
     {
-        LIS_ExcluirElemento((LIS_tppLista)LIS_ObterValor(lista));
+        LIS_IrIndice(lista, linha);
+        LIS_Deturpar(lista, ModoDeturparLista);
         break;
     }
-    case TAB_EliminarPecaSemFree:
+    case TAB_DeturparListaSecundaria:
     {
-        LIS_IrInicioLista(lista);
-        for(y = 0; y < TabuleiroAltura; ++y) {
-            lista2 = (LIS_tppLista)LIS_ObterValor(lista);
-            LIS_IrInicioLista(lista);
-            for(x = 0; x < TabuleiroLargura; ++x) {
-                Peca *peca = LIS_ObterValor(lista);
-                if(peca) {
-                    LIS_SetarValor(lista2, NULL);
-                    return;
-                }
-            }
-        }
+        LIS_IrIndice(lista, linha);
+        lista2 = (LIS_tppLista)LIS_ObterValor(lista);
+        LIS_IrIndice(lista2, coluna);
+        LIS_Deturpar(lista2, ModoDeturparLista);
         break;
     }
-    case TAB_DeturpaTipoPeca:
-    {
-        LIS_IrInicioLista(lista);
-        for(y = 0; y < TabuleiroAltura; ++y) {
-            lista2 = (LIS_tppLista)LIS_ObterValor(lista);
-            LIS_IrInicioLista(lista);
-            for(x = 0; x < TabuleiroLargura; ++x) {
-                Peca *peca = LIS_ObterValor(lista);
-                if(peca) {
-                    CED_DefinirTipoEspaco(peca, CED_ID_TIPO_VALOR_NULO);
-                    return;
-                }
-            }
-        }
-
-        break;
-    }
-	case TAB_DeturpaTipoTabuleiro:
-	{
-		CED_DefinirTipoEspaco(tabuleiro, CED_ID_TIPO_VALOR_NULO);
-		break;
-	}
     }
 }
 /***************************************************************************
