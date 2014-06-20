@@ -439,13 +439,13 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
     if(ret != LIS_CondRetOK)
         return ret;
 
-    /*Percorre Lista, verificando cada nó*/
+    /*Percorre Lista, verificando cada no*/
     for(pElem = pCabeca->pOrigemLista; pElem; pElem = pElem->pProx)
     {
-        if ( TST_CompararInt( LIS_TipoEspacoNo , CED_ObterTipoEspaco( pElem ) ,
-                              "Tipo do espaço de dados não é nó de lista." ) != TST_CondRetOK )
+        if ( TST_CompararInt(LIS_TipoEspacoNo, CED_ObterTipoEspaco(pElem),
+                              "Tipo do espaço de dados não é no de lista.") != TST_CondRetOK )
         {
-			CNT_CONTAR("Elemento da lista não eh no");
+            CNT_CONTAR("Elemento da lista nao eh no");
             return LIS_CondRetErroEstrutura ;
         }
 		CNT_CONTAR("Tipo espaco eh no");
@@ -704,7 +704,7 @@ LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
     else if(pCabeca->numElem == 0) {
         CNT_CONTAR("Cabeca com zero elementos");
         if(pCabeca->pOrigemLista || pCabeca->pFimLista || pCabeca->pElemCorr) {
-            CNT_CONTAR("Cabeca com zero elementos e não vazia");
+            CNT_CONTAR("Cabeca com zero elementos e nao vazia");
             TST_NotificarFalha("Cabeça acusa zero elementos, mas lista não está vazia");
             return LIS_CondRetErroEstrutura;
         }
@@ -732,7 +732,7 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
         CNT_CONTAR("Ha mais de um elemento");
         if(pElem->pProx->pAnt != pElem) {
             CNT_CONTAR("Encadeamento apos errado");
-            TST_NotificarFalha("Encadeamento apos está errado");
+            TST_NotificarFalha("Encadeamento apos esta errado");
             return LIS_CondRetErroEstrutura;
         }
         else
@@ -747,7 +747,7 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
     if(pElem->pAnt != NULL) {
         if(pElem->pAnt->pProx != pElem) {
             CNT_CONTAR("Encadeamento antes errado");
-            TST_NotificarFalha("Encadeamento antes está errado");
+            TST_NotificarFalha("Encadeamento antes esta errado");
             return LIS_CondRetErroEstrutura;
         }
         else

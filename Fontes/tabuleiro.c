@@ -404,7 +404,7 @@ int VerificaEstrutura()
 *  Função: TAB  &Deturpar tabuleiro
 *  ****/
 
-void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, LIS_tpModosDeturpacao ModoDeturparLista)
+void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, TAB_tpModosDeturpacaoLista ModoDeturparLista)
 {
     LIS_tppLista lista, lista2;
     if(!tabuleiro)
