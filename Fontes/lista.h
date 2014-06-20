@@ -90,27 +90,27 @@ typedef enum {
 
 typedef enum {
     LIS_EliminarElemento,
-    /* Modifica o tipo da cabeça */
+    /* elimina o elemento corrente da lista */
     LIS_DeturpaProximoNulo,
-    /* Anula ponteiro raiz */
+    /* atribui NULL ao ponteiro para o próximo nó*/
     LIS_DeturpaAnteriorNulo,
-    /* Anula ponteiro corrente */
+    /* atribui NULL ao ponteiro para o nó anterior */
     LIS_DeturpaProximoLixo,
-    /* Faz raiz apontar para lixo */
+    /* atribui lixo ao ponteiro para o próximo nó */
     LIS_DeturpaAnteriorLixo,
-    /* Faz corrente apontar para lixo */
+    /* atribui lixo ao ponteiro o nó anterior */
     LIS_DeturpaConteudoNulo,
-    /* Modifica tipo nó corrente */
+    /* atribui NULL ao ponteiro para o conteúdo do nó */
     LIS_DeturpaTipoNo,
-    /* Anula ponteiro cabeça */
+    /* altera o tipo de estrutura apontado no nó */
     LIS_LiberaSemFree,
-    /* Anula ponteiro pai */
+    /* desencadeia nó sem liberá-lo com free */
     LIS_PonteiroCorrenteNulo,
-    /* Anula ponteiro filho esquerda */
+    /* atribui NULL ao ponteiro corrente */
     LIS_PonteiroOrigemNulo,
-    /* Anula ponteiro filho direita */
+    /* atribui NULL ao ponteiro de origem. */
     LIS_PonteiroFimNulo,
-    /* Faz ponteiro cabeça apontar para lixo */
+    /* atribui NULL ao ponteiro de fim de lista */
 	LIS_NumeroElementosNegativo,
 	/* Faz o número de elementos indicado na cabeça ficar negativo */
 	LIS_NumeroElementosNulo,

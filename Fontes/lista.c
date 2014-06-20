@@ -731,12 +731,12 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
     if(pElem->pProx != NULL) {
         CNT_CONTAR("Ha mais de um elemento");
         if(pElem->pProx->pAnt != pElem) {
-            CNT_CONTAR("Encadeamento antes errado");
-            TST_NotificarFalha("Encadeamento antes está errado");
+            CNT_CONTAR("Encadeamento apos errado");
+            TST_NotificarFalha("Encadeamento apos está errado");
             return LIS_CondRetErroEstrutura;
         }
         else
-            CNT_CONTAR("Encadeamento antes correto");
+            CNT_CONTAR("Encadeamento apos correto");
     }
     else if(pElem->pCabeca->pFimLista != pElem) {
         CNT_CONTAR("Cabeca nao aponta para o fim");
@@ -746,12 +746,12 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 
     if(pElem->pAnt != NULL) {
         if(pElem->pAnt->pProx != pElem) {
-            CNT_CONTAR("Encadeamento apos errado");
-            TST_NotificarFalha("Encadeamento após está errado");
+            CNT_CONTAR("Encadeamento antes errado");
+            TST_NotificarFalha("Encadeamento antes está errado");
             return LIS_CondRetErroEstrutura;
         }
         else
-            CNT_CONTAR("Encadeamento apos correto");
+            CNT_CONTAR("Encadeamento antes correto");
     }
     else if(pElem->pCabeca->pOrigemLista != pElem) {
         CNT_CONTAR("Cabeca nao aponta pra origem");

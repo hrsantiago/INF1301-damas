@@ -65,7 +65,7 @@
 =criartabuleiro tabuleiro1
 =inicializartabuleiro tabuleiro1
 
-==Elimina um elemento do tabuleiro (casa 4B)
+==Elimina um elemento do tabuleiro (casa 4B) //Tabuleiro nao tem 8 colunas
 =deturpar tabuleiro1 DeturparListaSecundaria  0    4   colunaB
 =verificar tabuleiro1 ErroEstrutura
 =AceitaFalhasAcumuladas 1
@@ -84,7 +84,7 @@
 =verificar tabuleiro2 ErroEstrutura 
 =AceitaFalhasAcumuladas 1
 
-==atribui NULL ao ponteiro para o nó anterior //Encadeamento antes errado.dando 3 falhas
+==atribui NULL ao ponteiro para o nó anterior //Encadeamento apos errado.dando 3 falhas
 =deturpar tabuleiro2   DeturparListaSecundaria   2  4 colunaB
 =verificar tabuleiro2 ErroEstrutura
 =AceitaFalhasAcumuladas 3
@@ -103,7 +103,7 @@
 //=AceitaFalhasAcumuladas 1
 
 
-==Atribui lixo ao ponteiro para o nó anterior.  //Encadeamento antes errado
+==Atribui lixo ao ponteiro para o nó anterior.  //Encadeamento apos errado
 =deturpar tabuleiro3   DeturparListaSecundaria   4  4 colunaB
 =verificar tabuleiro3 ErroEstrutura
 =AceitaFalhasAcumuladas 1
@@ -209,6 +209,39 @@
 
 ==Destruir
 =destruirtabuleiro tabuleiro9 OK
+
+
+==Criar e inicializar tabuleiro 1 
+=criartabuleiro tabuleiro1
+=inicializartabuleiro tabuleiro1
+
+==Atribuir NULL para linha 1 da lista primária.    //A cabeca nao aponta para o fim da lista
+=deturpar tabuleiro1   DeturparListaPrimaria   1  0
+=verificar tabuleiro1 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro1 OK
+
+
+==Criar tabuleiro 2 
+=criartabuleiro tabuleiro2
+
+==Lista Vazia
+=deturpar tabuleiro1 DeturparListaPrimaria   0  7
+=deturpar tabuleiro1 DeturparListaPrimaria   0  6
+=deturpar tabuleiro1 DeturparListaPrimaria   0  5
+=deturpar tabuleiro1 DeturparListaPrimaria   0  4
+=deturpar tabuleiro1 DeturparListaPrimaria   0  3
+=deturpar tabuleiro1 DeturparListaPrimaria   0  2
+=deturpar tabuleiro1 DeturparListaPrimaria   0  1
+=deturpar tabuleiro1 DeturparListaPrimaria   0  0
+=verificar tabuleiro2 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro2 OK
+
 
 
 == Terminar controlar contadores
