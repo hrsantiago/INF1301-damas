@@ -90,7 +90,7 @@ typedef enum {
 
 typedef enum {
     LIS_EliminarElemento,
-    /* Modifica o tipo da cabeÃ§a */
+    /* Modifica o tipo da cabeça */
     LIS_DeturpaProximoNulo,
     /* Anula ponteiro raiz */
     LIS_DeturpaAnteriorNulo,
@@ -100,9 +100,9 @@ typedef enum {
     LIS_DeturpaAnteriorLixo,
     /* Faz corrente apontar para lixo */
     LIS_DeturpaConteudoNulo,
-    /* Modifica tipo nÃ³ corrente */
+    /* Modifica tipo nó corrente */
     LIS_DeturpaTipoNo,
-    /* Anula ponteiro cabeÃ§a */
+    /* Anula ponteiro cabeça */
     LIS_LiberaSemFree,
     /* Anula ponteiro pai */
     LIS_PonteiroCorrenteNulo,
@@ -110,8 +110,13 @@ typedef enum {
     LIS_PonteiroOrigemNulo,
     /* Anula ponteiro filho direita */
     LIS_PonteiroFimNulo,
-    /* Faz ponteiro cabeÃ§a apontar para lixo */
-
+    /* Faz ponteiro cabeça apontar para lixo */
+	LIS_NumeroElementosNegativo,
+	/* Faz o número de elementos indicado na cabeça ficar negativo */
+	LIS_NumeroElementosNulo,
+	/* Faz o número de elementos indicado na cabeça ser zero */
+	LIS_DeturpaNumeroElementos
+	/* Faz o número de elementos indicado na cabeça não corresponder ao número correto */
 } LIS_tpModosDeturpacao;
 
 #endif

@@ -1,54 +1,54 @@
 //////////////////////////////////////////////////////////////////////
-// Contadores acumulados, gerado: 2014/06/20-08:57:07
+// Contadores acumulados, gerado: 2014/06/20-09:49:10
 //////////////////////////////////////////////////////////////////////
 
 A lista de pecas possui algum problema\=0
-Cabeca com zero elementos\=0
-Cabeca com zero elementos e nao vazia\=0
+Cabeca com zero elementos\=1
+Cabeca com zero elementos e não vazia\=1
 Cabeca com zero elementos e vazia\=0
-Cabeca de lista correta\=67
-Cabeca de lista existente\=67
+Cabeca de lista correta\=77
+Cabeca de lista existente\=79
 Cabeca de lista inexistente\=0
 Cabeca nao aponta para o fim\=1
 Cabeca nao aponta pra origem\=0
-Casa Vazia\=328
-Casa não Vazia\=96
+Casa Vazia\=372
+Casa não Vazia\=116
 Controle de espaco acusa erro na lista\=0
-Controle de espaco nao acusa erro na lista\=67
+Controle de espaco nao acusa erro na lista\=79
 Elemento da lista não eh no\=1
-Encadeamento Correto\=521
-Encadeamento antes correto\=459
+Encadeamento Correto\=600
+Encadeamento antes correto\=528
 Encadeamento antes errado\=2
-Encadeamento apos correto\=455
+Encadeamento apos correto\=524
 Encadeamento apos errado\=0
 Encadeamento errado\=3
-Ha mais de um elemento\=461
+Ha mais de um elemento\=530
 Ha uma lista de listas e a sublista de pecas sem problemas\=5
-Lista de listas OK\=62
-Lista de listas com erro\=2
+Lista de listas OK\=71
+Lista de listas com erro\=5
 No nao possui uma lista\=0
 No possui uma lista\=0
-Numero de elementos menor que zero\=0
-Referencia do elemento de lista correta\=524
+Numero de elementos menor que zero\=1
+Referencia do elemento de lista correta\=603
 Referencia do elemento de lista errada\=0
-Tabuleiro Existente\=12
+Tabuleiro Existente\=16
 Tabuleiro Inexistente\=1
-Tabuleiro com 8 colunas\=52
+Tabuleiro com 8 colunas\=60
 Tabuleiro com 8 linhas\=5
-Tabuleiro nao possui falha\=12
+Tabuleiro nao possui falha\=16
 Tabuleiro nao tem 8 colunas\=1
-Tabuleiro nao tem 8 linhas\=0
+Tabuleiro nao tem 8 linhas\=1
 Tabuleiro possui alguma falha\=0
-Tipo Tabuleiro OK\=11
-Tipo e Tabuleiro\=11
-Tipo e lista\=67
-Tipo e peca\=96
-Tipo espaco eh no\=524
+Tipo Tabuleiro OK\=15
+Tipo e Tabuleiro\=15
+Tipo e lista\=79
+Tipo e peca\=116
+Tipo espaco eh no\=603
 Tipo nao e Tabuleiro\=1
 Tipo nao e lista\=0
 Tipo nao e peca\=0
 Uma das listas de pecas possui algum problema\=3
-numero de elementos na cabeca diferente do real\=1
+numero de elementos na cabeca diferente do real\=2
 
 //////////////////////////////////////////////////////////////////////
 // Fim arquivo de contadores acumulados

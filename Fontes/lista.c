@@ -574,9 +574,23 @@ void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar)
         pLista->pFimLista = NULL;
         break;
     }
+	case LIS_NumeroElementosNegativo:
+	{
+		pLista->numElem=-1;
+		break;
     }
+	case LIS_NumeroElementosNulo:
+	{
+		pLista->numElem=0;
+		break;
+    }
+	case LIS_DeturpaNumeroElementos:
+		{
+			pLista->numElem++;
+			break;
+		}
 }
-
+}
 #endif
 
 /*****  Código das funções encapsuladas no módulo  *****/

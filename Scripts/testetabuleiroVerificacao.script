@@ -142,8 +142,8 @@
 =inicializartabuleiro tabuleiro6
 
 //==Desencadeia nó sem liberá-lo com free. //Nao testei
-//=deturpar tabuleiro3   DeturparListaSecundaria   7  4 colunaB
-//=verificar tabuleiro3 ErroEstrutura
+//=deturpar tabuleiro6   DeturparListaSecundaria   7  4 colunaB
+//=verificar tabuleiro6 ErroEstrutura
 //=AceitaFalhasAcumuladas 1
 
 ==Atribui NULL ao ponteiro corrente //Nao ta dando erro
@@ -164,7 +164,7 @@
 =criartabuleiro tabuleiro7
 =inicializartabuleiro tabuleiro7
 
-==Atribui NULL ao ponteiro de fim.
+==Atribui NULL ao ponteiro de fim. //A cabeca nao aponta para o fim da lista 
 =deturpar tabuleiro7   DeturparListaPrimaria   10  2
 =verificar tabuleiro7 ErroEstrutura
 =AceitaFalhasAcumuladas 1
@@ -175,6 +175,40 @@
 
 
 
+==Criar e inicializar tabuleiro 8 
+=criartabuleiro tabuleiro8
+=inicializartabuleiro tabuleiro8
+
+==Deturpa numero de elementos lista  //Numero de elementos indicado na cabeça difere do real
+=deturpar tabuleiro8   DeturparListaPrimaria   13  2
+=verificar tabuleiro8 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Atribui um numero de elementos negativo a cabeca. //Cabeça acusa numero de elementos menor que zero
+=deturpar tabuleiro8   DeturparListaPrimaria   11  2
+=verificar tabuleiro8 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Atribui um numero de elementos nulo a cabeca. //Cabeca com zero elementos e não vazia.
+=deturpar tabuleiro8   DeturparListaPrimaria   12  2
+=verificar tabuleiro8 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro8 OK
+
+
+==Criar e inicializar tabuleiro 9 
+=criartabuleiro tabuleiro9
+=inicializartabuleiro tabuleiro9
+
+==Eliminar nó na lista primária. //Tabuleiro nao tem 8 linhas  
+=deturpar tabuleiro9   DeturparListaPrimaria   0  4
+=verificar tabuleiro9 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro9 OK
 
 
 == Terminar controlar contadores

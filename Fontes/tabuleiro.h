@@ -88,7 +88,8 @@ typedef enum {
 *  
 *  $ED Descrição do tipo
 *     Seleciona o modo de deturpacao da lista. As opcoes são as mesmas
-*	  daquelas definids no módulo lista.h
+*	  daquelas definids no módulo lista.h. Para maiores explicações sobre
+*	  o que cada um faz, veja o referido módulo
 *
 ***********************************************************************/
 #ifdef _DEBUG
@@ -105,6 +106,9 @@ typedef enum{
     TAB_PonteiroCorrenteNulo,
     TAB_PonteiroOrigemNulo,
     TAB_PonteiroFimNulo,
+	TAB_NumeroElementosNegativo,
+	TAB_NumeroElementosNulo,
+	TAB_DeturpaNumeroElementos
 } TAB_tpModosDeturpacaoLista;
 
 #endif
