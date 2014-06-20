@@ -353,13 +353,50 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 			   CNT_CONTAR("Casa Vazia");
 		   LIS_AvancarElementoCorrente(lista,1);
 	   }
+	   if(LIS_IrIndice(lista,7)==LIS_CondRetOK && LIS_IrIndice(lista,8)==LIS_CondRetFimLista)
+		     CNT_CONTAR("Tabuleiro com 8 colunas");
+	   else
+	   {
+		   CNT_CONTAR("Tabuleiro nao tem 8 colunas");
+		   TST_NotificarFalha("Tabuleiro nao tem 8 colunas");
+		   return TAB_CondRetErroEstrutura;
+	   }
 	   LIS_AvancarElementoCorrente(tabuleiro->lista,1);
 
 	}
+	if(LIS_IrIndice(tabuleiro->lista,7)==LIS_CondRetOK && LIS_IrIndice(tabuleiro->lista,8)==LIS_CondRetFimLista)
+		     CNT_CONTAR("Tabuleiro com 8 linhas");
+	   else
+	   {
+		   CNT_CONTAR("Tabuleiro nao tem 8 linhas");
+		   TST_NotificarFalha("Tabuleiro nao tem 8 linhas");
+		   return TAB_CondRetErroEstrutura;
+	   }
 	CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
 	return TAB_CondRetOK;
 }
 
+int VerificaEstrutura(void){
+	int tipo, ExisteEspaco;
+	void*PonteiroEspacoCorrente;
+	CED_MarcarTodosEspacosInativos( ) ;
+	CED_InicializarIteradorEspacos( );
+	do{
+		PonteiroEspacoCorrente=CED_ObterPonteiroEspacoCorrente( );
+		tipo=CED_ObterTipoEspaco( PonteiroEspacoCorrente );
+		if(tipo==TAB_Tabuleiro)
+			TAB_VerificarTabuleiro(PonteiroEspacoCorrente);
+	}while (CED_AvancarProximoEspaco( )==1);
+	CED_TerminarIteradorEspacos( ); 
+	CED_InicializarIteradorEspacos( );
+	do{
+		PonteiroEspacoCorrente=CED_ObterPonteiroEspacoCorrente( );
+		if(CED_EhEspacoAtivo(PonteiroEspacoCorrente)==0)
+			return 0;
+	}while (CED_AvancarProximoEspaco( )==1);
+	CED_TerminarIteradorEspacos( );
+	return 1;
+}
 /***************************************************************************
 *
 *  Função: TAB  &Deturpar tabuleiro

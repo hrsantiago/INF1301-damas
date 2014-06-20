@@ -88,9 +88,9 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     compilado com _DEBUG ligado
 *
 *     =verificar				inxLista  CondRet
-*     =deturpar					inxLista  idCodigoDeturpaTAB
-*	  =deturpar					inxlista  idCodigoDeturpaTAB  ModoDeturparLIS  linha
-*	  =deturpar					inxlista  idCodigoDeturpaTAB  ModoDeturparLIS  linha   coluna
+*     =deturpar					inxLista  ModoDeturparTAB
+*	  =deturpar					inxlista  ModoDeturparTAB  ModoDeturparLIS  linha
+*	  =deturpar					inxlista  ModoDeturparTAB  ModoDeturparLIS  linha   coluna
 *	  =verificarmemoria
 *     =posicionar				inxlista  linha   coluna
 ***********************************************************************/

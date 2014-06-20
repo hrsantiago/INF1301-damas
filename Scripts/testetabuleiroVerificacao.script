@@ -32,29 +32,57 @@
 =verificar tabuleiro0 ErroEstrutura
 =AceitaFalhasAcumuladas 1
 
+
 ==Criar o tabuleiro 0
 =criartabuleiro  tabuleiro0
 
 ==Verificar tabuleiro
-=verificar tabuleiro0 0K
+=verificar tabuleiro0 0
 
 ==Inicializar tabuleiro 0
 =inicializartabuleiro tabuleiro0
 
 ==Verificar tabuleiro inicializado
-=verificar tabuleiro0 0K
+=verificar tabuleiro0 0
 
 ==Alterar tipo tabuleiro
 =deturpar tabuleiro0 0
 =verificar tabuleiro0 ErroEstrutura
 =AceitaFalhasAcumuladas 1
 
-==Eliminar elemento do meio do tabuleiro
-=deturpar tabuleiro0 DeturparListaSecundaria 0 4 colunaB
-=verificar tabuleiro0 ErroEstrutura
-
 ==Destruir tabuleiro
 =destruirtabuleiro tabuleiro0 OK
+
+
+==Criar e inicializar tabuleiro 1 
+=criartabuleiro tabuleiro1
+=inicializartabuleiro tabuleiro1
+
+==Elimina um elemento do tabuleiro (casa 4B)
+=deturpar tabuleiro1 DeturparListaSecundaria  0    4   colunaB
+=verificar tabuleiro1 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro1 OK
+
+
+
+==Criar e inicializar tabuleiro 2 
+=criartabuleiro tabuleiro2
+=inicializartabuleiro tabuleiro2
+
+==atribui NULL ao ponteiro para o próximo nó.
+=deturpar tabuleiro2   DeturparListaSecundaria   1  4 colunaB
+=verificar tabuleiro2 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+
+==Destruir
+=destruirtabuleiro tabuleiro2 OK
+
+
+
+
 
 == Terminar controlar contadores
 =pararcontagem

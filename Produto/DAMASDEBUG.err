@@ -9,8 +9,9 @@ peca.c
 tabuleiro.c
 ..\Fontes\tabuleiro.c(198) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\tabuleiro.c(223) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(375) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(409) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(380) : warning C4101: 'ExisteEspaco' : unreferenced local variable
+..\Fontes\tabuleiro.c(412) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(446) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 jogo.c
 ..\Fontes\jogo.c(138) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
 ..\Fontes\jogo.c(153) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

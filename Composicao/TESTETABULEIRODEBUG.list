@@ -112,8 +112,8 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             473
-      Linhas de código:         297
+      Total linhas:             510
+      Linhas de código:         334
       Linhas de comentário:     137
       Linhas em branco:          58
    Arquivos de inclusão de que necessita
@@ -186,16 +186,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1697
-         Linhas de código:          1019
+         Total linhas do tipo:      1734
+         Linhas de código:          1056
          Linhas de comentário:       480
          Linhas em branco:           257
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRODEBUG
 
-   Total linhas:              5029
-   Linhas de código:          1338
+   Total linhas:              5066
+   Linhas de código:          1375
    Linhas de comentário:      3150
    Linhas em branco:           618
    Arquivos processados:        12

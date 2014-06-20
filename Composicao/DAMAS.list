@@ -150,8 +150,8 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             473
-      Linhas de código:         297
+      Total linhas:             510
+      Linhas de código:         334
       Linhas de comentário:     137
       Linhas em branco:          58
    Arquivos de inclusão de que necessita
@@ -215,16 +215,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1713
-         Linhas de código:          1030
+         Total linhas do tipo:      1750
+         Linhas de código:          1067
          Linhas de comentário:       490
          Linhas em branco:           240
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMAS
 
-   Total linhas:              5162
-   Linhas de código:          1361
+   Total linhas:              5199
+   Linhas de código:          1398
    Linhas de comentário:      3257
    Linhas em branco:           612
    Arquivos processados:        14
