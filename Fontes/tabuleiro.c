@@ -331,7 +331,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
        condRet=LIS_VerificarLista(lista);
 	   if(condRet==LIS_CondRetErroEstrutura)
 	   {
-		   CNT_CONTAR("uma das listas de pecas possui algum problema");
+		   CNT_CONTAR("Uma das listas de pecas possui algum problema");
 			return TAB_CondRetErroEstrutura;
 	   }
 	   /*Verificar Cada elemento da lista secundária, ou seja, cada casa do tabuleiro*/
@@ -342,7 +342,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 		   if(peca!=NULL){
 			   CNT_CONTAR("Casa não Vazia");
 			   if(TST_CompararInt(PEC_Peca, CED_ObterTipoEspaco(peca),"Tipo do espaço de dados nao e peca.") != TST_CondRetOK) {
-					TST_NotificarFalha("Tipo numa casa do tabuleiro nao e peca")
+					TST_NotificarFalha("Tipo numa casa do tabuleiro nao e peca");
 				    CNT_CONTAR("Tipo nao e peca");
 					return TAB_CondRetErroEstrutura;
 			   }
@@ -357,6 +357,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 
 	}
 	CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
+	return TAB_CondRetOK;
 }
 
 /***************************************************************************
@@ -366,7 +367,6 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 
 void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, LIS_tpModosDeturpacao ModoDeturparLista)
 {
-    int x, y;
     LIS_tppLista lista, lista2;
     if(!tabuleiro)
         return;

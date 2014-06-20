@@ -88,7 +88,9 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     compilado com _DEBUG ligado
 *
 *     =verificar				inxLista  CondRet
-*     =deturpar					inxLista  idCodigoDeturpa
+*     =deturpar					inxLista  idCodigoDeturpaTAB
+*	  =deturpar					inxlista  idCodigoDeturpaTAB  ModoDeturparLIS  linha
+*	  =deturpar					inxlista  idCodigoDeturpaTAB  ModoDeturparLIS  linha   coluna
 *	  =verificarmemoria
 *     =posicionar				inxlista  linha   coluna
 ***********************************************************************/
@@ -105,8 +107,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     int linha = -1;
     int coluna = -1;
     Peca *peca;
-#ifdef _DEBUG
-	int  IntEsperado= -1;
+#ifdef _DEBUG                                                          
+	int  ModoDeturparTAB= -1;
+	int  ModoDeturparLIS=-1;
 #endif
 	StringDado[0] = 0;
 
@@ -230,20 +233,41 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
          else if ( strcmp( ComandoTeste , DETURPAR_CMD ) == 0 )
          {
 
-            numLidos = LER_LerParametros( "ii" ,
-                               &inxLista , &IntEsperado ) ;
+            numLidos = LER_LerParametros( "iiiis" ,
+                               &inxLista , &ModoDeturparTAB, &ModoDeturparLIS, &linha, StringDado ) ;
 
-            if ( ( numLidos != 2 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
-            {
-               return TST_CondRetParm ;
-            }
+			if ( ModoDeturparTAB==TAB_DeturparListaPrimaria){
+				if( (numLidos != 4 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				{
+                   return TST_CondRetParm ;
+				}
+				TAB_Deturpar( vtTabuleiros[ inxLista ] , ModoDeturparTAB, linha, -1, ModoDeturparLIS); 
+				return TST_CondRetOK ;
+			}
 
-            TAB_Deturpar( vtTabuleiros[ inxLista ] , IntEsperado ) ;
+            if ( ModoDeturparTAB==TAB_DeturparListaSecundaria){
+				if( (numLidos != 5 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				{
+				  return TST_CondRetParm ;
+				}
 
-            return TST_CondRetOK ;
+				TAB_Deturpar( vtTabuleiros[ inxLista ] , ModoDeturparTAB, linha, coluna, ModoDeturparLIS) ;
 
+	            return TST_CondRetOK ;
+			}
+			else
+			{
+				if( (numLidos != 2 ) || !ValidarInxTabuleiro( inxLista, NAO_VAZIO )) ////////////////////////////////////////////////////////////////////////////////////////
+				{
+                   return TST_CondRetParm ;
+				}
+				TAB_Deturpar( vtTabuleiros[ inxLista ] , ModoDeturparTAB, -1, -1, -1); 
+				return TST_CondRetOK ;
+			}
+				
          } /* fim ativa: Deturpar um tabuleiro */
 		#endif 
+
 		 /* Verificar vazamento de memória */
       #ifdef _DEBUG
 

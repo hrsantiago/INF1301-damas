@@ -3,9 +3,9 @@
 #################### Compilacao do construto: TESTETABULEIRO
 
 testtabuleiro.c
-..\Fontes\testtabuleiro.c(164) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\testtabuleiro.c(177) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\testtabuleiro.c(190) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(167) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(180) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(193) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
 ..\Fontes\tabuleiro.c(198) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 ..\Fontes\tabuleiro.c(223) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data

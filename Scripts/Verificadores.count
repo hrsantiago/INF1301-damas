@@ -11,7 +11,6 @@ Tipo espaco eh no
 Referencia do elemento de lista errada
 Referencia do elemento de lista correta
 Encadeamento errado
-Encadeamento Correto
 No possui uma lista
 A lista de pecas possui algum problema
 Ha uma lista de listas e a sublista de pecas sem problemas
@@ -50,3 +49,10 @@ Tabuleiro nao possui falha
 Tipo nao e Tabuleiro
 Tipo e Tabuleiro
 Tipo Tabuleiro OK
+
+//Lista Primaria
+Uma das listas de pecas possui algum problema
+Casa não Vazia
+Tipo nao e peca
+Tipo e peca
+Casa Vazia

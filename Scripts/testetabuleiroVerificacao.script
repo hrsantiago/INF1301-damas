@@ -20,6 +20,9 @@
 =declararparm ColunaInexistente    int 3
 =declararparm ErroEstrutura	   int 7
 
+=declararparm DeturparListaPrimaria   int 1
+=declararparm DeturparListaSecundaria int 2
+
 ==Inicializar contagem
 =inicializarcontadores  ""
 =lercontadores          "..\\scripts\\Verificadores.count"
@@ -42,9 +45,13 @@
 =verificar tabuleiro0 0K
 
 ==Alterar tipo tabuleiro
-=deturpar tabuleiro0 4
+=deturpar tabuleiro0 0
 =verificar tabuleiro0 ErroEstrutura
 =AceitaFalhasAcumuladas 1
+
+==Eliminar elemento do meio do tabuleiro
+=deturpar tabuleiro0 DeturparListaSecundaria 0 4 colunaB
+=verificar tabuleiro0 ErroEstrutura
 
 ==Destruir tabuleiro
 =destruirtabuleiro tabuleiro0 OK
@@ -57,4 +64,7 @@
 =gravarcontadores "..\\Produto\\RegistroContadores"
 == Terminar contagem
 =terminarcontadores
+
+=verificarmemoria
+
 // fim

@@ -37,8 +37,6 @@
 #ifndef TABULEIRO_H
 #define TABULEIRO_H
 
-#include "lista.h"
-
 /***** Declarações exportadas pelo módulo *****/
 
 /***********************************************************************
@@ -52,33 +50,62 @@
 ***********************************************************************/
 
 typedef enum _TAB_tpCondRet {
-    TAB_CondRetOK, /* Concluiu corretamente */
-    TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
-    TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
-    TAB_CondRetColunaInexistente, /*coluna fora dos limites do tabuleiro */
-    TAB_CondRetPecaInexistente, /*peca nao existe no tabuleiro */
-    TAB_CondRetPecaNaoPertenceJogador, /*a peca nao pertence ao jogador */
-    TAB_CondRetPosDestOcupada, /* a posicao de destino ja esta ocupada por outra peca */
-    TAB_CondRetErroEstrutura  /* Estrutura do tabuleiro está errada */
+	TAB_CondRetOK, /* Concluiu corretamente */
+	TAB_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
+	TAB_CondRetLinhaInexistente, /* linha fora dos limites do tabuleiro */
+	TAB_CondRetColunaInexistente, /*coluna fora dos limites do tabuleiro */
+	TAB_CondRetPecaInexistente, /*peca nao existe no tabuleiro */
+	TAB_CondRetPecaNaoPertenceJogador, /*a peca nao pertence ao jogador */
+	TAB_CondRetPosDestOcupada, /* a posicao de destino ja esta ocupada por outra peca */
+	TAB_CondRetErroEstrutura  /* Estrutura do tabuleiro está errada */
 } TAB_tpCondRet;
 
 /***********************************************************************
 *
 *  $TC Tipo de dados: TAB Modos de deturpar
 *
+*  $ED Descrição do tipo
+*     Seleciona a opcao de deturpar o tipo TAB_Tabuleiro ou as listas primaria
+*	  (lista de lista) ou secundaria (lista de pecas)
+*
 ***********************************************************************/
 
 #ifdef _DEBUG
 
 typedef enum {
-    // Muda tipo tabuleiro
-    TAB_DeturpaTipoTabuleiro,
-    // Deturpa elemento da lista principal
-    TAB_DeturparListaPrimaria,
-    // Deturpa elemento da lista secundaria
-    TAB_DeturparListaSecundaria,
-
+	// Muda tipo tabuleiro
+	TAB_DeturpaTipoTabuleiro,
+	// Deturpa elemento da lista principal
+	TAB_DeturparListaPrimaria,
+	// Deturpa elemento da lista secundaria
+	TAB_DeturparListaSecundaria,
 } TAB_tpModosDeturpacao;
+
+#endif
+/***********************************************************************
+*
+*  $TC Tipo de dados: TAB Modos de deturpar lista
+*  
+*  $ED Descrição do tipo
+*     Seleciona o modo de deturpacao da lista. As opcoes são as mesmas
+*	  daquelas definids no módulo lista.h
+*
+***********************************************************************/
+#ifdef _DEBUG
+
+typedef enum{
+	TAB_EliminarElemento,
+    TAB_DeturpaProximoNulo,
+    TAB_DeturpaAnteriorNulo,
+    TAB_DeturpaProximoLixo,
+    TAB_DeturpaAnteriorLixo,
+    TAB_DeturpaConteudoNulo,
+    TAB_DeturpaTipoNo,
+    TAB_LiberaSemFree,
+    TAB_PonteiroCorrenteNulo,
+    TAB_PonteiroOrigemNulo,
+    TAB_PonteiroFimNulo,
+} TAB_tpModosDeturpacaoLista;
 
 #endif
 
@@ -307,15 +334,39 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro *tabuleiro);
 *     do tabuleiro.
 *     Esta função não tem proteção contra erros de uso, consequentemente
 *     poderá levar o programa a ser cancelado pelo sistema operacional.
-*   
+*     Caso a deturpação seja referente ao tipo TAB_tabuleiro
+*	  os parâmetros linha, coluna e ModoDeturparLista devem ser 
+*	  inicializados com qualquer valor, pois serão ignorados.
+*	  Caso a deturpação seja referente a lista primária (que é a lista de
+*	  listas) o parâmetro coluna deve ser inicializado com qualquer valor, 
+*	  pois será ignorado.
+*	  Caso contrário, os parâmetros linha, coluna e ModoDeturparLista
+*	  identificam como a deturpação da lista secundária (lista de peças) 
+*	  deve ser feita.
+*
 *  $EP Parâmetros
 *     $P tabuleiro    - tabuleiro a ser deturpado 
 *     $P ModoDeturpar - identifica como deve ser feita a deturpação
 *                       TAB_tpModosDeturpacao identifica os modos de
 *                       deturpação conhecidos
-*
+*     $P linha        - identifica a linha do tabuleiro onde dee ser feita 
+*						a deturpação
+*						Será ignorado caso a deturpação seja referente ao tipo
+*						TAB_Tabuleiro, e não a uma lista
+*     $P coluna		  - identifica a coluna do tabuleiro onde dee ser feita 
+*						a deturpação
+*						Será ignorado caso a deturpação seja referente ao tipo
+*						TAB_Tabuleiro ou a lista primária, e não a uma lista
+*						secundária
+*     $P ModoDeturparLista - Caso a deturpação seja referente a alguma das 
+*							 listas (primária ou secundária) identifica como
+* 							 deve ser feita a deturpação
+*							 TAB_tpModosDeturpacaoLista identifica os modos de
+*							 deturpação conhecidos
+*							 Será ignorado caso a deturpação seja referente ao tipo
+*							 TAB_Tabuleiro, e não a uma lista
 ***********************************************************************/
-void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, LIS_tpModosDeturpacao ModoDeturparLista);
+void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, TAB_tpModosDeturpacaoLista ModoDeturparLista);
 
 /***************************************************************************
 *

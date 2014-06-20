@@ -96,10 +96,10 @@ Estatísticas do construto
       main.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             727
-      Linhas de código:         450
-      Linhas de comentário:     189
-      Linhas em branco:         104
+      Total linhas:             755
+      Linhas de código:         469
+      Linhas de comentário:     193
+      Linhas em branco:         109
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -150,10 +150,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             469
+      Total linhas:             473
       Linhas de código:         297
-      Linhas de comentário:     129
-      Linhas em branco:          56
+      Linhas de comentário:     137
+      Linhas em branco:          58
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -165,10 +165,10 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: tabuleiro.h
-      Total linhas:             342
-      Linhas de código:          36
-      Linhas de comentário:     291
-      Linhas em branco:          23
+      Total linhas:             392
+      Linhas de código:          49
+      Linhas de comentário:     326
+      Linhas em branco:          25
    Arquivos em que é incluído
       jogo.c
       tabuleiro.c
@@ -187,10 +187,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3399
-         Linhas de código:           318
-         Linhas de comentário:      2732
-         Linhas em branco:           370
+         Total linhas do tipo:      3449
+         Linhas de código:           331
+         Linhas de comentário:      2767
+         Linhas em branco:           372
          Arquivos deste tipo:          9
 
   Tipo: obj      Path: ..\Objetos
@@ -215,17 +215,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1681
-         Linhas de código:          1011
-         Linhas de comentário:       478
-         Linhas em branco:           233
+         Total linhas do tipo:      1713
+         Linhas de código:          1030
+         Linhas de comentário:       490
+         Linhas em branco:           240
          Arquivos deste tipo:          5
 
 Totais para todo o construto DAMASDEBUG
 
-   Total linhas:              5080
-   Linhas de código:          1329
-   Linhas de comentário:      3210
-   Linhas em branco:           603
+   Total linhas:              5162
+   Linhas de código:          1361
+   Linhas de comentário:      3257
+   Linhas em branco:           612
    Arquivos processados:        14
 
