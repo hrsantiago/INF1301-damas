@@ -102,15 +102,18 @@ Tabuleiro *TAB_criar()
         }
     }
     //Assertiva de saída
-#ifdef _DEBUG
-    if(!tabuleiro)
-      printf("\n Não foi possível alocar mémoria para o tabuleiro \n");
+
+    // ?? Ja verificou em cima se existe tabuleiro e tabuleiro->lista
+
+//#ifdef _DEBUG
+//    if(!tabuleiro)
+//        printf("\n Não foi possível alocar mémoria para o tabuleiro \n");
     
-    if(!tabuleiro->lista) {
-        free(tabuleiro);
-        return NULL;
-    }
-#endif
+//    if(!tabuleiro->lista) {
+//        free(tabuleiro);
+//        return NULL;
+//    }
+//#endif
 
     return tabuleiro;
 }/* Fim função: TAB  &Criar tabuleiro */
@@ -121,7 +124,7 @@ Tabuleiro *TAB_criar()
 *  ****/
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-  //Assertiva de entrada
+    //Assertiva de entrada
 #ifdef _DEBUG
     if(!tabuleiro)
         return TAB_CondRetTabuleiroInexistente;
@@ -141,15 +144,15 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
-      //Assertivas de entrada
+    //Assertivas de entrada
 #ifdef _DEBUG
     if(tabuleiro == NULL){
-      printf("\n tabuleiro não existe \n");
-    return;
+        printf("\n tabuleiro não existe \n");
+        return;
     }
     if(idJogador1 != 'x' || idJogador2 != 'o'){
-      printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
-    return;
+        printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
+        return;
     }
 #endif
     LIS_IrInicioLista(tabuleiro->lista);
@@ -179,7 +182,7 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
     int x, y;
     //Assertivas de entrada
 #ifdef _DEBUG
-  if(tabuleiro == NULL)
+    if(tabuleiro == NULL)
         printf("\n Não foi possível imprimir o tabuleiro (não existe) \n");
 #endif
 
@@ -240,20 +243,20 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     LIS_tppLista lista;
     Peca *antiga;
 
-/*   //Assertivas de entrada */
-/* #ifdef _DEBUG */
-/*   if(tabuleiro == NULL) */
-/*     return TAB_CondRetTabuleiroInexistente; */
+    /*   //Assertivas de entrada */
+    /* #ifdef _DEBUG */
+    /*   if(tabuleiro == NULL) */
+    /*     return TAB_CondRetTabuleiroInexistente; */
 
-/*   if(!linha || linha > 8 || linha < 1){ */
-/*     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
-/*     return TAB_CondRetLinhaInexistente; */
-/*   } */
-/*   if(!coluna || tolower(coluna) < 'a' || tolower(coluna) > 'h'){ */
-/*     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
-/*     return TAB_CondRetColunaInexistente; */
-/*   } */
-/* #endif */
+    /*   if(linha > 8 || linha < 1){ */
+    /*     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
+    /*     return TAB_CondRetLinhaInexistente; */
+    /*   } */
+    /*   if(tolower(coluna) < 'a' || tolower(coluna) > 'h'){ */
+    /*     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
+    /*     return TAB_CondRetColunaInexistente; */
+    /*   } */
+    /* #endif */
 
     --linha;
     coluna = tolower(coluna) - 'a';
@@ -286,12 +289,12 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
     int x, y;
     int existe1 = 0, existe2 = 0;
 
-      //Assertivas de entrada
+    //Assertivas de entrada
 #ifdef _DEBUG
-  if(!tabuleiro)
-    printf("\n  tabuleiro não existe \n");
-  if(idJogador1 != 'x' || idJogador2 != 'o')
-    printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
+    if(!tabuleiro)
+        printf("\n  tabuleiro não existe \n");
+    if(idJogador1 != 'x' || idJogador2 != 'o')
+        printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
 #endif
 
     LIS_IrFinalLista(tabuleiro->lista);

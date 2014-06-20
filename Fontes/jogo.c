@@ -43,7 +43,7 @@
 ***********************************************************************/
 typedef struct _Jogo {
     Tabuleiro *tabuleiro;
-    void (*funcaoEstado)(Jogo *jogo);
+    JOG_tpCondRet (*funcaoEstado)(Jogo *jogo);
 } Jogo;
 
 /***** Protótipos das funções encapsuladas no módulo *****/
@@ -61,16 +61,12 @@ Jogo *JOG_criar()
 {
     Jogo *jogo = (Jogo*)malloc(sizeof(Jogo));
     //Tratamento de exceção
-#ifdef _DEBUG
-    if(!jogo)
-      printf("Problema na alocação de memoria para o jogo");
-      return NULL;
-#endif
-      //Tratamento de espaço dinamico
-#ifdef _DEBUG
-    CED_DefinirTipoEspaco(jogo, JOG_Jogo);
-#endif
+    if(!jogo) {
+        printf("Problema na alocação de memoria para o jogo");
+        return NULL;
+    }
 
+    //Tratamento de espaço dinamico
 #ifdef _DEBUG
     CED_DefinirTipoEspaco(jogo, JOG_Jogo);
 #endif
@@ -86,7 +82,6 @@ Jogo *JOG_criar()
 #endif
 
     jogo->funcaoEstado = menu;
-
     return jogo;
 }/* Fim função: JOG  &Criar jogo */
 
@@ -99,7 +94,7 @@ JOG_tpCondRet JOG_destruir(Jogo *jogo)
 {
     //Assertiva de entrada
 #ifdef _DEBUG  
-  if(!jogo)
+    if(!jogo)
         return JOG_CondRetJogoInexistente;
 #endif
 
@@ -115,17 +110,15 @@ JOG_tpCondRet JOG_destruir(Jogo *jogo)
 *  ****/
 JOG_tpCondRet JOG_rodar(Jogo *jogo)
 {
-  //Assertivas de entrada
+    //Assertivas de entrada
 #ifdef _DEBUG
-  if(!jogo)
-    return JOG_CondRetJogoInexistente;
+    if(!jogo)
+        return JOG_CondRetJogoInexistente;
 #endif
 
     while(jogo->funcaoEstado)
         jogo->funcaoEstado(jogo);
 }/* Fim função: JOG  &Atestar andamento do jogo */
-
-
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
@@ -155,25 +148,23 @@ JOG_tpCondRet JOG_rodar(Jogo *jogo)
 ***********************************************************************/
 JOG_tpCondRet jogar(Jogo *jogo)
 {
-
     int linhaDe, linhaPara, linhaRemover = -1;
     char colunaDe, colunaPara, colunaRemover = -1;
     char idJogador[2] = {'x', 'o'};
     int jogadorAtual = 0;
     int vencedor = -1;
-	int distX, distY;
+    int distX, distY;
     Peca *pecaDe = NULL, *pecaPara = NULL, *pecaRemover = NULL;
 
     PecaTipo tipo;
 
-  //Assertivas de entrada
+    //Assertivas de entrada
 #ifdef _DEBUG
-  if(!jogo)
-    return JOG_CondRetJogoInexistente;
-  if(!jogo->tabuleiro)
-    return JOG_CondRetTabuleiroInexistente;
+    if(!jogo)
+        return JOG_CondRetJogoInexistente;
+    if(!jogo->tabuleiro)
+        return JOG_CondRetTabuleiroInexistente;
 #endif
-
 
     TAB_inicializar(jogo->tabuleiro, idJogador[0], idJogador[1]);
 
@@ -185,20 +176,20 @@ JOG_tpCondRet jogar(Jogo *jogo)
         scanf("%d", &linhaDe);
         //Tratamento de exceção
 #ifdef _DEBUG
-	if( !linhaDe || linhaDe > 8 || linhaDe < 1){
-	  printf("Linha fora dos limites do tabuleiro");
-	  continue;
-	}
+        if( !linhaDe || linhaDe > 8 || linhaDe < 1){
+            printf("Linha fora dos limites do tabuleiro");
+            continue;
+        }
 #endif
 
         printf("Entre com a coluna da peca: ");
         scanf(" %c", &colunaDe);
-	//Tratamento de exceção
+        //Tratamento de exceção
 #ifdef _DEBUG
-	if(!colunaDe || tolower(colunaDe) < 'a' || tolower(colunaDe) > 'h'){
-	  printf("Coluna fora dos limites do tabuleiro");
-	  continue;
-	}
+        if(!colunaDe || tolower(colunaDe) < 'a' || tolower(colunaDe) > 'h'){
+            printf("Coluna fora dos limites do tabuleiro");
+            continue;
+        }
 #endif
 
         colunaDe = tolower(colunaDe);
@@ -216,13 +207,6 @@ JOG_tpCondRet jogar(Jogo *jogo)
 
         printf("Entre com a linha de destino: ");
         scanf("%d", &linhaPara);
-        //Tratamento de exceção
-#ifdef _DEBUG
-	if( !linhaPara || linhaPara > 8 || linhaPara < 1){
-	  printf("Linha fora dos limites do tabuleiro");
-	  
-	}
-#endif
 
         if(linhaPara < 1 || linhaPara > 8) {
             printf("Linha de destino invalida. Tente novamente.\n");
@@ -241,13 +225,6 @@ JOG_tpCondRet jogar(Jogo *jogo)
 
         printf("Entre com a coluna de destino: ");
         scanf(" %c", &colunaPara);
-	//Tratamento de exceção
-#ifdef _DEBUG
-	if( !colunaPara || tolower(colunaPara) < 'a' || tolower(colunaPara) > 'h'){
-	  printf("Coluna fora dos limites do tabuleiro");
-
-	}
-#endif
 
         colunaPara = tolower(colunaPara);
         if(colunaPara < 'a' || colunaPara > 'h' ) {
@@ -314,6 +291,7 @@ JOG_tpCondRet jogar(Jogo *jogo)
 
     printf("O jogador %c venceu!\n", idJogador[vencedor]);
     jogo->funcaoEstado = menu;
+    return JOG_CondRetOK;
 }/* Fim função: JOG  &Jogar jogo */
 
 /***************************************************************************
@@ -337,33 +315,15 @@ JOG_tpCondRet jogar(Jogo *jogo)
 ***********************************************************************/
 JOG_tpCondRet menu(Jogo *jogo)
 {
+    if(!jogo)
+        return JOG_CondRetJogoInexistente;
 
-     int opcao;
-
-  //Assertivas de entrada
-#ifdef _DEBUG
-  if(!jogo)
-    return  JOG_CondRetJogoInexistente;
-  if(!jogo->tabuleiro)
-    return JOG_CondRetTabuleiroInexistente;
-#endif
-
-
- 
+    int opcao;
     printf("1 - Iniciar novo jogo\n");
     printf("2 - Sair\n");
     printf("Escolha a opcao desejada: ");
     scanf("%d", &opcao);
-    //Tratamento de excecao
-#ifdef _DEBUG
-    while(opcao != 1 || opcao != 2){
-      printf("\n Opção inválida \n");
-      printf("1 - Iniciar novo jogo\n");
-      printf("2 - Sair\n");
-      printf("Escolha a opcao desejada: ");
-      scanf("%d", &opcao);
-    }
-#endif 
+
     switch(opcao) {
     case 1:
         jogo->funcaoEstado = jogar;
@@ -371,5 +331,9 @@ JOG_tpCondRet menu(Jogo *jogo)
     case 2:
         jogo->funcaoEstado = NULL;
         break;
+    default:
+        printf("Opcao invalida. Tente novamente.\n");
+        break;
     }
+    return JOG_CondRetOK;
 }/* Fim função: JOG  &Jogar jogo */
