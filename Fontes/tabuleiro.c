@@ -290,33 +290,35 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 
 TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 {
-    int condRet, linha;
+    int condRet, linha, coluna;
+	Peca*peca;
 	LIS_tppLista lista;
     if(!tabuleiro) {
         CNT_CONTAR("Tabuleiro Inexistente");
         TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
         return TAB_CondRetErroEstrutura;
     }
-    else
-        CNT_CONTAR("Tabuleiro Existente");
+    else           /////////////////////////////////////////////////////
+        CNT_CONTAR("Tabuleiro Existente");  //////////////////////////////////////
 
     if(!CED_VerificarEspaco(tabuleiro, NULL)) {
         CNT_CONTAR("Tabuleiro possui alguma falha");
         TST_NotificarFalha("Controle do espaço acusou erro.");
         return TAB_CondRetErroEstrutura ;
     }
-    else
-        CNT_CONTAR("Tabuleiro nao possui falha");
+    else  //////////////////////////////////////////////////7
+        CNT_CONTAR("Tabuleiro nao possui falha"); ///////////////////////////////7
 
     if(TST_CompararInt(TAB_Tabuleiro, CED_ObterTipoEspaco(tabuleiro),
                        "Tipo do espaço de dados nao e tabuleiro.") != TST_CondRetOK) {
         CNT_CONTAR("Tipo nao e Tabuleiro");
         return TAB_CondRetErroEstrutura;
     }
-    else
-        CNT_CONTAR("Tipo e Tabuleiro");
+    else  /////////////////////////////////////////////
+        CNT_CONTAR("Tipo e Tabuleiro");  /////////////////////////////////
 
     CNT_CONTAR("Tipo Tabuleiro OK");
+	/*Verificar a lista das listas, primária*/
     if(LIS_VerificarLista(tabuleiro->lista)==LIS_CondRetErroEstrutura)
 	{
 		CNT_CONTAR("Lista de listas com erro");
@@ -325,11 +327,31 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
 	/*Verificar Cada elemento da lista, ou seja, cada linha*/
 	LIS_IrInicioLista(tabuleiro->lista);
     for(linha = 0; linha < TabuleiroAltura; ++linha) {
-       condRet=LIS_VerificarLista(LIS_ObterValor(tabuleiro->lista));
+       lista=LIS_ObterValor(tabuleiro->lista);
+       condRet=LIS_VerificarLista(lista);
 	   if(condRet==LIS_CondRetErroEstrutura)
 	   {
-		   CNT_CONTAR("A lista de pecas possui algum problema");
+		   CNT_CONTAR("uma das listas de pecas possui algum problema");
 			return TAB_CondRetErroEstrutura;
+	   }
+	   /*Verificar Cada elemento da lista secundária, ou seja, cada casa do tabuleiro*/
+	   LIS_IrInicioLista(lista);
+	   for(coluna = 0; coluna < TabuleiroLargura; ++coluna)
+	   {
+		   peca=LIS_ObterValor(lista);
+		   if(peca!=NULL){
+			   CNT_CONTAR("Casa não Vazia");
+			   if(TST_CompararInt(PEC_Peca, CED_ObterTipoEspaco(peca),"Tipo do espaço de dados nao e peca.") != TST_CondRetOK) {
+					TST_NotificarFalha("Tipo numa casa do tabuleiro nao e peca")
+				    CNT_CONTAR("Tipo nao e peca");
+					return TAB_CondRetErroEstrutura;
+			   }
+			   else
+				   CNT_CONTAR("Tipo e peca");
+		   }
+		   else
+			   CNT_CONTAR("Casa Vazia");
+		   LIS_AvancarElementoCorrente(lista,1);
 	   }
 	   LIS_AvancarElementoCorrente(tabuleiro->lista,1);
 
