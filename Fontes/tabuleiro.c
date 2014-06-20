@@ -296,16 +296,25 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
         TST_NotificarFalha("Tentou verificar tabuleiro inexistente.");
         return TAB_CondRetErroEstrutura;
     }
+    else
+        CNT_CONTAR("Tabuleiro Existente");
+
     if(!CED_VerificarEspaco(tabuleiro, NULL)) {
-        CNT_CONTAR("??????????");
+        CNT_CONTAR("Tabuleiro possui alguma falha");
         TST_NotificarFalha("Controle do espaço acusou erro.");
         return TAB_CondRetErroEstrutura ;
     }
+    else
+        CNT_CONTAR("Tabuleiro nao possui falha");
+
     if(TST_CompararInt(TAB_Tabuleiro, CED_ObterTipoEspaco(tabuleiro),
                        "Tipo do espaço de dados nao e tabuleiro.") != TST_CondRetOK) {
         CNT_CONTAR("Tipo nao e Tabuleiro");
         return TAB_CondRetErroEstrutura;
     }
+    else
+        CNT_CONTAR("Tipo e Tabuleiro");
+
     CNT_CONTAR("Tipo Tabuleiro OK");
     condRet = LIS_VerificarLista(tabuleiro->lista);
     return condRet;
