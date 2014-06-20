@@ -1,0 +1,55 @@
+//////////////////////////////////////////////////////////////////////
+// Contadores acumulados, gerado: 2014/06/20-17:28:27
+//////////////////////////////////////////////////////////////////////
+
+A lista de pecas possui algum problema\=0
+Cabeca com zero elementos\=1
+Cabeca com zero elementos e não vazia\=1
+Cabeca com zero elementos e vazia\=0
+Cabeca de lista correta\=87
+Cabeca de lista existente\=89
+Cabeca de lista inexistente\=0
+Cabeca nao aponta para o fim\=2
+Cabeca nao aponta pra origem\=0
+Casa Vazia\=436
+Casa não Vazia\=116
+Controle de espaco acusa erro na lista\=0
+Controle de espaco nao acusa erro na lista\=89
+Elemento da lista não eh no\=1
+Encadeamento Correto\=672
+Encadeamento antes correto\=587
+Encadeamento antes errado\=0
+Encadeamento apos correto\=591
+Encadeamento apos errado\=2
+Encadeamento errado\=4
+Ha mais de um elemento\=593
+Ha uma lista de listas e a sublista de pecas sem problemas\=6
+Lista de listas OK\=80
+Lista de listas com erro\=6
+No nao possui uma lista\=0
+No possui uma lista\=0
+Numero de elementos menor que zero\=1
+Referencia do elemento de lista correta\=676
+Referencia do elemento de lista errada\=0
+Tabuleiro Existente\=18
+Tabuleiro Inexistente\=1
+Tabuleiro com 8 colunas\=68
+Tabuleiro com 8 linhas\=6
+Tabuleiro nao possui falha\=18
+Tabuleiro nao tem 8 colunas\=1
+Tabuleiro nao tem 8 linhas\=1
+Tabuleiro possui alguma falha\=0
+Tipo Tabuleiro OK\=17
+Tipo e Tabuleiro\=17
+Tipo e lista\=89
+Tipo e peca\=116
+Tipo espaco eh no\=676
+Tipo nao e Tabuleiro\=1
+Tipo nao e lista\=0
+Tipo nao e peca\=0
+Uma das listas de pecas possui algum problema\=3
+numero de elementos na cabeca diferente do real\=2
+
+//////////////////////////////////////////////////////////////////////
+// Fim arquivo de contadores acumulados
+//////////////////////////////////////////////////////////////////////
