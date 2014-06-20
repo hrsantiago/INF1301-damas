@@ -30,7 +30,7 @@
 =declararparm DeturparListaPrimaria   int 1
 =declararparm DeturparListaSecundaria int 2
 
-==Inicializar contagem
+==Continuar contagem
 =inicializarcontadores  ""
 =lercontadores          "..\\scripts\\Verificadores.count"
 =iniciarcontagem
@@ -249,7 +249,8 @@
 =verificarcontagens    0
 
 ==Gravar Contadores
-=gravarcontadores "..\\Produto\\RegistroContadores"
+=registraracumulador "..\\Produto\\RegistroContadores"
+=gravarcontadores "..\\Produto\\RegistroContadores2"
 == Terminar contagem
 =terminarcontadores
 

@@ -79,3 +79,29 @@ Data: 8/06/2014
   Horas Trabalhadas: 15 min
   Tipo Tarefa: projetar
   Descrição da Tarefa Realizada: Início instrumentação
+
+Data:13/06/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Fazer função verificadora
+
+Data:15/06/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: revisar projetos
+  Descrição da Tarefa Realizada: fazer correções no código, início scripts de teste
+
+Data:18/06/2014
+  Horas Trabalhadas: 8h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Acabar função verificadora, scripts de teste
+
+Data:19/06/2014
+  Horas Trabalhadas: 12h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: arquivos batches e comp para compilação
+
+
+Data:20/06/2014
+  Horas Trabalhadas: 12h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Colocar program em formato final

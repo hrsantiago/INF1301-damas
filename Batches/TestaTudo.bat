@@ -9,8 +9,10 @@ if exist ..\ferramnt\exbestat.exe goto estatistica
 ..\produto\TESTEPECA  			/s..\scripts\Testepeca    		/l..\produto\TestePeca  	
 ..\produto\TESTETABULEIRO  		/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiro   
 ..\produto\TESTETABULEIRODEBUG  	/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiroDEBUG
+..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroSemDeturpacoes	/l..\produto\TesteTabuleiroSemDeturpacoes
 ..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer
 
+notepad ..\produto\RegistroContadores
 goto sai
 
 :estatistica
@@ -21,8 +23,10 @@ del ..\scripts\estatisticas.estat
 ..\produto\TESTEPECA  		/s..\scripts\Testepeca    	/l..\produto\TestePeca  		/a..\scripts\estatisticas
 ..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   		/a..\scripts\estatisticas
 ..\produto\TESTETABULEIRODEBUG 	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiroDEBUG   	/a..\scripts\estatisticas
+..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroSemDeturpacoes	/l..\produto\TesteTabuleiroSemDeturpacoes   /a..\scripts\estatisticas
 ..\produto\TESTETABULEIRODEBUG 	/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer   	/a..\scripts\estatisticas
 
 ..\ferramnt\exbestat /e..\scripts\estatisticas
+notepad ..\produto\RegistroContadores
 
 :sai
