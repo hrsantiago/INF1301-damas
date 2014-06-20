@@ -442,60 +442,29 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
     /*Percorre Lista, verificando cada nó*/
     for(pElem = pCabeca->pOrigemLista; pElem; pElem = pElem->pProx)
     {
-<<<<<<< HEAD
         if ( TST_CompararInt( LIS_TipoEspacoNo , CED_ObterTipoEspaco( pElem ) ,
                               "Tipo do espaço de dados não é nó de lista." ) != TST_CondRetOK )
         {
-			CNT_CONTAR("Elemento da lista não é nó de lista");
+			CNT_CONTAR("Elemento da lista não eh no");
             return LIS_CondRetErroEstrutura ;
         }
+		CNT_CONTAR("Tipo espaco eh no");
         if(pElem->pCabeca!=pCabeca)
         {
             CNT_CONTAR("Referencia do elemento de lista errada");
             TST_NotificarFalha("elemento da lista nao aponta para respectiva cabeca");
-=======
-        if(TST_CompararInt(LIS_TipoEspacoNo, CED_ObterTipoEspaco(pElem),
-                           "Tipo do espaço de dados não é nó de lista.") != TST_CondRetOK) {
-            CNT_CONTAR("Tipo espaco nao eh no");
-            return LIS_CondRetErroEstrutura;
-        }
-        CNT_CONTAR("Tipo espaco eh no");
-
-        if(pElem->pCabeca != pCabeca) {
-            CNT_CONTAR("Referencia do elemento de lista errada");
-            TST_NotificarFalha("Elemento da lista nao aponta para respectiva cabeca");
->>>>>>> aee83016cbe8f4ed5abb33d7ff12c110f6577eed
-            return LIS_CondRetErroEstrutura;
-        }
-        CNT_CONTAR("Referencia do elemento de lista correta");
+			return LIS_CondRetErroEstrutura;
+		}
+		CNT_CONTAR("Referencia do elemento de lista correta");
 
         /*Verifica encadeamento da lista, sua origem e final*/
-<<<<<<< HEAD
-        if(LIS_VerificarEncadeamento(pElem)==LIS_CondRetErroEstrutura)
-            return LIS_CondRetErroEstrutura;
-        
-		/*if (CED_ObterTipoEspaco(pElem->pValor)==LIS_TipoEspacoCabeca){
-            if (LIS_VerificarLista(pElem->pValor)==LIS_CondRetErroEstrutura)
-            {
-                CNT_CONTAR("A lista de pecas possui algum problema");
-                return LIS_CondRetErroEstrutura;
-            }
-            CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
-        }*/
-        numElementos++;
-    }
-    if(pCabeca->numElem!=numElementos)
-    {
-        CNT_CONTAR("numero de elementos na cabeca diferente do real");
-=======
-        ret = LIS_VerificarEncadeamento(pElem);
+		ret = LIS_VerificarEncadeamento(pElem);
         if(ret != LIS_CondRetOK) {
             CNT_CONTAR("Encadeamento errado");
             return ret;
         }
-        CNT_CONTAR("Encadeamento correto");
-
-        /* Ha uma outra lista dentro dessa */
+        
+	      /* Ha uma outra lista dentro dessa 
         if(CED_ObterTipoEspaco(pElem->pValor) == LIS_TipoEspacoCabeca) {
             CNT_CONTAR("No possui uma lista");
             ret = LIS_VerificarLista(pElem->pValor);
@@ -506,13 +475,12 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
             CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
         }
         else
-            CNT_CONTAR("No nao possui uma lista");
+            CNT_CONTAR("No nao possui uma lista");*/
         numElementos++;
     }
-
-    if(pCabeca->numElem != numElementos) {
-        CNT_CONTAR("Numero de elementos na cabeca diferente do real");
->>>>>>> aee83016cbe8f4ed5abb33d7ff12c110f6577eed
+    if(pCabeca->numElem!=numElementos)
+    {
+        CNT_CONTAR("numero de elementos na cabeca diferente do real");
         TST_NotificarFalha("Numero de elementos indicado na cabeça difere do real");
         return LIS_CondRetErroEstrutura;
     }
