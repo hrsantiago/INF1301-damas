@@ -37,6 +37,8 @@
 #ifndef TABULEIRO_H
 #define TABULEIRO_H
 
+#include "lista.h"
+
 /***** Declarações exportadas pelo módulo *****/
 
 /***********************************************************************
@@ -69,16 +71,13 @@ typedef enum _TAB_tpCondRet {
 #ifdef _DEBUG
 
 typedef enum {
-    // Elimina elemento da lista principal
-    TAB_EliminarLinha,
-    // Elimina elemento da lista secundaria
-    TAB_EliminarPosicao,
-    // Remove peca sem free
-    TAB_EliminarPecaSemFree,
-    // Muda tipo peca
-    TAB_DeturpaTipoPeca,
-	// Muda tipo tabuleiro
-	TAB_DeturpaTipoTabuleiro,
+    // Muda tipo tabuleiro
+    TAB_DeturpaTipoTabuleiro,
+    // Deturpa elemento da lista principal
+    TAB_DeturparListaPrimaria,
+    // Deturpa elemento da lista secundaria
+    TAB_DeturparListaSecundaria,
+
 } TAB_tpModosDeturpacao;
 
 #endif
@@ -316,7 +315,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro *tabuleiro);
 *                       deturpação conhecidos
 *
 ***********************************************************************/
-void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar);
+void TAB_Deturpar(Tabuleiro *tabuleiro, TAB_tpModosDeturpacao ModoDeturpar, int linha, char coluna, LIS_tpModosDeturpacao ModoDeturparLista);
 
 /***************************************************************************
 *

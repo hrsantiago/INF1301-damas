@@ -6,32 +6,47 @@
 ///////////////////////////////////////////////
 
 // Lista
+Tipo espaco nao eh no
+Tipo espaco eh no
+Referencia do elemento de lista errada
+Referencia do elemento de lista correta
+Encadeamento errado
+Encadeamento Correto
+No possui uma lista
+A lista de pecas possui algum problema
+Ha uma lista de listas e a sublista de pecas sem problemas
+No nao possui uma lista
+numero de elementos na cabeca diferente do real
+Lista de listas OK
 
-Elemento da lista não é nó de lista
+// Lista - Cabeca
 Cabeca de lista inexistente
-Controle de espaco acusa erro
+Cabeca de lista existente
+Controle de espaco acusa erro na lista
+Controle de espaco nao acusa erro na lista
 Tipo nao e lista
+Tipo e lista
 Numero de elementos menor que zero
 Cabeca com zero elementos
 Cabeca com zero elementos e nao vazia
+Cabeca com zero elementos e vazia
+Cabeca de lista correta
+
+// Lista - No
 Ha mais de um elemento
 Encadeamento antes errado
+Encadeamento antes correto
 Cabeca nao aponta para o fim
-Encadeamento após errado
+Encadeamento apos errado
+Encadeamento apos correto
 Cabeca nao aponta pra origem
 Encadeamento Correto
-Cabeca de lista correta
-Referencia do elemento de lista errada
-A lista de pecas possui algum problema
-Ha uma lista de listas e a sublista de pecas sem problemas
-numero de elementos na cabeca diferente do real
-Numero de elementos indicado na cabeça difere do real
-
 
 // Tabuleiro
-
-Lista de listas OK
 Tabuleiro Inexistente
-??????????
+Tabuleiro Existente
+Tabuleiro possui alguma falha
+Tabuleiro nao possui falha
 Tipo nao e Tabuleiro
+Tipo e Tabuleiro
 Tipo Tabuleiro OK
