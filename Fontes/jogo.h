@@ -52,6 +52,7 @@ typedef enum _JOG_tpCondRet{
     JOG_CondRetOK, /* Concluiu corretamente */
     JOG_CondRetOpcaoInvalida, /* Opcao invalida no menu */
     JOG_CondRetJogoInexistente, /* o jogo não existe */
+    JOG_CondRetTabuleiroInexistente, /* o tabuleiro não existe */
 } JOG_tpCondRet;
 
 
@@ -112,6 +113,27 @@ Jogo *JOG_criar();
 ***********************************************************************/
 JOG_tpCondRet JOG_destruir(Jogo *jogo);
 
-void JOG_rodar(Jogo *jogo);
+/***********************************************************************
+*
+*  $FC Função: JOG  &Atestar andamento do  jogo
+*
+*  $ED Descrição da função
+*     
+*       Função utilizada para manter o jogo rodando. Utilizando da
+*       função de estado do jogo para verificar os estados em que o
+*       jogo s encontra.
+*  
+*  $EP Parâmetros 
+*       $P Jogo *jogo - um ponteiro para jogo (campo que
+*       consiste do tabuleiro de jogo)
+*
+*  $FV Valor retornado 
+*
+*        retorna JOG_tpCondRetJogoInexistente, se não houver
+*        tabuleiro. Senão não retorna nada.
+*		
+*
+***********************************************************************/
+JOG_tpCondRet JOG_rodar(Jogo *jogo);
 
 #endif

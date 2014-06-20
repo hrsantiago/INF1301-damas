@@ -57,15 +57,35 @@ typedef struct _Peca {
 Peca *PEC_criar(PecaTipo tipo, char caracter)
 {
     Peca *peca = (Peca*)malloc(sizeof(Peca));
-    if(peca == NULL)
-        return NULL;
+    //Assertivas de entrada
+#ifdef _DEBUG    
+    if( tipo != PecaNormal && tipo != PecaDama)
+      printf('\n Tipo da peca não condiz com qualquer tipo existente (PEC_criar) \n');    
+    if( caracter != 'o' && caracter != 'x')
+      printf('\n Caracter recebido não corresponde com qualquer dos dois possíveis (PEC_criar) \n');
+#endif
 
+    //Tratamento de espaço dinamico
 #ifdef _DEBUG
     CED_DefinirTipoEspaco(peca, PEC_Peca);
 #endif
+    
+    if(peca == NULL)
+      return NULL;
 
     PEC_setarTipo(peca, tipo);
     PEC_setarCaracter(peca, tolower(caracter));
+    //Assertiva de saída
+#ifdef _DEBUG
+    if(peca->caracter != caracter)
+      printf("\n A criação da peça não atribuiu o valor correto do caracter \n");
+    if(peca->tipo != tipo)
+      printf("\n A criação da peça não atribuiu o valor correto de tipo \n");
+    if(peca == NULL)
+      printf("\n Não foi possível alocar memoria para peca (PEC_criar) \n");
+#endif
+
+
     return peca;
 }/* Fim função: PEC  &Criar uma peça */
 
@@ -76,8 +96,11 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
 *  ****/
 PEC_tpCondRet PEC_destruir(Peca *peca)
 {
-    if(peca == NULL)
-        return PEC_CondRetPecaVazia;
+  //Assertva de entrada
+#ifdef _DEBUG 
+  if(peca == NULL)
+    return PEC_CondRetPecaVazia;
+#endif
 
     free(peca);
     return PEC_CondRetOK;
@@ -90,8 +113,10 @@ PEC_tpCondRet PEC_destruir(Peca *peca)
 *  ****/
 void PEC_imprimir(Peca *peca)
 {
+  //Assertiva de entrada
 #ifdef _DEBUG
-    assert(peca);
+  if(peca == NULL)
+    printf('peca vazia (PEC_imprimir)');
 #endif
     if(peca->tipo == PecaNormal)
         printf("%c|", peca->caracter);
@@ -106,8 +131,16 @@ void PEC_imprimir(Peca *peca)
 *  ****/
 PecaTipo PEC_obterTipo(Peca *peca)
 {
+  //Assertivas de entrada
 #ifdef _DEBUG
-    assert(peca);
+  if(peca == NULL){
+    printf('peca vazia (PEC_imprimir)');
+    return;
+  }
+  if( peca->tipo != PecaNormal && peca->tipo != PecaDama){
+    printf('\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n');    
+    return;
+  }
 #endif
     return peca->tipo;
 }/* Fim função: PEC  &Obter tipo de uma determinada peça */
@@ -119,13 +152,22 @@ PecaTipo PEC_obterTipo(Peca *peca)
 *  ****/
 PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
-    if(peca == NULL)
-        return PEC_CondRetPecaVazia;
-
-    if(tipo != PecaNormal && tipo != PecaDama)
-        return PEC_CondRetTipoInexistente;
+  //Assertivas de entrada
+#ifdef _DEBUG
+  if(peca == NULL)
+    return PEC_CondRetPecaVazia;
+    
+  if( tipo != PecaNormal && tipo != PecaDama)
+    return PEC_CondRetTipoInexistente;
+#endif
 
     peca->tipo = tipo;
+    //Assetivas de saida
+#ifdef _DEBUG
+    if(peca->tipo != PecaNormal && peca->tipo != PecaDama)
+      return PEC_CondRetTipoInexistente;
+#endif
+
     return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar tipo de uma determinada peça */
 
@@ -136,9 +178,14 @@ PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 *  ****/
 char PEC_obterCaracter(Peca *peca)
 {
+  //Assertivas de entrada
 #ifdef _DEBUG
-    assert(peca);
+  if(peca == NULL){
+    printf('peca vazia (PEC_obterCaracter)');
+    return;
+  }
 #endif
+
     return peca->caracter;
 }/* Fim função: PEC  &Obter caracter identificador de uma determinada peça */
 
@@ -149,10 +196,23 @@ char PEC_obterCaracter(Peca *peca)
 *  ****/
 PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
 {
-    if(peca == NULL)
-        return PEC_CondRetPecaVazia;
+  //Assertivas de entrada
+#ifdef _DEBUG
+  if(peca == NULL)
+    return PEC_CondRetPecaVazia;
+    
+  if( caracter != 'x' && caracter != 'o')
+    return PEC_CondRetCaracterInexistente;
+#endif
+
     caracter=tolower(caracter);
     peca->caracter = caracter;
+    //Assetivas de saida
+#ifdef _DEBUG
+    if(peca->caracter != caracter && peca->caracter != caracter)
+      return PEC_CondRetCaracterInexistente;
+#endif
+
     return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
 

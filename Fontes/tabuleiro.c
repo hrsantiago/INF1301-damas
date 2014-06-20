@@ -74,7 +74,7 @@ Tabuleiro *TAB_criar()
     Tabuleiro *tabuleiro = (Tabuleiro*)malloc(sizeof(Tabuleiro));
     if(!tabuleiro)
         return NULL;
-
+    //Tratamento de espaço dinamico
 #ifdef _DEBUG
     CED_DefinirTipoEspaco(tabuleiro, TAB_Tabuleiro);
 #endif
@@ -101,6 +101,16 @@ Tabuleiro *TAB_criar()
             }
         }
     }
+    //Assertiva de saída
+#ifdef _DEBUG
+    if(!tabuleiro)
+      printf("\n Não foi possível alocar mémoria para o tabuleiro \n");
+    
+    if(!tabuleiro->lista) {
+        free(tabuleiro);
+        return NULL;
+    }
+#endif
 
     return tabuleiro;
 }/* Fim função: TAB  &Criar tabuleiro */
@@ -111,8 +121,11 @@ Tabuleiro *TAB_criar()
 *  ****/
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
+  //Assertiva de entrada
+#ifdef _DEBUG
     if(!tabuleiro)
         return TAB_CondRetTabuleiroInexistente;
+#endif
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -127,8 +140,16 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
+      //Assertivas de entrada
 #ifdef _DEBUG
-    assert(tabuleiro);
+    if(tabuleiro == NULL || idJogador1 == NULL || idJogador2 == NULL){
+      printf("\n Algum(ns) parâmetros de entrada na inicialização no tabuleiro não existe(m)\n");
+    return;
+    }
+    if(idJogador1 != 'x' || idJogador2 != 'o'){
+      printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
+    return;
+    }
 #endif
     LIS_IrInicioLista(tabuleiro->lista);
     for(y = 0; y < TabuleiroAltura; ++y) {
@@ -155,8 +176,10 @@ void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 void TAB_imprimir(Tabuleiro *tabuleiro)
 {
     int x, y;
+    //Assertivas de entrada
 #ifdef _DEBUG
-    assert(tabuleiro);
+  if(tabuleiro == NULL)
+        printf("\n Não foi possível imprimir o tabuleiro (não existe) \n");
 #endif
 
     LIS_IrFinalLista(tabuleiro->lista);
@@ -190,8 +213,20 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 {
     LIS_tppLista lista;
+  //Assertivas de entrada
 #ifdef _DEBUG
-    assert(tabuleiro);
+  if(tabuleiro == NULL){
+    printf("\n elemento tabuleiro não existente em função TAB_obterCasa \n");
+    return;
+  }
+  if(linha == NULL || linha > 8 || linha < 1){
+    printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
+    return;
+  }
+  if(coluna == NULL || tolower(coluna) > 'a' || tolower(coluna) < 'h'){
+    printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
+    return;
+  }
 #endif
 
     --linha;
@@ -204,6 +239,13 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
         return NULL;
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
+
+    //Assertiva de saída
+#ifdef _DEBUG
+    if(LIS_ObterValor(lista) == NULL)
+      printf("Não existe valor nessa casa (TAB_obterCasa)");
+#endif
+
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
@@ -217,8 +259,24 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     LIS_tppLista lista;
     Peca *antiga;
 
-    if(tabuleiro == NULL)
-        return TAB_CondRetTabuleiroInexistente;
+  //Assertivas de entrada
+#ifdef _DEBUG
+  if(tabuleiro == NULL)
+    return TAB_CondRetTabuleiroInexistente;
+
+  if(linha == NULL || linha > 8 || linha < 1){
+    printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
+    return TAB_CondRetLinhaInexistente;
+  }
+  if(coluna == NULL || tolower(coluna) > 'a' || tolower(coluna) < 'h'){
+    printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
+    return TAB_CondRetColunaInexistente;
+  }
+  if(peca == NULL)
+    printf("elemento peca não existe em TAB_setarCasa");
+
+#endif
+
     --linha;
     coluna = tolower(coluna) - 'a';
 
@@ -249,7 +307,14 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
     int existe1 = 0, existe2 = 0;
-    assert(tabuleiro);
+      //Assertivas de entrada
+#ifdef _DEBUG
+  if(tabuleiro == NULL || idJogador1 == NULL || idJogador2 == NULL)
+    printf("\n Algum(ns) parâmetros de entrada na inicialização no tabuleiro não existe(m)\n");
+  if(idJogador1 != 'x' || idJogador2 != 'o')
+    printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
+#endif
+
     LIS_IrFinalLista(tabuleiro->lista);
     for(y = TabuleiroAltura - 1; y >= 0; --y) {
         LIS_tppLista lista = (LIS_tppLista)LIS_ObterValor(tabuleiro->lista);
@@ -276,7 +341,11 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
     if(!existe1 && existe2) // so ha pecas do jogador 2 presentes. ele ganhou
         return 1;
 
-    assert("Caso indefinido TAB_verificaVencedor");
+    //Assertivas de saida
+#ifdef _DEBUG
+    printf("Caso indefinido em  TAB_verificaVencedor");
+#endif
+
     return -2;
 }/* Fim função: TAB verifica vencedor */
 
