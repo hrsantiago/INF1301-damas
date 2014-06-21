@@ -229,7 +229,6 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
 
-
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
 
@@ -373,7 +372,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
     /*Verificar a lista das listas, primária*/
     if(LIS_VerificarLista(tabuleiro->lista) == LIS_CondRetErroEstrutura)
     {
-        CNT_CONTAR("Lista de listas com erro");
+        CNT_CONTAR("TAB Lista de listas com erro");
         return TAB_CondRetErroEstrutura;
     }
 

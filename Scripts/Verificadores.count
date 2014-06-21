@@ -12,8 +12,6 @@ Referencia do elemento de lista errada
 Referencia do elemento de lista correta
 Encadeamento errado
 No possui uma lista
-A lista de pecas possui algum problema
-Ha uma lista de listas e a sublista de pecas sem problemas
 No nao possui uma lista
 Numero de elementos na cabeca diferente do real
 Lista de listas OK
@@ -51,7 +49,7 @@ Tipo nao e Tabuleiro
 Tipo e Tabuleiro
 Tipo Tabuleiro OK
 
-Lista de listas com erro
+TAB Lista de listas com erro
 Uma das listas de pecas possui algum problema
 Casa nao Vazia
 Tipo nao e peca

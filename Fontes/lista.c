@@ -440,18 +440,15 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
         return ret;
 
     /*Percorre Lista, verificando cada no*/
-    for(pElem = pCabeca->pOrigemLista; pElem; pElem = pElem->pProx)
-    {
-        if ( TST_CompararInt(LIS_TipoEspacoNo, CED_ObterTipoEspaco(pElem),
-                              "Tipo do espaço de dados não é no de lista.") != TST_CondRetOK )
-        {
+    for(pElem = pCabeca->pOrigemLista; pElem; pElem = pElem->pProx) {
+        if(TST_CompararInt(LIS_TipoEspacoNo, CED_ObterTipoEspaco(pElem),
+                           "Tipo do espaço de dados não é no de lista.") != TST_CondRetOK) {
             CNT_CONTAR("Elemento da lista nao eh no");
             return LIS_CondRetErroEstrutura ;
         }
 		CNT_CONTAR("Tipo espaco eh no");
 		CED_MarcarEspacoAtivo(pElem);
-        if(pElem->pCabeca!=pCabeca)
-        {
+        if(pElem->pCabeca != pCabeca) {
             CNT_CONTAR("Referencia do elemento de lista errada");
             TST_NotificarFalha("elemento da lista nao aponta para respectiva cabeca");
 			return LIS_CondRetErroEstrutura;
@@ -466,8 +463,7 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
         }
         numElementos++;
     }
-    if(pCabeca->numElem!=numElementos)
-    {
+    if(pCabeca->numElem!=numElementos) {
         CNT_CONTAR("Numero de elementos na cabeca diferente do real");
         TST_NotificarFalha("Numero de elementos indicado na cabeça difere do real");
         return LIS_CondRetErroEstrutura;
@@ -509,12 +505,12 @@ void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar)
     }
     case LIS_DeturpaProximoLixo:
     {
-        pLista->pElemCorr->pProx = (tpElemLista*)0x1a2b3c4d;
+        pLista->pElemCorr->pProx = (tpElemLista*)pLista + 123;
         break;
     }
     case LIS_DeturpaAnteriorLixo:
     {
-        pLista->pElemCorr->pAnt = (tpElemLista*)0x1a2b3c4d;
+        pLista->pElemCorr->pAnt = (tpElemLista*)pLista + 123;
         break;
     }
     case LIS_DeturpaConteudoNulo:
@@ -683,7 +679,7 @@ LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
     }
     else
         CNT_CONTAR("Tipo e lista");
-	CED_MarcarEspacoAtivo(tabuleiro->lista);
+
     if(pCabeca->numElem < 0) {
         CNT_CONTAR("Numero de elementos menor que zero");
         TST_NotificarFalha("Cabeça acusa numero de elementos menor que zero");
@@ -718,7 +714,7 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
 {	
     if(pElem->pProx != NULL) {
         CNT_CONTAR("Ha mais de um elemento");
-        if(pElem->pProx->pAnt != pElem) {
+        if(!CED_VerificarEspaco(pElem->pProx, NULL) || pElem->pProx->pAnt != pElem) {
             CNT_CONTAR("Encadeamento apos errado");
             TST_NotificarFalha("Encadeamento apos esta errado");
             return LIS_CondRetErroEstrutura;
@@ -733,7 +729,7 @@ LIS_tpCondRet LIS_VerificarEncadeamento(tpElemLista* pElem)
     }
 
     if(pElem->pAnt != NULL) {
-        if(pElem->pAnt->pProx != pElem) {
+        if(!CED_VerificarEspaco(pElem->pAnt, NULL) || pElem->pAnt->pProx != pElem) {
             CNT_CONTAR("Encadeamento antes errado");
             TST_NotificarFalha("Encadeamento antes esta errado");
             return LIS_CondRetErroEstrutura;
