@@ -260,11 +260,11 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
   if(tabuleiro == NULL)
     return TAB_CondRetTabuleiroInexistente;
 
-  if(linha == NULL || linha > 8 || linha < 1){
+  if(!linha || linha > 8 || linha < 1){
     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return TAB_CondRetLinhaInexistente;
   }
-  if(coluna == NULL || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
+  if(!coluna || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return TAB_CondRetColunaInexistente;
   }
