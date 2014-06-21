@@ -114,7 +114,7 @@ void PEC_imprimir(Peca *peca)
 {
   //Assertiva de entrada
 #ifdef _DEBUG
-  if(peca->PecaTipo == PecaErro)
+  if(peca->tipo == PecaErro)
     printf("\n peca vazia (PEC_imprimir) \n");
 #endif
     if(peca->tipo == PecaNormal)
@@ -132,7 +132,7 @@ PecaTipo PEC_obterTipo(Peca *peca)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca->Pecatipo == PecaErro){
+  if(peca->tipo == PecaErro){
     printf("peca vazia (PEC_imprimir)");
     return ;
   }
@@ -154,7 +154,7 @@ PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca->PecaTipo == PecaErro)
+  if(peca->tipo == PecaErro)
     return PEC_CondRetPecaVazia;
     
   if( tipo != PecaNormal && tipo != PecaDama)
@@ -180,7 +180,7 @@ char PEC_obterCaracter(Peca *peca)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca->PecaTipo == PecaErro){
+  if(peca->tipo == PecaErro){
     printf("\n peca vazia (PEC_obterCaracter) \n");
     return NULL;
   }
@@ -198,7 +198,7 @@ PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca->PecaTipo == PecaErro)
+  if(peca->tipo == PecaErro)
     return PEC_CondRetPecaVazia;
     
 #endif
