@@ -67,10 +67,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             769
+      Total linhas:             756
       Linhas de código:         484
-      Linhas de comentário:     193
-      Linhas em branco:         108
+      Linhas de comentário:     181
+      Linhas em branco:         107
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -89,10 +89,10 @@ Estatísticas do construto
       tabuleiro.c
 
    Estatísticas do arquivo: peca.c
-      Total linhas:             159
-      Linhas de código:          77
-      Linhas de comentário:      65
-      Linhas em branco:          24
+      Total linhas:             216
+      Linhas de código:         114
+      Linhas de comentário:      76
+      Linhas em branco:          33
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -102,9 +102,9 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:             246
-      Linhas de código:          20
-      Linhas de comentário:     215
+      Total linhas:             248
+      Linhas de código:          22
+      Linhas de comentário:     216
       Linhas em branco:          14
    Arquivos em que é incluído
       peca.c
@@ -112,10 +112,10 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: tabuleiro.c
-      Total linhas:             510
-      Linhas de código:         334
-      Linhas de comentário:     137
-      Linhas em branco:          58
+      Total linhas:             563
+      Linhas de código:         343
+      Linhas de comentário:     156
+      Linhas em branco:          73
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -136,10 +136,10 @@ Estatísticas do construto
       testtabuleiro.c
 
    Estatísticas do arquivo: testtabuleiro.c
-      Total linhas:             310
-      Linhas de código:         176
-      Linhas de comentário:      85
-      Linhas em branco:          66
+      Total linhas:             313
+      Linhas de código:         180
+      Linhas de comentário:      86
+      Linhas em branco:          64
    Arquivos de inclusão de que necessita
       cespdin.h
       peca.h
@@ -158,9 +158,9 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3341
-         Linhas de código:           325
-         Linhas de comentário:      2674
+         Total linhas do tipo:      3343
+         Linhas de código:           327
+         Linhas de comentário:      2675
          Linhas em branco:           360
          Arquivos deste tipo:          8
 
@@ -186,17 +186,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1748
-         Linhas de código:          1071
-         Linhas de comentário:       480
-         Linhas em branco:           256
+         Total linhas do tipo:      1848
+         Linhas de código:          1121
+         Linhas de comentário:       499
+         Linhas em branco:           277
          Arquivos deste tipo:          4
 
 Totais para todo o construto TESTETABULEIRODEBUG
 
-   Total linhas:              5089
-   Linhas de código:          1396
-   Linhas de comentário:      3154
-   Linhas em branco:           616
+   Total linhas:              5191
+   Linhas de código:          1448
+   Linhas de comentário:      3174
+   Linhas em branco:           637
    Arquivos processados:        12
 

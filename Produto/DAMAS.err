@@ -3,22 +3,23 @@
 #################### Compilacao do construto: DAMAS
 
 jogo.c
-..\Fontes\jogo.c(138) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
-..\Fontes\jogo.c(153) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(152) : warning C4245: 'initializing' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(176) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(155) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(186) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(156) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\jogo.c(170) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(195) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\jogo.c(209) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(188) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(227) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
-..\Fontes\jogo.c(190) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\jogo.c(221) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
-..\Fontes\jogo.c(227) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
-..\Fontes\jogo.c(242) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
-..\Fontes\jogo.c(282) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\Fontes\jogo.c(229) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\jogo.c(260) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(266) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(281) : warning C4245: '=' : conversion from 'int' to 'unsigned char', signed/unsigned mismatch
+..\Fontes\jogo.c(324) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\stdio.h(304) : see declaration of 'scanf'
+c:\users\jose\documents\github\damas\fontes\jogo.c(121) : warning C4716: 'JOG_rodar' : must return a value
 main.c
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.

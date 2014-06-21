@@ -449,6 +449,7 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
             return LIS_CondRetErroEstrutura ;
         }
 		CNT_CONTAR("Tipo espaco eh no");
+		CED_MarcarEspacoAtivo(pElem);
         if(pElem->pCabeca!=pCabeca)
         {
             CNT_CONTAR("Referencia do elemento de lista errada");
@@ -682,7 +683,7 @@ LIS_tpCondRet LIS_VerificarCabeca(LIS_tppLista pCabeca)
     }
     else
         CNT_CONTAR("Tipo e lista");
-
+	CED_MarcarEspacoAtivo(tabuleiro->lista);
     if(pCabeca->numElem < 0) {
         CNT_CONTAR("Numero de elementos menor que zero");
         TST_NotificarFalha("Cabeça acusa numero de elementos menor que zero");

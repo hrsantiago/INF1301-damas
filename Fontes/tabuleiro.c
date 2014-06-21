@@ -367,7 +367,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
     }
     else
         CNT_CONTAR("Tipo e Tabuleiro");
-
+	CED_MarcarEspacoAtivo(tabuleiro);
     CNT_CONTAR("Tipo Tabuleiro OK");
 
     /*Verificar a lista das listas, primária*/
@@ -398,8 +398,11 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
                     return TAB_CondRetErroEstrutura;
                 }
                 else
-                    CNT_CONTAR("Tipo e peca");
-            }
+                   {
+					   CNT_CONTAR("Tipo e peca");
+				CED_MarcarEspacoAtivo(peca);
+				}
+			}
             else
                 CNT_CONTAR("Casa Vazia");
             LIS_AvancarElementoCorrente(lista, 1);
@@ -425,7 +428,7 @@ TAB_tpCondRet TAB_VerificarTabuleiro(Tabuleiro* tabuleiro)
     return TAB_CondRetOK;
 }
 
-int VerificaEstrutura()
+/*int VerificaEstrutura()
 {
     int tipo;
     void *PonteiroEspacoCorrente;
@@ -449,7 +452,7 @@ int VerificaEstrutura()
     } while(CED_AvancarProximoEspaco() == 1);
     CED_TerminarIteradorEspacos();
     return 1;
-}
+}*/
 /***************************************************************************
 *
 *  Função: TAB  &Deturpar tabuleiro

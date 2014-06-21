@@ -315,10 +315,9 @@ JOG_tpCondRet jogar(Jogo *jogo)
 ***********************************************************************/
 JOG_tpCondRet menu(Jogo *jogo)
 {
+	int opcao;
     if(!jogo)
-        return JOG_CondRetJogoInexistente;
-
-    int opcao;
+        return JOG_CondRetJogoInexistente;  
     printf("1 - Iniciar novo jogo\n");
     printf("2 - Sair\n");
     printf("Escolha a opcao desejada: ");

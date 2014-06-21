@@ -91,7 +91,7 @@ static int ValidarInxTabuleiro(int inxLista, int Modo);
 *     =deturpar					inxLista  ModoDeturparTAB
 *	  =deturpar					inxlista  ModoDeturparTAB  ModoDeturparLIS  linha
 *	  =deturpar					inxlista  ModoDeturparTAB  ModoDeturparLIS  linha   coluna
-*	  =verificarmemoria
+*	  =verificarmemoria			inxlista  CondRetEsp
 *     =posicionar				inxlista  linha   coluna
 ***********************************************************************/
 
@@ -194,7 +194,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
         return TST_CondRetOK;
     } /* fim ativa: Testar Remover peca */
 
-	/* Testar verificador de lista */
+	/* Testar verificador de lista de listas */
 	#ifdef _DEBUG
 
 	      else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
@@ -206,9 +206,9 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
                return TST_CondRetParm ;
             } 
 
-            return TST_CompararInt(CondRetEsp, TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] ),"Retorno errado ao verificar tabuleiro") ;
+            return TST_CompararInt(CondRetEsp, TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] ),"Numero de falhas diferente do esperado") ;
 
-         } /* fim ativa: Testar verificador de cabeça */
+         } /* fim ativa: Testar verificador de lista de listas*/
 	#endif   
 
 	/*Posicionar elemento Corrente*/
@@ -273,10 +273,12 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 
          else if ( strcmp( ComandoTeste , VER_MEMORIA_CMD ) == 0 )
          {
-
-            CED_ExibirTodosEspacos( CED_ExibirTodos ) ;
-
-            return TST_CondRetOK ;
+			 numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
+			 if((numLidos != 1) || (!ValidarInxTabuleiro(inxLista, INDIFERENTE)))
+				return TST_CondRetParm;
+			CED_MarcarTodosEspacosInativos();
+			TAB_VerificarTabuleiro( vtTabuleiros[ inxLista ] );
+			return TST_CompararInt(CondRetEsp, CED_ObterNumeroEspacos( CED_ExibirInativos ),"Numero de falhas diferente do esperado") ;
 
          } /* fim ativa: Verificar vazamento de memória */
       #endif

@@ -33,6 +33,7 @@
 == Inicializar tabuleiro 0
 =inicializartabuleiro  tabuleiro0
 =verificar tabuleiro0 OK
+=verificarmemoria tabuleiro0 OK
 
 == Obter peca do tabuleiro 0
 =obtercasa    tabuleiro0   1 colunaA pNULL
@@ -242,10 +243,14 @@
 ==destruir tabuleiro  inexistente
 =destruirtabuleiro   tabuleiro2 TabuleiroInexistente
 
-==Parar contagem
+== Terminar controlar contadores
 =pararcontagem
-				
-==Gravar Contadores
-=registraracumulador "..\\Produto\\RegistroContadores"
 
+==Gravar Contadores
+=gravarcontadores "..\\Produto\\RegistroContadoresSemDeturpacao"
+
+== Terminar contagem
+=terminarcontadores
+
+=verificarmemoria
 // fim

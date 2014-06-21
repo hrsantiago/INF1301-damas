@@ -22,7 +22,7 @@ Apresentação
 ===============================================================================
 Esse texto descreve o conteúdo do arquivo INF1301-Trab2-HSMRRH.zip, que contém 
 os arquivos necessários para a implementação e teste dos módulos lista, peça e 
-tabuleiro de um jogo de damas.
+tabuleiro de um jogo de damas. Também possui o programa DAMAS.exe compilável e scripts para testar vazamento de memória e assertivas estruturais do tabuleiro.
 
 
 
@@ -36,39 +36,41 @@ no arquivo.zip. Isto criará a estrutura de diretórios utilizada e copiará:
 -os códigos fonte das funções de controle de teste específicas de cada módulo; 
 -os scripts de teste dos módulos desenvolvidos;
 -os arquivos batch (.bat) que auxiliam na compilação e teste dos construtos;
--os scripts de composição (.comp), de make e arquivos script .build para o linker
-gerados pelo utilitário GMAKE;
+-os scripts de composição (.comp), de make e arquivos script .build para o linker gerados pelo utilitário GMAKE;
 -os programas executáveis TesteLista.exe, TestePeca.exe e TesteTabuleiro.exe;
 -arquivos .pdf com modelo físico da estrutura completa e a arquitetura do programa;
+- O modelo físico da estrutura auto-verificável implementada
 -arquivos .txt com os relatórios de cada componente do grupo.
+-O arquivo de declaração dos contadores e de totalização dos mesmos.
 
 
 Estrutura de diretórios
 ================================================================================
 Os seguintes diretórios são gerados ao dezipar:
 
--Batches: contém arquivos .bat que auxiliam na realização dos testes e na (re)compilação
-	  dos construtos.
+-Batches: contém arquivos .bat que auxiliam na realização dos testes e na (re)compilação dos construtos.
 
--Composicao: contém os arquivos .comp com os scripts de composição e .make com os scripts
-	     de make dos módulos. Arquivos do formato .list também aparecerão aqui caso
- 	     sejam rodados os batches corretos.
+-Composicao: contém os arquivos .comp com os scripts de composição e .make com os scripts de 
+	     make dos módulos. Arquivos do formato .list também aparecerão aqui caso sejam rodados os batches corretos.
 
--Docs: contém arquivos .pdf e .txt, com os relatórios dos componentes do grupo, modelo fí-
-       sico da estrutura implementada, seu exemplo físico, a arquitetura do programa de
-       damas e sua especificação. Além deste documento (LEIAME).
+-Docs: contém arquivos .pdf e .txt, com os relatórios dos componentes do grupo, modelo físico da estrutura 
+	implementada, seu exemplo físico, a arquitetura do programa de damas, sua especificação, o modelo do Lista 	genérica auto-verificável e um arquivo LinguagemTeste.txt contendo a documentação da linguagem script de teste.
+	Além deste documento (LEIAME).
 
--Fontes: contém os arquivos de código fonte (.c e .h) do programa
+-Fontes: contém os arquivos de código fonte (.c e .h) do programa. O arquivo tipos.h possui os
+	tipos usados no programa.
 
 -Objetos: contém arquivos script .build para o linker. Arquivos do formato .obj também apa-
           recerão aqui caso sejam rodados os batches corretos.
 
 -Produto: contém os executáveis gerados após a compilação dos módulos. Eles implementam os
-	  testes dos módulos. Os resultados dos testes (arquivos .log) irão aparecer
+	  testes dos módulos e o jogo de damas executável. DAMAS.exe é o jogo de damas sem instrumentação e DAMASDEBUG.exe é o jogo com instrumentação.
+	  TESTETABULEIRO.exe é o tete de tabuleiro sem instrumentação e TESTETABULEIRODEBUG.exe, com instrumentação.
+	  Os resultados dos testes (arquivos .log e Registro de 	  Contadores) irão aparecer
 	  aqui depois que os testes forem rodados. Arquivos com formato .err também deverão 
 	  ser gerados aqui se forem executados os batches corretos
 
--Scripts: contém os scripts de teste (.script). O arquivo estatisticas (.estat) será gerado
+-Scripts: contém os scripts de teste (.script) e o arquivo de declaração dos contadores. O arquivo estatisticas (.estat) será gerado
     	  aqui após a execução dos testes, sob certas circunstâncias.
 
 
@@ -83,6 +85,11 @@ A pasta Docs contém os seguintes documentos:
 -especificacao.pdf: contém a especificação de requisitos do Programa Jogo de Damas
 
 -Arquitetura_damas.pdf: contém a arquitetura do Programa Jogo de Damas
+
+-estruturaVerificável.pdf: contém o modelo do Lista genérica auto-verificável e as
+correspondentes assertivas estruturais.
+
+-LinguagemTeste.txt (ou .doc, ou .pdf): contém a documentação da linguagem script de teste.
 
 -LEIAME.txt: o presente documento
 
@@ -118,11 +125,12 @@ Há três formas de executar os testes:
    Se for passado [l], será gerado o arquivo .log do arquivo testado, na pasta Produtos.
 
 3. Execute o batch TestaTudo.bat da pasta batches. Ele executará os testes dos módulos lista, peca 
-   e tabuleiro a partir dos scripts testelista.script, testepeca.script e testetebuleiro.script, 
+   e tabuleiro a partir dos scripts testelista.script, testepeca.script, testetebuleiro.script, testetebuleiroSemDeturpacoes e testetebuleiroVerificacao,
    respectivamente. Também irá gerar:
 
-   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log
-     na pasta Produto;
+   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log, 
+     TESTETEBULEIRODEBUG.log,TesteTabuleiroSemDeturpacoes.log e TesteTabuleiroComDeturpacoes.log, além 
+     dos arquivo de totalização dos contadores.Esses arquivos são gerados na pasta Produto;
    - o arquivo estatisticas.estat na pasta Scripts, se o executável exbestat existir e estiver na 
      pasta correta (Veja seção seguinte: compilação através dos batches);
 
@@ -136,7 +144,8 @@ digidos em C (Autotest). Os passos a seguir elucidam esse processo:
 
 -Na pasta Objetos, coloque a biblioteca do arcabouço: ArcaboucoTeste.lib
 
--Na pasta Fontes, coloque os arquivos header(.h): TST_ESPC.h, LERPARM.h e GENERICO.h. 
+-Na pasta Fontes, coloque os arquivos header(.h): TST_ESPC.h, LERPARM.h, GENERICO.h, Cespdin.h
+e Conta.h. 
 
 -Na pasta Composicao, coloque o arquivo Gmake.parm
 
@@ -154,10 +163,11 @@ do Visual Studio para rodar os batches. Os batches disponibilizados são os segu
 		arquivo executável que implementa o respectivo teste. Na pasta Objetos, 
 		gera os arquivos .obj correspondentes.
 
--CompilaTudo.bat: Compila todos os testes, de lista, peca e tabuleiro. Usa os respectivos
-                  arquivos make. Gera os error log (.err): TESTELISTA.err, TESTEPECA.err e 
-		  TESTETABULEIRO.err, além de tudo.err, que mostra o resultado da compilação
-		  de todos os construtos na pasta Produto.
+-CompilaTudo.bat: Compila todos os testes, de lista, peca e tabuleiro, além dos testes para tabuleiro
+		  instrumentado (TabuleiroDEBUG). Usa os respectivos arquivos make. Gera os error log (
+		  .err): TESTELISTA.err, TESTEPECA.err e TESTETABULEIRO.err, além de tudo.err, que 
+		  mostra o resultado da compilação de todos os construtos na pasta Produto. Gera também
+		  os arquivos
  
 -GeraMake.bat: 	Gera os scripts de make a partir dos arquivos de composição dos construtos
              	(.comp). Supõe a existência de uma pasta "ferramnt", com o utilitário Gmake.

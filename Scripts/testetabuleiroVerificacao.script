@@ -141,11 +141,6 @@
 =criartabuleiro tabuleiro6
 =inicializartabuleiro tabuleiro6
 
-//==Desencadeia nó sem liberá-lo com free. //Nao testei
-//=deturpar tabuleiro6   DeturparListaSecundaria   7  4 colunaB
-//=verificar tabuleiro6 ErroEstrutura
-//=AceitaFalhasAcumuladas 1
-
 ==Atribui NULL ao ponteiro corrente //Nao ta dando erro
 =deturpar tabuleiro6   DeturparListaPrimaria   8  2
 =verificar tabuleiro6 ErroEstrutura
@@ -171,8 +166,6 @@
 
 ==Destruir
 =destruirtabuleiro tabuleiro7 OK
-
-
 
 
 ==Criar e inicializar tabuleiro 8 
@@ -242,15 +235,25 @@
 ==Destruir
 =destruirtabuleiro tabuleiro2 OK
 
+==Criar tabuleiro 3
+=criartabuleito tabuleiro3
 
+==Desencadeia nó sem liberá-lo com free. //Nao testei
+=deturpar tabuleiro3   DeturparListaSecundaria   7  4 colunaB
+=verificar tabuleiro3 ErroEstrutura
+=AceitaFalhasAcumuladas 1
+=verificarmemoria tabuleiro3
+
+==Destruir
+=destruirtabuleiro tabuleiro3 OK
 
 == Terminar controlar contadores
 =pararcontagem
 =verificarcontagens    0
 
 ==Gravar Contadores
-=registraracumulador "..\\Produto\\RegistroContadores"
-=gravarcontadores "..\\Produto\\RegistroContadores2"
+=gravarcontadores "..\\Produto\\RegistroContadoresComDeturpacao"
+
 == Terminar contagem
 =terminarcontadores
 

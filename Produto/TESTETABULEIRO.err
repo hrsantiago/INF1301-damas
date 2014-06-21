@@ -3,12 +3,12 @@
 #################### Compilacao do construto: TESTETABULEIRO
 
 testtabuleiro.c
-..\Fontes\testtabuleiro.c(167) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\testtabuleiro.c(180) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\testtabuleiro.c(193) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(168) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(181) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\testtabuleiro.c(194) : warning C4244: 'function' : conversion from 'int' to 'unsigned char', possible loss of data
 tabuleiro.c
-..\Fontes\tabuleiro.c(198) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
-..\Fontes\tabuleiro.c(223) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(222) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+..\Fontes\tabuleiro.c(262) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
 Microsoft (R) Incremental Linker Version 10.00.40219.01
 Copyright (C) Microsoft Corporation.  All rights reserved.
 

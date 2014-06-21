@@ -10,7 +10,7 @@ if exist ..\ferramnt\exbestat.exe goto estatistica
 ..\produto\TESTETABULEIRO  		/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiro   
 ..\produto\TESTETABULEIRODEBUG  	/s..\scripts\Testetabuleiro		/l..\produto\TesteTabuleiroDEBUG
 ..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroSemDeturpacoes	/l..\produto\TesteTabuleiroSemDeturpacoes
-..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer
+..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroComDeturpacoes
 
 notepad ..\produto\RegistroContadores
 goto sai
@@ -24,7 +24,7 @@ del ..\scripts\estatisticas.estat
 ..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   		/a..\scripts\estatisticas
 ..\produto\TESTETABULEIRODEBUG 	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiroDEBUG   	/a..\scripts\estatisticas
 ..\produto\TESTETABULEIRODEBUG 		/s..\scripts\TestetabuleiroSemDeturpacoes	/l..\produto\TesteTabuleiroSemDeturpacoes   /a..\scripts\estatisticas
-..\produto\TESTETABULEIRODEBUG 	/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroVer   	/a..\scripts\estatisticas
+..\produto\TESTETABULEIRODEBUG 	/s..\scripts\TestetabuleiroVerificacao	/l..\produto\TesteTabuleiroComDeturpacoes   	/a..\scripts\estatisticas
 
 ..\ferramnt\exbestat /e..\scripts\estatisticas
 notepad ..\produto\RegistroContadores

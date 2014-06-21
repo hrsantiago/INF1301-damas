@@ -96,18 +96,18 @@
 =destruirpeca peca3 OK
 
 ==Verificar se as pecas foram destruidas 
-=obtertipo peca1 Dama 
-=recuperar
-=obtertipo peca2 Normal
-=recuperar
-=obtertipo peca3 Dama 
-=recuperar
+//=obtertipo peca1 Dama 
+//=recuperar
+//=obtertipo peca2 Normal
+//=recuperar
+//=obtertipo peca3 Dama 
+//=recuperar
 
 ==Obter caracter de peca inexistente 
-=obtercaracter peca0 Branca
-=recuperar
-=obtercaracter peca0 Preta
-=recuperar
+//=obtercaracter peca0 Branca
+//=recuperar
+//=obtercaracter peca0 Preta
+//=recuperar
 
 ==Setar tipo e caracter de peca inexistente
 =setartipo       peca0 Dama   PecaVazia
@@ -172,22 +172,22 @@
 =destruirpeca peca7 OK
 
 ==Verificar destruicao
-=obtercaracter peca0 Branca
-=recuperar
-=obtercaracter peca1 Branca
-=recuperar
-=obtercaracter peca2 Branca
-=recuperar
-=obtercaracter peca3 Branca
-=recuperar
-=obtercaracter peca4 Branca
-=recuperar
-=obtercaracter peca5 Branca
-=recuperar
-=obtercaracter peca6 Branca
-=recuperar
-=obtercaracter peca7 Branca
-=recuperar
+//=obtercaracter peca0 Branca
+//=recuperar
+//=obtercaracter peca1 Branca
+//=recuperar
+//=obtercaracter peca2 Branca
+//=recuperar
+//=obtercaracter peca3 Branca
+//=recuperar
+//=obtercaracter peca4 Branca
+//=recuperar
+//=obtercaracter peca5 Branca
+//=recuperar
+//=obtercaracter peca6 Branca
+//=recuperar
+//=obtercaracter peca7 Branca
+//=recuperar
 
 ==Criar pecas com caracteres diferentes
 =criarpeca     peca0 Normal "s"

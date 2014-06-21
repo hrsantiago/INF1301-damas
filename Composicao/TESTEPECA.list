@@ -56,10 +56,10 @@ Estatísticas do construto
       peca.c
 
    Estatísticas do arquivo: peca.c
-      Total linhas:             159
-      Linhas de código:          77
-      Linhas de comentário:      65
-      Linhas em branco:          24
+      Total linhas:             216
+      Linhas de código:         114
+      Linhas de comentário:      76
+      Linhas em branco:          33
    Arquivos de inclusão de que necessita
       TST_Espc.h
       cespdin.h
@@ -69,9 +69,9 @@ Estatísticas do construto
       tipos.h
 
    Estatísticas do arquivo: peca.h
-      Total linhas:             246
-      Linhas de código:          20
-      Linhas de comentário:     215
+      Total linhas:             248
+      Linhas de código:          22
+      Linhas de comentário:     216
       Linhas em branco:          14
    Arquivos em que é incluído
       peca.c
@@ -96,9 +96,9 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2505
-         Linhas de código:           220
-         Linhas de comentário:      1997
+         Total linhas do tipo:      2507
+         Linhas de código:           222
+         Linhas de comentário:      1998
          Linhas em branco:           292
          Arquivos deste tipo:          6
 
@@ -124,17 +124,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:       352
-         Linhas de código:           174
-         Linhas de comentário:       128
-         Linhas em branco:            66
+         Total linhas do tipo:       409
+         Linhas de código:           211
+         Linhas de comentário:       139
+         Linhas em branco:            75
          Arquivos deste tipo:          2
 
 Totais para todo o construto TESTEPECA
 
-   Total linhas:              2857
-   Linhas de código:           394
-   Linhas de comentário:      2125
-   Linhas em branco:           358
+   Total linhas:              2916
+   Linhas de código:           433
+   Linhas de comentário:      2137
+   Linhas em branco:           367
    Arquivos processados:         8
 
