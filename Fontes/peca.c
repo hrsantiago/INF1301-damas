@@ -60,9 +60,8 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
     //Assertivas de entrada
 #ifdef _DEBUG    
     if( tipo != PecaNormal && tipo != PecaDama)
-      printf('\n Tipo da peca não condiz com qualquer tipo existente (PEC_criar) \n');    
-    if( caracter != 'o' && caracter != 'x')
-      printf('\n Caracter recebido não corresponde com qualquer dos dois possíveis (PEC_criar) \n');
+      printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_criar) \n");    
+    
 #endif
 
     //Tratamento de espaço dinamico
@@ -81,7 +80,7 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
       printf("\n A criação da peça não atribuiu o valor correto do caracter \n");
     if(peca->tipo != tipo)
       printf("\n A criação da peça não atribuiu o valor correto de tipo \n");
-    if(peca == NULL)
+    if(!peca)
       printf("\n Não foi possível alocar memoria para peca (PEC_criar) \n");
 #endif
 
@@ -98,7 +97,7 @@ PEC_tpCondRet PEC_destruir(Peca *peca)
 {
   //Assertva de entrada
 #ifdef _DEBUG 
-  if(peca == NULL)
+  if(!peca)
     return PEC_CondRetPecaVazia;
 #endif
 
@@ -115,8 +114,8 @@ void PEC_imprimir(Peca *peca)
 {
   //Assertiva de entrada
 #ifdef _DEBUG
-  if(peca == NULL)
-    printf('peca vazia (PEC_imprimir)');
+  if(peca->PecaTipo == PecaErro)
+    printf("\n peca vazia (PEC_imprimir) \n");
 #endif
     if(peca->tipo == PecaNormal)
         printf("%c|", peca->caracter);
@@ -133,13 +132,13 @@ PecaTipo PEC_obterTipo(Peca *peca)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca == NULL){
-    printf('peca vazia (PEC_imprimir)');
-    return NULL;
+  if(peca->Pecatipo == PecaErro){
+    printf("peca vazia (PEC_imprimir)");
+    return ;
   }
   if( peca->tipo != PecaNormal && peca->tipo != PecaDama){
     printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n");    
-    return NULL;
+    return;
   }
 #endif
 
@@ -155,7 +154,7 @@ PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca == NULL)
+  if(peca->PecaTipo == PecaErro)
     return PEC_CondRetPecaVazia;
     
   if( tipo != PecaNormal && tipo != PecaDama)
@@ -181,7 +180,7 @@ char PEC_obterCaracter(Peca *peca)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca == NULL){
+  if(peca->PecaTipo == PecaErro){
     printf("\n peca vazia (PEC_obterCaracter) \n");
     return NULL;
   }
@@ -199,14 +198,12 @@ PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
 {
   //Assertivas de entrada
 #ifdef _DEBUG
-  if(peca == NULL)
+  if(peca->PecaTipo == PecaErro)
     return PEC_CondRetPecaVazia;
     
-  if( caracter != "x" && caracter != "o")
-    return PEC_CondRetCaracterInexistente;
 #endif
 
-    caracter=tolower(caracter);
+    caracter = tolower(caracter);
     peca->caracter = caracter;
     //Assetivas de saida
 #ifdef _DEBUG

@@ -126,6 +126,7 @@ TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
     if(!tabuleiro)
         return TAB_CondRetTabuleiroInexistente;
 #endif
+
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);
     return TAB_CondRetOK;
@@ -223,7 +224,7 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return;
   }
-  if(coluna == NULL || tolower(coluna) > 'a' || tolower(coluna) < 'h'){
+  if(coluna == NULL || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return;
   }
@@ -268,13 +269,10 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return TAB_CondRetLinhaInexistente;
   }
-  if(coluna == NULL || tolower(coluna) > 'a' || tolower(coluna) < 'h'){
+  if(coluna == NULL || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return TAB_CondRetColunaInexistente;
   }
-  if(peca == NULL)
-    printf("elemento peca não existe em TAB_setarCasa");
-
 #endif
 
     --linha;
@@ -307,6 +305,7 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 {
     int x, y;
     int existe1 = 0, existe2 = 0;
+
       //Assertivas de entrada
 #ifdef _DEBUG
   if(tabuleiro == NULL || idJogador1 == NULL || idJogador2 == NULL)
