@@ -220,10 +220,10 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
     printf("\n elemento tabuleiro não existente em função TAB_obterCasa \n");
     return;
   }
-  if(linha == NULL || linha > 8 || linha < 1){
-    printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
-    return;
-  }
+  /* if(linha == NULL || linha > 8 || linha < 1){ */
+  /*   printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)"); */
+  /*   return; */
+  /* } */
   if(coluna == NULL || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
     return;
@@ -241,11 +241,6 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
     if(LIS_IrIndice(lista, coluna) != LIS_CondRetOK)
         return NULL;
 
-    //Assertiva de saída
-#ifdef _DEBUG
-    if(LIS_ObterValor(lista) == NULL)
-      printf("Não existe valor nessa casa (TAB_obterCasa)");
-#endif
 
     return LIS_ObterValor(lista);
 }/* Fim função: TAB  &Obter valor de uma peça no tabuleiro */
