@@ -185,7 +185,7 @@ JOG_tpCondRet jogar(Jogo *jogo)
         scanf("%d", &linhaDe);
         //Tratamento de exceção
 #ifdef _DEBUG
-	if(linhaDe == NULL || linhaDe > 8 || linhaDe < 1){
+	if( !linhaDe || linhaDe > 8 || linhaDe < 1){
 	  printf("Linha fora dos limites do tabuleiro");
 	  continue;
 	}
@@ -195,7 +195,7 @@ JOG_tpCondRet jogar(Jogo *jogo)
         scanf(" %c", &colunaDe);
 	//Tratamento de exceção
 #ifdef _DEBUG
-	if(colunaDe== NULL || tolower(colunaDe) < 'a' || tolower(colunaDe) > 'h'){
+	if(!colunaDe || tolower(colunaDe) < 'a' || tolower(colunaDe) > 'h'){
 	  printf("Coluna fora dos limites do tabuleiro");
 	  continue;
 	}
@@ -218,7 +218,7 @@ JOG_tpCondRet jogar(Jogo *jogo)
         scanf("%d", &linhaPara);
         //Tratamento de exceção
 #ifdef _DEBUG
-	if(linhaPara == NULL || linhaPara > 8 || linhaPara < 1){
+	if( !linhaPara || linhaPara > 8 || linhaPara < 1){
 	  printf("Linha fora dos limites do tabuleiro");
 	  
 	}
@@ -243,7 +243,7 @@ JOG_tpCondRet jogar(Jogo *jogo)
         scanf(" %c", &colunaPara);
 	//Tratamento de exceção
 #ifdef _DEBUG
-	if(colunaPara == NULL || tolower(colunaPara) < 'a' || tolower(colunaPara) > 'h'){
+	if( !colunaPara || tolower(colunaPara) < 'a' || tolower(colunaPara) > 'h'){
 	  printf("Coluna fora dos limites do tabuleiro");
 
 	}

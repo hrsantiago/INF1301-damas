@@ -143,8 +143,8 @@ void TAB_inicializar(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
     int x, y;
       //Assertivas de entrada
 #ifdef _DEBUG
-    if(tabuleiro == NULL || idJogador1 == NULL || idJogador2 == NULL){
-      printf("\n Algum(ns) parâmetros de entrada na inicialização no tabuleiro não existe(m)\n");
+    if(tabuleiro == NULL){
+      printf("\n tabuleiro não existe \n");
     return;
     }
     if(idJogador1 != 'x' || idJogador2 != 'o'){
@@ -303,8 +303,8 @@ int TAB_verificaVencedor(Tabuleiro *tabuleiro, char idJogador1, char idJogador2)
 
       //Assertivas de entrada
 #ifdef _DEBUG
-  if(tabuleiro == NULL || idJogador1 == NULL || idJogador2 == NULL)
-    printf("\n Algum(ns) parâmetros de entrada na inicialização no tabuleiro não existe(m)\n");
+  if(!tabuleiro)
+    printf("\n  tabuleiro não existe \n");
   if(idJogador1 != 'x' || idJogador2 != 'o')
     printf("\n Erro na associação de caracteres correspondentes ao jogador1 e/ou jogador2 \n");
 #endif
