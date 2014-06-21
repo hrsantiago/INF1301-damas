@@ -37,17 +37,18 @@
   140  ==Verificar ir indice
   152  ==Verificar se está no elemento inicial
   155  ==Ir para elemento 3 e verificar se está nele
-  162  ==Ir para indice maior que 7 e procurar o valor 8
-  166  ==Verificar setar valor
-  170  ==Alterar outros valores de lista
-  187  ==Procurar valor zero
-  191  ==Procurar valores retirados da lista
-  201  ==Esvaziar lista e testar funções
-!!!    0  Linha:   213  // fim 
+  163  ==Ir para indice maior que 7 e procurar o valor 8
+  167  ==Verificar setar valor
+  171  ==Alterar outros valores de lista
+  188  ==Procurar valor zero
+  192  ==Procurar valores retirados da lista
+  202  ==Esvaziar lista e testar funções
+  214  ==destruir lista
+!!!    0  Linha:   217  // fim 
 
-!!! NÃºmero de linhas lidas:         213
-!!! NÃºmero de casos de teste:        36
-!!! NÃºmero comandos corretos:       131
+!!! NÃºmero de linhas lidas:         217
+!!! NÃºmero de casos de teste:        37
+!!! NÃºmero comandos corretos:       133
 !!! NÃºmero de falhas encontradas:     0
 
 !!! NÃ£o foram encontrados problemas
