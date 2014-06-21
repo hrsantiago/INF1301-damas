@@ -214,21 +214,6 @@ void TAB_imprimir(Tabuleiro *tabuleiro)
 Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna)
 {
     LIS_tppLista lista;
-/*   //Assertivas de entrada */
-/* #ifdef _DEBUG */
-/*   if(tabuleiro == NULL){ */
-/*     printf("\n elemento tabuleiro não existente em função TAB_obterCasa \n"); */
-/*     return; */
-/*   } */
-/*   if(linha == NULL || linha > 8 || linha < 1){ */
-/*     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)"); */
-/*     return; */
-/*   } */
-/*   if(coluna == NULL || tolower(coluna) < 'a' || tolower(coluna) > 'h'){ */
-/*     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)"); */
-/*     return; */
-/*   } */
-/* #endif */
 
     --linha;
     coluna = tolower(coluna) - 'a';
