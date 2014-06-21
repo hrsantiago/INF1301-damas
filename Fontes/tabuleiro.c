@@ -124,11 +124,8 @@ Tabuleiro *TAB_criar()
 *  ****/
 TAB_tpCondRet TAB_destruir(Tabuleiro *tabuleiro)
 {
-    //Assertiva de entrada
-#ifdef _DEBUG
     if(!tabuleiro)
         return TAB_CondRetTabuleiroInexistente;
-#endif
 
     LIS_DestruirLista(tabuleiro->lista);
     free(tabuleiro);

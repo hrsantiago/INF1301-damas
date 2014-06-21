@@ -152,22 +152,13 @@ PecaTipo PEC_obterTipo(Peca *peca)
 *  ****/
 PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
-    //Assertivas de entrada
-#ifdef _DEBUG
     if(!peca)
         return PEC_CondRetPecaVazia;
 
     if(tipo != PecaNormal && tipo != PecaDama)
         return PEC_CondRetTipoInexistente;
-#endif
 
     peca->tipo = tipo;
-    //Assetivas de saida
-#ifdef _DEBUG
-    if(peca->tipo != PecaNormal && peca->tipo != PecaDama)
-        return PEC_CondRetTipoInexistente;
-#endif
-
     return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar tipo de uma determinada peça */
 
@@ -197,19 +188,11 @@ char PEC_obterCaracter(Peca *peca)
 PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
 {
     //Assertivas de entrada
-#ifdef _DEBUG
     if(!peca)
         return PEC_CondRetPecaVazia;
-#endif
 
     caracter = tolower(caracter);
     peca->caracter = caracter;
-    //Assetivas de saida
-#ifdef _DEBUG
-    if(peca->caracter != caracter && peca->caracter != caracter)
-        return PEC_CondRetCaracterInexistente;
-#endif
-
     return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
 
