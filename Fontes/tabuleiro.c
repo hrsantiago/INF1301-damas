@@ -240,20 +240,20 @@ TAB_tpCondRet TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *
     LIS_tppLista lista;
     Peca *antiga;
 
-  //Assertivas de entrada
-#ifdef _DEBUG
-  if(tabuleiro == NULL)
-    return TAB_CondRetTabuleiroInexistente;
+/*   //Assertivas de entrada */
+/* #ifdef _DEBUG */
+/*   if(tabuleiro == NULL) */
+/*     return TAB_CondRetTabuleiroInexistente; */
 
-  if(!linha || linha > 8 || linha < 1){
-    printf("linha do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
-    return TAB_CondRetLinhaInexistente;
-  }
-  if(!coluna || tolower(coluna) < 'a' || tolower(coluna) > 'h'){
-    printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_obterCasa)");
-    return TAB_CondRetColunaInexistente;
-  }
-#endif
+/*   if(!linha || linha > 8 || linha < 1){ */
+/*     printf("linha do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
+/*     return TAB_CondRetLinhaInexistente; */
+/*   } */
+/*   if(!coluna || tolower(coluna) < 'a' || tolower(coluna) > 'h'){ */
+/*     printf("coluna do tabuleiro não se encontra no intervalo devido (TAB_setarCasa)"); */
+/*     return TAB_CondRetColunaInexistente; */
+/*   } */
+/* #endif */
 
     --linha;
     coluna = tolower(coluna) - 'a';
