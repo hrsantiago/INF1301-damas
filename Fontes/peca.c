@@ -96,10 +96,8 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
 PEC_tpCondRet PEC_destruir(Peca *peca)
 {
     //Assertva de entrada
-#ifdef _DEBUG 
     if(!peca)
         return PEC_CondRetPecaVazia;
-#endif
 
     free(peca);
     return PEC_CondRetOK;
@@ -131,16 +129,12 @@ void PEC_imprimir(Peca *peca)
 PecaTipo PEC_obterTipo(Peca *peca)
 {
     //Assertivas de entrada
-#ifdef _DEBUG
-    if(peca->tipo == PecaErro){
-        printf("peca vazia (PEC_imprimir)");
-        return ;
-    }
-    if( peca->tipo != PecaNormal && peca->tipo != PecaDama){
+    if(!peca)
+        return PecaErro;
+    if(peca->tipo != PecaNormal && peca->tipo != PecaDama) {
         printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n");
-        return;
+        return PecaErro;
     }
-#endif
 
     return peca->tipo;
 }/* Fim função: PEC  &Obter tipo de uma determinada peça */
