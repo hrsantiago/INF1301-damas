@@ -463,19 +463,6 @@ LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca)
             CNT_CONTAR("Encadeamento errado");
             return ret;
         }
-        
-	      /* Ha uma outra lista dentro dessa 
-        if(CED_ObterTipoEspaco(pElem->pValor) == LIS_TipoEspacoCabeca) {
-            CNT_CONTAR("No possui uma lista");
-            ret = LIS_VerificarLista(pElem->pValor);
-            if(ret != LIS_CondRetOK) {
-                CNT_CONTAR("A lista de listas possui algum problema");
-                return ret;
-            }
-            CNT_CONTAR("Ha uma lista de listas e a sublista de pecas sem problemas");
-        }
-        else
-            CNT_CONTAR("No nao possui uma lista");*/
         numElementos++;
     }
     if(pCabeca->numElem!=numElementos)
