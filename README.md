@@ -1,7 +1,7 @@
 ﻿Damas
 =====
 
-Jogo de damas desenvolvido para a disciplina Programação Modular da PUC-RIO.
+Jogo de damas desenvolvido em 2014.1 para a disciplina Programação Modular da PUC-RIO.
 
 Desenvolvido por:
 
