@@ -108,9 +108,8 @@ Há duas formas de executar os testes:
    - o arquivo estatisticas.estat na pasta Scripts;
    - os relatórios dos testes (.txt) respectivos: TesteLista.txt, TestePECA.txt e Testetabuleiro.txt
      na pasta Produto;
-   - ????? os error log (.err) respectivos: TesteLista.err, TestePECA.err e Testetabuleiro.err, 
+   - os error log (.err) respectivos: TesteLista.err, TestePECA.err e Testetabuleiro.err, 
      além de tudo.err, que mostra o resultado da compilação de todos os construtos na pasta Produto.
-     ??????
 
 
 (Re)compilação através dos batches
@@ -124,17 +123,17 @@ digidos em C (Autotest). Os passos a seguir elucidam esse processo:
 
 -Na pasta Fontes, coloque os arquivos header(.h): TST_ESPC.h, LERPARM.h e GENERICO.h. 
 
--Na pasta Composicao, coloque o arquivo Gmake.parm ????????????????????????
+-Na pasta Composicao, coloque o arquivo Gmake.parm
 
 -Crie no diretório uma pasta de nome "ferramnt" (tudo minúsculo) e nela coloque os 
  executáveis Gmake.exe, Compilebanner.exe e exbestat.exe
 
 Os batches disponibilizados são os seguintes:
 
--Compila.bat:
--CompilaTudo.bat:
--GeraMake.bat:
--GeraTudo.bat:
--LimpaTudo.bat:
--TestaTudo.bat:
--Tudo.bat:
+-Compila.bat
+-CompilaTudo.bat
+-GeraMake.bat
+-GeraTudo.bat
+-LimpaTudo.bat
+-TestaTudo.bat
+-Tudo.bat
